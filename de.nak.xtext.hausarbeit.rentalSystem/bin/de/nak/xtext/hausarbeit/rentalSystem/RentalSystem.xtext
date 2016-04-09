@@ -1,0 +1,9 @@
+grammar de.nak.xtext.hausarbeit.rentalSystem.RentalSystem with org.eclipse.xtext.common.Terminals
+
+generate rentalSystem "http://www.nak.de/xtext/hausarbeit/rentalSystem/RentalSystem"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';

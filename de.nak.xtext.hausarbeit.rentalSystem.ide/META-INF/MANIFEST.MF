@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: de.nak.xtext.hausarbeit.rentalSystem.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: de.nak.xtext.hausarbeit.rentalSystem.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: de.nak.xtext.hausarbeit.rentalSystem,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
