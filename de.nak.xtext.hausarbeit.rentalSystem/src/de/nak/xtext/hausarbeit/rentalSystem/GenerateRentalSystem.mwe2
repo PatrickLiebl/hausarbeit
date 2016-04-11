@@ -8,7 +8,7 @@ var rootPath = ".."
 Workflow {
 	
 	//Test Jonas BliBlaBlub
-	
+	// 2nd test Patrick	
 	component = XtextGenerator {
 		configuration = {
 			project = StandardProjectConfig {
