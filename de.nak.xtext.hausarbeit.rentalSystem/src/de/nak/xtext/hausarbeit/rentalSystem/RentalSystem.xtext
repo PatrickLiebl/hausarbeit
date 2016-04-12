@@ -2,7 +2,7 @@ grammar de.nak.xtext.hausarbeit.rentalSystem.RentalSystem with org.eclipse.xtext
 
 generate rentalSystem "http://www.nak.de/xtext/hausarbeit/rentalSystem/RentalSystem"
 
-import "http://www.nak.de/xtext/hausarbeit/rentalWorkflow/RentalWorkflow" as workflow
+import "http://www.nak.de/xtext/hausarbeit/rentalWorkflow/RentalWorkflow" as rentalWorkflow
 
 RentalSystem:
 	'rentalSystem' name=ID title=STRING
@@ -12,12 +12,12 @@ RentalSystem:
 Type:
 	((movable?='movable') | (digital?='digital')
 	| (fix?='fix')) 'type' name = ID '('
-	workflow=[WorkFlow]
+	rentalWorkflow=[RentalWorkflow]
 	typeAttributes+=TypeAttribute*
 	')';
 	
-WorkFlow:
-	'typeWorkFlow' workflow=[workflow::RentalWorkflow];
+RentalWorkflow:
+	'typeWorkFlow' rentalWorkflow=[rentalWorkflow::RentalWorkflow];
 TypeAttribute:
 	'text' name=ID '=' ofType=OfType;
 	
