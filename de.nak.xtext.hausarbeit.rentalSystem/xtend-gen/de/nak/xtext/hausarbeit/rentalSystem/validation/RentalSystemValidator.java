@@ -3,11 +3,13 @@
  */
 package de.nak.xtext.hausarbeit.rentalSystem.validation;
 
+import de.nak.xtext.hausarbeit.rentalSystem.validation.AbstractRentalSystemValidator;
+
 /**
  * This class contains custom validation rules.
  * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 @SuppressWarnings("all")
-public class RentalSystemValidator /* implements AbstractRentalSystemValidator  */{
+public class RentalSystemValidator extends AbstractRentalSystemValidator {
 }

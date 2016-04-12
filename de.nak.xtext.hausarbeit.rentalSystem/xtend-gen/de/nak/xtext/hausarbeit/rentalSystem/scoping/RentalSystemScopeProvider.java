@@ -3,6 +3,8 @@
  */
 package de.nak.xtext.hausarbeit.rentalSystem.scoping;
 
+import de.nak.xtext.hausarbeit.rentalSystem.scoping.AbstractRentalSystemScopeProvider;
+
 /**
  * This class contains custom scoping description.
  * 
@@ -10,5 +12,5 @@ package de.nak.xtext.hausarbeit.rentalSystem.scoping;
  * on how and when to use it.
  */
 @SuppressWarnings("all")
-public class RentalSystemScopeProvider /* implements AbstractRentalSystemScopeProvider  */{
+public class RentalSystemScopeProvider extends AbstractRentalSystemScopeProvider {
 }

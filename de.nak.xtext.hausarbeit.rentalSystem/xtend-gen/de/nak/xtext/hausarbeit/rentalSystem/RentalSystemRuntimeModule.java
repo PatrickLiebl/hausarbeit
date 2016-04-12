@@ -3,9 +3,11 @@
  */
 package de.nak.xtext.hausarbeit.rentalSystem;
 
+import de.nak.xtext.hausarbeit.rentalSystem.AbstractRentalSystemRuntimeModule;
+
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 @SuppressWarnings("all")
-public class RentalSystemRuntimeModule /* implements AbstractRentalSystemRuntimeModule  */{
+public class RentalSystemRuntimeModule extends AbstractRentalSystemRuntimeModule {
 }

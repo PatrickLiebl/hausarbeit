@@ -3,13 +3,15 @@
  */
 package de.nak.xtext.hausarbeit.rentalSystem;
 
+import de.nak.xtext.hausarbeit.rentalSystem.RentalSystemStandaloneSetupGenerated;
+
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
  */
 @SuppressWarnings("all")
-public class RentalSystemStandaloneSetup /* implements RentalSystemStandaloneSetupGenerated  */{
+public class RentalSystemStandaloneSetup extends RentalSystemStandaloneSetupGenerated {
   public static void doSetup() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method createInjectorAndDoEMFRegistration() is undefined for the type RentalSystemStandaloneSetup");
+    RentalSystemStandaloneSetup _rentalSystemStandaloneSetup = new RentalSystemStandaloneSetup();
+    _rentalSystemStandaloneSetup.createInjectorAndDoEMFRegistration();
   }
 }
