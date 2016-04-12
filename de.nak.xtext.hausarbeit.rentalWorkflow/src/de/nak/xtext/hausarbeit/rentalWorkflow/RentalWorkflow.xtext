@@ -1,0 +1,9 @@
+grammar de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow with org.eclipse.xtext.common.Terminals
+
+generate rentalWorkflow "http://www.nak.de/xtext/hausarbeit/rentalWorkflow/RentalWorkflow"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
