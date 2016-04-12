@@ -2,8 +2,44 @@ grammar de.nak.xtext.hausarbeit.rentalSystem.RentalSystem with org.eclipse.xtext
 
 generate rentalSystem "http://www.nak.de/xtext/hausarbeit/rentalSystem/RentalSystem"
 
-Model:
-	greetings+=Greeting*;
+import "http://www.nak.de/xtext/hausarbeit/rentalWorkflow/RentalWorkflow" as workflow
+
+RentalSystem:
+	'rentalSystem' name=ID title=STRING
+	types+=Type*
+	customers+=Customer*;
+
+Type:
+	((movable?='movable') | (digital?='digital')
+	| (fix?='fix')) 'type' name = ID '('
+	workflow=[WorkFlow]
+	typeAttributes+=TypeAttribute*
+	')';
 	
-Greeting:
-	'Hello' name=ID '!';
+WorkFlow:
+	'typeWorkFlow' workflow=[workflow::RentalWorkflow];
+TypeAttribute:
+	'text' name=ID '=' ofType=OfType;
+	
+	
+QualifiedName:
+	ID('.'ID)*;
+
+
+Customer:
+	'customer' name=ID '('
+	attributes+=Attribute*
+	')';
+	
+Attribute:
+	'text' name=ID value=STRING;
+	
+enum OfType:
+	int='int'
+	| string='string'
+	| date='date'
+	| decimal='decimal'
+	| double='double'
+	| EMail='email'
+	| Mobile='mobile'
+	| currency='currency';

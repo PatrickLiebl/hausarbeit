@@ -2,8 +2,35 @@ grammar de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow with org.eclipse.x
 
 generate rentalWorkflow "http://www.nak.de/xtext/hausarbeit/rentalWorkflow/RentalWorkflow"
 
-Model:
-	greetings+=Greeting*;
+RentalWorkflow:
+	{RentalWorkflow}
+	'events' (event+=Event)* 'end'
+	'resetEvents' (resetEvents+=[Event])* 'end'
+	'commands' (commands+=Command)* 'end'
+	(states+=State)*;
+
+Event:
+	name=ID code=ID;
 	
-Greeting:
-	'Hello' name=ID '!';
+Command:
+	name=ID code=ID;
+	
+State:
+	'state' name=ID
+	ofType=OfType
+	('actions' '{' (actions+=[Command])+ '}')?
+	(transitions+=Transition)*
+	'end';
+	
+Transition:
+	event=[Event] '=>' state=[State];
+	
+enum OfType:
+		initializing='initializing'
+	|	creating='creating'
+	|	beginning='beginning'
+	|	running='running'
+	|	cancelling='cancelling'
+	|	replacing='replacing'
+	|	enstoring='enstoring'
+	|	finishing='finishing';

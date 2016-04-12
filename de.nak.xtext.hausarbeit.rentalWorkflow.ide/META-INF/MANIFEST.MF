@@ -9,3 +9,6 @@ Require-Bundle: de.nak.xtext.hausarbeit.rentalWorkflow,
  org.eclipse.xtext.ide,
  org.eclipse.xtext.xbase.ide
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: de.nak.xtext.hausarbeit.rentalWorkflow.ide.contentassist.antlr,
+ de.nak.xtext.hausarbeit.rentalWorkflow.ide.contentassist.antlr.internal
+
