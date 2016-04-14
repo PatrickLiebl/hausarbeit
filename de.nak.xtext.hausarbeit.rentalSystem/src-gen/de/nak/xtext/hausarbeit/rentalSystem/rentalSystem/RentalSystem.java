@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem#getTitle <em>Title</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem#getTypes <em>Types</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem#getCustomers <em>Customers</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem#getDeals <em>Deals</em>}</li>
  * </ul>
  *
  * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage#getRentalSystem()
@@ -111,5 +112,21 @@ public interface RentalSystem extends EObject
    * @generated
    */
   EList<Customer> getCustomers();
+
+  /**
+   * Returns the value of the '<em><b>Deals</b></em>' containment reference list.
+   * The list contents are of type {@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Deals</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Deals</em>' containment reference list.
+   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage#getRentalSystem_Deals()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Deal> getDeals();
 
 } // RentalSystem

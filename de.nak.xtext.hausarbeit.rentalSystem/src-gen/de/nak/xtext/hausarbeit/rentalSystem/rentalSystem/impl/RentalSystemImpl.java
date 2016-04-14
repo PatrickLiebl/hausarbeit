@@ -4,6 +4,7 @@
 package de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl;
 
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Customer;
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type;
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemImpl#getCustomers <em>Customers</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemImpl#getDeals <em>Deals</em>}</li>
  * </ul>
  *
  * @generated
@@ -101,6 +103,16 @@ public class RentalSystemImpl extends MinimalEObjectImpl.Container implements Re
    * @ordered
    */
   protected EList<Customer> customers;
+
+  /**
+   * The cached value of the '{@link #getDeals() <em>Deals</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDeals()
+   * @generated
+   * @ordered
+   */
+  protected EList<Deal> deals;
 
   /**
    * <!-- begin-user-doc -->
@@ -202,6 +214,20 @@ public class RentalSystemImpl extends MinimalEObjectImpl.Container implements Re
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Deal> getDeals()
+  {
+    if (deals == null)
+    {
+      deals = new EObjectContainmentEList<Deal>(Deal.class, this, RentalSystemPackage.RENTAL_SYSTEM__DEALS);
+    }
+    return deals;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -211,6 +237,8 @@ public class RentalSystemImpl extends MinimalEObjectImpl.Container implements Re
         return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
       case RentalSystemPackage.RENTAL_SYSTEM__CUSTOMERS:
         return ((InternalEList<?>)getCustomers()).basicRemove(otherEnd, msgs);
+      case RentalSystemPackage.RENTAL_SYSTEM__DEALS:
+        return ((InternalEList<?>)getDeals()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -233,6 +261,8 @@ public class RentalSystemImpl extends MinimalEObjectImpl.Container implements Re
         return getTypes();
       case RentalSystemPackage.RENTAL_SYSTEM__CUSTOMERS:
         return getCustomers();
+      case RentalSystemPackage.RENTAL_SYSTEM__DEALS:
+        return getDeals();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -262,6 +292,10 @@ public class RentalSystemImpl extends MinimalEObjectImpl.Container implements Re
         getCustomers().clear();
         getCustomers().addAll((Collection<? extends Customer>)newValue);
         return;
+      case RentalSystemPackage.RENTAL_SYSTEM__DEALS:
+        getDeals().clear();
+        getDeals().addAll((Collection<? extends Deal>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -288,6 +322,9 @@ public class RentalSystemImpl extends MinimalEObjectImpl.Container implements Re
       case RentalSystemPackage.RENTAL_SYSTEM__CUSTOMERS:
         getCustomers().clear();
         return;
+      case RentalSystemPackage.RENTAL_SYSTEM__DEALS:
+        getDeals().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -310,6 +347,8 @@ public class RentalSystemImpl extends MinimalEObjectImpl.Container implements Re
         return types != null && !types.isEmpty();
       case RentalSystemPackage.RENTAL_SYSTEM__CUSTOMERS:
         return customers != null && !customers.isEmpty();
+      case RentalSystemPackage.RENTAL_SYSTEM__DEALS:
+        return deals != null && !deals.isEmpty();
     }
     return super.eIsSet(featureID);
   }

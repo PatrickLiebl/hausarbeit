@@ -105,13 +105,22 @@ public interface RentalSystemPackage extends EPackage
   int RENTAL_SYSTEM__CUSTOMERS = 3;
 
   /**
+   * The feature id for the '<em><b>Deals</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RENTAL_SYSTEM__DEALS = 4;
+
+  /**
    * The number of structural features of the '<em>Rental System</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RENTAL_SYSTEM_FEATURE_COUNT = 4;
+  int RENTAL_SYSTEM_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.TypeImpl <em>Type</em>}' class.
@@ -252,6 +261,61 @@ public interface RentalSystemPackage extends EPackage
   int TYPE_ATTRIBUTE_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.DealImpl <em>Deal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.DealImpl
+   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemPackageImpl#getDeal()
+   * @generated
+   */
+  int DEAL = 4;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEAL__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Customer</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEAL__CUSTOMER = 1;
+
+  /**
+   * The feature id for the '<em><b>Rental Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEAL__RENTAL_TYPE = 2;
+
+  /**
+   * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEAL__ATTRIBUTES = 3;
+
+  /**
+   * The number of structural features of the '<em>Deal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEAL_FEATURE_COUNT = 4;
+
+  /**
    * The meta object id for the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.CustomerImpl <em>Customer</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -259,7 +323,7 @@ public interface RentalSystemPackage extends EPackage
    * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemPackageImpl#getCustomer()
    * @generated
    */
-  int CUSTOMER = 4;
+  int CUSTOMER = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -296,7 +360,7 @@ public interface RentalSystemPackage extends EPackage
    * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemPackageImpl#getAttribute()
    * @generated
    */
-  int ATTRIBUTE = 5;
+  int ATTRIBUTE = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -333,7 +397,7 @@ public interface RentalSystemPackage extends EPackage
    * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemPackageImpl#getOfType()
    * @generated
    */
-  int OF_TYPE = 6;
+  int OF_TYPE = 7;
 
 
   /**
@@ -389,6 +453,17 @@ public interface RentalSystemPackage extends EPackage
    * @generated
    */
   EReference getRentalSystem_Customers();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem#getDeals <em>Deals</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Deals</em>'.
+   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem#getDeals()
+   * @see #getRentalSystem()
+   * @generated
+   */
+  EReference getRentalSystem_Deals();
 
   /**
    * Returns the meta object for class '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type <em>Type</em>}'.
@@ -518,6 +593,60 @@ public interface RentalSystemPackage extends EPackage
    * @generated
    */
   EAttribute getTypeAttribute_OfType();
+
+  /**
+   * Returns the meta object for class '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal <em>Deal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Deal</em>'.
+   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal
+   * @generated
+   */
+  EClass getDeal();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getName()
+   * @see #getDeal()
+   * @generated
+   */
+  EAttribute getDeal_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getCustomer <em>Customer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Customer</em>'.
+   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getCustomer()
+   * @see #getDeal()
+   * @generated
+   */
+  EReference getDeal_Customer();
+
+  /**
+   * Returns the meta object for the reference '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getRentalType <em>Rental Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Rental Type</em>'.
+   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getRentalType()
+   * @see #getDeal()
+   * @generated
+   */
+  EReference getDeal_RentalType();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getAttributes <em>Attributes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Attributes</em>'.
+   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getAttributes()
+   * @see #getDeal()
+   * @generated
+   */
+  EReference getDeal_Attributes();
 
   /**
    * Returns the meta object for class '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Customer <em>Customer</em>}'.
@@ -659,6 +788,14 @@ public interface RentalSystemPackage extends EPackage
     EReference RENTAL_SYSTEM__CUSTOMERS = eINSTANCE.getRentalSystem_Customers();
 
     /**
+     * The meta object literal for the '<em><b>Deals</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RENTAL_SYSTEM__DEALS = eINSTANCE.getRentalSystem_Deals();
+
+    /**
      * The meta object literal for the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.TypeImpl <em>Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -759,6 +896,48 @@ public interface RentalSystemPackage extends EPackage
      * @generated
      */
     EAttribute TYPE_ATTRIBUTE__OF_TYPE = eINSTANCE.getTypeAttribute_OfType();
+
+    /**
+     * The meta object literal for the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.DealImpl <em>Deal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.DealImpl
+     * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemPackageImpl#getDeal()
+     * @generated
+     */
+    EClass DEAL = eINSTANCE.getDeal();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEAL__NAME = eINSTANCE.getDeal_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Customer</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DEAL__CUSTOMER = eINSTANCE.getDeal_Customer();
+
+    /**
+     * The meta object literal for the '<em><b>Rental Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DEAL__RENTAL_TYPE = eINSTANCE.getDeal_RentalType();
+
+    /**
+     * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DEAL__ATTRIBUTES = eINSTANCE.getDeal_Attributes();
 
     /**
      * The meta object literal for the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.CustomerImpl <em>Customer</em>}' class.

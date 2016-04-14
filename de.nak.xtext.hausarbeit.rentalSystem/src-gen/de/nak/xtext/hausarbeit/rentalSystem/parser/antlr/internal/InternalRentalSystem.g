@@ -155,6 +155,25 @@ ruleRentalSystem returns [EObject current=null]
 				}
 			)
 		)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getRentalSystemAccess().getDealsDealParserRuleCall_5_0());
+				}
+				lv_deals_5_0=ruleDeal
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getRentalSystemRule());
+					}
+					add(
+						$current,
+						"deals",
+						lv_deals_5_0,
+						"de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.Deal");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
 	)
 ;
 
@@ -349,6 +368,140 @@ ruleTypeAttribute returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleQualifiedName
+entryRuleQualifiedName returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getQualifiedNameRule()); }
+	iv_ruleQualifiedName=ruleQualifiedName
+	{ $current=$iv_ruleQualifiedName.current.getText(); }
+	EOF;
+
+// Rule QualifiedName
+ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		this_ID_0=RULE_ID
+		{
+			$current.merge(this_ID_0);
+		}
+		{
+			newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0());
+		}
+		(
+			kw='.'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0());
+			}
+			this_ID_2=RULE_ID
+			{
+				$current.merge(this_ID_2);
+			}
+			{
+				newLeafNode(this_ID_2, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1());
+			}
+		)*
+	)
+;
+
+// Entry rule entryRuleDeal
+entryRuleDeal returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDealRule()); }
+	iv_ruleDeal=ruleDeal
+	{ $current=$iv_ruleDeal.current; }
+	EOF;
+
+// Rule Deal
+ruleDeal returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='Deal'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getDealAccess().getDealKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getDealAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDealRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_2='('
+		{
+			newLeafNode(otherlv_2, grammarAccess.getDealAccess().getLeftParenthesisKeyword_2());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDealRule());
+					}
+				}
+				otherlv_3=RULE_ID
+				{
+					newLeafNode(otherlv_3, grammarAccess.getDealAccess().getCustomerCustomerCrossReference_3_0());
+				}
+			)
+		)
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDealRule());
+					}
+				}
+				otherlv_4=RULE_ID
+				{
+					newLeafNode(otherlv_4, grammarAccess.getDealAccess().getRentalTypeTypeCrossReference_4_0());
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDealAccess().getAttributesAttributeParserRuleCall_5_0());
+				}
+				lv_attributes_5_0=ruleAttribute
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDealRule());
+					}
+					add(
+						$current,
+						"attributes",
+						lv_attributes_5_0,
+						"de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.Attribute");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_6=')'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getDealAccess().getRightParenthesisKeyword_6());
+		}
+	)
+;
+
 // Entry rule entryRuleCustomer
 entryRuleCustomer returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getCustomerRule()); }
@@ -526,26 +679,50 @@ ruleOfType returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_5='email'
+			enumLiteral_5='day'
 			{
-				$current = grammarAccess.getOfTypeAccess().getEMailEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_5, grammarAccess.getOfTypeAccess().getEMailEnumLiteralDeclaration_5());
+				$current = grammarAccess.getOfTypeAccess().getDayEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_5, grammarAccess.getOfTypeAccess().getDayEnumLiteralDeclaration_5());
 			}
 		)
 		    |
 		(
-			enumLiteral_6='mobile'
+			enumLiteral_6='week'
 			{
-				$current = grammarAccess.getOfTypeAccess().getMobileEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_6, grammarAccess.getOfTypeAccess().getMobileEnumLiteralDeclaration_6());
+				$current = grammarAccess.getOfTypeAccess().getWeekEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_6, grammarAccess.getOfTypeAccess().getWeekEnumLiteralDeclaration_6());
 			}
 		)
 		    |
 		(
-			enumLiteral_7='currency'
+			enumLiteral_7='month'
 			{
-				$current = grammarAccess.getOfTypeAccess().getCurrencyEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_7, grammarAccess.getOfTypeAccess().getCurrencyEnumLiteralDeclaration_7());
+				$current = grammarAccess.getOfTypeAccess().getMonthEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_7, grammarAccess.getOfTypeAccess().getMonthEnumLiteralDeclaration_7());
+			}
+		)
+		    |
+		(
+			enumLiteral_8='email'
+			{
+				$current = grammarAccess.getOfTypeAccess().getEMailEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_8, grammarAccess.getOfTypeAccess().getEMailEnumLiteralDeclaration_8());
+			}
+		)
+		    |
+		(
+			enumLiteral_9='mobile'
+			{
+				$current = grammarAccess.getOfTypeAccess().getMobileEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_9, grammarAccess.getOfTypeAccess().getMobileEnumLiteralDeclaration_9());
+			}
+		)
+		    |
+		(
+			enumLiteral_10='currency'
+			{
+				$current = grammarAccess.getOfTypeAccess().getCurrencyEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_10, grammarAccess.getOfTypeAccess().getCurrencyEnumLiteralDeclaration_10());
 			}
 		)
 	)

@@ -5,6 +5,7 @@ package de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl;
 
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Customer;
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.OfType;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemFactory;
@@ -58,6 +59,13 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
    * @generated
    */
   private EClass typeAttributeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dealEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -201,6 +209,16 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getRentalSystem_Deals()
+  {
+    return (EReference)rentalSystemEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getType()
   {
     return typeEClass;
@@ -321,6 +339,56 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getDeal()
+  {
+    return dealEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDeal_Name()
+  {
+    return (EAttribute)dealEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeal_Customer()
+  {
+    return (EReference)dealEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeal_RentalType()
+  {
+    return (EReference)dealEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeal_Attributes()
+  {
+    return (EReference)dealEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getCustomer()
   {
     return customerEClass;
@@ -421,6 +489,7 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
     createEAttribute(rentalSystemEClass, RENTAL_SYSTEM__TITLE);
     createEReference(rentalSystemEClass, RENTAL_SYSTEM__TYPES);
     createEReference(rentalSystemEClass, RENTAL_SYSTEM__CUSTOMERS);
+    createEReference(rentalSystemEClass, RENTAL_SYSTEM__DEALS);
 
     typeEClass = createEClass(TYPE);
     createEAttribute(typeEClass, TYPE__MOVABLE);
@@ -436,6 +505,12 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
     typeAttributeEClass = createEClass(TYPE_ATTRIBUTE);
     createEAttribute(typeAttributeEClass, TYPE_ATTRIBUTE__NAME);
     createEAttribute(typeAttributeEClass, TYPE_ATTRIBUTE__OF_TYPE);
+
+    dealEClass = createEClass(DEAL);
+    createEAttribute(dealEClass, DEAL__NAME);
+    createEReference(dealEClass, DEAL__CUSTOMER);
+    createEReference(dealEClass, DEAL__RENTAL_TYPE);
+    createEReference(dealEClass, DEAL__ATTRIBUTES);
 
     customerEClass = createEClass(CUSTOMER);
     createEAttribute(customerEClass, CUSTOMER__NAME);
@@ -488,6 +563,7 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
     initEAttribute(getRentalSystem_Title(), ecorePackage.getEString(), "title", null, 0, 1, RentalSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRentalSystem_Types(), this.getType(), null, "types", null, 0, -1, RentalSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRentalSystem_Customers(), this.getCustomer(), null, "customers", null, 0, -1, RentalSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRentalSystem_Deals(), this.getDeal(), null, "deals", null, 0, -1, RentalSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getType_Movable(), ecorePackage.getEBoolean(), "movable", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -504,6 +580,12 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
     initEAttribute(getTypeAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, TypeAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTypeAttribute_OfType(), this.getOfType(), "ofType", null, 0, 1, TypeAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(dealEClass, Deal.class, "Deal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDeal_Name(), ecorePackage.getEString(), "name", null, 0, 1, Deal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeal_Customer(), this.getCustomer(), null, "customer", null, 0, 1, Deal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeal_RentalType(), this.getType(), null, "rentalType", null, 0, 1, Deal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeal_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, Deal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(customerEClass, Customer.class, "Customer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCustomer_Name(), ecorePackage.getEString(), "name", null, 0, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCustomer_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -519,6 +601,9 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
     addEEnumLiteral(ofTypeEEnum, OfType.DATE);
     addEEnumLiteral(ofTypeEEnum, OfType.DECIMAL);
     addEEnumLiteral(ofTypeEEnum, OfType.DOUBLE);
+    addEEnumLiteral(ofTypeEEnum, OfType.DAY);
+    addEEnumLiteral(ofTypeEEnum, OfType.WEEK);
+    addEEnumLiteral(ofTypeEEnum, OfType.MONTH);
     addEEnumLiteral(ofTypeEEnum, OfType.EMAIL);
     addEEnumLiteral(ofTypeEEnum, OfType.MOBILE);
     addEEnumLiteral(ofTypeEEnum, OfType.CURRENCY);

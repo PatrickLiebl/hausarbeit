@@ -7,7 +7,8 @@ import "http://www.nak.de/xtext/hausarbeit/rentalWorkflow/RentalWorkflow" as ren
 RentalSystem:
 	'rentalSystem' name=ID title=STRING
 	types+=Type*
-	customers+=Customer*;
+	customers+=Customer*
+	deals+=Deal*;
 
 Type:
 	((movable?='movable') | (digital?='digital')
@@ -17,7 +18,7 @@ Type:
 	')';
 	
 RentalWorkflow:
-	'typeWorkFlow' rentalWorkflow=[rentalWorkflow::RentalWorkflow];
+	'typeWorkFlow' rentalWorkflow=[rentalWorkflow::RentalWorkflow|QualifiedName];
 TypeAttribute:
 	'text' name=ID '=' ofType=OfType;
 	
@@ -25,6 +26,12 @@ TypeAttribute:
 QualifiedName:
 	ID('.'ID)*;
 
+Deal:
+	'Deal' name=ID '('
+	customer=[Customer]
+	rentalType=[Type]
+	attributes+=Attribute*
+	')';
 
 Customer:
 	'customer' name=ID '('
@@ -40,6 +47,9 @@ enum OfType:
 	| date='date'
 	| decimal='decimal'
 	| double='double'
+	| day='day'
+	| week='week'
+	| month='month'
 	| EMail='email'
 	| Mobile='mobile'
 	| currency='currency';

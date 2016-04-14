@@ -6,6 +6,7 @@ package de.nak.xtext.hausarbeit.rentalSystem.serializer;
 import com.google.inject.Inject;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Customer;
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalWorkflow;
@@ -42,6 +43,9 @@ public class RentalSystemSemanticSequencer extends AbstractDelegatingSemanticSeq
 				return; 
 			case RentalSystemPackage.CUSTOMER:
 				sequence_Customer(context, (Customer) semanticObject); 
+				return; 
+			case RentalSystemPackage.DEAL:
+				sequence_Deal(context, (Deal) semanticObject); 
 				return; 
 			case RentalSystemPackage.RENTAL_SYSTEM:
 				sequence_RentalSystem(context, (RentalSystem) semanticObject); 
@@ -95,10 +99,22 @@ public class RentalSystemSemanticSequencer extends AbstractDelegatingSemanticSeq
 	
 	/**
 	 * Contexts:
+	 *     Deal returns Deal
+	 *
+	 * Constraint:
+	 *     (name=ID customer=[Customer|ID] rentalType=[Type|ID] attributes+=Attribute*)
+	 */
+	protected void sequence_Deal(ISerializationContext context, Deal semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     RentalSystem returns RentalSystem
 	 *
 	 * Constraint:
-	 *     (name=ID title=STRING types+=Type* customers+=Customer*)
+	 *     (name=ID title=STRING types+=Type* customers+=Customer* deals+=Deal*)
 	 */
 	protected void sequence_RentalSystem(ISerializationContext context, RentalSystem semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -110,7 +126,7 @@ public class RentalSystemSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     RentalWorkflow returns RentalWorkflow
 	 *
 	 * Constraint:
-	 *     rentalWorkflow=[RentalWorkflow|ID]
+	 *     rentalWorkflow=[RentalWorkflow|QualifiedName]
 	 */
 	protected void sequence_RentalWorkflow(ISerializationContext context, RentalWorkflow semanticObject) {
 		if (errorAcceptor != null) {
@@ -118,7 +134,7 @@ public class RentalSystemSemanticSequencer extends AbstractDelegatingSemanticSeq
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RentalSystemPackage.Literals.RENTAL_WORKFLOW__RENTAL_WORKFLOW));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRentalWorkflowAccess().getRentalWorkflowRentalWorkflowIDTerminalRuleCall_1_0_1(), semanticObject.getRentalWorkflow());
+		feeder.accept(grammarAccess.getRentalWorkflowAccess().getRentalWorkflowRentalWorkflowQualifiedNameParserRuleCall_1_0_1(), semanticObject.getRentalWorkflow());
 		feeder.finish();
 	}
 	

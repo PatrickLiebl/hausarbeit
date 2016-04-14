@@ -43,12 +43,14 @@ public class RentalSystemParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTypeAttributeAccess().getGroup(), "rule__TypeAttribute__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
+					put(grammarAccess.getDealAccess().getGroup(), "rule__Deal__Group__0");
 					put(grammarAccess.getCustomerAccess().getGroup(), "rule__Customer__Group__0");
 					put(grammarAccess.getAttributeAccess().getGroup(), "rule__Attribute__Group__0");
 					put(grammarAccess.getRentalSystemAccess().getNameAssignment_1(), "rule__RentalSystem__NameAssignment_1");
 					put(grammarAccess.getRentalSystemAccess().getTitleAssignment_2(), "rule__RentalSystem__TitleAssignment_2");
 					put(grammarAccess.getRentalSystemAccess().getTypesAssignment_3(), "rule__RentalSystem__TypesAssignment_3");
 					put(grammarAccess.getRentalSystemAccess().getCustomersAssignment_4(), "rule__RentalSystem__CustomersAssignment_4");
+					put(grammarAccess.getRentalSystemAccess().getDealsAssignment_5(), "rule__RentalSystem__DealsAssignment_5");
 					put(grammarAccess.getTypeAccess().getMovableAssignment_0_0(), "rule__Type__MovableAssignment_0_0");
 					put(grammarAccess.getTypeAccess().getDigitalAssignment_0_1(), "rule__Type__DigitalAssignment_0_1");
 					put(grammarAccess.getTypeAccess().getFixAssignment_0_2(), "rule__Type__FixAssignment_0_2");
@@ -58,6 +60,10 @@ public class RentalSystemParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRentalWorkflowAccess().getRentalWorkflowAssignment_1(), "rule__RentalWorkflow__RentalWorkflowAssignment_1");
 					put(grammarAccess.getTypeAttributeAccess().getNameAssignment_1(), "rule__TypeAttribute__NameAssignment_1");
 					put(grammarAccess.getTypeAttributeAccess().getOfTypeAssignment_3(), "rule__TypeAttribute__OfTypeAssignment_3");
+					put(grammarAccess.getDealAccess().getNameAssignment_1(), "rule__Deal__NameAssignment_1");
+					put(grammarAccess.getDealAccess().getCustomerAssignment_3(), "rule__Deal__CustomerAssignment_3");
+					put(grammarAccess.getDealAccess().getRentalTypeAssignment_4(), "rule__Deal__RentalTypeAssignment_4");
+					put(grammarAccess.getDealAccess().getAttributesAssignment_5(), "rule__Deal__AttributesAssignment_5");
 					put(grammarAccess.getCustomerAccess().getNameAssignment_1(), "rule__Customer__NameAssignment_1");
 					put(grammarAccess.getCustomerAccess().getAttributesAssignment_3(), "rule__Customer__AttributesAssignment_3");
 					put(grammarAccess.getAttributeAccess().getNameAssignment_1(), "rule__Attribute__NameAssignment_1");

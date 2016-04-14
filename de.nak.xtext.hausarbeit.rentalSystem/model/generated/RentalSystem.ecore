@@ -9,6 +9,8 @@
         eType="#//Type" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="customers" upperBound="-1"
         eType="#//Customer" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deals" upperBound="-1"
+        eType="#//Deal" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Type">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="movable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -26,6 +28,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ofType" eType="#//OfType"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Deal">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="customer" eType="#//Customer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rentalType" eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//Attribute" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Customer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
@@ -41,8 +50,11 @@
     <eLiterals name="date" value="2" literal="date"/>
     <eLiterals name="decimal" value="3" literal="decimal"/>
     <eLiterals name="double" value="4" literal="double"/>
-    <eLiterals name="EMail" value="5" literal="email"/>
-    <eLiterals name="Mobile" value="6" literal="mobile"/>
-    <eLiterals name="currency" value="7" literal="currency"/>
+    <eLiterals name="day" value="5" literal="day"/>
+    <eLiterals name="week" value="6" literal="week"/>
+    <eLiterals name="month" value="7" literal="month"/>
+    <eLiterals name="EMail" value="8" literal="email"/>
+    <eLiterals name="Mobile" value="9" literal="mobile"/>
+    <eLiterals name="currency" value="10" literal="currency"/>
   </eClassifiers>
 </ecore:EPackage>

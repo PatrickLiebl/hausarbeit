@@ -7,6 +7,10 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Customer
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal
 
 /**
  * Generates code from your model files on save.
@@ -15,11 +19,74 @@ import org.eclipse.xtext.generator.IGeneratorContext
  */
 class RentalSystemGenerator extends AbstractGenerator {
 
+	// Für jeden Customer und Type eine Bearbeitungs-HTML erstellen
+	// Für jeden Customer, Deal und Type einen Menüpunkt erstellen
+	// Möglichkeit schaffen, neue Deals anzulegen und je nach "Workflow-State"
+	// die "Next" und "Back"-Buttons mit Funktionalität belegen.
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(typeof(Greeting))
-//				.map[name]
-//				.join(', '))
+		val rentalSystem = resource.contents.head()
+		if (rentalSystem instanceof RentalSystem) {
+				fsa.generateFile(rentalSystem.name + '.html', toHtml(rentalSystem))
+		}
 	}
+
+	def dispatch CharSequence toHtml(RentalSystem rentalSystem) '''
+		<html>
+		<head>
+			<title>«(rentalSystem.eContainer as RentalSystem).name»</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+			<!-- Bootstrap -->
+			<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+			<link href="css/survey.css" rel="stylesheet" media="screen">
+		</head>
+			<body>
+				<script src="http://code.jquery.com/jquery.js"></script>
+				<script src="js/bootstrap.js"></script>
+				<div class="navbar">
+						<div class="navbar-inner">
+							<a class="brand" href="/">XtextCon 2014 Workshop Survey</a>
+							<ul class="nav pull-right">
+								<li><a href="/evaluate">Evaluate</a></li>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="container">
+						<form class="form-horizontal" method="POST" action="dispatch" class="form-horizontal">
+							<input name="survey" type="hidden" value="«(rentalSystem.eContainer as RentalSystem).name»"/>
+							<input name="page" type="hidden" value="«rentalSystem.name»"/>
+							«FOR customer : rentalSystem.customers»
+								«toHtml(customer)»
+							«ENDFOR»
+							«FOR Type : rentalSystem.types»
+								«toHtml(Type)»
+							«ENDFOR»
+							«FOR Deal : rentalSystem.deals»
+								«toHtml(Deal)»
+							«ENDFOR»
+							
+							<div class="control-group">
+								<div class="controls">
+									<input type="reset" class="btn" value="Reset">
+									<input type="submit" class="btn" value="Next">
+								</div>
+							</div>
+						</form>
+					</div>
+			</body>
+		</html>
+	'''
+
+	def dispatch CharSequence toHtml(Customer customer) '''
+		<p>«customer.name»</p>
+	'''
+	
+	def dispatch CharSequence toHtml(Type type) '''
+		<p>«type.name»</p>
+	'''
+	
+	def dispatch CharSequence toHtml(Deal deal) '''
+		<p>«deal.name»</p>
+	'''
 }

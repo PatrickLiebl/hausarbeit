@@ -96,6 +96,11 @@ public class RentalSystemAdapterFactory extends AdapterFactoryImpl
         return createTypeAttributeAdapter();
       }
       @Override
+      public Adapter caseDeal(Deal object)
+      {
+        return createDealAdapter();
+      }
+      @Override
       public Adapter caseCustomer(Customer object)
       {
         return createCustomerAdapter();
@@ -183,6 +188,21 @@ public class RentalSystemAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTypeAttributeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal <em>Deal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal
+   * @generated
+   */
+  public Adapter createDealAdapter()
   {
     return null;
   }

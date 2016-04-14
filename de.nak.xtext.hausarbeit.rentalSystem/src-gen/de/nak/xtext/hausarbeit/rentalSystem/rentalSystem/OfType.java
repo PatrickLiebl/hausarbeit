@@ -71,6 +71,36 @@ public enum OfType implements Enumerator
   DOUBLE(4, "double", "double"),
 
   /**
+   * The '<em><b>Day</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DAY_VALUE
+   * @generated
+   * @ordered
+   */
+  DAY(5, "day", "day"),
+
+  /**
+   * The '<em><b>Week</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #WEEK_VALUE
+   * @generated
+   * @ordered
+   */
+  WEEK(6, "week", "week"),
+
+  /**
+   * The '<em><b>Month</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #MONTH_VALUE
+   * @generated
+   * @ordered
+   */
+  MONTH(7, "month", "month"),
+
+  /**
    * The '<em><b>EMail</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -78,7 +108,7 @@ public enum OfType implements Enumerator
    * @generated
    * @ordered
    */
-  EMAIL(5, "EMail", "email"),
+  EMAIL(8, "EMail", "email"),
 
   /**
    * The '<em><b>Mobile</b></em>' literal object.
@@ -88,7 +118,7 @@ public enum OfType implements Enumerator
    * @generated
    * @ordered
    */
-  MOBILE(6, "Mobile", "mobile"),
+  MOBILE(9, "Mobile", "mobile"),
 
   /**
    * The '<em><b>Currency</b></em>' literal object.
@@ -98,7 +128,7 @@ public enum OfType implements Enumerator
    * @generated
    * @ordered
    */
-  CURRENCY(7, "currency", "currency");
+  CURRENCY(10, "currency", "currency");
 
   /**
    * The '<em><b>Int</b></em>' literal value.
@@ -176,6 +206,51 @@ public enum OfType implements Enumerator
   public static final int DOUBLE_VALUE = 4;
 
   /**
+   * The '<em><b>Day</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>Day</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #DAY
+   * @model name="day"
+   * @generated
+   * @ordered
+   */
+  public static final int DAY_VALUE = 5;
+
+  /**
+   * The '<em><b>Week</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>Week</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #WEEK
+   * @model name="week"
+   * @generated
+   * @ordered
+   */
+  public static final int WEEK_VALUE = 6;
+
+  /**
+   * The '<em><b>Month</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>Month</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #MONTH
+   * @model name="month"
+   * @generated
+   * @ordered
+   */
+  public static final int MONTH_VALUE = 7;
+
+  /**
    * The '<em><b>EMail</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
@@ -188,7 +263,7 @@ public enum OfType implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int EMAIL_VALUE = 5;
+  public static final int EMAIL_VALUE = 8;
 
   /**
    * The '<em><b>Mobile</b></em>' literal value.
@@ -203,7 +278,7 @@ public enum OfType implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int MOBILE_VALUE = 6;
+  public static final int MOBILE_VALUE = 9;
 
   /**
    * The '<em><b>Currency</b></em>' literal value.
@@ -218,7 +293,7 @@ public enum OfType implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int CURRENCY_VALUE = 7;
+  public static final int CURRENCY_VALUE = 10;
 
   /**
    * An array of all the '<em><b>Of Type</b></em>' enumerators.
@@ -234,6 +309,9 @@ public enum OfType implements Enumerator
       DATE,
       DECIMAL,
       DOUBLE,
+      DAY,
+      WEEK,
+      MONTH,
       EMAIL,
       MOBILE,
       CURRENCY,
@@ -306,6 +384,9 @@ public enum OfType implements Enumerator
       case DATE_VALUE: return DATE;
       case DECIMAL_VALUE: return DECIMAL;
       case DOUBLE_VALUE: return DOUBLE;
+      case DAY_VALUE: return DAY;
+      case WEEK_VALUE: return WEEK;
+      case MONTH_VALUE: return MONTH;
       case EMAIL_VALUE: return EMAIL;
       case MOBILE_VALUE: return MOBILE;
       case CURRENCY_VALUE: return CURRENCY;
