@@ -164,7 +164,7 @@ public interface Type extends EObject
 
   /**
    * Returns the value of the '<em><b>Type Attributes</b></em>' containment reference list.
-   * The list contents are of type {@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.TypeAttribute}.
+   * The list contents are of type {@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Type Attributes</em>' containment reference list isn't clear,
@@ -176,6 +176,6 @@ public interface Type extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<TypeAttribute> getTypeAttributes();
+  EList<Attribute> getTypeAttributes();
 
 } // Type

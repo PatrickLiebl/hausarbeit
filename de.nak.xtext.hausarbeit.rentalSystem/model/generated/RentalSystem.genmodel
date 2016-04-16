@@ -34,11 +34,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RentalSystem.ecore#//Type/wf"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RentalSystem.ecore#//Type/typeAttributes"/>
     </genClasses>
-    <genClasses ecoreClass="RentalSystem.ecore#//TypeAttribute">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalSystem.ecore#//TypeAttribute/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalSystem.ecore#//TypeAttribute/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalSystem.ecore#//TypeAttribute/ofType"/>
-    </genClasses>
     <genClasses ecoreClass="RentalSystem.ecore#//Deal">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalSystem.ecore#//Deal/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RentalSystem.ecore#//Deal/customer"/>
@@ -52,6 +47,7 @@
     <genClasses ecoreClass="RentalSystem.ecore#//Attribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalSystem.ecore#//Attribute/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalSystem.ecore#//Attribute/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalSystem.ecore#//Attribute/ofType"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

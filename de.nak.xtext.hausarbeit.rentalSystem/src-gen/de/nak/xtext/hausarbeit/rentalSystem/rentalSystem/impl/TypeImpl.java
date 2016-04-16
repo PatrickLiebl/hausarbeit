@@ -3,9 +3,9 @@
  */
 package de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl;
 
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type;
-import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.TypeAttribute;
 
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow;
 
@@ -143,7 +143,7 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
    * @generated
    * @ordered
    */
-  protected EList<TypeAttribute> typeAttributes;
+  protected EList<Attribute> typeAttributes;
 
   /**
    * <!-- begin-user-doc -->
@@ -306,11 +306,11 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<TypeAttribute> getTypeAttributes()
+  public EList<Attribute> getTypeAttributes()
   {
     if (typeAttributes == null)
     {
-      typeAttributes = new EObjectContainmentEList<TypeAttribute>(TypeAttribute.class, this, RentalSystemPackage.TYPE__TYPE_ATTRIBUTES);
+      typeAttributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, RentalSystemPackage.TYPE__TYPE_ATTRIBUTES);
     }
     return typeAttributes;
   }
@@ -386,7 +386,7 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
         return;
       case RentalSystemPackage.TYPE__TYPE_ATTRIBUTES:
         getTypeAttributes().clear();
-        getTypeAttributes().addAll((Collection<? extends TypeAttribute>)newValue);
+        getTypeAttributes().addAll((Collection<? extends Attribute>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

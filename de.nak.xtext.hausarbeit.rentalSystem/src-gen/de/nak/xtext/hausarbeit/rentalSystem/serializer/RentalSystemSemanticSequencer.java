@@ -10,7 +10,6 @@ import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type;
-import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.TypeAttribute;
 import de.nak.xtext.hausarbeit.rentalSystem.services.RentalSystemGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -52,9 +51,6 @@ public class RentalSystemSemanticSequencer extends AbstractDelegatingSemanticSeq
 			case RentalSystemPackage.TYPE:
 				sequence_Type(context, (Type) semanticObject); 
 				return; 
-			case RentalSystemPackage.TYPE_ATTRIBUTE:
-				sequence_TypeAttribute(context, (TypeAttribute) semanticObject); 
-				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -65,7 +61,7 @@ public class RentalSystemSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Attribute returns Attribute
 	 *
 	 * Constraint:
-	 *     (name=ID value=STRING)
+	 *     (name=ID value=STRING ofType=OfType)
 	 */
 	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
 		if (errorAcceptor != null) {
@@ -73,10 +69,13 @@ public class RentalSystemSemanticSequencer extends AbstractDelegatingSemanticSeq
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RentalSystemPackage.Literals.ATTRIBUTE__NAME));
 			if (transientValues.isValueTransient(semanticObject, RentalSystemPackage.Literals.ATTRIBUTE__VALUE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RentalSystemPackage.Literals.ATTRIBUTE__VALUE));
+			if (transientValues.isValueTransient(semanticObject, RentalSystemPackage.Literals.ATTRIBUTE__OF_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RentalSystemPackage.Literals.ATTRIBUTE__OF_TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getAttributeAccess().getValueSTRINGTerminalRuleCall_2_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getAttributeAccess().getOfTypeOfTypeEnumRuleCall_3_0(), semanticObject.getOfType());
 		feeder.finish();
 	}
 	
@@ -119,34 +118,10 @@ public class RentalSystemSemanticSequencer extends AbstractDelegatingSemanticSeq
 	
 	/**
 	 * Contexts:
-	 *     TypeAttribute returns TypeAttribute
-	 *
-	 * Constraint:
-	 *     (name=ID value=STRING ofType=OfType)
-	 */
-	protected void sequence_TypeAttribute(ISerializationContext context, TypeAttribute semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, RentalSystemPackage.Literals.TYPE_ATTRIBUTE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RentalSystemPackage.Literals.TYPE_ATTRIBUTE__NAME));
-			if (transientValues.isValueTransient(semanticObject, RentalSystemPackage.Literals.TYPE_ATTRIBUTE__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RentalSystemPackage.Literals.TYPE_ATTRIBUTE__VALUE));
-			if (transientValues.isValueTransient(semanticObject, RentalSystemPackage.Literals.TYPE_ATTRIBUTE__OF_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RentalSystemPackage.Literals.TYPE_ATTRIBUTE__OF_TYPE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTypeAttributeAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getTypeAttributeAccess().getValueSTRINGTerminalRuleCall_3_0(), semanticObject.getValue());
-		feeder.accept(grammarAccess.getTypeAttributeAccess().getOfTypeOfTypeEnumRuleCall_4_0(), semanticObject.getOfType());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Type returns Type
 	 *
 	 * Constraint:
-	 *     ((movable?='movable' | digital?='digital' | fix?='fix') name=ID wf=[RentalWorkflow|ID] typeAttributes+=TypeAttribute*)
+	 *     ((movable?='movable' | digital?='digital' | fix?='fix') name=ID wf=[RentalWorkflow|ID] typeAttributes+=Attribute*)
 	 */
 	protected void sequence_Type(ISerializationContext context, Type semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

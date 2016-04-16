@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute#getName <em>Name</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute#getValue <em>Value</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute#getOfType <em>Of Type</em>}</li>
  * </ul>
  *
  * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage#getAttribute()
@@ -75,5 +76,34 @@ public interface Attribute extends EObject
    * @generated
    */
   void setValue(String value);
+
+  /**
+   * Returns the value of the '<em><b>Of Type</b></em>' attribute.
+   * The literals are from the enumeration {@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.OfType}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Of Type</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Of Type</em>' attribute.
+   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.OfType
+   * @see #setOfType(OfType)
+   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage#getAttribute_OfType()
+   * @model
+   * @generated
+   */
+  OfType getOfType();
+
+  /**
+   * Sets the value of the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute#getOfType <em>Of Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Of Type</em>' attribute.
+   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.OfType
+   * @see #getOfType()
+   * @generated
+   */
+  void setOfType(OfType value);
 
 } // Attribute

@@ -42,15 +42,6 @@ public interface RentalSystemFactory extends EFactory
   Type createType();
 
   /**
-   * Returns a new object of class '<em>Type Attribute</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Type Attribute</em>'.
-   * @generated
-   */
-  TypeAttribute createTypeAttribute();
-
-  /**
    * Returns a new object of class '<em>Deal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

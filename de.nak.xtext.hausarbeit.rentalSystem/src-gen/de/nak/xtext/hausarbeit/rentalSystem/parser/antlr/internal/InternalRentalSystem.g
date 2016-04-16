@@ -285,9 +285,9 @@ ruleType returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTypeAccess().getTypeAttributesTypeAttributeParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getTypeAccess().getTypeAttributesAttributeParserRuleCall_6_0());
 				}
-				lv_typeAttributes_8_0=ruleTypeAttribute
+				lv_typeAttributes_8_0=ruleAttribute
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getTypeRule());
@@ -296,7 +296,7 @@ ruleType returns [EObject current=null]
 						$current,
 						"typeAttributes",
 						lv_typeAttributes_8_0,
-						"de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.TypeAttribute");
+						"de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.Attribute");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -305,88 +305,6 @@ ruleType returns [EObject current=null]
 		{
 			newLeafNode(otherlv_9, grammarAccess.getTypeAccess().getRightParenthesisKeyword_7());
 		}
-	)
-;
-
-// Entry rule entryRuleTypeAttribute
-entryRuleTypeAttribute returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getTypeAttributeRule()); }
-	iv_ruleTypeAttribute=ruleTypeAttribute
-	{ $current=$iv_ruleTypeAttribute.current; }
-	EOF;
-
-// Rule TypeAttribute
-ruleTypeAttribute returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='text'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getTypeAttributeAccess().getTextKeyword_0());
-		}
-		(
-			(
-				lv_name_1_0=RULE_ID
-				{
-					newLeafNode(lv_name_1_0, grammarAccess.getTypeAttributeAccess().getNameIDTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getTypeAttributeRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-		otherlv_2='='
-		{
-			newLeafNode(otherlv_2, grammarAccess.getTypeAttributeAccess().getEqualsSignKeyword_2());
-		}
-		(
-			(
-				lv_value_3_0=RULE_STRING
-				{
-					newLeafNode(lv_value_3_0, grammarAccess.getTypeAttributeAccess().getValueSTRINGTerminalRuleCall_3_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getTypeAttributeRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"value",
-						lv_value_3_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
-				}
-			)
-		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getTypeAttributeAccess().getOfTypeOfTypeEnumRuleCall_4_0());
-				}
-				lv_ofType_4_0=ruleOfType
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getTypeAttributeRule());
-					}
-					set(
-						$current,
-						"ofType",
-						lv_ofType_4_0,
-						"de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.OfType");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
 	)
 ;
 
@@ -406,7 +324,7 @@ ruleDeal returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='Deal'
+		otherlv_0='deal'
 		{
 			newLeafNode(otherlv_0, grammarAccess.getDealAccess().getDealKeyword_0());
 		}
@@ -576,9 +494,9 @@ ruleAttribute returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='text'
+		otherlv_0='attribute'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getAttributeAccess().getTextKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getAttributeAccess().getAttributeKeyword_0());
 		}
 		(
 			(
@@ -613,6 +531,25 @@ ruleAttribute returns [EObject current=null]
 						"value",
 						lv_value_2_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAttributeAccess().getOfTypeOfTypeEnumRuleCall_3_0());
+				}
+				lv_ofType_3_0=ruleOfType
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAttributeRule());
+					}
+					set(
+						$current,
+						"ofType",
+						lv_ofType_3_0,
+						"de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.OfType");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)

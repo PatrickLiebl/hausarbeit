@@ -18,12 +18,9 @@ import org.eclipse.xtext.generator.IGeneratorContext
  */
 class RentalSystemGenerator extends AbstractGenerator {
 
-	// Für jeden Customer und Type eine Bearbeitungs-HTML erstellen
-	// Für jeden Customer, Deal und Type einen Menüpunkt erstellen
-	// Möglichkeit schaffen, neue Deals anzulegen und je nach "Workflow-State"
-	// die "Next" und "Back"-Buttons mit Funktionalität belegen.
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		val rentalSystem = resource.getContents().head()
+		
 		if (rentalSystem instanceof RentalSystem){
 			fsa.generateFile('index.html', generateIndex(rentalSystem))
 			fsa.generateFile('customers.html', generateCustomers(rentalSystem))
@@ -34,6 +31,7 @@ class RentalSystemGenerator extends AbstractGenerator {
 			for (Type type : rentalSystem.types) {
 				fsa.generateFile(type.name + '.html', generateTypeMask(type, rentalSystem))
 			}
+			
 		}
 	}
 
@@ -50,7 +48,6 @@ class RentalSystemGenerator extends AbstractGenerator {
 			<body>
 				<script src="http://code.jquery.com/jquery.js"></script>
 				<script src="js/bootstrap.js"></script>
-		
 			<a href="customers.html">Customers</a>
 			<a href="types.html">Types</a>
 			</body>

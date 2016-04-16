@@ -11,7 +11,6 @@ import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemFactory;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type;
-import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.TypeAttribute;
 
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage;
 
@@ -44,13 +43,6 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
    * @generated
    */
   private EClass typeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass typeAttributeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -281,46 +273,6 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getTypeAttribute()
-  {
-    return typeAttributeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getTypeAttribute_Name()
-  {
-    return (EAttribute)typeAttributeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getTypeAttribute_Value()
-  {
-    return (EAttribute)typeAttributeEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getTypeAttribute_OfType()
-  {
-    return (EAttribute)typeAttributeEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getDeal()
   {
     return dealEClass;
@@ -431,6 +383,16 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getAttribute_OfType()
+  {
+    return (EAttribute)attributeEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EEnum getOfType()
   {
     return ofTypeEEnum;
@@ -481,11 +443,6 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
     createEReference(typeEClass, TYPE__WF);
     createEReference(typeEClass, TYPE__TYPE_ATTRIBUTES);
 
-    typeAttributeEClass = createEClass(TYPE_ATTRIBUTE);
-    createEAttribute(typeAttributeEClass, TYPE_ATTRIBUTE__NAME);
-    createEAttribute(typeAttributeEClass, TYPE_ATTRIBUTE__VALUE);
-    createEAttribute(typeAttributeEClass, TYPE_ATTRIBUTE__OF_TYPE);
-
     dealEClass = createEClass(DEAL);
     createEAttribute(dealEClass, DEAL__NAME);
     createEReference(dealEClass, DEAL__CUSTOMER);
@@ -499,6 +456,7 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
     attributeEClass = createEClass(ATTRIBUTE);
     createEAttribute(attributeEClass, ATTRIBUTE__NAME);
     createEAttribute(attributeEClass, ATTRIBUTE__VALUE);
+    createEAttribute(attributeEClass, ATTRIBUTE__OF_TYPE);
 
     // Create enums
     ofTypeEEnum = createEEnum(OF_TYPE);
@@ -551,12 +509,7 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
     initEAttribute(getType_Fix(), ecorePackage.getEBoolean(), "fix", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getType_Name(), ecorePackage.getEString(), "name", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getType_Wf(), theRentalWorkflowPackage.getRentalWorkflow(), null, "wf", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getType_TypeAttributes(), this.getTypeAttribute(), null, "typeAttributes", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(typeAttributeEClass, TypeAttribute.class, "TypeAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTypeAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, TypeAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getTypeAttribute_Value(), ecorePackage.getEString(), "value", null, 0, 1, TypeAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getTypeAttribute_OfType(), this.getOfType(), "ofType", null, 0, 1, TypeAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getType_TypeAttributes(), this.getAttribute(), null, "typeAttributes", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dealEClass, Deal.class, "Deal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDeal_Name(), ecorePackage.getEString(), "name", null, 0, 1, Deal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -571,6 +524,7 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
     initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAttribute_Value(), ecorePackage.getEString(), "value", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAttribute_OfType(), this.getOfType(), "ofType", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(ofTypeEEnum, OfType.class, "OfType");

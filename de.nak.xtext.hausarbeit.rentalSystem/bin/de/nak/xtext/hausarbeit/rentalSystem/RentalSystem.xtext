@@ -14,18 +14,14 @@ Type:
 	((movable?='movable') | (digital?='digital')
 	| (fix?='fix')) 'type' name=ID '('
 	'typeWorkFlow' wf=[rentalWorkflow::RentalWorkflow]
-	typeAttributes+=TypeAttribute*
+	typeAttributes+=Attribute*
 	')';
-	
-TypeAttribute:
-	'text' name=ID '=' value=STRING ofType=OfType;
-	
 	
 QualifiedName:
 	ID('.'ID)*;
 
 Deal:
-	'Deal' name=ID '('
+	'deal' name=ID '('
 	'customer' customer=[Customer]
 	'rentalType' rentalType=[Type]
 	attributes+=Attribute*
@@ -37,7 +33,7 @@ Customer:
 	')';
 	
 Attribute:
-	'text' name=ID value=STRING;
+	'attribute' name=ID value=STRING ofType=OfType;
 	
 enum OfType:
 	int='int'

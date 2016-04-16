@@ -68,7 +68,6 @@ public class RentalSystemFactoryImpl extends EFactoryImpl implements RentalSyste
     {
       case RentalSystemPackage.RENTAL_SYSTEM: return createRentalSystem();
       case RentalSystemPackage.TYPE: return createType();
-      case RentalSystemPackage.TYPE_ATTRIBUTE: return createTypeAttribute();
       case RentalSystemPackage.DEAL: return createDeal();
       case RentalSystemPackage.CUSTOMER: return createCustomer();
       case RentalSystemPackage.ATTRIBUTE: return createAttribute();
@@ -131,17 +130,6 @@ public class RentalSystemFactoryImpl extends EFactoryImpl implements RentalSyste
   {
     TypeImpl type = new TypeImpl();
     return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public TypeAttribute createTypeAttribute()
-  {
-    TypeAttributeImpl typeAttribute = new TypeAttributeImpl();
-    return typeAttribute;
   }
 
   /**

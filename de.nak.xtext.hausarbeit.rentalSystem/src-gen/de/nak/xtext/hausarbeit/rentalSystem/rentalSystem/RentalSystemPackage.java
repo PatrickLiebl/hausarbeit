@@ -196,52 +196,6 @@ public interface RentalSystemPackage extends EPackage
   int TYPE_FEATURE_COUNT = 6;
 
   /**
-   * The meta object id for the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.TypeAttributeImpl <em>Type Attribute</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.TypeAttributeImpl
-   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemPackageImpl#getTypeAttribute()
-   * @generated
-   */
-  int TYPE_ATTRIBUTE = 2;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_ATTRIBUTE__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_ATTRIBUTE__VALUE = 1;
-
-  /**
-   * The feature id for the '<em><b>Of Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_ATTRIBUTE__OF_TYPE = 2;
-
-  /**
-   * The number of structural features of the '<em>Type Attribute</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_ATTRIBUTE_FEATURE_COUNT = 3;
-
-  /**
    * The meta object id for the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.DealImpl <em>Deal</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -249,7 +203,7 @@ public interface RentalSystemPackage extends EPackage
    * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemPackageImpl#getDeal()
    * @generated
    */
-  int DEAL = 3;
+  int DEAL = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -304,7 +258,7 @@ public interface RentalSystemPackage extends EPackage
    * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemPackageImpl#getCustomer()
    * @generated
    */
-  int CUSTOMER = 4;
+  int CUSTOMER = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -341,7 +295,7 @@ public interface RentalSystemPackage extends EPackage
    * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemPackageImpl#getAttribute()
    * @generated
    */
-  int ATTRIBUTE = 5;
+  int ATTRIBUTE = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -362,13 +316,22 @@ public interface RentalSystemPackage extends EPackage
   int ATTRIBUTE__VALUE = 1;
 
   /**
+   * The feature id for the '<em><b>Of Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__OF_TYPE = 2;
+
+  /**
    * The number of structural features of the '<em>Attribute</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUTE_FEATURE_COUNT = 2;
+  int ATTRIBUTE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.OfType <em>Of Type</em>}' enum.
@@ -378,7 +341,7 @@ public interface RentalSystemPackage extends EPackage
    * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemPackageImpl#getOfType()
    * @generated
    */
-  int OF_TYPE = 6;
+  int OF_TYPE = 5;
 
 
   /**
@@ -523,49 +486,6 @@ public interface RentalSystemPackage extends EPackage
   EReference getType_TypeAttributes();
 
   /**
-   * Returns the meta object for class '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.TypeAttribute <em>Type Attribute</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Type Attribute</em>'.
-   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.TypeAttribute
-   * @generated
-   */
-  EClass getTypeAttribute();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.TypeAttribute#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.TypeAttribute#getName()
-   * @see #getTypeAttribute()
-   * @generated
-   */
-  EAttribute getTypeAttribute_Name();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.TypeAttribute#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.TypeAttribute#getValue()
-   * @see #getTypeAttribute()
-   * @generated
-   */
-  EAttribute getTypeAttribute_Value();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.TypeAttribute#getOfType <em>Of Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Of Type</em>'.
-   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.TypeAttribute#getOfType()
-   * @see #getTypeAttribute()
-   * @generated
-   */
-  EAttribute getTypeAttribute_OfType();
-
-  /**
    * Returns the meta object for class '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal <em>Deal</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -682,6 +602,17 @@ public interface RentalSystemPackage extends EPackage
    * @generated
    */
   EAttribute getAttribute_Value();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute#getOfType <em>Of Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Of Type</em>'.
+   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute#getOfType()
+   * @see #getAttribute()
+   * @generated
+   */
+  EAttribute getAttribute_OfType();
 
   /**
    * Returns the meta object for enum '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.OfType <em>Of Type</em>}'.
@@ -825,40 +756,6 @@ public interface RentalSystemPackage extends EPackage
     EReference TYPE__TYPE_ATTRIBUTES = eINSTANCE.getType_TypeAttributes();
 
     /**
-     * The meta object literal for the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.TypeAttributeImpl <em>Type Attribute</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.TypeAttributeImpl
-     * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemPackageImpl#getTypeAttribute()
-     * @generated
-     */
-    EClass TYPE_ATTRIBUTE = eINSTANCE.getTypeAttribute();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_ATTRIBUTE__NAME = eINSTANCE.getTypeAttribute_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_ATTRIBUTE__VALUE = eINSTANCE.getTypeAttribute_Value();
-
-    /**
-     * The meta object literal for the '<em><b>Of Type</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_ATTRIBUTE__OF_TYPE = eINSTANCE.getTypeAttribute_OfType();
-
-    /**
      * The meta object literal for the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.DealImpl <em>Deal</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -951,6 +848,14 @@ public interface RentalSystemPackage extends EPackage
      * @generated
      */
     EAttribute ATTRIBUTE__VALUE = eINSTANCE.getAttribute_Value();
+
+    /**
+     * The meta object literal for the '<em><b>Of Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ATTRIBUTE__OF_TYPE = eINSTANCE.getAttribute_OfType();
 
     /**
      * The meta object literal for the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.OfType <em>Of Type</em>}' enum.

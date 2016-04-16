@@ -7,7 +7,6 @@ import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Customer;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type;
-import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.TypeAttribute;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -89,7 +88,6 @@ public class RentalSystemGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("<script src=\"js/bootstrap.js\"></script>");
-    _builder.newLine();
     _builder.newLine();
     _builder.append("\t");
     _builder.append("<a href=\"customers.html\">Customers</a>");
@@ -358,8 +356,8 @@ public class RentalSystemGenerator extends AbstractGenerator {
     _builder.append("<form>");
     _builder.newLine();
     {
-      EList<TypeAttribute> _typeAttributes = type.getTypeAttributes();
-      for(final TypeAttribute attribute : _typeAttributes) {
+      EList<Attribute> _typeAttributes = type.getTypeAttributes();
+      for(final Attribute attribute : _typeAttributes) {
         _builder.append("\t\t\t\t\t");
         _builder.append("<input type=\"text\" name=\"");
         String _name_1 = attribute.getName();

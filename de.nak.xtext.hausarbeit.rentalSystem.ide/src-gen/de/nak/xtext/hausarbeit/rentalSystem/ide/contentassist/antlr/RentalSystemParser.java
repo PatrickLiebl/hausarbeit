@@ -39,7 +39,6 @@ public class RentalSystemParser extends AbstractContentAssistParser {
 					put(grammarAccess.getOfTypeAccess().getAlternatives(), "rule__OfType__Alternatives");
 					put(grammarAccess.getRentalSystemAccess().getGroup(), "rule__RentalSystem__Group__0");
 					put(grammarAccess.getTypeAccess().getGroup(), "rule__Type__Group__0");
-					put(grammarAccess.getTypeAttributeAccess().getGroup(), "rule__TypeAttribute__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
 					put(grammarAccess.getDealAccess().getGroup(), "rule__Deal__Group__0");
@@ -56,9 +55,6 @@ public class RentalSystemParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTypeAccess().getNameAssignment_2(), "rule__Type__NameAssignment_2");
 					put(grammarAccess.getTypeAccess().getWfAssignment_5(), "rule__Type__WfAssignment_5");
 					put(grammarAccess.getTypeAccess().getTypeAttributesAssignment_6(), "rule__Type__TypeAttributesAssignment_6");
-					put(grammarAccess.getTypeAttributeAccess().getNameAssignment_1(), "rule__TypeAttribute__NameAssignment_1");
-					put(grammarAccess.getTypeAttributeAccess().getValueAssignment_3(), "rule__TypeAttribute__ValueAssignment_3");
-					put(grammarAccess.getTypeAttributeAccess().getOfTypeAssignment_4(), "rule__TypeAttribute__OfTypeAssignment_4");
 					put(grammarAccess.getDealAccess().getNameAssignment_1(), "rule__Deal__NameAssignment_1");
 					put(grammarAccess.getDealAccess().getCustomerAssignment_4(), "rule__Deal__CustomerAssignment_4");
 					put(grammarAccess.getDealAccess().getRentalTypeAssignment_6(), "rule__Deal__RentalTypeAssignment_6");
@@ -67,6 +63,7 @@ public class RentalSystemParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCustomerAccess().getAttributesAssignment_3(), "rule__Customer__AttributesAssignment_3");
 					put(grammarAccess.getAttributeAccess().getNameAssignment_1(), "rule__Attribute__NameAssignment_1");
 					put(grammarAccess.getAttributeAccess().getValueAssignment_2(), "rule__Attribute__ValueAssignment_2");
+					put(grammarAccess.getAttributeAccess().getOfTypeAssignment_3(), "rule__Attribute__OfTypeAssignment_3");
 				}
 			};
 		}

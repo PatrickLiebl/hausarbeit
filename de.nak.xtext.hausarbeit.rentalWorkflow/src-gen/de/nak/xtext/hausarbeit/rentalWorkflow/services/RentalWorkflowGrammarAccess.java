@@ -51,8 +51,12 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cStatesStateParserRuleCall_12_0 = (RuleCall)cStatesAssignment_12.eContents().get(0);
 		
 		//RentalWorkflow:
-		//	{RentalWorkflow} 'defineWf' name=ID 'events' event+=Event* 'end' 'resetEvents' resetEvents+=[Event]* 'end' 'commands'
-		//	commands+=Command* 'end' states+=State*;
+		//	{RentalWorkflow}
+		//	'defineWf' name=ID
+		//	'events' event+=Event* 'end'
+		//	'resetEvents' resetEvents+=[Event]* 'end'
+		//	'commands' commands+=Command* 'end'
+		//	states+=State*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{RentalWorkflow} 'defineWf' name=ID 'events' event+=Event* 'end' 'resetEvents' resetEvents+=[Event]* 'end' 'commands'
@@ -190,7 +194,10 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEndKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//State:
-		//	'state' name=ID ofType=OfType ('actions' '{' actions+=[Command]+ '}')? transitions+=Transition* 'end';
+		//	'state' name=ID
+		//	ofType=OfType ('actions' '{' actions+=[Command]+ '}')?
+		//	transitions+=Transition*
+		//	'end';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'state' name=ID ofType=OfType ('actions' '{' actions+=[Command]+ '}')? transitions+=Transition* 'end'
@@ -409,8 +416,12 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//RentalWorkflow:
-	//	{RentalWorkflow} 'defineWf' name=ID 'events' event+=Event* 'end' 'resetEvents' resetEvents+=[Event]* 'end' 'commands'
-	//	commands+=Command* 'end' states+=State*;
+	//	{RentalWorkflow}
+	//	'defineWf' name=ID
+	//	'events' event+=Event* 'end'
+	//	'resetEvents' resetEvents+=[Event]* 'end'
+	//	'commands' commands+=Command* 'end'
+	//	states+=State*;
 	public RentalWorkflowElements getRentalWorkflowAccess() {
 		return pRentalWorkflow;
 	}
@@ -440,7 +451,10 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//State:
-	//	'state' name=ID ofType=OfType ('actions' '{' actions+=[Command]+ '}')? transitions+=Transition* 'end';
+	//	'state' name=ID
+	//	ofType=OfType ('actions' '{' actions+=[Command]+ '}')?
+	//	transitions+=Transition*
+	//	'end';
 	public StateElements getStateAccess() {
 		return pState;
 	}
