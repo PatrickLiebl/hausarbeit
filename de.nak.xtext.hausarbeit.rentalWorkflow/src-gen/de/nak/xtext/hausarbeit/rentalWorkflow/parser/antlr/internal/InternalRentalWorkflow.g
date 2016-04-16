@@ -84,16 +84,38 @@ ruleRentalWorkflow returns [EObject current=null]
 					$current);
 			}
 		)
-		otherlv_1='events'
+		otherlv_1='defineWf'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getRentalWorkflowAccess().getEventsKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getRentalWorkflowAccess().getDefineWfKeyword_1());
+		}
+		(
+			(
+				lv_name_2_0=RULE_ID
+				{
+					newLeafNode(lv_name_2_0, grammarAccess.getRentalWorkflowAccess().getNameIDTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getRentalWorkflowRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_2_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_3='events'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getRentalWorkflowAccess().getEventsKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRentalWorkflowAccess().getEventEventParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getRentalWorkflowAccess().getEventEventParserRuleCall_4_0());
 				}
-				lv_event_2_0=ruleEvent
+				lv_event_4_0=ruleEvent
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRentalWorkflowRule());
@@ -101,19 +123,19 @@ ruleRentalWorkflow returns [EObject current=null]
 					add(
 						$current,
 						"event",
-						lv_event_2_0,
+						lv_event_4_0,
 						"de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.Event");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_3='end'
+		otherlv_5='end'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getRentalWorkflowAccess().getEndKeyword_3());
+			newLeafNode(otherlv_5, grammarAccess.getRentalWorkflowAccess().getEndKeyword_5());
 		}
-		otherlv_4='resetEvents'
+		otherlv_6='resetEvents'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getRentalWorkflowAccess().getResetEventsKeyword_4());
+			newLeafNode(otherlv_6, grammarAccess.getRentalWorkflowAccess().getResetEventsKeyword_6());
 		}
 		(
 			(
@@ -122,26 +144,26 @@ ruleRentalWorkflow returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getRentalWorkflowRule());
 					}
 				}
-				otherlv_5=RULE_ID
+				otherlv_7=RULE_ID
 				{
-					newLeafNode(otherlv_5, grammarAccess.getRentalWorkflowAccess().getResetEventsEventCrossReference_5_0());
+					newLeafNode(otherlv_7, grammarAccess.getRentalWorkflowAccess().getResetEventsEventCrossReference_7_0());
 				}
 			)
 		)*
-		otherlv_6='end'
+		otherlv_8='end'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getRentalWorkflowAccess().getEndKeyword_6());
+			newLeafNode(otherlv_8, grammarAccess.getRentalWorkflowAccess().getEndKeyword_8());
 		}
-		otherlv_7='commands'
+		otherlv_9='commands'
 		{
-			newLeafNode(otherlv_7, grammarAccess.getRentalWorkflowAccess().getCommandsKeyword_7());
+			newLeafNode(otherlv_9, grammarAccess.getRentalWorkflowAccess().getCommandsKeyword_9());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRentalWorkflowAccess().getCommandsCommandParserRuleCall_8_0());
+					newCompositeNode(grammarAccess.getRentalWorkflowAccess().getCommandsCommandParserRuleCall_10_0());
 				}
-				lv_commands_8_0=ruleCommand
+				lv_commands_10_0=ruleCommand
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRentalWorkflowRule());
@@ -149,22 +171,22 @@ ruleRentalWorkflow returns [EObject current=null]
 					add(
 						$current,
 						"commands",
-						lv_commands_8_0,
+						lv_commands_10_0,
 						"de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.Command");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_9='end'
+		otherlv_11='end'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getRentalWorkflowAccess().getEndKeyword_9());
+			newLeafNode(otherlv_11, grammarAccess.getRentalWorkflowAccess().getEndKeyword_11());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRentalWorkflowAccess().getStatesStateParserRuleCall_10_0());
+					newCompositeNode(grammarAccess.getRentalWorkflowAccess().getStatesStateParserRuleCall_12_0());
 				}
-				lv_states_10_0=ruleState
+				lv_states_12_0=ruleState
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRentalWorkflowRule());
@@ -172,7 +194,7 @@ ruleRentalWorkflow returns [EObject current=null]
 					add(
 						$current,
 						"states",
-						lv_states_10_0,
+						lv_states_12_0,
 						"de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.State");
 					afterParserOrEnumRuleCall();
 				}

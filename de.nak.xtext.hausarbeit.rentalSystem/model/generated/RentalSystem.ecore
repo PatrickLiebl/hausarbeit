@@ -17,15 +17,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="digital" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rentalWorkflow" eType="#//RentalWorkflow"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wf" eType="ecore:EClass platform:/resource/de.nak.xtext.hausarbeit.rentalWorkflow/model/generated/RentalWorkflow.ecore#//RentalWorkflow"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeAttributes" upperBound="-1"
         eType="#//TypeAttribute" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RentalWorkflow">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rentalWorkflow" eType="ecore:EClass platform:/resource/de.nak.xtext.hausarbeit.rentalWorkflow/model/generated/RentalWorkflow.ecore#//RentalWorkflow"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeAttribute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ofType" eType="#//OfType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Deal">

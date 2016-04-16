@@ -3,6 +3,8 @@
  */
 package de.nak.xtext.hausarbeit.rentalSystem.rentalSystem;
 
+import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -20,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type#isDigital <em>Digital</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type#isFix <em>Fix</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type#getName <em>Name</em>}</li>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type#getRentalWorkflow <em>Rental Workflow</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type#getWf <em>Wf</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type#getTypeAttributes <em>Type Attributes</em>}</li>
  * </ul>
  *
@@ -135,30 +137,30 @@ public interface Type extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Rental Workflow</b></em>' reference.
+   * Returns the value of the '<em><b>Wf</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Rental Workflow</em>' reference isn't clear,
+   * If the meaning of the '<em>Wf</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Rental Workflow</em>' reference.
-   * @see #setRentalWorkflow(RentalWorkflow)
-   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage#getType_RentalWorkflow()
+   * @return the value of the '<em>Wf</em>' reference.
+   * @see #setWf(RentalWorkflow)
+   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage#getType_Wf()
    * @model
    * @generated
    */
-  RentalWorkflow getRentalWorkflow();
+  RentalWorkflow getWf();
 
   /**
-   * Sets the value of the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type#getRentalWorkflow <em>Rental Workflow</em>}' reference.
+   * Sets the value of the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type#getWf <em>Wf</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Rental Workflow</em>' reference.
-   * @see #getRentalWorkflow()
+   * @param value the new value of the '<em>Wf</em>' reference.
+   * @see #getWf()
    * @generated
    */
-  void setRentalWorkflow(RentalWorkflow value);
+  void setWf(RentalWorkflow value);
 
   /**
    * Returns the value of the '<em><b>Type Attributes</b></em>' containment reference list.

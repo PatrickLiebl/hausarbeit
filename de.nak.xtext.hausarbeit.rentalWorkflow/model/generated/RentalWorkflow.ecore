@@ -3,6 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="rentalWorkflow" nsURI="http://www.nak.de/xtext/hausarbeit/rentalWorkflow/RentalWorkflow"
     nsPrefix="rentalWorkflow">
   <eClassifiers xsi:type="ecore:EClass" name="RentalWorkflow">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="event" upperBound="-1"
         eType="#//Event" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resetEvents" unique="false"

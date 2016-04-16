@@ -103,7 +103,7 @@ public class RentalWorkflowSemanticSequencer extends AbstractDelegatingSemanticS
 	 *     RentalWorkflow returns RentalWorkflow
 	 *
 	 * Constraint:
-	 *     (event+=Event* resetEvents+=[Event|ID]* commands+=Command* states+=State*)
+	 *     (name=ID event+=Event* resetEvents+=[Event|ID]* commands+=Command* states+=State*)
 	 */
 	protected void sequence_RentalWorkflow(ISerializationContext context, RentalWorkflow semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

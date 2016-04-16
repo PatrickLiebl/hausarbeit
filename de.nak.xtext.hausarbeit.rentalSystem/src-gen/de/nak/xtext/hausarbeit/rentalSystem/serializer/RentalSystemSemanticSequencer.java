@@ -9,7 +9,6 @@ import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Customer;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage;
-import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalWorkflow;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.TypeAttribute;
 import de.nak.xtext.hausarbeit.rentalSystem.services.RentalSystemGrammarAccess;
@@ -49,9 +48,6 @@ public class RentalSystemSemanticSequencer extends AbstractDelegatingSemanticSeq
 				return; 
 			case RentalSystemPackage.RENTAL_SYSTEM:
 				sequence_RentalSystem(context, (RentalSystem) semanticObject); 
-				return; 
-			case RentalSystemPackage.RENTAL_WORKFLOW:
-				sequence_RentalWorkflow(context, (RentalWorkflow) semanticObject); 
 				return; 
 			case RentalSystemPackage.TYPE:
 				sequence_Type(context, (Type) semanticObject); 
@@ -123,39 +119,24 @@ public class RentalSystemSemanticSequencer extends AbstractDelegatingSemanticSeq
 	
 	/**
 	 * Contexts:
-	 *     RentalWorkflow returns RentalWorkflow
-	 *
-	 * Constraint:
-	 *     rentalWorkflow=[RentalWorkflow|QualifiedName]
-	 */
-	protected void sequence_RentalWorkflow(ISerializationContext context, RentalWorkflow semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, RentalSystemPackage.Literals.RENTAL_WORKFLOW__RENTAL_WORKFLOW) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RentalSystemPackage.Literals.RENTAL_WORKFLOW__RENTAL_WORKFLOW));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRentalWorkflowAccess().getRentalWorkflowRentalWorkflowQualifiedNameParserRuleCall_1_0_1(), semanticObject.getRentalWorkflow());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     TypeAttribute returns TypeAttribute
 	 *
 	 * Constraint:
-	 *     (name=ID ofType=OfType)
+	 *     (name=ID value=STRING ofType=OfType)
 	 */
 	protected void sequence_TypeAttribute(ISerializationContext context, TypeAttribute semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, RentalSystemPackage.Literals.TYPE_ATTRIBUTE__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RentalSystemPackage.Literals.TYPE_ATTRIBUTE__NAME));
+			if (transientValues.isValueTransient(semanticObject, RentalSystemPackage.Literals.TYPE_ATTRIBUTE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RentalSystemPackage.Literals.TYPE_ATTRIBUTE__VALUE));
 			if (transientValues.isValueTransient(semanticObject, RentalSystemPackage.Literals.TYPE_ATTRIBUTE__OF_TYPE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RentalSystemPackage.Literals.TYPE_ATTRIBUTE__OF_TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getTypeAttributeAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getTypeAttributeAccess().getOfTypeOfTypeEnumRuleCall_3_0(), semanticObject.getOfType());
+		feeder.accept(grammarAccess.getTypeAttributeAccess().getValueSTRINGTerminalRuleCall_3_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getTypeAttributeAccess().getOfTypeOfTypeEnumRuleCall_4_0(), semanticObject.getOfType());
 		feeder.finish();
 	}
 	
@@ -165,7 +146,7 @@ public class RentalSystemSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Type returns Type
 	 *
 	 * Constraint:
-	 *     ((movable?='movable' | digital?='digital' | fix?='fix') name=ID rentalWorkflow=[RentalWorkflow|ID] typeAttributes+=TypeAttribute*)
+	 *     ((movable?='movable' | digital?='digital' | fix?='fix') name=ID wf=[RentalWorkflow|ID] typeAttributes+=TypeAttribute*)
 	 */
 	protected void sequence_Type(ISerializationContext context, Type semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

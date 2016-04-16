@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'rentalSystem'", "'movable'", "'digital'", "'fix'", "'type'", "'('", "')'", "'text'", "'='", "'.'", "'Deal'", "'customer'", "'int'", "'string'", "'date'", "'decimal'", "'double'", "'day'", "'week'", "'month'", "'email'", "'mobile'", "'currency'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'rentalSystem'", "'movable'", "'digital'", "'fix'", "'type'", "'('", "'typeWorkFlow'", "')'", "'text'", "'='", "'Deal'", "'customer'", "'rentalType'", "'int'", "'string'", "'date'", "'decimal'", "'double'", "'day'", "'week'", "'month'", "'email'", "'mobile'", "'currency'"
     };
     public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
@@ -34,6 +34,7 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
     public static final int T__11=11;
     public static final int T__33=33;
     public static final int T__12=12;
+    public static final int T__34=34;
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
@@ -418,7 +419,7 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleType"
-    // InternalRentalSystem.g:188:1: ruleType returns [EObject current=null] : ( ( ( (lv_movable_0_0= 'movable' ) ) | ( (lv_digital_1_0= 'digital' ) ) | ( (lv_fix_2_0= 'fix' ) ) ) otherlv_3= 'type' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= '(' ( (otherlv_6= RULE_ID ) ) ( (lv_typeAttributes_7_0= ruleTypeAttribute ) )* otherlv_8= ')' ) ;
+    // InternalRentalSystem.g:188:1: ruleType returns [EObject current=null] : ( ( ( (lv_movable_0_0= 'movable' ) ) | ( (lv_digital_1_0= 'digital' ) ) | ( (lv_fix_2_0= 'fix' ) ) ) otherlv_3= 'type' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= '(' otherlv_6= 'typeWorkFlow' ( (otherlv_7= RULE_ID ) ) ( (lv_typeAttributes_8_0= ruleTypeAttribute ) )* otherlv_9= ')' ) ;
     public final EObject ruleType() throws RecognitionException {
         EObject current = null;
 
@@ -429,19 +430,20 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
         Token lv_name_4_0=null;
         Token otherlv_5=null;
         Token otherlv_6=null;
-        Token otherlv_8=null;
-        EObject lv_typeAttributes_7_0 = null;
+        Token otherlv_7=null;
+        Token otherlv_9=null;
+        EObject lv_typeAttributes_8_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalRentalSystem.g:194:2: ( ( ( ( (lv_movable_0_0= 'movable' ) ) | ( (lv_digital_1_0= 'digital' ) ) | ( (lv_fix_2_0= 'fix' ) ) ) otherlv_3= 'type' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= '(' ( (otherlv_6= RULE_ID ) ) ( (lv_typeAttributes_7_0= ruleTypeAttribute ) )* otherlv_8= ')' ) )
-            // InternalRentalSystem.g:195:2: ( ( ( (lv_movable_0_0= 'movable' ) ) | ( (lv_digital_1_0= 'digital' ) ) | ( (lv_fix_2_0= 'fix' ) ) ) otherlv_3= 'type' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= '(' ( (otherlv_6= RULE_ID ) ) ( (lv_typeAttributes_7_0= ruleTypeAttribute ) )* otherlv_8= ')' )
+            // InternalRentalSystem.g:194:2: ( ( ( ( (lv_movable_0_0= 'movable' ) ) | ( (lv_digital_1_0= 'digital' ) ) | ( (lv_fix_2_0= 'fix' ) ) ) otherlv_3= 'type' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= '(' otherlv_6= 'typeWorkFlow' ( (otherlv_7= RULE_ID ) ) ( (lv_typeAttributes_8_0= ruleTypeAttribute ) )* otherlv_9= ')' ) )
+            // InternalRentalSystem.g:195:2: ( ( ( (lv_movable_0_0= 'movable' ) ) | ( (lv_digital_1_0= 'digital' ) ) | ( (lv_fix_2_0= 'fix' ) ) ) otherlv_3= 'type' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= '(' otherlv_6= 'typeWorkFlow' ( (otherlv_7= RULE_ID ) ) ( (lv_typeAttributes_8_0= ruleTypeAttribute ) )* otherlv_9= ')' )
             {
-            // InternalRentalSystem.g:195:2: ( ( ( (lv_movable_0_0= 'movable' ) ) | ( (lv_digital_1_0= 'digital' ) ) | ( (lv_fix_2_0= 'fix' ) ) ) otherlv_3= 'type' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= '(' ( (otherlv_6= RULE_ID ) ) ( (lv_typeAttributes_7_0= ruleTypeAttribute ) )* otherlv_8= ')' )
-            // InternalRentalSystem.g:196:3: ( ( (lv_movable_0_0= 'movable' ) ) | ( (lv_digital_1_0= 'digital' ) ) | ( (lv_fix_2_0= 'fix' ) ) ) otherlv_3= 'type' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= '(' ( (otherlv_6= RULE_ID ) ) ( (lv_typeAttributes_7_0= ruleTypeAttribute ) )* otherlv_8= ')'
+            // InternalRentalSystem.g:195:2: ( ( ( (lv_movable_0_0= 'movable' ) ) | ( (lv_digital_1_0= 'digital' ) ) | ( (lv_fix_2_0= 'fix' ) ) ) otherlv_3= 'type' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= '(' otherlv_6= 'typeWorkFlow' ( (otherlv_7= RULE_ID ) ) ( (lv_typeAttributes_8_0= ruleTypeAttribute ) )* otherlv_9= ')' )
+            // InternalRentalSystem.g:196:3: ( ( (lv_movable_0_0= 'movable' ) ) | ( (lv_digital_1_0= 'digital' ) ) | ( (lv_fix_2_0= 'fix' ) ) ) otherlv_3= 'type' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= '(' otherlv_6= 'typeWorkFlow' ( (otherlv_7= RULE_ID ) ) ( (lv_typeAttributes_8_0= ruleTypeAttribute ) )* otherlv_9= ')'
             {
             // InternalRentalSystem.g:196:3: ( ( (lv_movable_0_0= 'movable' ) ) | ( (lv_digital_1_0= 'digital' ) ) | ( (lv_fix_2_0= 'fix' ) ) )
             int alt4=3;
@@ -586,24 +588,28 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,16,FOLLOW_3); 
+            otherlv_5=(Token)match(input,16,FOLLOW_10); 
 
             			newLeafNode(otherlv_5, grammarAccess.getTypeAccess().getLeftParenthesisKeyword_3());
             		
-            // InternalRentalSystem.g:268:3: ( (otherlv_6= RULE_ID ) )
-            // InternalRentalSystem.g:269:4: (otherlv_6= RULE_ID )
+            otherlv_6=(Token)match(input,17,FOLLOW_3); 
+
+            			newLeafNode(otherlv_6, grammarAccess.getTypeAccess().getTypeWorkFlowKeyword_4());
+            		
+            // InternalRentalSystem.g:272:3: ( (otherlv_7= RULE_ID ) )
+            // InternalRentalSystem.g:273:4: (otherlv_7= RULE_ID )
             {
-            // InternalRentalSystem.g:269:4: (otherlv_6= RULE_ID )
-            // InternalRentalSystem.g:270:5: otherlv_6= RULE_ID
+            // InternalRentalSystem.g:273:4: (otherlv_7= RULE_ID )
+            // InternalRentalSystem.g:274:5: otherlv_7= RULE_ID
             {
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getTypeRule());
             					}
             				
-            otherlv_6=(Token)match(input,RULE_ID,FOLLOW_10); 
+            otherlv_7=(Token)match(input,RULE_ID,FOLLOW_11); 
 
-            					newLeafNode(otherlv_6, grammarAccess.getTypeAccess().getRentalWorkflowRentalWorkflowCrossReference_4_0());
+            					newLeafNode(otherlv_7, grammarAccess.getTypeAccess().getWfRentalWorkflowCrossReference_5_0());
             				
 
             }
@@ -611,29 +617,29 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalRentalSystem.g:281:3: ( (lv_typeAttributes_7_0= ruleTypeAttribute ) )*
+            // InternalRentalSystem.g:285:3: ( (lv_typeAttributes_8_0= ruleTypeAttribute ) )*
             loop5:
             do {
                 int alt5=2;
                 int LA5_0 = input.LA(1);
 
-                if ( (LA5_0==18) ) {
+                if ( (LA5_0==19) ) {
                     alt5=1;
                 }
 
 
                 switch (alt5) {
             	case 1 :
-            	    // InternalRentalSystem.g:282:4: (lv_typeAttributes_7_0= ruleTypeAttribute )
+            	    // InternalRentalSystem.g:286:4: (lv_typeAttributes_8_0= ruleTypeAttribute )
             	    {
-            	    // InternalRentalSystem.g:282:4: (lv_typeAttributes_7_0= ruleTypeAttribute )
-            	    // InternalRentalSystem.g:283:5: lv_typeAttributes_7_0= ruleTypeAttribute
+            	    // InternalRentalSystem.g:286:4: (lv_typeAttributes_8_0= ruleTypeAttribute )
+            	    // InternalRentalSystem.g:287:5: lv_typeAttributes_8_0= ruleTypeAttribute
             	    {
 
-            	    					newCompositeNode(grammarAccess.getTypeAccess().getTypeAttributesTypeAttributeParserRuleCall_5_0());
+            	    					newCompositeNode(grammarAccess.getTypeAccess().getTypeAttributesTypeAttributeParserRuleCall_6_0());
             	    				
-            	    pushFollow(FOLLOW_10);
-            	    lv_typeAttributes_7_0=ruleTypeAttribute();
+            	    pushFollow(FOLLOW_11);
+            	    lv_typeAttributes_8_0=ruleTypeAttribute();
 
             	    state._fsp--;
 
@@ -644,7 +650,7 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
             	    					add(
             	    						current,
             	    						"typeAttributes",
-            	    						lv_typeAttributes_7_0,
+            	    						lv_typeAttributes_8_0,
             	    						"de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.TypeAttribute");
             	    					afterParserOrEnumRuleCall();
             	    				
@@ -660,9 +666,9 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_8=(Token)match(input,17,FOLLOW_2); 
+            otherlv_9=(Token)match(input,18,FOLLOW_2); 
 
-            			newLeafNode(otherlv_8, grammarAccess.getTypeAccess().getRightParenthesisKeyword_6());
+            			newLeafNode(otherlv_9, grammarAccess.getTypeAccess().getRightParenthesisKeyword_7());
             		
 
             }
@@ -687,7 +693,7 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTypeAttribute"
-    // InternalRentalSystem.g:308:1: entryRuleTypeAttribute returns [EObject current=null] : iv_ruleTypeAttribute= ruleTypeAttribute EOF ;
+    // InternalRentalSystem.g:312:1: entryRuleTypeAttribute returns [EObject current=null] : iv_ruleTypeAttribute= ruleTypeAttribute EOF ;
     public final EObject entryRuleTypeAttribute() throws RecognitionException {
         EObject current = null;
 
@@ -695,8 +701,8 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalRentalSystem.g:308:54: (iv_ruleTypeAttribute= ruleTypeAttribute EOF )
-            // InternalRentalSystem.g:309:2: iv_ruleTypeAttribute= ruleTypeAttribute EOF
+            // InternalRentalSystem.g:312:54: (iv_ruleTypeAttribute= ruleTypeAttribute EOF )
+            // InternalRentalSystem.g:313:2: iv_ruleTypeAttribute= ruleTypeAttribute EOF
             {
              newCompositeNode(grammarAccess.getTypeAttributeRule()); 
             pushFollow(FOLLOW_1);
@@ -723,37 +729,38 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTypeAttribute"
-    // InternalRentalSystem.g:315:1: ruleTypeAttribute returns [EObject current=null] : (otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' ( (lv_ofType_3_0= ruleOfType ) ) ) ;
+    // InternalRentalSystem.g:319:1: ruleTypeAttribute returns [EObject current=null] : (otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' ( (lv_value_3_0= RULE_STRING ) ) ( (lv_ofType_4_0= ruleOfType ) ) ) ;
     public final EObject ruleTypeAttribute() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token lv_name_1_0=null;
         Token otherlv_2=null;
-        Enumerator lv_ofType_3_0 = null;
+        Token lv_value_3_0=null;
+        Enumerator lv_ofType_4_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalRentalSystem.g:321:2: ( (otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' ( (lv_ofType_3_0= ruleOfType ) ) ) )
-            // InternalRentalSystem.g:322:2: (otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' ( (lv_ofType_3_0= ruleOfType ) ) )
+            // InternalRentalSystem.g:325:2: ( (otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' ( (lv_value_3_0= RULE_STRING ) ) ( (lv_ofType_4_0= ruleOfType ) ) ) )
+            // InternalRentalSystem.g:326:2: (otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' ( (lv_value_3_0= RULE_STRING ) ) ( (lv_ofType_4_0= ruleOfType ) ) )
             {
-            // InternalRentalSystem.g:322:2: (otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' ( (lv_ofType_3_0= ruleOfType ) ) )
-            // InternalRentalSystem.g:323:3: otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' ( (lv_ofType_3_0= ruleOfType ) )
+            // InternalRentalSystem.g:326:2: (otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' ( (lv_value_3_0= RULE_STRING ) ) ( (lv_ofType_4_0= ruleOfType ) ) )
+            // InternalRentalSystem.g:327:3: otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' ( (lv_value_3_0= RULE_STRING ) ) ( (lv_ofType_4_0= ruleOfType ) )
             {
-            otherlv_0=(Token)match(input,18,FOLLOW_3); 
+            otherlv_0=(Token)match(input,19,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getTypeAttributeAccess().getTextKeyword_0());
             		
-            // InternalRentalSystem.g:327:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalRentalSystem.g:328:4: (lv_name_1_0= RULE_ID )
+            // InternalRentalSystem.g:331:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalRentalSystem.g:332:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalRentalSystem.g:328:4: (lv_name_1_0= RULE_ID )
-            // InternalRentalSystem.g:329:5: lv_name_1_0= RULE_ID
+            // InternalRentalSystem.g:332:4: (lv_name_1_0= RULE_ID )
+            // InternalRentalSystem.g:333:5: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_11); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_12); 
 
             					newLeafNode(lv_name_1_0, grammarAccess.getTypeAttributeAccess().getNameIDTerminalRuleCall_1_0());
             				
@@ -773,21 +780,47 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,19,FOLLOW_12); 
+            otherlv_2=(Token)match(input,20,FOLLOW_4); 
 
             			newLeafNode(otherlv_2, grammarAccess.getTypeAttributeAccess().getEqualsSignKeyword_2());
             		
-            // InternalRentalSystem.g:349:3: ( (lv_ofType_3_0= ruleOfType ) )
-            // InternalRentalSystem.g:350:4: (lv_ofType_3_0= ruleOfType )
+            // InternalRentalSystem.g:353:3: ( (lv_value_3_0= RULE_STRING ) )
+            // InternalRentalSystem.g:354:4: (lv_value_3_0= RULE_STRING )
             {
-            // InternalRentalSystem.g:350:4: (lv_ofType_3_0= ruleOfType )
-            // InternalRentalSystem.g:351:5: lv_ofType_3_0= ruleOfType
+            // InternalRentalSystem.g:354:4: (lv_value_3_0= RULE_STRING )
+            // InternalRentalSystem.g:355:5: lv_value_3_0= RULE_STRING
+            {
+            lv_value_3_0=(Token)match(input,RULE_STRING,FOLLOW_13); 
+
+            					newLeafNode(lv_value_3_0, grammarAccess.getTypeAttributeAccess().getValueSTRINGTerminalRuleCall_3_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getTypeAttributeRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"value",
+            						lv_value_3_0,
+            						"org.eclipse.xtext.common.Terminals.STRING");
+            				
+
+            }
+
+
+            }
+
+            // InternalRentalSystem.g:371:3: ( (lv_ofType_4_0= ruleOfType ) )
+            // InternalRentalSystem.g:372:4: (lv_ofType_4_0= ruleOfType )
+            {
+            // InternalRentalSystem.g:372:4: (lv_ofType_4_0= ruleOfType )
+            // InternalRentalSystem.g:373:5: lv_ofType_4_0= ruleOfType
             {
 
-            					newCompositeNode(grammarAccess.getTypeAttributeAccess().getOfTypeOfTypeEnumRuleCall_3_0());
+            					newCompositeNode(grammarAccess.getTypeAttributeAccess().getOfTypeOfTypeEnumRuleCall_4_0());
             				
             pushFollow(FOLLOW_2);
-            lv_ofType_3_0=ruleOfType();
+            lv_ofType_4_0=ruleOfType();
 
             state._fsp--;
 
@@ -798,7 +831,7 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"ofType",
-            						lv_ofType_3_0,
+            						lv_ofType_4_0,
             						"de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.OfType");
             					afterParserOrEnumRuleCall();
             				
@@ -830,128 +863,8 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleTypeAttribute"
 
 
-    // $ANTLR start "entryRuleQualifiedName"
-    // InternalRentalSystem.g:372:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
-    public final String entryRuleQualifiedName() throws RecognitionException {
-        String current = null;
-
-        AntlrDatatypeRuleToken iv_ruleQualifiedName = null;
-
-
-        try {
-            // InternalRentalSystem.g:372:53: (iv_ruleQualifiedName= ruleQualifiedName EOF )
-            // InternalRentalSystem.g:373:2: iv_ruleQualifiedName= ruleQualifiedName EOF
-            {
-             newCompositeNode(grammarAccess.getQualifiedNameRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleQualifiedName=ruleQualifiedName();
-
-            state._fsp--;
-
-             current =iv_ruleQualifiedName.getText(); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleQualifiedName"
-
-
-    // $ANTLR start "ruleQualifiedName"
-    // InternalRentalSystem.g:379:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
-    public final AntlrDatatypeRuleToken ruleQualifiedName() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
-
-        Token this_ID_0=null;
-        Token kw=null;
-        Token this_ID_2=null;
-
-
-        	enterRule();
-
-        try {
-            // InternalRentalSystem.g:385:2: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
-            // InternalRentalSystem.g:386:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
-            {
-            // InternalRentalSystem.g:386:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
-            // InternalRentalSystem.g:387:3: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
-            {
-            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_13); 
-
-            			current.merge(this_ID_0);
-            		
-
-            			newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0());
-            		
-            // InternalRentalSystem.g:394:3: (kw= '.' this_ID_2= RULE_ID )*
-            loop6:
-            do {
-                int alt6=2;
-                int LA6_0 = input.LA(1);
-
-                if ( (LA6_0==20) ) {
-                    alt6=1;
-                }
-
-
-                switch (alt6) {
-            	case 1 :
-            	    // InternalRentalSystem.g:395:4: kw= '.' this_ID_2= RULE_ID
-            	    {
-            	    kw=(Token)match(input,20,FOLLOW_3); 
-
-            	    				current.merge(kw);
-            	    				newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0());
-            	    			
-            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_13); 
-
-            	    				current.merge(this_ID_2);
-            	    			
-
-            	    				newLeafNode(this_ID_2, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1());
-            	    			
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop6;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleQualifiedName"
-
-
     // $ANTLR start "entryRuleDeal"
-    // InternalRentalSystem.g:412:1: entryRuleDeal returns [EObject current=null] : iv_ruleDeal= ruleDeal EOF ;
+    // InternalRentalSystem.g:394:1: entryRuleDeal returns [EObject current=null] : iv_ruleDeal= ruleDeal EOF ;
     public final EObject entryRuleDeal() throws RecognitionException {
         EObject current = null;
 
@@ -959,8 +872,8 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalRentalSystem.g:412:45: (iv_ruleDeal= ruleDeal EOF )
-            // InternalRentalSystem.g:413:2: iv_ruleDeal= ruleDeal EOF
+            // InternalRentalSystem.g:394:45: (iv_ruleDeal= ruleDeal EOF )
+            // InternalRentalSystem.g:395:2: iv_ruleDeal= ruleDeal EOF
             {
              newCompositeNode(grammarAccess.getDealRule()); 
             pushFollow(FOLLOW_1);
@@ -987,7 +900,7 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDeal"
-    // InternalRentalSystem.g:419:1: ruleDeal returns [EObject current=null] : (otherlv_0= 'Deal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (otherlv_3= RULE_ID ) ) ( (otherlv_4= RULE_ID ) ) ( (lv_attributes_5_0= ruleAttribute ) )* otherlv_6= ')' ) ;
+    // InternalRentalSystem.g:401:1: ruleDeal returns [EObject current=null] : (otherlv_0= 'Deal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' otherlv_3= 'customer' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'rentalType' ( (otherlv_6= RULE_ID ) ) ( (lv_attributes_7_0= ruleAttribute ) )* otherlv_8= ')' ) ;
     public final EObject ruleDeal() throws RecognitionException {
         EObject current = null;
 
@@ -996,29 +909,31 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
         Token otherlv_2=null;
         Token otherlv_3=null;
         Token otherlv_4=null;
+        Token otherlv_5=null;
         Token otherlv_6=null;
-        EObject lv_attributes_5_0 = null;
+        Token otherlv_8=null;
+        EObject lv_attributes_7_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalRentalSystem.g:425:2: ( (otherlv_0= 'Deal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (otherlv_3= RULE_ID ) ) ( (otherlv_4= RULE_ID ) ) ( (lv_attributes_5_0= ruleAttribute ) )* otherlv_6= ')' ) )
-            // InternalRentalSystem.g:426:2: (otherlv_0= 'Deal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (otherlv_3= RULE_ID ) ) ( (otherlv_4= RULE_ID ) ) ( (lv_attributes_5_0= ruleAttribute ) )* otherlv_6= ')' )
+            // InternalRentalSystem.g:407:2: ( (otherlv_0= 'Deal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' otherlv_3= 'customer' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'rentalType' ( (otherlv_6= RULE_ID ) ) ( (lv_attributes_7_0= ruleAttribute ) )* otherlv_8= ')' ) )
+            // InternalRentalSystem.g:408:2: (otherlv_0= 'Deal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' otherlv_3= 'customer' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'rentalType' ( (otherlv_6= RULE_ID ) ) ( (lv_attributes_7_0= ruleAttribute ) )* otherlv_8= ')' )
             {
-            // InternalRentalSystem.g:426:2: (otherlv_0= 'Deal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (otherlv_3= RULE_ID ) ) ( (otherlv_4= RULE_ID ) ) ( (lv_attributes_5_0= ruleAttribute ) )* otherlv_6= ')' )
-            // InternalRentalSystem.g:427:3: otherlv_0= 'Deal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (otherlv_3= RULE_ID ) ) ( (otherlv_4= RULE_ID ) ) ( (lv_attributes_5_0= ruleAttribute ) )* otherlv_6= ')'
+            // InternalRentalSystem.g:408:2: (otherlv_0= 'Deal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' otherlv_3= 'customer' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'rentalType' ( (otherlv_6= RULE_ID ) ) ( (lv_attributes_7_0= ruleAttribute ) )* otherlv_8= ')' )
+            // InternalRentalSystem.g:409:3: otherlv_0= 'Deal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' otherlv_3= 'customer' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'rentalType' ( (otherlv_6= RULE_ID ) ) ( (lv_attributes_7_0= ruleAttribute ) )* otherlv_8= ')'
             {
             otherlv_0=(Token)match(input,21,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getDealAccess().getDealKeyword_0());
             		
-            // InternalRentalSystem.g:431:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalRentalSystem.g:432:4: (lv_name_1_0= RULE_ID )
+            // InternalRentalSystem.g:413:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalRentalSystem.g:414:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalRentalSystem.g:432:4: (lv_name_1_0= RULE_ID )
-            // InternalRentalSystem.g:433:5: lv_name_1_0= RULE_ID
+            // InternalRentalSystem.g:414:4: (lv_name_1_0= RULE_ID )
+            // InternalRentalSystem.g:415:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_9); 
 
@@ -1040,45 +955,28 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,16,FOLLOW_3); 
+            otherlv_2=(Token)match(input,16,FOLLOW_14); 
 
             			newLeafNode(otherlv_2, grammarAccess.getDealAccess().getLeftParenthesisKeyword_2());
             		
-            // InternalRentalSystem.g:453:3: ( (otherlv_3= RULE_ID ) )
-            // InternalRentalSystem.g:454:4: (otherlv_3= RULE_ID )
+            otherlv_3=(Token)match(input,22,FOLLOW_3); 
+
+            			newLeafNode(otherlv_3, grammarAccess.getDealAccess().getCustomerKeyword_3());
+            		
+            // InternalRentalSystem.g:439:3: ( (otherlv_4= RULE_ID ) )
+            // InternalRentalSystem.g:440:4: (otherlv_4= RULE_ID )
             {
-            // InternalRentalSystem.g:454:4: (otherlv_3= RULE_ID )
-            // InternalRentalSystem.g:455:5: otherlv_3= RULE_ID
-            {
-
-            					if (current==null) {
-            						current = createModelElement(grammarAccess.getDealRule());
-            					}
-            				
-            otherlv_3=(Token)match(input,RULE_ID,FOLLOW_3); 
-
-            					newLeafNode(otherlv_3, grammarAccess.getDealAccess().getCustomerCustomerCrossReference_3_0());
-            				
-
-            }
-
-
-            }
-
-            // InternalRentalSystem.g:466:3: ( (otherlv_4= RULE_ID ) )
-            // InternalRentalSystem.g:467:4: (otherlv_4= RULE_ID )
-            {
-            // InternalRentalSystem.g:467:4: (otherlv_4= RULE_ID )
-            // InternalRentalSystem.g:468:5: otherlv_4= RULE_ID
+            // InternalRentalSystem.g:440:4: (otherlv_4= RULE_ID )
+            // InternalRentalSystem.g:441:5: otherlv_4= RULE_ID
             {
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getDealRule());
             					}
             				
-            otherlv_4=(Token)match(input,RULE_ID,FOLLOW_10); 
+            otherlv_4=(Token)match(input,RULE_ID,FOLLOW_15); 
 
-            					newLeafNode(otherlv_4, grammarAccess.getDealAccess().getRentalTypeTypeCrossReference_4_0());
+            					newLeafNode(otherlv_4, grammarAccess.getDealAccess().getCustomerCustomerCrossReference_4_0());
             				
 
             }
@@ -1086,29 +984,54 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalRentalSystem.g:479:3: ( (lv_attributes_5_0= ruleAttribute ) )*
-            loop7:
+            otherlv_5=(Token)match(input,23,FOLLOW_3); 
+
+            			newLeafNode(otherlv_5, grammarAccess.getDealAccess().getRentalTypeKeyword_5());
+            		
+            // InternalRentalSystem.g:456:3: ( (otherlv_6= RULE_ID ) )
+            // InternalRentalSystem.g:457:4: (otherlv_6= RULE_ID )
+            {
+            // InternalRentalSystem.g:457:4: (otherlv_6= RULE_ID )
+            // InternalRentalSystem.g:458:5: otherlv_6= RULE_ID
+            {
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getDealRule());
+            					}
+            				
+            otherlv_6=(Token)match(input,RULE_ID,FOLLOW_11); 
+
+            					newLeafNode(otherlv_6, grammarAccess.getDealAccess().getRentalTypeTypeCrossReference_6_0());
+            				
+
+            }
+
+
+            }
+
+            // InternalRentalSystem.g:469:3: ( (lv_attributes_7_0= ruleAttribute ) )*
+            loop6:
             do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
+                int alt6=2;
+                int LA6_0 = input.LA(1);
 
-                if ( (LA7_0==18) ) {
-                    alt7=1;
+                if ( (LA6_0==19) ) {
+                    alt6=1;
                 }
 
 
-                switch (alt7) {
+                switch (alt6) {
             	case 1 :
-            	    // InternalRentalSystem.g:480:4: (lv_attributes_5_0= ruleAttribute )
+            	    // InternalRentalSystem.g:470:4: (lv_attributes_7_0= ruleAttribute )
             	    {
-            	    // InternalRentalSystem.g:480:4: (lv_attributes_5_0= ruleAttribute )
-            	    // InternalRentalSystem.g:481:5: lv_attributes_5_0= ruleAttribute
+            	    // InternalRentalSystem.g:470:4: (lv_attributes_7_0= ruleAttribute )
+            	    // InternalRentalSystem.g:471:5: lv_attributes_7_0= ruleAttribute
             	    {
 
-            	    					newCompositeNode(grammarAccess.getDealAccess().getAttributesAttributeParserRuleCall_5_0());
+            	    					newCompositeNode(grammarAccess.getDealAccess().getAttributesAttributeParserRuleCall_7_0());
             	    				
-            	    pushFollow(FOLLOW_10);
-            	    lv_attributes_5_0=ruleAttribute();
+            	    pushFollow(FOLLOW_11);
+            	    lv_attributes_7_0=ruleAttribute();
 
             	    state._fsp--;
 
@@ -1119,7 +1042,7 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
             	    					add(
             	    						current,
             	    						"attributes",
-            	    						lv_attributes_5_0,
+            	    						lv_attributes_7_0,
             	    						"de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.Attribute");
             	    					afterParserOrEnumRuleCall();
             	    				
@@ -1131,13 +1054,13 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop7;
+            	    break loop6;
                 }
             } while (true);
 
-            otherlv_6=(Token)match(input,17,FOLLOW_2); 
+            otherlv_8=(Token)match(input,18,FOLLOW_2); 
 
-            			newLeafNode(otherlv_6, grammarAccess.getDealAccess().getRightParenthesisKeyword_6());
+            			newLeafNode(otherlv_8, grammarAccess.getDealAccess().getRightParenthesisKeyword_8());
             		
 
             }
@@ -1162,7 +1085,7 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCustomer"
-    // InternalRentalSystem.g:506:1: entryRuleCustomer returns [EObject current=null] : iv_ruleCustomer= ruleCustomer EOF ;
+    // InternalRentalSystem.g:496:1: entryRuleCustomer returns [EObject current=null] : iv_ruleCustomer= ruleCustomer EOF ;
     public final EObject entryRuleCustomer() throws RecognitionException {
         EObject current = null;
 
@@ -1170,8 +1093,8 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalRentalSystem.g:506:49: (iv_ruleCustomer= ruleCustomer EOF )
-            // InternalRentalSystem.g:507:2: iv_ruleCustomer= ruleCustomer EOF
+            // InternalRentalSystem.g:496:49: (iv_ruleCustomer= ruleCustomer EOF )
+            // InternalRentalSystem.g:497:2: iv_ruleCustomer= ruleCustomer EOF
             {
              newCompositeNode(grammarAccess.getCustomerRule()); 
             pushFollow(FOLLOW_1);
@@ -1198,7 +1121,7 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCustomer"
-    // InternalRentalSystem.g:513:1: ruleCustomer returns [EObject current=null] : (otherlv_0= 'customer' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_attributes_3_0= ruleAttribute ) )* otherlv_4= ')' ) ;
+    // InternalRentalSystem.g:503:1: ruleCustomer returns [EObject current=null] : (otherlv_0= 'customer' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_attributes_3_0= ruleAttribute ) )* otherlv_4= ')' ) ;
     public final EObject ruleCustomer() throws RecognitionException {
         EObject current = null;
 
@@ -1213,21 +1136,21 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalRentalSystem.g:519:2: ( (otherlv_0= 'customer' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_attributes_3_0= ruleAttribute ) )* otherlv_4= ')' ) )
-            // InternalRentalSystem.g:520:2: (otherlv_0= 'customer' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_attributes_3_0= ruleAttribute ) )* otherlv_4= ')' )
+            // InternalRentalSystem.g:509:2: ( (otherlv_0= 'customer' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_attributes_3_0= ruleAttribute ) )* otherlv_4= ')' ) )
+            // InternalRentalSystem.g:510:2: (otherlv_0= 'customer' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_attributes_3_0= ruleAttribute ) )* otherlv_4= ')' )
             {
-            // InternalRentalSystem.g:520:2: (otherlv_0= 'customer' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_attributes_3_0= ruleAttribute ) )* otherlv_4= ')' )
-            // InternalRentalSystem.g:521:3: otherlv_0= 'customer' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_attributes_3_0= ruleAttribute ) )* otherlv_4= ')'
+            // InternalRentalSystem.g:510:2: (otherlv_0= 'customer' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_attributes_3_0= ruleAttribute ) )* otherlv_4= ')' )
+            // InternalRentalSystem.g:511:3: otherlv_0= 'customer' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_attributes_3_0= ruleAttribute ) )* otherlv_4= ')'
             {
             otherlv_0=(Token)match(input,22,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getCustomerAccess().getCustomerKeyword_0());
             		
-            // InternalRentalSystem.g:525:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalRentalSystem.g:526:4: (lv_name_1_0= RULE_ID )
+            // InternalRentalSystem.g:515:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalRentalSystem.g:516:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalRentalSystem.g:526:4: (lv_name_1_0= RULE_ID )
-            // InternalRentalSystem.g:527:5: lv_name_1_0= RULE_ID
+            // InternalRentalSystem.g:516:4: (lv_name_1_0= RULE_ID )
+            // InternalRentalSystem.g:517:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_9); 
 
@@ -1249,32 +1172,32 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,16,FOLLOW_10); 
+            otherlv_2=(Token)match(input,16,FOLLOW_11); 
 
             			newLeafNode(otherlv_2, grammarAccess.getCustomerAccess().getLeftParenthesisKeyword_2());
             		
-            // InternalRentalSystem.g:547:3: ( (lv_attributes_3_0= ruleAttribute ) )*
-            loop8:
+            // InternalRentalSystem.g:537:3: ( (lv_attributes_3_0= ruleAttribute ) )*
+            loop7:
             do {
-                int alt8=2;
-                int LA8_0 = input.LA(1);
+                int alt7=2;
+                int LA7_0 = input.LA(1);
 
-                if ( (LA8_0==18) ) {
-                    alt8=1;
+                if ( (LA7_0==19) ) {
+                    alt7=1;
                 }
 
 
-                switch (alt8) {
+                switch (alt7) {
             	case 1 :
-            	    // InternalRentalSystem.g:548:4: (lv_attributes_3_0= ruleAttribute )
+            	    // InternalRentalSystem.g:538:4: (lv_attributes_3_0= ruleAttribute )
             	    {
-            	    // InternalRentalSystem.g:548:4: (lv_attributes_3_0= ruleAttribute )
-            	    // InternalRentalSystem.g:549:5: lv_attributes_3_0= ruleAttribute
+            	    // InternalRentalSystem.g:538:4: (lv_attributes_3_0= ruleAttribute )
+            	    // InternalRentalSystem.g:539:5: lv_attributes_3_0= ruleAttribute
             	    {
 
             	    					newCompositeNode(grammarAccess.getCustomerAccess().getAttributesAttributeParserRuleCall_3_0());
             	    				
-            	    pushFollow(FOLLOW_10);
+            	    pushFollow(FOLLOW_11);
             	    lv_attributes_3_0=ruleAttribute();
 
             	    state._fsp--;
@@ -1298,11 +1221,11 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop8;
+            	    break loop7;
                 }
             } while (true);
 
-            otherlv_4=(Token)match(input,17,FOLLOW_2); 
+            otherlv_4=(Token)match(input,18,FOLLOW_2); 
 
             			newLeafNode(otherlv_4, grammarAccess.getCustomerAccess().getRightParenthesisKeyword_4());
             		
@@ -1329,7 +1252,7 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAttribute"
-    // InternalRentalSystem.g:574:1: entryRuleAttribute returns [EObject current=null] : iv_ruleAttribute= ruleAttribute EOF ;
+    // InternalRentalSystem.g:564:1: entryRuleAttribute returns [EObject current=null] : iv_ruleAttribute= ruleAttribute EOF ;
     public final EObject entryRuleAttribute() throws RecognitionException {
         EObject current = null;
 
@@ -1337,8 +1260,8 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalRentalSystem.g:574:50: (iv_ruleAttribute= ruleAttribute EOF )
-            // InternalRentalSystem.g:575:2: iv_ruleAttribute= ruleAttribute EOF
+            // InternalRentalSystem.g:564:50: (iv_ruleAttribute= ruleAttribute EOF )
+            // InternalRentalSystem.g:565:2: iv_ruleAttribute= ruleAttribute EOF
             {
              newCompositeNode(grammarAccess.getAttributeRule()); 
             pushFollow(FOLLOW_1);
@@ -1365,7 +1288,7 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAttribute"
-    // InternalRentalSystem.g:581:1: ruleAttribute returns [EObject current=null] : (otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) ( (lv_value_2_0= RULE_STRING ) ) ) ;
+    // InternalRentalSystem.g:571:1: ruleAttribute returns [EObject current=null] : (otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) ( (lv_value_2_0= RULE_STRING ) ) ) ;
     public final EObject ruleAttribute() throws RecognitionException {
         EObject current = null;
 
@@ -1377,21 +1300,21 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalRentalSystem.g:587:2: ( (otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) ( (lv_value_2_0= RULE_STRING ) ) ) )
-            // InternalRentalSystem.g:588:2: (otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) ( (lv_value_2_0= RULE_STRING ) ) )
+            // InternalRentalSystem.g:577:2: ( (otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) ( (lv_value_2_0= RULE_STRING ) ) ) )
+            // InternalRentalSystem.g:578:2: (otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) ( (lv_value_2_0= RULE_STRING ) ) )
             {
-            // InternalRentalSystem.g:588:2: (otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) ( (lv_value_2_0= RULE_STRING ) ) )
-            // InternalRentalSystem.g:589:3: otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) ( (lv_value_2_0= RULE_STRING ) )
+            // InternalRentalSystem.g:578:2: (otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) ( (lv_value_2_0= RULE_STRING ) ) )
+            // InternalRentalSystem.g:579:3: otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) ( (lv_value_2_0= RULE_STRING ) )
             {
-            otherlv_0=(Token)match(input,18,FOLLOW_3); 
+            otherlv_0=(Token)match(input,19,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getAttributeAccess().getTextKeyword_0());
             		
-            // InternalRentalSystem.g:593:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalRentalSystem.g:594:4: (lv_name_1_0= RULE_ID )
+            // InternalRentalSystem.g:583:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalRentalSystem.g:584:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalRentalSystem.g:594:4: (lv_name_1_0= RULE_ID )
-            // InternalRentalSystem.g:595:5: lv_name_1_0= RULE_ID
+            // InternalRentalSystem.g:584:4: (lv_name_1_0= RULE_ID )
+            // InternalRentalSystem.g:585:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_4); 
 
@@ -1413,11 +1336,11 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalRentalSystem.g:611:3: ( (lv_value_2_0= RULE_STRING ) )
-            // InternalRentalSystem.g:612:4: (lv_value_2_0= RULE_STRING )
+            // InternalRentalSystem.g:601:3: ( (lv_value_2_0= RULE_STRING ) )
+            // InternalRentalSystem.g:602:4: (lv_value_2_0= RULE_STRING )
             {
-            // InternalRentalSystem.g:612:4: (lv_value_2_0= RULE_STRING )
-            // InternalRentalSystem.g:613:5: lv_value_2_0= RULE_STRING
+            // InternalRentalSystem.g:602:4: (lv_value_2_0= RULE_STRING )
+            // InternalRentalSystem.g:603:5: lv_value_2_0= RULE_STRING
             {
             lv_value_2_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -1462,7 +1385,7 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOfType"
-    // InternalRentalSystem.g:633:1: ruleOfType returns [Enumerator current=null] : ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'string' ) | (enumLiteral_2= 'date' ) | (enumLiteral_3= 'decimal' ) | (enumLiteral_4= 'double' ) | (enumLiteral_5= 'day' ) | (enumLiteral_6= 'week' ) | (enumLiteral_7= 'month' ) | (enumLiteral_8= 'email' ) | (enumLiteral_9= 'mobile' ) | (enumLiteral_10= 'currency' ) ) ;
+    // InternalRentalSystem.g:623:1: ruleOfType returns [Enumerator current=null] : ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'string' ) | (enumLiteral_2= 'date' ) | (enumLiteral_3= 'decimal' ) | (enumLiteral_4= 'double' ) | (enumLiteral_5= 'day' ) | (enumLiteral_6= 'week' ) | (enumLiteral_7= 'month' ) | (enumLiteral_8= 'email' ) | (enumLiteral_9= 'mobile' ) | (enumLiteral_10= 'currency' ) ) ;
     public final Enumerator ruleOfType() throws RecognitionException {
         Enumerator current = null;
 
@@ -1482,82 +1405,82 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalRentalSystem.g:639:2: ( ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'string' ) | (enumLiteral_2= 'date' ) | (enumLiteral_3= 'decimal' ) | (enumLiteral_4= 'double' ) | (enumLiteral_5= 'day' ) | (enumLiteral_6= 'week' ) | (enumLiteral_7= 'month' ) | (enumLiteral_8= 'email' ) | (enumLiteral_9= 'mobile' ) | (enumLiteral_10= 'currency' ) ) )
-            // InternalRentalSystem.g:640:2: ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'string' ) | (enumLiteral_2= 'date' ) | (enumLiteral_3= 'decimal' ) | (enumLiteral_4= 'double' ) | (enumLiteral_5= 'day' ) | (enumLiteral_6= 'week' ) | (enumLiteral_7= 'month' ) | (enumLiteral_8= 'email' ) | (enumLiteral_9= 'mobile' ) | (enumLiteral_10= 'currency' ) )
+            // InternalRentalSystem.g:629:2: ( ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'string' ) | (enumLiteral_2= 'date' ) | (enumLiteral_3= 'decimal' ) | (enumLiteral_4= 'double' ) | (enumLiteral_5= 'day' ) | (enumLiteral_6= 'week' ) | (enumLiteral_7= 'month' ) | (enumLiteral_8= 'email' ) | (enumLiteral_9= 'mobile' ) | (enumLiteral_10= 'currency' ) ) )
+            // InternalRentalSystem.g:630:2: ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'string' ) | (enumLiteral_2= 'date' ) | (enumLiteral_3= 'decimal' ) | (enumLiteral_4= 'double' ) | (enumLiteral_5= 'day' ) | (enumLiteral_6= 'week' ) | (enumLiteral_7= 'month' ) | (enumLiteral_8= 'email' ) | (enumLiteral_9= 'mobile' ) | (enumLiteral_10= 'currency' ) )
             {
-            // InternalRentalSystem.g:640:2: ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'string' ) | (enumLiteral_2= 'date' ) | (enumLiteral_3= 'decimal' ) | (enumLiteral_4= 'double' ) | (enumLiteral_5= 'day' ) | (enumLiteral_6= 'week' ) | (enumLiteral_7= 'month' ) | (enumLiteral_8= 'email' ) | (enumLiteral_9= 'mobile' ) | (enumLiteral_10= 'currency' ) )
-            int alt9=11;
+            // InternalRentalSystem.g:630:2: ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'string' ) | (enumLiteral_2= 'date' ) | (enumLiteral_3= 'decimal' ) | (enumLiteral_4= 'double' ) | (enumLiteral_5= 'day' ) | (enumLiteral_6= 'week' ) | (enumLiteral_7= 'month' ) | (enumLiteral_8= 'email' ) | (enumLiteral_9= 'mobile' ) | (enumLiteral_10= 'currency' ) )
+            int alt8=11;
             switch ( input.LA(1) ) {
-            case 23:
-                {
-                alt9=1;
-                }
-                break;
             case 24:
                 {
-                alt9=2;
+                alt8=1;
                 }
                 break;
             case 25:
                 {
-                alt9=3;
+                alt8=2;
                 }
                 break;
             case 26:
                 {
-                alt9=4;
+                alt8=3;
                 }
                 break;
             case 27:
                 {
-                alt9=5;
+                alt8=4;
                 }
                 break;
             case 28:
                 {
-                alt9=6;
+                alt8=5;
                 }
                 break;
             case 29:
                 {
-                alt9=7;
+                alt8=6;
                 }
                 break;
             case 30:
                 {
-                alt9=8;
+                alt8=7;
                 }
                 break;
             case 31:
                 {
-                alt9=9;
+                alt8=8;
                 }
                 break;
             case 32:
                 {
-                alt9=10;
+                alt8=9;
                 }
                 break;
             case 33:
                 {
-                alt9=11;
+                alt8=10;
+                }
+                break;
+            case 34:
+                {
+                alt8=11;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 9, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt9) {
+            switch (alt8) {
                 case 1 :
-                    // InternalRentalSystem.g:641:3: (enumLiteral_0= 'int' )
+                    // InternalRentalSystem.g:631:3: (enumLiteral_0= 'int' )
                     {
-                    // InternalRentalSystem.g:641:3: (enumLiteral_0= 'int' )
-                    // InternalRentalSystem.g:642:4: enumLiteral_0= 'int'
+                    // InternalRentalSystem.g:631:3: (enumLiteral_0= 'int' )
+                    // InternalRentalSystem.g:632:4: enumLiteral_0= 'int'
                     {
-                    enumLiteral_0=(Token)match(input,23,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,24,FOLLOW_2); 
 
                     				current = grammarAccess.getOfTypeAccess().getIntEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getOfTypeAccess().getIntEnumLiteralDeclaration_0());
@@ -1569,12 +1492,12 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalRentalSystem.g:649:3: (enumLiteral_1= 'string' )
+                    // InternalRentalSystem.g:639:3: (enumLiteral_1= 'string' )
                     {
-                    // InternalRentalSystem.g:649:3: (enumLiteral_1= 'string' )
-                    // InternalRentalSystem.g:650:4: enumLiteral_1= 'string'
+                    // InternalRentalSystem.g:639:3: (enumLiteral_1= 'string' )
+                    // InternalRentalSystem.g:640:4: enumLiteral_1= 'string'
                     {
-                    enumLiteral_1=(Token)match(input,24,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,25,FOLLOW_2); 
 
                     				current = grammarAccess.getOfTypeAccess().getStringEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getOfTypeAccess().getStringEnumLiteralDeclaration_1());
@@ -1586,12 +1509,12 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalRentalSystem.g:657:3: (enumLiteral_2= 'date' )
+                    // InternalRentalSystem.g:647:3: (enumLiteral_2= 'date' )
                     {
-                    // InternalRentalSystem.g:657:3: (enumLiteral_2= 'date' )
-                    // InternalRentalSystem.g:658:4: enumLiteral_2= 'date'
+                    // InternalRentalSystem.g:647:3: (enumLiteral_2= 'date' )
+                    // InternalRentalSystem.g:648:4: enumLiteral_2= 'date'
                     {
-                    enumLiteral_2=(Token)match(input,25,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,26,FOLLOW_2); 
 
                     				current = grammarAccess.getOfTypeAccess().getDateEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getOfTypeAccess().getDateEnumLiteralDeclaration_2());
@@ -1603,12 +1526,12 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalRentalSystem.g:665:3: (enumLiteral_3= 'decimal' )
+                    // InternalRentalSystem.g:655:3: (enumLiteral_3= 'decimal' )
                     {
-                    // InternalRentalSystem.g:665:3: (enumLiteral_3= 'decimal' )
-                    // InternalRentalSystem.g:666:4: enumLiteral_3= 'decimal'
+                    // InternalRentalSystem.g:655:3: (enumLiteral_3= 'decimal' )
+                    // InternalRentalSystem.g:656:4: enumLiteral_3= 'decimal'
                     {
-                    enumLiteral_3=(Token)match(input,26,FOLLOW_2); 
+                    enumLiteral_3=(Token)match(input,27,FOLLOW_2); 
 
                     				current = grammarAccess.getOfTypeAccess().getDecimalEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_3, grammarAccess.getOfTypeAccess().getDecimalEnumLiteralDeclaration_3());
@@ -1620,12 +1543,12 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalRentalSystem.g:673:3: (enumLiteral_4= 'double' )
+                    // InternalRentalSystem.g:663:3: (enumLiteral_4= 'double' )
                     {
-                    // InternalRentalSystem.g:673:3: (enumLiteral_4= 'double' )
-                    // InternalRentalSystem.g:674:4: enumLiteral_4= 'double'
+                    // InternalRentalSystem.g:663:3: (enumLiteral_4= 'double' )
+                    // InternalRentalSystem.g:664:4: enumLiteral_4= 'double'
                     {
-                    enumLiteral_4=(Token)match(input,27,FOLLOW_2); 
+                    enumLiteral_4=(Token)match(input,28,FOLLOW_2); 
 
                     				current = grammarAccess.getOfTypeAccess().getDoubleEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_4, grammarAccess.getOfTypeAccess().getDoubleEnumLiteralDeclaration_4());
@@ -1637,12 +1560,12 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalRentalSystem.g:681:3: (enumLiteral_5= 'day' )
+                    // InternalRentalSystem.g:671:3: (enumLiteral_5= 'day' )
                     {
-                    // InternalRentalSystem.g:681:3: (enumLiteral_5= 'day' )
-                    // InternalRentalSystem.g:682:4: enumLiteral_5= 'day'
+                    // InternalRentalSystem.g:671:3: (enumLiteral_5= 'day' )
+                    // InternalRentalSystem.g:672:4: enumLiteral_5= 'day'
                     {
-                    enumLiteral_5=(Token)match(input,28,FOLLOW_2); 
+                    enumLiteral_5=(Token)match(input,29,FOLLOW_2); 
 
                     				current = grammarAccess.getOfTypeAccess().getDayEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_5, grammarAccess.getOfTypeAccess().getDayEnumLiteralDeclaration_5());
@@ -1654,12 +1577,12 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalRentalSystem.g:689:3: (enumLiteral_6= 'week' )
+                    // InternalRentalSystem.g:679:3: (enumLiteral_6= 'week' )
                     {
-                    // InternalRentalSystem.g:689:3: (enumLiteral_6= 'week' )
-                    // InternalRentalSystem.g:690:4: enumLiteral_6= 'week'
+                    // InternalRentalSystem.g:679:3: (enumLiteral_6= 'week' )
+                    // InternalRentalSystem.g:680:4: enumLiteral_6= 'week'
                     {
-                    enumLiteral_6=(Token)match(input,29,FOLLOW_2); 
+                    enumLiteral_6=(Token)match(input,30,FOLLOW_2); 
 
                     				current = grammarAccess.getOfTypeAccess().getWeekEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_6, grammarAccess.getOfTypeAccess().getWeekEnumLiteralDeclaration_6());
@@ -1671,12 +1594,12 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // InternalRentalSystem.g:697:3: (enumLiteral_7= 'month' )
+                    // InternalRentalSystem.g:687:3: (enumLiteral_7= 'month' )
                     {
-                    // InternalRentalSystem.g:697:3: (enumLiteral_7= 'month' )
-                    // InternalRentalSystem.g:698:4: enumLiteral_7= 'month'
+                    // InternalRentalSystem.g:687:3: (enumLiteral_7= 'month' )
+                    // InternalRentalSystem.g:688:4: enumLiteral_7= 'month'
                     {
-                    enumLiteral_7=(Token)match(input,30,FOLLOW_2); 
+                    enumLiteral_7=(Token)match(input,31,FOLLOW_2); 
 
                     				current = grammarAccess.getOfTypeAccess().getMonthEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_7, grammarAccess.getOfTypeAccess().getMonthEnumLiteralDeclaration_7());
@@ -1688,12 +1611,12 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // InternalRentalSystem.g:705:3: (enumLiteral_8= 'email' )
+                    // InternalRentalSystem.g:695:3: (enumLiteral_8= 'email' )
                     {
-                    // InternalRentalSystem.g:705:3: (enumLiteral_8= 'email' )
-                    // InternalRentalSystem.g:706:4: enumLiteral_8= 'email'
+                    // InternalRentalSystem.g:695:3: (enumLiteral_8= 'email' )
+                    // InternalRentalSystem.g:696:4: enumLiteral_8= 'email'
                     {
-                    enumLiteral_8=(Token)match(input,31,FOLLOW_2); 
+                    enumLiteral_8=(Token)match(input,32,FOLLOW_2); 
 
                     				current = grammarAccess.getOfTypeAccess().getEMailEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_8, grammarAccess.getOfTypeAccess().getEMailEnumLiteralDeclaration_8());
@@ -1705,12 +1628,12 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 10 :
-                    // InternalRentalSystem.g:713:3: (enumLiteral_9= 'mobile' )
+                    // InternalRentalSystem.g:703:3: (enumLiteral_9= 'mobile' )
                     {
-                    // InternalRentalSystem.g:713:3: (enumLiteral_9= 'mobile' )
-                    // InternalRentalSystem.g:714:4: enumLiteral_9= 'mobile'
+                    // InternalRentalSystem.g:703:3: (enumLiteral_9= 'mobile' )
+                    // InternalRentalSystem.g:704:4: enumLiteral_9= 'mobile'
                     {
-                    enumLiteral_9=(Token)match(input,32,FOLLOW_2); 
+                    enumLiteral_9=(Token)match(input,33,FOLLOW_2); 
 
                     				current = grammarAccess.getOfTypeAccess().getMobileEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_9, grammarAccess.getOfTypeAccess().getMobileEnumLiteralDeclaration_9());
@@ -1722,12 +1645,12 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 11 :
-                    // InternalRentalSystem.g:721:3: (enumLiteral_10= 'currency' )
+                    // InternalRentalSystem.g:711:3: (enumLiteral_10= 'currency' )
                     {
-                    // InternalRentalSystem.g:721:3: (enumLiteral_10= 'currency' )
-                    // InternalRentalSystem.g:722:4: enumLiteral_10= 'currency'
+                    // InternalRentalSystem.g:711:3: (enumLiteral_10= 'currency' )
+                    // InternalRentalSystem.g:712:4: enumLiteral_10= 'currency'
                     {
-                    enumLiteral_10=(Token)match(input,33,FOLLOW_2); 
+                    enumLiteral_10=(Token)match(input,34,FOLLOW_2); 
 
                     				current = grammarAccess.getOfTypeAccess().getCurrencyEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_10, grammarAccess.getOfTypeAccess().getCurrencyEnumLiteralDeclaration_10());
@@ -1773,9 +1696,11 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000200002L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000060000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x00000003FF800000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000100002L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x00000000000C0000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x00000007FF000000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000800000L});
 
 }

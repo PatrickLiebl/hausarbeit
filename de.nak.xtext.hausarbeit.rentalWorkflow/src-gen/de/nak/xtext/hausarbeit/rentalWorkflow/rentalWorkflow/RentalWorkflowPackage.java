@@ -69,13 +69,22 @@ public interface RentalWorkflowPackage extends EPackage
   int RENTAL_WORKFLOW = 0;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RENTAL_WORKFLOW__NAME = 0;
+
+  /**
    * The feature id for the '<em><b>Event</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RENTAL_WORKFLOW__EVENT = 0;
+  int RENTAL_WORKFLOW__EVENT = 1;
 
   /**
    * The feature id for the '<em><b>Reset Events</b></em>' reference list.
@@ -84,7 +93,7 @@ public interface RentalWorkflowPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RENTAL_WORKFLOW__RESET_EVENTS = 1;
+  int RENTAL_WORKFLOW__RESET_EVENTS = 2;
 
   /**
    * The feature id for the '<em><b>Commands</b></em>' containment reference list.
@@ -93,7 +102,7 @@ public interface RentalWorkflowPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RENTAL_WORKFLOW__COMMANDS = 2;
+  int RENTAL_WORKFLOW__COMMANDS = 3;
 
   /**
    * The feature id for the '<em><b>States</b></em>' containment reference list.
@@ -102,7 +111,7 @@ public interface RentalWorkflowPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RENTAL_WORKFLOW__STATES = 3;
+  int RENTAL_WORKFLOW__STATES = 4;
 
   /**
    * The number of structural features of the '<em>Rental Workflow</em>' class.
@@ -111,7 +120,7 @@ public interface RentalWorkflowPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RENTAL_WORKFLOW_FEATURE_COUNT = 4;
+  int RENTAL_WORKFLOW_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.EventImpl <em>Event</em>}' class.
@@ -299,6 +308,17 @@ public interface RentalWorkflowPackage extends EPackage
    * @generated
    */
   EClass getRentalWorkflow();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getName()
+   * @see #getRentalWorkflow()
+   * @generated
+   */
+  EAttribute getRentalWorkflow_Name();
 
   /**
    * Returns the meta object for the containment reference list '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getEvent <em>Event</em>}'.
@@ -536,6 +556,14 @@ public interface RentalWorkflowPackage extends EPackage
      * @generated
      */
     EClass RENTAL_WORKFLOW = eINSTANCE.getRentalWorkflow();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RENTAL_WORKFLOW__NAME = eINSTANCE.getRentalWorkflow_Name();
 
     /**
      * The meta object literal for the '<em><b>Event</b></em>' containment reference list feature.

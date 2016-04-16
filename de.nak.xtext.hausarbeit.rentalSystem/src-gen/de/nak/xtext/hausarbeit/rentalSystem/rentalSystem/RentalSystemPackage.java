@@ -169,13 +169,13 @@ public interface RentalSystemPackage extends EPackage
   int TYPE__NAME = 3;
 
   /**
-   * The feature id for the '<em><b>Rental Workflow</b></em>' reference.
+   * The feature id for the '<em><b>Wf</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE__RENTAL_WORKFLOW = 4;
+  int TYPE__WF = 4;
 
   /**
    * The feature id for the '<em><b>Type Attributes</b></em>' containment reference list.
@@ -196,34 +196,6 @@ public interface RentalSystemPackage extends EPackage
   int TYPE_FEATURE_COUNT = 6;
 
   /**
-   * The meta object id for the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalWorkflowImpl <em>Rental Workflow</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalWorkflowImpl
-   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemPackageImpl#getRentalWorkflow()
-   * @generated
-   */
-  int RENTAL_WORKFLOW = 2;
-
-  /**
-   * The feature id for the '<em><b>Rental Workflow</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RENTAL_WORKFLOW__RENTAL_WORKFLOW = 0;
-
-  /**
-   * The number of structural features of the '<em>Rental Workflow</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RENTAL_WORKFLOW_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.TypeAttributeImpl <em>Type Attribute</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -231,7 +203,7 @@ public interface RentalSystemPackage extends EPackage
    * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemPackageImpl#getTypeAttribute()
    * @generated
    */
-  int TYPE_ATTRIBUTE = 3;
+  int TYPE_ATTRIBUTE = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -243,13 +215,22 @@ public interface RentalSystemPackage extends EPackage
   int TYPE_ATTRIBUTE__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_ATTRIBUTE__VALUE = 1;
+
+  /**
    * The feature id for the '<em><b>Of Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_ATTRIBUTE__OF_TYPE = 1;
+  int TYPE_ATTRIBUTE__OF_TYPE = 2;
 
   /**
    * The number of structural features of the '<em>Type Attribute</em>' class.
@@ -258,7 +239,7 @@ public interface RentalSystemPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_ATTRIBUTE_FEATURE_COUNT = 2;
+  int TYPE_ATTRIBUTE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.DealImpl <em>Deal</em>}' class.
@@ -268,7 +249,7 @@ public interface RentalSystemPackage extends EPackage
    * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemPackageImpl#getDeal()
    * @generated
    */
-  int DEAL = 4;
+  int DEAL = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -323,7 +304,7 @@ public interface RentalSystemPackage extends EPackage
    * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemPackageImpl#getCustomer()
    * @generated
    */
-  int CUSTOMER = 5;
+  int CUSTOMER = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -360,7 +341,7 @@ public interface RentalSystemPackage extends EPackage
    * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemPackageImpl#getAttribute()
    * @generated
    */
-  int ATTRIBUTE = 6;
+  int ATTRIBUTE = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -397,7 +378,7 @@ public interface RentalSystemPackage extends EPackage
    * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemPackageImpl#getOfType()
    * @generated
    */
-  int OF_TYPE = 7;
+  int OF_TYPE = 6;
 
 
   /**
@@ -520,15 +501,15 @@ public interface RentalSystemPackage extends EPackage
   EAttribute getType_Name();
 
   /**
-   * Returns the meta object for the reference '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type#getRentalWorkflow <em>Rental Workflow</em>}'.
+   * Returns the meta object for the reference '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type#getWf <em>Wf</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Rental Workflow</em>'.
-   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type#getRentalWorkflow()
+   * @return the meta object for the reference '<em>Wf</em>'.
+   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type#getWf()
    * @see #getType()
    * @generated
    */
-  EReference getType_RentalWorkflow();
+  EReference getType_Wf();
 
   /**
    * Returns the meta object for the containment reference list '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type#getTypeAttributes <em>Type Attributes</em>}'.
@@ -540,27 +521,6 @@ public interface RentalSystemPackage extends EPackage
    * @generated
    */
   EReference getType_TypeAttributes();
-
-  /**
-   * Returns the meta object for class '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalWorkflow <em>Rental Workflow</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Rental Workflow</em>'.
-   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalWorkflow
-   * @generated
-   */
-  EClass getRentalWorkflow();
-
-  /**
-   * Returns the meta object for the reference '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalWorkflow#getRentalWorkflow <em>Rental Workflow</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Rental Workflow</em>'.
-   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalWorkflow#getRentalWorkflow()
-   * @see #getRentalWorkflow()
-   * @generated
-   */
-  EReference getRentalWorkflow_RentalWorkflow();
 
   /**
    * Returns the meta object for class '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.TypeAttribute <em>Type Attribute</em>}'.
@@ -582,6 +542,17 @@ public interface RentalSystemPackage extends EPackage
    * @generated
    */
   EAttribute getTypeAttribute_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.TypeAttribute#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.TypeAttribute#getValue()
+   * @see #getTypeAttribute()
+   * @generated
+   */
+  EAttribute getTypeAttribute_Value();
 
   /**
    * Returns the meta object for the attribute '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.TypeAttribute#getOfType <em>Of Type</em>}'.
@@ -838,12 +809,12 @@ public interface RentalSystemPackage extends EPackage
     EAttribute TYPE__NAME = eINSTANCE.getType_Name();
 
     /**
-     * The meta object literal for the '<em><b>Rental Workflow</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Wf</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TYPE__RENTAL_WORKFLOW = eINSTANCE.getType_RentalWorkflow();
+    EReference TYPE__WF = eINSTANCE.getType_Wf();
 
     /**
      * The meta object literal for the '<em><b>Type Attributes</b></em>' containment reference list feature.
@@ -852,24 +823,6 @@ public interface RentalSystemPackage extends EPackage
      * @generated
      */
     EReference TYPE__TYPE_ATTRIBUTES = eINSTANCE.getType_TypeAttributes();
-
-    /**
-     * The meta object literal for the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalWorkflowImpl <em>Rental Workflow</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalWorkflowImpl
-     * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemPackageImpl#getRentalWorkflow()
-     * @generated
-     */
-    EClass RENTAL_WORKFLOW = eINSTANCE.getRentalWorkflow();
-
-    /**
-     * The meta object literal for the '<em><b>Rental Workflow</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference RENTAL_WORKFLOW__RENTAL_WORKFLOW = eINSTANCE.getRentalWorkflow_RentalWorkflow();
 
     /**
      * The meta object literal for the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.TypeAttributeImpl <em>Type Attribute</em>}' class.
@@ -888,6 +841,14 @@ public interface RentalSystemPackage extends EPackage
      * @generated
      */
     EAttribute TYPE_ATTRIBUTE__NAME = eINSTANCE.getTypeAttribute_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE_ATTRIBUTE__VALUE = eINSTANCE.getTypeAttribute_Value();
 
     /**
      * The meta object literal for the '<em><b>Of Type</b></em>' attribute feature.

@@ -17,6 +17,7 @@
       <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//OfType/finishing"/>
     </genEnums>
     <genClasses ecoreClass="RentalWorkflow.ecore#//RentalWorkflow">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalWorkflow.ecore#//RentalWorkflow/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RentalWorkflow.ecore#//RentalWorkflow/event"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RentalWorkflow.ecore#//RentalWorkflow/resetEvents"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RentalWorkflow.ecore#//RentalWorkflow/commands"/>

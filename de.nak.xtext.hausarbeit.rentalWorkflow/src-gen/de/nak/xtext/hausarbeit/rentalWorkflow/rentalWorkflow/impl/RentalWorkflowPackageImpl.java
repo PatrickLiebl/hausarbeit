@@ -148,9 +148,9 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRentalWorkflow_Event()
+  public EAttribute getRentalWorkflow_Name()
   {
-    return (EReference)rentalWorkflowEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)rentalWorkflowEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -158,7 +158,7 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRentalWorkflow_ResetEvents()
+  public EReference getRentalWorkflow_Event()
   {
     return (EReference)rentalWorkflowEClass.getEStructuralFeatures().get(1);
   }
@@ -168,7 +168,7 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRentalWorkflow_Commands()
+  public EReference getRentalWorkflow_ResetEvents()
   {
     return (EReference)rentalWorkflowEClass.getEStructuralFeatures().get(2);
   }
@@ -178,9 +178,19 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRentalWorkflow_States()
+  public EReference getRentalWorkflow_Commands()
   {
     return (EReference)rentalWorkflowEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRentalWorkflow_States()
+  {
+    return (EReference)rentalWorkflowEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -364,6 +374,7 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
 
     // Create classes and their features
     rentalWorkflowEClass = createEClass(RENTAL_WORKFLOW);
+    createEAttribute(rentalWorkflowEClass, RENTAL_WORKFLOW__NAME);
     createEReference(rentalWorkflowEClass, RENTAL_WORKFLOW__EVENT);
     createEReference(rentalWorkflowEClass, RENTAL_WORKFLOW__RESET_EVENTS);
     createEReference(rentalWorkflowEClass, RENTAL_WORKFLOW__COMMANDS);
@@ -423,6 +434,7 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
 
     // Initialize classes and features; add operations and parameters
     initEClass(rentalWorkflowEClass, RentalWorkflow.class, "RentalWorkflow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRentalWorkflow_Name(), ecorePackage.getEString(), "name", null, 0, 1, RentalWorkflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRentalWorkflow_Event(), this.getEvent(), null, "event", null, 0, -1, RentalWorkflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRentalWorkflow_ResetEvents(), this.getEvent(), null, "resetEvents", null, 0, -1, RentalWorkflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRentalWorkflow_Commands(), this.getCommand(), null, "commands", null, 0, -1, RentalWorkflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

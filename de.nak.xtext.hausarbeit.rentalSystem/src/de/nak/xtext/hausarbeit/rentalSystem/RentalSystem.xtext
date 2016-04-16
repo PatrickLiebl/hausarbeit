@@ -12,15 +12,13 @@ RentalSystem:
 
 Type:
 	((movable?='movable') | (digital?='digital')
-	| (fix?='fix')) 'type' name = ID '('
-	rentalWorkflow=[RentalWorkflow]
+	| (fix?='fix')) 'type' name=ID '('
+	'typeWorkFlow' wf=[rentalWorkflow::RentalWorkflow]
 	typeAttributes+=TypeAttribute*
 	')';
 	
-RentalWorkflow:
-	'typeWorkFlow' rentalWorkflow=[rentalWorkflow::RentalWorkflow|QualifiedName];
 TypeAttribute:
-	'text' name=ID '=' ofType=OfType;
+	'text' name=ID '=' value=STRING ofType=OfType;
 	
 	
 QualifiedName:
@@ -28,8 +26,8 @@ QualifiedName:
 
 Deal:
 	'Deal' name=ID '('
-	customer=[Customer]
-	rentalType=[Type]
+	'customer' customer=[Customer]
+	'rentalType' rentalType=[Type]
 	attributes+=Attribute*
 	')';
 

@@ -4,6 +4,7 @@ generate rentalWorkflow "http://www.nak.de/xtext/hausarbeit/rentalWorkflow/Renta
 
 RentalWorkflow:
 	{RentalWorkflow}
+	'defineWf' name=ID
 	'events' (event+=Event)* 'end'
 	'resetEvents' (resetEvents+=[Event])* 'end'
 	'commands' (commands+=Command)* 'end'

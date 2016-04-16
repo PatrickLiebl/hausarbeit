@@ -3,14 +3,13 @@
  */
 package de.nak.xtext.hausarbeit.rentalSystem.generator
 
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Customer
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem
-import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Customer
-import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type
-import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal
 
 /**
  * Generates code from your model files on save.
@@ -24,16 +23,24 @@ class RentalSystemGenerator extends AbstractGenerator {
 	// Möglichkeit schaffen, neue Deals anzulegen und je nach "Workflow-State"
 	// die "Next" und "Back"-Buttons mit Funktionalität belegen.
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		val rentalSystem = resource.contents.head()
-		if (rentalSystem instanceof RentalSystem) {
-				fsa.generateFile(rentalSystem.name + '.html', toHtml(rentalSystem))
+		val rentalSystem = resource.getContents().head()
+		if (rentalSystem instanceof RentalSystem){
+			fsa.generateFile('index.html', generateIndex(rentalSystem))
+			fsa.generateFile('customers.html', generateCustomers(rentalSystem))
+			fsa.generateFile('types.html', generateTypes(rentalSystem))
+			for (Customer customer : rentalSystem.customers) {
+				fsa.generateFile(customer.name + '.html', generateCharacterMask(customer, rentalSystem))
+			}
+			for (Type type : rentalSystem.types) {
+				fsa.generateFile(type.name + '.html', generateTypeMask(type, rentalSystem))
+			}
 		}
 	}
 
-	def dispatch CharSequence toHtml(RentalSystem rentalSystem) '''
+	def CharSequence generateIndex(RentalSystem rentalSystem) '''
 		<html>
 		<head>
-			<title>«(rentalSystem.eContainer as RentalSystem).name»</title>
+			<title>«rentalSystem.name»</title>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 			<!-- Bootstrap -->
@@ -43,50 +50,105 @@ class RentalSystemGenerator extends AbstractGenerator {
 			<body>
 				<script src="http://code.jquery.com/jquery.js"></script>
 				<script src="js/bootstrap.js"></script>
-				<div class="navbar">
-						<div class="navbar-inner">
-							<a class="brand" href="/">XtextCon 2014 Workshop Survey</a>
-							<ul class="nav pull-right">
-								<li><a href="/evaluate">Evaluate</a></li>
-							</ul>
-						</div>
-					</div>
-					
-					<div class="container">
-						<form class="form-horizontal" method="POST" action="dispatch" class="form-horizontal">
-							<input name="survey" type="hidden" value="«(rentalSystem.eContainer as RentalSystem).name»"/>
-							<input name="page" type="hidden" value="«rentalSystem.name»"/>
-							«FOR customer : rentalSystem.customers»
-								«toHtml(customer)»
-							«ENDFOR»
-							«FOR Type : rentalSystem.types»
-								«toHtml(Type)»
-							«ENDFOR»
-							«FOR Deal : rentalSystem.deals»
-								«toHtml(Deal)»
-							«ENDFOR»
-							
-							<div class="control-group">
-								<div class="controls">
-									<input type="reset" class="btn" value="Reset">
-									<input type="submit" class="btn" value="Next">
-								</div>
-							</div>
-						</form>
-					</div>
+		
+			<a href="customers.html">Customers</a>
+			<a href="types.html">Types</a>
 			</body>
 		</html>
 	'''
 
-	def dispatch CharSequence toHtml(Customer customer) '''
-		<p>«customer.name»</p>
+	def CharSequence generateCustomers(RentalSystem rentalSystem) '''
+		<html>
+		<head>
+			<title>«rentalSystem.name»</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+			<!-- Bootstrap -->
+			<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+			<link href="css/survey.css" rel="stylesheet" media="screen">
+		</head>
+			<body>
+				<script src="http://code.jquery.com/jquery.js"></script>
+				<script src="js/bootstrap.js"></script>
+					
+							<ul>
+							«FOR customer : rentalSystem.customers»
+								<li><a href="«customer.name».html">«customer.name»</a></li>
+							«ENDFOR»
+							</ul>
+				<a href="index.html">Index</a>	
+			</body>
+		</html>
 	'''
-	
-	def dispatch CharSequence toHtml(Type type) '''
-		<p>«type.name»</p>
+
+	def CharSequence generateTypes(RentalSystem rentalSystem) '''
+		<html>
+		<head>
+			<title>«rentalSystem.name»</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+			<!-- Bootstrap -->
+			<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+			<link href="css/survey.css" rel="stylesheet" media="screen">
+		</head>
+			<body>
+				<script src="http://code.jquery.com/jquery.js"></script>
+				<script src="js/bootstrap.js"></script>
+					
+							<ul>
+							«FOR type : rentalSystem.types»
+								<li><a href="«type.name».html">«type.name»</a></li>
+							«ENDFOR»
+							</ul>
+					<a href="index.html">Index</a>
+			</body>
+		</html>
 	'''
-	
-	def dispatch CharSequence toHtml(Deal deal) '''
-		<p>«deal.name»</p>
+
+	def CharSequence generateCharacterMask(Customer customer, RentalSystem rentalSystem) '''
+		<html>
+		<head>
+			<title>«customer.name»</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+			<!-- Bootstrap -->
+			<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+			<link href="css/survey.css" rel="stylesheet" media="screen">
+		</head>
+			<body>
+				<script src="http://code.jquery.com/jquery.js"></script>
+				<script src="js/bootstrap.js"></script>
+							<form>
+							«FOR attribute : customer.attributes»
+								<input type="text" name="«attribute.name»" value="«attribute.value»" readonly /><br />
+							«ENDFOR»
+							</form>
+					<a href="index.html">Index</a>
+			</body>
+		</html>
+	'''
+
+	def CharSequence generateTypeMask(Type type, RentalSystem rentalSystem) '''
+		<html>
+		<head>
+			<title>«type.name»</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+			<!-- Bootstrap -->
+			<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+			<link href="css/survey.css" rel="stylesheet" media="screen">
+		</head>
+			<body>
+				<script src="http://code.jquery.com/jquery.js"></script>
+				<script src="js/bootstrap.js"></script>
+							<form>
+							«FOR attribute : type.typeAttributes»
+								<input type="text" name="«attribute.name»" value="«attribute.value»"/>
+							«ENDFOR»
+							</form>
+							<a href="index.html">Index</a>
+					</div>
+			</body>
+		</html>
 	'''
 }

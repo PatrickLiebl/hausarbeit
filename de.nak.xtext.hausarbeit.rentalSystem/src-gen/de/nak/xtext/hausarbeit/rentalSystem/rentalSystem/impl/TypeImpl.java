@@ -4,9 +4,10 @@
 package de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl;
 
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage;
-import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalWorkflow;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.TypeAttribute;
+
+import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow;
 
 import java.util.Collection;
 
@@ -36,7 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.TypeImpl#isDigital <em>Digital</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.TypeImpl#isFix <em>Fix</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.TypeImpl#getName <em>Name</em>}</li>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.TypeImpl#getRentalWorkflow <em>Rental Workflow</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.TypeImpl#getWf <em>Wf</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.TypeImpl#getTypeAttributes <em>Type Attributes</em>}</li>
  * </ul>
  *
@@ -125,14 +126,14 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getRentalWorkflow() <em>Rental Workflow</em>}' reference.
+   * The cached value of the '{@link #getWf() <em>Wf</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRentalWorkflow()
+   * @see #getWf()
    * @generated
    * @ordered
    */
-  protected RentalWorkflow rentalWorkflow;
+  protected RentalWorkflow wf;
 
   /**
    * The cached value of the '{@link #getTypeAttributes() <em>Type Attributes</em>}' containment reference list.
@@ -262,19 +263,19 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
    * <!-- end-user-doc -->
    * @generated
    */
-  public RentalWorkflow getRentalWorkflow()
+  public RentalWorkflow getWf()
   {
-    if (rentalWorkflow != null && rentalWorkflow.eIsProxy())
+    if (wf != null && wf.eIsProxy())
     {
-      InternalEObject oldRentalWorkflow = (InternalEObject)rentalWorkflow;
-      rentalWorkflow = (RentalWorkflow)eResolveProxy(oldRentalWorkflow);
-      if (rentalWorkflow != oldRentalWorkflow)
+      InternalEObject oldWf = (InternalEObject)wf;
+      wf = (RentalWorkflow)eResolveProxy(oldWf);
+      if (wf != oldWf)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RentalSystemPackage.TYPE__RENTAL_WORKFLOW, oldRentalWorkflow, rentalWorkflow));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RentalSystemPackage.TYPE__WF, oldWf, wf));
       }
     }
-    return rentalWorkflow;
+    return wf;
   }
 
   /**
@@ -282,9 +283,9 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
    * <!-- end-user-doc -->
    * @generated
    */
-  public RentalWorkflow basicGetRentalWorkflow()
+  public RentalWorkflow basicGetWf()
   {
-    return rentalWorkflow;
+    return wf;
   }
 
   /**
@@ -292,12 +293,12 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRentalWorkflow(RentalWorkflow newRentalWorkflow)
+  public void setWf(RentalWorkflow newWf)
   {
-    RentalWorkflow oldRentalWorkflow = rentalWorkflow;
-    rentalWorkflow = newRentalWorkflow;
+    RentalWorkflow oldWf = wf;
+    wf = newWf;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RentalSystemPackage.TYPE__RENTAL_WORKFLOW, oldRentalWorkflow, rentalWorkflow));
+      eNotify(new ENotificationImpl(this, Notification.SET, RentalSystemPackage.TYPE__WF, oldWf, wf));
   }
 
   /**
@@ -348,9 +349,9 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
         return isFix();
       case RentalSystemPackage.TYPE__NAME:
         return getName();
-      case RentalSystemPackage.TYPE__RENTAL_WORKFLOW:
-        if (resolve) return getRentalWorkflow();
-        return basicGetRentalWorkflow();
+      case RentalSystemPackage.TYPE__WF:
+        if (resolve) return getWf();
+        return basicGetWf();
       case RentalSystemPackage.TYPE__TYPE_ATTRIBUTES:
         return getTypeAttributes();
     }
@@ -380,8 +381,8 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
       case RentalSystemPackage.TYPE__NAME:
         setName((String)newValue);
         return;
-      case RentalSystemPackage.TYPE__RENTAL_WORKFLOW:
-        setRentalWorkflow((RentalWorkflow)newValue);
+      case RentalSystemPackage.TYPE__WF:
+        setWf((RentalWorkflow)newValue);
         return;
       case RentalSystemPackage.TYPE__TYPE_ATTRIBUTES:
         getTypeAttributes().clear();
@@ -413,8 +414,8 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
       case RentalSystemPackage.TYPE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case RentalSystemPackage.TYPE__RENTAL_WORKFLOW:
-        setRentalWorkflow((RentalWorkflow)null);
+      case RentalSystemPackage.TYPE__WF:
+        setWf((RentalWorkflow)null);
         return;
       case RentalSystemPackage.TYPE__TYPE_ATTRIBUTES:
         getTypeAttributes().clear();
@@ -441,8 +442,8 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
         return fix != FIX_EDEFAULT;
       case RentalSystemPackage.TYPE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case RentalSystemPackage.TYPE__RENTAL_WORKFLOW:
-        return rentalWorkflow != null;
+      case RentalSystemPackage.TYPE__WF:
+        return wf != null;
       case RentalSystemPackage.TYPE__TYPE_ATTRIBUTES:
         return typeAttributes != null && !typeAttributes.isEmpty();
     }

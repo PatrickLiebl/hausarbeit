@@ -11,6 +11,7 @@ import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.State;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -18,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -32,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.RentalWorkflowImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.RentalWorkflowImpl#getEvent <em>Event</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.RentalWorkflowImpl#getResetEvents <em>Reset Events</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.RentalWorkflowImpl#getCommands <em>Commands</em>}</li>
@@ -42,6 +45,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class RentalWorkflowImpl extends MinimalEObjectImpl.Container implements RentalWorkflow
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getEvent() <em>Event</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -101,6 +124,29 @@ public class RentalWorkflowImpl extends MinimalEObjectImpl.Container implements 
   protected EClass eStaticClass()
   {
     return RentalWorkflowPackage.Literals.RENTAL_WORKFLOW;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RentalWorkflowPackage.RENTAL_WORKFLOW__NAME, oldName, name));
   }
 
   /**
@@ -189,6 +235,8 @@ public class RentalWorkflowImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
+      case RentalWorkflowPackage.RENTAL_WORKFLOW__NAME:
+        return getName();
       case RentalWorkflowPackage.RENTAL_WORKFLOW__EVENT:
         return getEvent();
       case RentalWorkflowPackage.RENTAL_WORKFLOW__RESET_EVENTS:
@@ -212,6 +260,9 @@ public class RentalWorkflowImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
+      case RentalWorkflowPackage.RENTAL_WORKFLOW__NAME:
+        setName((String)newValue);
+        return;
       case RentalWorkflowPackage.RENTAL_WORKFLOW__EVENT:
         getEvent().clear();
         getEvent().addAll((Collection<? extends Event>)newValue);
@@ -242,6 +293,9 @@ public class RentalWorkflowImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
+      case RentalWorkflowPackage.RENTAL_WORKFLOW__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case RentalWorkflowPackage.RENTAL_WORKFLOW__EVENT:
         getEvent().clear();
         return;
@@ -268,6 +322,8 @@ public class RentalWorkflowImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
+      case RentalWorkflowPackage.RENTAL_WORKFLOW__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RentalWorkflowPackage.RENTAL_WORKFLOW__EVENT:
         return event != null && !event.isEmpty();
       case RentalWorkflowPackage.RENTAL_WORKFLOW__RESET_EVENTS:
@@ -278,6 +334,23 @@ public class RentalWorkflowImpl extends MinimalEObjectImpl.Container implements 
         return states != null && !states.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //RentalWorkflowImpl
