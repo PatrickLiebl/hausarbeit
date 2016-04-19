@@ -7,7 +7,7 @@ import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Customer;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage;
-import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type;
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalType;
 
 import java.util.Collection;
 
@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemImpl#getTitle <em>Title</em>}</li>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemImpl#getTypes <em>Types</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemImpl#getRentalTypes <em>Rental Types</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemImpl#getCustomers <em>Customers</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemImpl#getDeals <em>Deals</em>}</li>
  * </ul>
@@ -85,14 +85,14 @@ public class RentalSystemImpl extends MinimalEObjectImpl.Container implements Re
   protected String title = TITLE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
+   * The cached value of the '{@link #getRentalTypes() <em>Rental Types</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTypes()
+   * @see #getRentalTypes()
    * @generated
    * @ordered
    */
-  protected EList<Type> types;
+  protected EList<RentalType> rentalTypes;
 
   /**
    * The cached value of the '{@link #getCustomers() <em>Customers</em>}' containment reference list.
@@ -186,13 +186,13 @@ public class RentalSystemImpl extends MinimalEObjectImpl.Container implements Re
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Type> getTypes()
+  public EList<RentalType> getRentalTypes()
   {
-    if (types == null)
+    if (rentalTypes == null)
     {
-      types = new EObjectContainmentEList<Type>(Type.class, this, RentalSystemPackage.RENTAL_SYSTEM__TYPES);
+      rentalTypes = new EObjectContainmentEList<RentalType>(RentalType.class, this, RentalSystemPackage.RENTAL_SYSTEM__RENTAL_TYPES);
     }
-    return types;
+    return rentalTypes;
   }
 
   /**
@@ -233,8 +233,8 @@ public class RentalSystemImpl extends MinimalEObjectImpl.Container implements Re
   {
     switch (featureID)
     {
-      case RentalSystemPackage.RENTAL_SYSTEM__TYPES:
-        return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
+      case RentalSystemPackage.RENTAL_SYSTEM__RENTAL_TYPES:
+        return ((InternalEList<?>)getRentalTypes()).basicRemove(otherEnd, msgs);
       case RentalSystemPackage.RENTAL_SYSTEM__CUSTOMERS:
         return ((InternalEList<?>)getCustomers()).basicRemove(otherEnd, msgs);
       case RentalSystemPackage.RENTAL_SYSTEM__DEALS:
@@ -257,8 +257,8 @@ public class RentalSystemImpl extends MinimalEObjectImpl.Container implements Re
         return getName();
       case RentalSystemPackage.RENTAL_SYSTEM__TITLE:
         return getTitle();
-      case RentalSystemPackage.RENTAL_SYSTEM__TYPES:
-        return getTypes();
+      case RentalSystemPackage.RENTAL_SYSTEM__RENTAL_TYPES:
+        return getRentalTypes();
       case RentalSystemPackage.RENTAL_SYSTEM__CUSTOMERS:
         return getCustomers();
       case RentalSystemPackage.RENTAL_SYSTEM__DEALS:
@@ -284,9 +284,9 @@ public class RentalSystemImpl extends MinimalEObjectImpl.Container implements Re
       case RentalSystemPackage.RENTAL_SYSTEM__TITLE:
         setTitle((String)newValue);
         return;
-      case RentalSystemPackage.RENTAL_SYSTEM__TYPES:
-        getTypes().clear();
-        getTypes().addAll((Collection<? extends Type>)newValue);
+      case RentalSystemPackage.RENTAL_SYSTEM__RENTAL_TYPES:
+        getRentalTypes().clear();
+        getRentalTypes().addAll((Collection<? extends RentalType>)newValue);
         return;
       case RentalSystemPackage.RENTAL_SYSTEM__CUSTOMERS:
         getCustomers().clear();
@@ -316,8 +316,8 @@ public class RentalSystemImpl extends MinimalEObjectImpl.Container implements Re
       case RentalSystemPackage.RENTAL_SYSTEM__TITLE:
         setTitle(TITLE_EDEFAULT);
         return;
-      case RentalSystemPackage.RENTAL_SYSTEM__TYPES:
-        getTypes().clear();
+      case RentalSystemPackage.RENTAL_SYSTEM__RENTAL_TYPES:
+        getRentalTypes().clear();
         return;
       case RentalSystemPackage.RENTAL_SYSTEM__CUSTOMERS:
         getCustomers().clear();
@@ -343,8 +343,8 @@ public class RentalSystemImpl extends MinimalEObjectImpl.Container implements Re
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RentalSystemPackage.RENTAL_SYSTEM__TITLE:
         return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
-      case RentalSystemPackage.RENTAL_SYSTEM__TYPES:
-        return types != null && !types.isEmpty();
+      case RentalSystemPackage.RENTAL_SYSTEM__RENTAL_TYPES:
+        return rentalTypes != null && !rentalTypes.isEmpty();
       case RentalSystemPackage.RENTAL_SYSTEM__CUSTOMERS:
         return customers != null && !customers.isEmpty();
       case RentalSystemPackage.RENTAL_SYSTEM__DEALS:

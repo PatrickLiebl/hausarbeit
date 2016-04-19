@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'defineWf'", "'events'", "'end'", "'resetEvents'", "'commands'", "'state'", "'actions'", "'{'", "'}'", "'=>'", "'initializing'", "'creating'", "'beginning'", "'running'", "'cancelling'", "'replacing'", "'enstoring'", "'finishing'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'defineWf'", "'events'", "'end'", "'resetEvents'", "'commands'", "'state'", "'actions'", "'{'", "'}'", "'=>'", "'initializing'", "'creating'", "'beginning'", "'running'", "'canceling'", "'replacing'", "'storing'", "'finishing'", "'nextClicked'", "'backClicked'", "'doSave'", "'doAbort'", "'doDelete'"
     };
     public static final int RULE_STRING=6;
     public static final int RULE_SL_COMMENT=8;
@@ -32,10 +32,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
     public static final int T__17=17;
     public static final int T__18=18;
     public static final int T__11=11;
+    public static final int T__33=33;
     public static final int T__12=12;
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
+    public static final int T__30=30;
+    public static final int T__31=31;
+    public static final int T__32=32;
     public static final int RULE_ID=4;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
@@ -43,6 +47,7 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
     public static final int T__27=27;
     public static final int T__28=28;
     public static final int RULE_INT=5;
+    public static final int T__29=29;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__23=23;
@@ -467,22 +472,24 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEvent"
-    // InternalRentalWorkflow.g:214:1: ruleEvent returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) ) ;
+    // InternalRentalWorkflow.g:214:1: ruleEvent returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleofEventType ) ) ) ;
     public final EObject ruleEvent() throws RecognitionException {
         EObject current = null;
 
         Token lv_name_0_0=null;
         Token lv_code_1_0=null;
+        Enumerator lv_ofType_2_0 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalRentalWorkflow.g:220:2: ( ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) ) )
-            // InternalRentalWorkflow.g:221:2: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) )
+            // InternalRentalWorkflow.g:220:2: ( ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleofEventType ) ) ) )
+            // InternalRentalWorkflow.g:221:2: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleofEventType ) ) )
             {
-            // InternalRentalWorkflow.g:221:2: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) )
-            // InternalRentalWorkflow.g:222:3: ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) )
+            // InternalRentalWorkflow.g:221:2: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleofEventType ) ) )
+            // InternalRentalWorkflow.g:222:3: ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleofEventType ) )
             {
             // InternalRentalWorkflow.g:222:3: ( (lv_name_0_0= RULE_ID ) )
             // InternalRentalWorkflow.g:223:4: (lv_name_0_0= RULE_ID )
@@ -516,7 +523,7 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
             // InternalRentalWorkflow.g:241:4: (lv_code_1_0= RULE_ID )
             // InternalRentalWorkflow.g:242:5: lv_code_1_0= RULE_ID
             {
-            lv_code_1_0=(Token)match(input,RULE_ID,FOLLOW_2); 
+            lv_code_1_0=(Token)match(input,RULE_ID,FOLLOW_9); 
 
             					newLeafNode(lv_code_1_0, grammarAccess.getEventAccess().getCodeIDTerminalRuleCall_1_0());
             				
@@ -529,6 +536,37 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
             						"code",
             						lv_code_1_0,
             						"org.eclipse.xtext.common.Terminals.ID");
+            				
+
+            }
+
+
+            }
+
+            // InternalRentalWorkflow.g:258:3: ( (lv_ofType_2_0= ruleofEventType ) )
+            // InternalRentalWorkflow.g:259:4: (lv_ofType_2_0= ruleofEventType )
+            {
+            // InternalRentalWorkflow.g:259:4: (lv_ofType_2_0= ruleofEventType )
+            // InternalRentalWorkflow.g:260:5: lv_ofType_2_0= ruleofEventType
+            {
+
+            					newCompositeNode(grammarAccess.getEventAccess().getOfTypeOfEventTypeEnumRuleCall_2_0());
+            				
+            pushFollow(FOLLOW_2);
+            lv_ofType_2_0=ruleofEventType();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getEventRule());
+            					}
+            					set(
+            						current,
+            						"ofType",
+            						lv_ofType_2_0,
+            						"de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.ofEventType");
+            					afterParserOrEnumRuleCall();
             				
 
             }
@@ -559,7 +597,7 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCommand"
-    // InternalRentalWorkflow.g:262:1: entryRuleCommand returns [EObject current=null] : iv_ruleCommand= ruleCommand EOF ;
+    // InternalRentalWorkflow.g:281:1: entryRuleCommand returns [EObject current=null] : iv_ruleCommand= ruleCommand EOF ;
     public final EObject entryRuleCommand() throws RecognitionException {
         EObject current = null;
 
@@ -567,8 +605,8 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalRentalWorkflow.g:262:48: (iv_ruleCommand= ruleCommand EOF )
-            // InternalRentalWorkflow.g:263:2: iv_ruleCommand= ruleCommand EOF
+            // InternalRentalWorkflow.g:281:48: (iv_ruleCommand= ruleCommand EOF )
+            // InternalRentalWorkflow.g:282:2: iv_ruleCommand= ruleCommand EOF
             {
              newCompositeNode(grammarAccess.getCommandRule()); 
             pushFollow(FOLLOW_1);
@@ -595,28 +633,30 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCommand"
-    // InternalRentalWorkflow.g:269:1: ruleCommand returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) ) ;
+    // InternalRentalWorkflow.g:288:1: ruleCommand returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleofCommandType ) ) ) ;
     public final EObject ruleCommand() throws RecognitionException {
         EObject current = null;
 
         Token lv_name_0_0=null;
         Token lv_code_1_0=null;
+        Enumerator lv_ofType_2_0 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalRentalWorkflow.g:275:2: ( ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) ) )
-            // InternalRentalWorkflow.g:276:2: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) )
+            // InternalRentalWorkflow.g:294:2: ( ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleofCommandType ) ) ) )
+            // InternalRentalWorkflow.g:295:2: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleofCommandType ) ) )
             {
-            // InternalRentalWorkflow.g:276:2: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) )
-            // InternalRentalWorkflow.g:277:3: ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) )
+            // InternalRentalWorkflow.g:295:2: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleofCommandType ) ) )
+            // InternalRentalWorkflow.g:296:3: ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleofCommandType ) )
             {
-            // InternalRentalWorkflow.g:277:3: ( (lv_name_0_0= RULE_ID ) )
-            // InternalRentalWorkflow.g:278:4: (lv_name_0_0= RULE_ID )
+            // InternalRentalWorkflow.g:296:3: ( (lv_name_0_0= RULE_ID ) )
+            // InternalRentalWorkflow.g:297:4: (lv_name_0_0= RULE_ID )
             {
-            // InternalRentalWorkflow.g:278:4: (lv_name_0_0= RULE_ID )
-            // InternalRentalWorkflow.g:279:5: lv_name_0_0= RULE_ID
+            // InternalRentalWorkflow.g:297:4: (lv_name_0_0= RULE_ID )
+            // InternalRentalWorkflow.g:298:5: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_3); 
 
@@ -638,13 +678,13 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalRentalWorkflow.g:295:3: ( (lv_code_1_0= RULE_ID ) )
-            // InternalRentalWorkflow.g:296:4: (lv_code_1_0= RULE_ID )
+            // InternalRentalWorkflow.g:314:3: ( (lv_code_1_0= RULE_ID ) )
+            // InternalRentalWorkflow.g:315:4: (lv_code_1_0= RULE_ID )
             {
-            // InternalRentalWorkflow.g:296:4: (lv_code_1_0= RULE_ID )
-            // InternalRentalWorkflow.g:297:5: lv_code_1_0= RULE_ID
+            // InternalRentalWorkflow.g:315:4: (lv_code_1_0= RULE_ID )
+            // InternalRentalWorkflow.g:316:5: lv_code_1_0= RULE_ID
             {
-            lv_code_1_0=(Token)match(input,RULE_ID,FOLLOW_2); 
+            lv_code_1_0=(Token)match(input,RULE_ID,FOLLOW_10); 
 
             					newLeafNode(lv_code_1_0, grammarAccess.getCommandAccess().getCodeIDTerminalRuleCall_1_0());
             				
@@ -657,6 +697,37 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
             						"code",
             						lv_code_1_0,
             						"org.eclipse.xtext.common.Terminals.ID");
+            				
+
+            }
+
+
+            }
+
+            // InternalRentalWorkflow.g:332:3: ( (lv_ofType_2_0= ruleofCommandType ) )
+            // InternalRentalWorkflow.g:333:4: (lv_ofType_2_0= ruleofCommandType )
+            {
+            // InternalRentalWorkflow.g:333:4: (lv_ofType_2_0= ruleofCommandType )
+            // InternalRentalWorkflow.g:334:5: lv_ofType_2_0= ruleofCommandType
+            {
+
+            					newCompositeNode(grammarAccess.getCommandAccess().getOfTypeOfCommandTypeEnumRuleCall_2_0());
+            				
+            pushFollow(FOLLOW_2);
+            lv_ofType_2_0=ruleofCommandType();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getCommandRule());
+            					}
+            					set(
+            						current,
+            						"ofType",
+            						lv_ofType_2_0,
+            						"de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.ofCommandType");
+            					afterParserOrEnumRuleCall();
             				
 
             }
@@ -687,7 +758,7 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleState"
-    // InternalRentalWorkflow.g:317:1: entryRuleState returns [EObject current=null] : iv_ruleState= ruleState EOF ;
+    // InternalRentalWorkflow.g:355:1: entryRuleState returns [EObject current=null] : iv_ruleState= ruleState EOF ;
     public final EObject entryRuleState() throws RecognitionException {
         EObject current = null;
 
@@ -695,8 +766,8 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalRentalWorkflow.g:317:46: (iv_ruleState= ruleState EOF )
-            // InternalRentalWorkflow.g:318:2: iv_ruleState= ruleState EOF
+            // InternalRentalWorkflow.g:355:46: (iv_ruleState= ruleState EOF )
+            // InternalRentalWorkflow.g:356:2: iv_ruleState= ruleState EOF
             {
              newCompositeNode(grammarAccess.getStateRule()); 
             pushFollow(FOLLOW_1);
@@ -723,7 +794,7 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleState"
-    // InternalRentalWorkflow.g:324:1: ruleState returns [EObject current=null] : (otherlv_0= 'state' ( (lv_name_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleOfType ) ) (otherlv_3= 'actions' otherlv_4= '{' ( (otherlv_5= RULE_ID ) )+ otherlv_6= '}' )? ( (lv_transitions_7_0= ruleTransition ) )* otherlv_8= 'end' ) ;
+    // InternalRentalWorkflow.g:362:1: ruleState returns [EObject current=null] : (otherlv_0= 'state' ( (lv_name_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleOfType ) ) (otherlv_3= 'actions' otherlv_4= '{' ( (otherlv_5= RULE_ID ) )+ otherlv_6= '}' )? ( (lv_transitions_7_0= ruleTransition ) )* otherlv_8= 'end' ) ;
     public final EObject ruleState() throws RecognitionException {
         EObject current = null;
 
@@ -743,23 +814,23 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalRentalWorkflow.g:330:2: ( (otherlv_0= 'state' ( (lv_name_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleOfType ) ) (otherlv_3= 'actions' otherlv_4= '{' ( (otherlv_5= RULE_ID ) )+ otherlv_6= '}' )? ( (lv_transitions_7_0= ruleTransition ) )* otherlv_8= 'end' ) )
-            // InternalRentalWorkflow.g:331:2: (otherlv_0= 'state' ( (lv_name_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleOfType ) ) (otherlv_3= 'actions' otherlv_4= '{' ( (otherlv_5= RULE_ID ) )+ otherlv_6= '}' )? ( (lv_transitions_7_0= ruleTransition ) )* otherlv_8= 'end' )
+            // InternalRentalWorkflow.g:368:2: ( (otherlv_0= 'state' ( (lv_name_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleOfType ) ) (otherlv_3= 'actions' otherlv_4= '{' ( (otherlv_5= RULE_ID ) )+ otherlv_6= '}' )? ( (lv_transitions_7_0= ruleTransition ) )* otherlv_8= 'end' ) )
+            // InternalRentalWorkflow.g:369:2: (otherlv_0= 'state' ( (lv_name_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleOfType ) ) (otherlv_3= 'actions' otherlv_4= '{' ( (otherlv_5= RULE_ID ) )+ otherlv_6= '}' )? ( (lv_transitions_7_0= ruleTransition ) )* otherlv_8= 'end' )
             {
-            // InternalRentalWorkflow.g:331:2: (otherlv_0= 'state' ( (lv_name_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleOfType ) ) (otherlv_3= 'actions' otherlv_4= '{' ( (otherlv_5= RULE_ID ) )+ otherlv_6= '}' )? ( (lv_transitions_7_0= ruleTransition ) )* otherlv_8= 'end' )
-            // InternalRentalWorkflow.g:332:3: otherlv_0= 'state' ( (lv_name_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleOfType ) ) (otherlv_3= 'actions' otherlv_4= '{' ( (otherlv_5= RULE_ID ) )+ otherlv_6= '}' )? ( (lv_transitions_7_0= ruleTransition ) )* otherlv_8= 'end'
+            // InternalRentalWorkflow.g:369:2: (otherlv_0= 'state' ( (lv_name_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleOfType ) ) (otherlv_3= 'actions' otherlv_4= '{' ( (otherlv_5= RULE_ID ) )+ otherlv_6= '}' )? ( (lv_transitions_7_0= ruleTransition ) )* otherlv_8= 'end' )
+            // InternalRentalWorkflow.g:370:3: otherlv_0= 'state' ( (lv_name_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleOfType ) ) (otherlv_3= 'actions' otherlv_4= '{' ( (otherlv_5= RULE_ID ) )+ otherlv_6= '}' )? ( (lv_transitions_7_0= ruleTransition ) )* otherlv_8= 'end'
             {
             otherlv_0=(Token)match(input,16,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getStateAccess().getStateKeyword_0());
             		
-            // InternalRentalWorkflow.g:336:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalRentalWorkflow.g:337:4: (lv_name_1_0= RULE_ID )
+            // InternalRentalWorkflow.g:374:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalRentalWorkflow.g:375:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalRentalWorkflow.g:337:4: (lv_name_1_0= RULE_ID )
-            // InternalRentalWorkflow.g:338:5: lv_name_1_0= RULE_ID
+            // InternalRentalWorkflow.g:375:4: (lv_name_1_0= RULE_ID )
+            // InternalRentalWorkflow.g:376:5: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_9); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_11); 
 
             					newLeafNode(lv_name_1_0, grammarAccess.getStateAccess().getNameIDTerminalRuleCall_1_0());
             				
@@ -779,16 +850,16 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalRentalWorkflow.g:354:3: ( (lv_ofType_2_0= ruleOfType ) )
-            // InternalRentalWorkflow.g:355:4: (lv_ofType_2_0= ruleOfType )
+            // InternalRentalWorkflow.g:392:3: ( (lv_ofType_2_0= ruleOfType ) )
+            // InternalRentalWorkflow.g:393:4: (lv_ofType_2_0= ruleOfType )
             {
-            // InternalRentalWorkflow.g:355:4: (lv_ofType_2_0= ruleOfType )
-            // InternalRentalWorkflow.g:356:5: lv_ofType_2_0= ruleOfType
+            // InternalRentalWorkflow.g:393:4: (lv_ofType_2_0= ruleOfType )
+            // InternalRentalWorkflow.g:394:5: lv_ofType_2_0= ruleOfType
             {
 
             					newCompositeNode(grammarAccess.getStateAccess().getOfTypeOfTypeEnumRuleCall_2_0());
             				
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_12);
             lv_ofType_2_0=ruleOfType();
 
             state._fsp--;
@@ -810,7 +881,7 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalRentalWorkflow.g:373:3: (otherlv_3= 'actions' otherlv_4= '{' ( (otherlv_5= RULE_ID ) )+ otherlv_6= '}' )?
+            // InternalRentalWorkflow.g:411:3: (otherlv_3= 'actions' otherlv_4= '{' ( (otherlv_5= RULE_ID ) )+ otherlv_6= '}' )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -819,9 +890,9 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalRentalWorkflow.g:374:4: otherlv_3= 'actions' otherlv_4= '{' ( (otherlv_5= RULE_ID ) )+ otherlv_6= '}'
+                    // InternalRentalWorkflow.g:412:4: otherlv_3= 'actions' otherlv_4= '{' ( (otherlv_5= RULE_ID ) )+ otherlv_6= '}'
                     {
-                    otherlv_3=(Token)match(input,17,FOLLOW_11); 
+                    otherlv_3=(Token)match(input,17,FOLLOW_13); 
 
                     				newLeafNode(otherlv_3, grammarAccess.getStateAccess().getActionsKeyword_3_0());
                     			
@@ -829,7 +900,7 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
 
                     				newLeafNode(otherlv_4, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_3_1());
                     			
-                    // InternalRentalWorkflow.g:382:4: ( (otherlv_5= RULE_ID ) )+
+                    // InternalRentalWorkflow.g:420:4: ( (otherlv_5= RULE_ID ) )+
                     int cnt5=0;
                     loop5:
                     do {
@@ -843,17 +914,17 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalRentalWorkflow.g:383:5: (otherlv_5= RULE_ID )
+                    	    // InternalRentalWorkflow.g:421:5: (otherlv_5= RULE_ID )
                     	    {
-                    	    // InternalRentalWorkflow.g:383:5: (otherlv_5= RULE_ID )
-                    	    // InternalRentalWorkflow.g:384:6: otherlv_5= RULE_ID
+                    	    // InternalRentalWorkflow.g:421:5: (otherlv_5= RULE_ID )
+                    	    // InternalRentalWorkflow.g:422:6: otherlv_5= RULE_ID
                     	    {
 
                     	    						if (current==null) {
                     	    							current = createModelElement(grammarAccess.getStateRule());
                     	    						}
                     	    					
-                    	    otherlv_5=(Token)match(input,RULE_ID,FOLLOW_12); 
+                    	    otherlv_5=(Token)match(input,RULE_ID,FOLLOW_14); 
 
                     	    						newLeafNode(otherlv_5, grammarAccess.getStateAccess().getActionsCommandCrossReference_3_2_0());
                     	    					
@@ -883,7 +954,7 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalRentalWorkflow.g:400:3: ( (lv_transitions_7_0= ruleTransition ) )*
+            // InternalRentalWorkflow.g:438:3: ( (lv_transitions_7_0= ruleTransition ) )*
             loop7:
             do {
                 int alt7=2;
@@ -896,10 +967,10 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalRentalWorkflow.g:401:4: (lv_transitions_7_0= ruleTransition )
+            	    // InternalRentalWorkflow.g:439:4: (lv_transitions_7_0= ruleTransition )
             	    {
-            	    // InternalRentalWorkflow.g:401:4: (lv_transitions_7_0= ruleTransition )
-            	    // InternalRentalWorkflow.g:402:5: lv_transitions_7_0= ruleTransition
+            	    // InternalRentalWorkflow.g:439:4: (lv_transitions_7_0= ruleTransition )
+            	    // InternalRentalWorkflow.g:440:5: lv_transitions_7_0= ruleTransition
             	    {
 
             	    					newCompositeNode(grammarAccess.getStateAccess().getTransitionsTransitionParserRuleCall_4_0());
@@ -959,7 +1030,7 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTransition"
-    // InternalRentalWorkflow.g:427:1: entryRuleTransition returns [EObject current=null] : iv_ruleTransition= ruleTransition EOF ;
+    // InternalRentalWorkflow.g:465:1: entryRuleTransition returns [EObject current=null] : iv_ruleTransition= ruleTransition EOF ;
     public final EObject entryRuleTransition() throws RecognitionException {
         EObject current = null;
 
@@ -967,8 +1038,8 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalRentalWorkflow.g:427:51: (iv_ruleTransition= ruleTransition EOF )
-            // InternalRentalWorkflow.g:428:2: iv_ruleTransition= ruleTransition EOF
+            // InternalRentalWorkflow.g:465:51: (iv_ruleTransition= ruleTransition EOF )
+            // InternalRentalWorkflow.g:466:2: iv_ruleTransition= ruleTransition EOF
             {
              newCompositeNode(grammarAccess.getTransitionRule()); 
             pushFollow(FOLLOW_1);
@@ -995,7 +1066,7 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTransition"
-    // InternalRentalWorkflow.g:434:1: ruleTransition returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) ) ;
+    // InternalRentalWorkflow.g:472:1: ruleTransition returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) ) ;
     public final EObject ruleTransition() throws RecognitionException {
         EObject current = null;
 
@@ -1007,24 +1078,24 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalRentalWorkflow.g:440:2: ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) ) )
-            // InternalRentalWorkflow.g:441:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) )
+            // InternalRentalWorkflow.g:478:2: ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) ) )
+            // InternalRentalWorkflow.g:479:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) )
             {
-            // InternalRentalWorkflow.g:441:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) )
-            // InternalRentalWorkflow.g:442:3: ( (otherlv_0= RULE_ID ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) )
+            // InternalRentalWorkflow.g:479:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) )
+            // InternalRentalWorkflow.g:480:3: ( (otherlv_0= RULE_ID ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) )
             {
-            // InternalRentalWorkflow.g:442:3: ( (otherlv_0= RULE_ID ) )
-            // InternalRentalWorkflow.g:443:4: (otherlv_0= RULE_ID )
+            // InternalRentalWorkflow.g:480:3: ( (otherlv_0= RULE_ID ) )
+            // InternalRentalWorkflow.g:481:4: (otherlv_0= RULE_ID )
             {
-            // InternalRentalWorkflow.g:443:4: (otherlv_0= RULE_ID )
-            // InternalRentalWorkflow.g:444:5: otherlv_0= RULE_ID
+            // InternalRentalWorkflow.g:481:4: (otherlv_0= RULE_ID )
+            // InternalRentalWorkflow.g:482:5: otherlv_0= RULE_ID
             {
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getTransitionRule());
             					}
             				
-            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_13); 
+            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_15); 
 
             					newLeafNode(otherlv_0, grammarAccess.getTransitionAccess().getEventEventCrossReference_0_0());
             				
@@ -1038,11 +1109,11 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getTransitionAccess().getEqualsSignGreaterThanSignKeyword_1());
             		
-            // InternalRentalWorkflow.g:459:3: ( (otherlv_2= RULE_ID ) )
-            // InternalRentalWorkflow.g:460:4: (otherlv_2= RULE_ID )
+            // InternalRentalWorkflow.g:497:3: ( (otherlv_2= RULE_ID ) )
+            // InternalRentalWorkflow.g:498:4: (otherlv_2= RULE_ID )
             {
-            // InternalRentalWorkflow.g:460:4: (otherlv_2= RULE_ID )
-            // InternalRentalWorkflow.g:461:5: otherlv_2= RULE_ID
+            // InternalRentalWorkflow.g:498:4: (otherlv_2= RULE_ID )
+            // InternalRentalWorkflow.g:499:5: otherlv_2= RULE_ID
             {
 
             					if (current==null) {
@@ -1082,7 +1153,7 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOfType"
-    // InternalRentalWorkflow.g:476:1: ruleOfType returns [Enumerator current=null] : ( (enumLiteral_0= 'initializing' ) | (enumLiteral_1= 'creating' ) | (enumLiteral_2= 'beginning' ) | (enumLiteral_3= 'running' ) | (enumLiteral_4= 'cancelling' ) | (enumLiteral_5= 'replacing' ) | (enumLiteral_6= 'enstoring' ) | (enumLiteral_7= 'finishing' ) ) ;
+    // InternalRentalWorkflow.g:514:1: ruleOfType returns [Enumerator current=null] : ( (enumLiteral_0= 'initializing' ) | (enumLiteral_1= 'creating' ) | (enumLiteral_2= 'beginning' ) | (enumLiteral_3= 'running' ) | (enumLiteral_4= 'canceling' ) | (enumLiteral_5= 'replacing' ) | (enumLiteral_6= 'storing' ) | (enumLiteral_7= 'finishing' ) ) ;
     public final Enumerator ruleOfType() throws RecognitionException {
         Enumerator current = null;
 
@@ -1099,10 +1170,10 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalRentalWorkflow.g:482:2: ( ( (enumLiteral_0= 'initializing' ) | (enumLiteral_1= 'creating' ) | (enumLiteral_2= 'beginning' ) | (enumLiteral_3= 'running' ) | (enumLiteral_4= 'cancelling' ) | (enumLiteral_5= 'replacing' ) | (enumLiteral_6= 'enstoring' ) | (enumLiteral_7= 'finishing' ) ) )
-            // InternalRentalWorkflow.g:483:2: ( (enumLiteral_0= 'initializing' ) | (enumLiteral_1= 'creating' ) | (enumLiteral_2= 'beginning' ) | (enumLiteral_3= 'running' ) | (enumLiteral_4= 'cancelling' ) | (enumLiteral_5= 'replacing' ) | (enumLiteral_6= 'enstoring' ) | (enumLiteral_7= 'finishing' ) )
+            // InternalRentalWorkflow.g:520:2: ( ( (enumLiteral_0= 'initializing' ) | (enumLiteral_1= 'creating' ) | (enumLiteral_2= 'beginning' ) | (enumLiteral_3= 'running' ) | (enumLiteral_4= 'canceling' ) | (enumLiteral_5= 'replacing' ) | (enumLiteral_6= 'storing' ) | (enumLiteral_7= 'finishing' ) ) )
+            // InternalRentalWorkflow.g:521:2: ( (enumLiteral_0= 'initializing' ) | (enumLiteral_1= 'creating' ) | (enumLiteral_2= 'beginning' ) | (enumLiteral_3= 'running' ) | (enumLiteral_4= 'canceling' ) | (enumLiteral_5= 'replacing' ) | (enumLiteral_6= 'storing' ) | (enumLiteral_7= 'finishing' ) )
             {
-            // InternalRentalWorkflow.g:483:2: ( (enumLiteral_0= 'initializing' ) | (enumLiteral_1= 'creating' ) | (enumLiteral_2= 'beginning' ) | (enumLiteral_3= 'running' ) | (enumLiteral_4= 'cancelling' ) | (enumLiteral_5= 'replacing' ) | (enumLiteral_6= 'enstoring' ) | (enumLiteral_7= 'finishing' ) )
+            // InternalRentalWorkflow.g:521:2: ( (enumLiteral_0= 'initializing' ) | (enumLiteral_1= 'creating' ) | (enumLiteral_2= 'beginning' ) | (enumLiteral_3= 'running' ) | (enumLiteral_4= 'canceling' ) | (enumLiteral_5= 'replacing' ) | (enumLiteral_6= 'storing' ) | (enumLiteral_7= 'finishing' ) )
             int alt8=8;
             switch ( input.LA(1) ) {
             case 21:
@@ -1154,10 +1225,10 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
 
             switch (alt8) {
                 case 1 :
-                    // InternalRentalWorkflow.g:484:3: (enumLiteral_0= 'initializing' )
+                    // InternalRentalWorkflow.g:522:3: (enumLiteral_0= 'initializing' )
                     {
-                    // InternalRentalWorkflow.g:484:3: (enumLiteral_0= 'initializing' )
-                    // InternalRentalWorkflow.g:485:4: enumLiteral_0= 'initializing'
+                    // InternalRentalWorkflow.g:522:3: (enumLiteral_0= 'initializing' )
+                    // InternalRentalWorkflow.g:523:4: enumLiteral_0= 'initializing'
                     {
                     enumLiteral_0=(Token)match(input,21,FOLLOW_2); 
 
@@ -1171,10 +1242,10 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalRentalWorkflow.g:492:3: (enumLiteral_1= 'creating' )
+                    // InternalRentalWorkflow.g:530:3: (enumLiteral_1= 'creating' )
                     {
-                    // InternalRentalWorkflow.g:492:3: (enumLiteral_1= 'creating' )
-                    // InternalRentalWorkflow.g:493:4: enumLiteral_1= 'creating'
+                    // InternalRentalWorkflow.g:530:3: (enumLiteral_1= 'creating' )
+                    // InternalRentalWorkflow.g:531:4: enumLiteral_1= 'creating'
                     {
                     enumLiteral_1=(Token)match(input,22,FOLLOW_2); 
 
@@ -1188,10 +1259,10 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalRentalWorkflow.g:500:3: (enumLiteral_2= 'beginning' )
+                    // InternalRentalWorkflow.g:538:3: (enumLiteral_2= 'beginning' )
                     {
-                    // InternalRentalWorkflow.g:500:3: (enumLiteral_2= 'beginning' )
-                    // InternalRentalWorkflow.g:501:4: enumLiteral_2= 'beginning'
+                    // InternalRentalWorkflow.g:538:3: (enumLiteral_2= 'beginning' )
+                    // InternalRentalWorkflow.g:539:4: enumLiteral_2= 'beginning'
                     {
                     enumLiteral_2=(Token)match(input,23,FOLLOW_2); 
 
@@ -1205,10 +1276,10 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalRentalWorkflow.g:508:3: (enumLiteral_3= 'running' )
+                    // InternalRentalWorkflow.g:546:3: (enumLiteral_3= 'running' )
                     {
-                    // InternalRentalWorkflow.g:508:3: (enumLiteral_3= 'running' )
-                    // InternalRentalWorkflow.g:509:4: enumLiteral_3= 'running'
+                    // InternalRentalWorkflow.g:546:3: (enumLiteral_3= 'running' )
+                    // InternalRentalWorkflow.g:547:4: enumLiteral_3= 'running'
                     {
                     enumLiteral_3=(Token)match(input,24,FOLLOW_2); 
 
@@ -1222,15 +1293,15 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalRentalWorkflow.g:516:3: (enumLiteral_4= 'cancelling' )
+                    // InternalRentalWorkflow.g:554:3: (enumLiteral_4= 'canceling' )
                     {
-                    // InternalRentalWorkflow.g:516:3: (enumLiteral_4= 'cancelling' )
-                    // InternalRentalWorkflow.g:517:4: enumLiteral_4= 'cancelling'
+                    // InternalRentalWorkflow.g:554:3: (enumLiteral_4= 'canceling' )
+                    // InternalRentalWorkflow.g:555:4: enumLiteral_4= 'canceling'
                     {
                     enumLiteral_4=(Token)match(input,25,FOLLOW_2); 
 
-                    				current = grammarAccess.getOfTypeAccess().getCancellingEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_4, grammarAccess.getOfTypeAccess().getCancellingEnumLiteralDeclaration_4());
+                    				current = grammarAccess.getOfTypeAccess().getCancelingEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_4, grammarAccess.getOfTypeAccess().getCancelingEnumLiteralDeclaration_4());
                     			
 
                     }
@@ -1239,10 +1310,10 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalRentalWorkflow.g:524:3: (enumLiteral_5= 'replacing' )
+                    // InternalRentalWorkflow.g:562:3: (enumLiteral_5= 'replacing' )
                     {
-                    // InternalRentalWorkflow.g:524:3: (enumLiteral_5= 'replacing' )
-                    // InternalRentalWorkflow.g:525:4: enumLiteral_5= 'replacing'
+                    // InternalRentalWorkflow.g:562:3: (enumLiteral_5= 'replacing' )
+                    // InternalRentalWorkflow.g:563:4: enumLiteral_5= 'replacing'
                     {
                     enumLiteral_5=(Token)match(input,26,FOLLOW_2); 
 
@@ -1256,15 +1327,15 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalRentalWorkflow.g:532:3: (enumLiteral_6= 'enstoring' )
+                    // InternalRentalWorkflow.g:570:3: (enumLiteral_6= 'storing' )
                     {
-                    // InternalRentalWorkflow.g:532:3: (enumLiteral_6= 'enstoring' )
-                    // InternalRentalWorkflow.g:533:4: enumLiteral_6= 'enstoring'
+                    // InternalRentalWorkflow.g:570:3: (enumLiteral_6= 'storing' )
+                    // InternalRentalWorkflow.g:571:4: enumLiteral_6= 'storing'
                     {
                     enumLiteral_6=(Token)match(input,27,FOLLOW_2); 
 
-                    				current = grammarAccess.getOfTypeAccess().getEnstoringEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_6, grammarAccess.getOfTypeAccess().getEnstoringEnumLiteralDeclaration_6());
+                    				current = grammarAccess.getOfTypeAccess().getStoringEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_6, grammarAccess.getOfTypeAccess().getStoringEnumLiteralDeclaration_6());
                     			
 
                     }
@@ -1273,10 +1344,10 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // InternalRentalWorkflow.g:540:3: (enumLiteral_7= 'finishing' )
+                    // InternalRentalWorkflow.g:578:3: (enumLiteral_7= 'finishing' )
                     {
-                    // InternalRentalWorkflow.g:540:3: (enumLiteral_7= 'finishing' )
-                    // InternalRentalWorkflow.g:541:4: enumLiteral_7= 'finishing'
+                    // InternalRentalWorkflow.g:578:3: (enumLiteral_7= 'finishing' )
+                    // InternalRentalWorkflow.g:579:4: enumLiteral_7= 'finishing'
                     {
                     enumLiteral_7=(Token)match(input,28,FOLLOW_2); 
 
@@ -1310,6 +1381,209 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end "ruleOfType"
 
+
+    // $ANTLR start "ruleofEventType"
+    // InternalRentalWorkflow.g:589:1: ruleofEventType returns [Enumerator current=null] : ( (enumLiteral_0= 'nextClicked' ) | (enumLiteral_1= 'backClicked' ) ) ;
+    public final Enumerator ruleofEventType() throws RecognitionException {
+        Enumerator current = null;
+
+        Token enumLiteral_0=null;
+        Token enumLiteral_1=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalRentalWorkflow.g:595:2: ( ( (enumLiteral_0= 'nextClicked' ) | (enumLiteral_1= 'backClicked' ) ) )
+            // InternalRentalWorkflow.g:596:2: ( (enumLiteral_0= 'nextClicked' ) | (enumLiteral_1= 'backClicked' ) )
+            {
+            // InternalRentalWorkflow.g:596:2: ( (enumLiteral_0= 'nextClicked' ) | (enumLiteral_1= 'backClicked' ) )
+            int alt9=2;
+            int LA9_0 = input.LA(1);
+
+            if ( (LA9_0==29) ) {
+                alt9=1;
+            }
+            else if ( (LA9_0==30) ) {
+                alt9=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 9, 0, input);
+
+                throw nvae;
+            }
+            switch (alt9) {
+                case 1 :
+                    // InternalRentalWorkflow.g:597:3: (enumLiteral_0= 'nextClicked' )
+                    {
+                    // InternalRentalWorkflow.g:597:3: (enumLiteral_0= 'nextClicked' )
+                    // InternalRentalWorkflow.g:598:4: enumLiteral_0= 'nextClicked'
+                    {
+                    enumLiteral_0=(Token)match(input,29,FOLLOW_2); 
+
+                    				current = grammarAccess.getOfEventTypeAccess().getNextClickedEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_0, grammarAccess.getOfEventTypeAccess().getNextClickedEnumLiteralDeclaration_0());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalRentalWorkflow.g:605:3: (enumLiteral_1= 'backClicked' )
+                    {
+                    // InternalRentalWorkflow.g:605:3: (enumLiteral_1= 'backClicked' )
+                    // InternalRentalWorkflow.g:606:4: enumLiteral_1= 'backClicked'
+                    {
+                    enumLiteral_1=(Token)match(input,30,FOLLOW_2); 
+
+                    				current = grammarAccess.getOfEventTypeAccess().getBackClickedEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_1, grammarAccess.getOfEventTypeAccess().getBackClickedEnumLiteralDeclaration_1());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleofEventType"
+
+
+    // $ANTLR start "ruleofCommandType"
+    // InternalRentalWorkflow.g:616:1: ruleofCommandType returns [Enumerator current=null] : ( (enumLiteral_0= 'doSave' ) | (enumLiteral_1= 'doAbort' ) | (enumLiteral_2= 'doDelete' ) ) ;
+    public final Enumerator ruleofCommandType() throws RecognitionException {
+        Enumerator current = null;
+
+        Token enumLiteral_0=null;
+        Token enumLiteral_1=null;
+        Token enumLiteral_2=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalRentalWorkflow.g:622:2: ( ( (enumLiteral_0= 'doSave' ) | (enumLiteral_1= 'doAbort' ) | (enumLiteral_2= 'doDelete' ) ) )
+            // InternalRentalWorkflow.g:623:2: ( (enumLiteral_0= 'doSave' ) | (enumLiteral_1= 'doAbort' ) | (enumLiteral_2= 'doDelete' ) )
+            {
+            // InternalRentalWorkflow.g:623:2: ( (enumLiteral_0= 'doSave' ) | (enumLiteral_1= 'doAbort' ) | (enumLiteral_2= 'doDelete' ) )
+            int alt10=3;
+            switch ( input.LA(1) ) {
+            case 31:
+                {
+                alt10=1;
+                }
+                break;
+            case 32:
+                {
+                alt10=2;
+                }
+                break;
+            case 33:
+                {
+                alt10=3;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 10, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt10) {
+                case 1 :
+                    // InternalRentalWorkflow.g:624:3: (enumLiteral_0= 'doSave' )
+                    {
+                    // InternalRentalWorkflow.g:624:3: (enumLiteral_0= 'doSave' )
+                    // InternalRentalWorkflow.g:625:4: enumLiteral_0= 'doSave'
+                    {
+                    enumLiteral_0=(Token)match(input,31,FOLLOW_2); 
+
+                    				current = grammarAccess.getOfCommandTypeAccess().getDoSaveEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_0, grammarAccess.getOfCommandTypeAccess().getDoSaveEnumLiteralDeclaration_0());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalRentalWorkflow.g:632:3: (enumLiteral_1= 'doAbort' )
+                    {
+                    // InternalRentalWorkflow.g:632:3: (enumLiteral_1= 'doAbort' )
+                    // InternalRentalWorkflow.g:633:4: enumLiteral_1= 'doAbort'
+                    {
+                    enumLiteral_1=(Token)match(input,32,FOLLOW_2); 
+
+                    				current = grammarAccess.getOfCommandTypeAccess().getDoAbordEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_1, grammarAccess.getOfCommandTypeAccess().getDoAbordEnumLiteralDeclaration_1());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 3 :
+                    // InternalRentalWorkflow.g:640:3: (enumLiteral_2= 'doDelete' )
+                    {
+                    // InternalRentalWorkflow.g:640:3: (enumLiteral_2= 'doDelete' )
+                    // InternalRentalWorkflow.g:641:4: enumLiteral_2= 'doDelete'
+                    {
+                    enumLiteral_2=(Token)match(input,33,FOLLOW_2); 
+
+                    				current = grammarAccess.getOfCommandTypeAccess().getDoDeleteEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_2, grammarAccess.getOfCommandTypeAccess().getDoDeleteEnumLiteralDeclaration_2());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleofCommandType"
+
     // Delegated rules
 
 
@@ -1323,10 +1597,12 @@ public class InternalRentalWorkflowParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000010002L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x000000001FE00000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000022010L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000080010L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000060000000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000380000000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x000000001FE00000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000022010L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000080010L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000100000L});
 
 }

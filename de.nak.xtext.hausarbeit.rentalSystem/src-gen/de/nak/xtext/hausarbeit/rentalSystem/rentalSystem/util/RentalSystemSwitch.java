@@ -80,10 +80,10 @@ public class RentalSystemSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RentalSystemPackage.TYPE:
+      case RentalSystemPackage.RENTAL_TYPE:
       {
-        Type type = (Type)theEObject;
-        T result = caseType(type);
+        RentalType rentalType = (RentalType)theEObject;
+        T result = caseRentalType(rentalType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -129,17 +129,17 @@ public class RentalSystemSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Rental Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Type</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Rental Type</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseType(Type object)
+  public T caseRentalType(RentalType object)
   {
     return null;
   }

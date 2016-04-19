@@ -22,27 +22,27 @@
     <genClasses ecoreClass="RentalSystem.ecore#//RentalSystem">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalSystem.ecore#//RentalSystem/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalSystem.ecore#//RentalSystem/title"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RentalSystem.ecore#//RentalSystem/types"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RentalSystem.ecore#//RentalSystem/rentalTypes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RentalSystem.ecore#//RentalSystem/customers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RentalSystem.ecore#//RentalSystem/deals"/>
     </genClasses>
-    <genClasses ecoreClass="RentalSystem.ecore#//Type">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalSystem.ecore#//Type/movable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalSystem.ecore#//Type/digital"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalSystem.ecore#//Type/fix"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalSystem.ecore#//Type/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RentalSystem.ecore#//Type/wf"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RentalSystem.ecore#//Type/typeAttributes"/>
+    <genClasses ecoreClass="RentalSystem.ecore#//RentalType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalSystem.ecore#//RentalType/movable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalSystem.ecore#//RentalType/digital"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalSystem.ecore#//RentalType/fix"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalSystem.ecore#//RentalType/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RentalSystem.ecore#//RentalType/typeAttributes"/>
     </genClasses>
     <genClasses ecoreClass="RentalSystem.ecore#//Deal">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalSystem.ecore#//Deal/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RentalSystem.ecore#//Deal/customer"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RentalSystem.ecore#//Deal/rentalType"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RentalSystem.ecore#//Deal/attributes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RentalSystem.ecore#//Deal/wf"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RentalSystem.ecore#//Deal/dealAttribute"/>
     </genClasses>
     <genClasses ecoreClass="RentalSystem.ecore#//Customer">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalSystem.ecore#//Customer/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RentalSystem.ecore#//Customer/attributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RentalSystem.ecore#//Customer/customerAttribute"/>
     </genClasses>
     <genClasses ecoreClass="RentalSystem.ecore#//Attribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalSystem.ecore#//Attribute/name"/>

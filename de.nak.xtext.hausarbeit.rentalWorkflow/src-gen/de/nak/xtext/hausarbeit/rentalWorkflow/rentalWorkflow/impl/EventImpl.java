@@ -5,6 +5,7 @@ package de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl;
 
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Event;
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage;
+import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.ofEventType;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -23,6 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.EventImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.EventImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.EventImpl#getOfType <em>Of Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,6 +70,26 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
    * @ordered
    */
   protected String code = CODE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getOfType() <em>Of Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOfType()
+   * @generated
+   * @ordered
+   */
+  protected static final ofEventType OF_TYPE_EDEFAULT = ofEventType.NEXT_CLICKED;
+
+  /**
+   * The cached value of the '{@link #getOfType() <em>Of Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOfType()
+   * @generated
+   * @ordered
+   */
+  protected ofEventType ofType = OF_TYPE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -141,6 +163,29 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
    * <!-- end-user-doc -->
    * @generated
    */
+  public ofEventType getOfType()
+  {
+    return ofType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOfType(ofEventType newOfType)
+  {
+    ofEventType oldOfType = ofType;
+    ofType = newOfType == null ? OF_TYPE_EDEFAULT : newOfType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RentalWorkflowPackage.EVENT__OF_TYPE, oldOfType, ofType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -150,6 +195,8 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
         return getName();
       case RentalWorkflowPackage.EVENT__CODE:
         return getCode();
+      case RentalWorkflowPackage.EVENT__OF_TYPE:
+        return getOfType();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -169,6 +216,9 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
         return;
       case RentalWorkflowPackage.EVENT__CODE:
         setCode((String)newValue);
+        return;
+      case RentalWorkflowPackage.EVENT__OF_TYPE:
+        setOfType((ofEventType)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -190,6 +240,9 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
       case RentalWorkflowPackage.EVENT__CODE:
         setCode(CODE_EDEFAULT);
         return;
+      case RentalWorkflowPackage.EVENT__OF_TYPE:
+        setOfType(OF_TYPE_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -208,6 +261,8 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RentalWorkflowPackage.EVENT__CODE:
         return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
+      case RentalWorkflowPackage.EVENT__OF_TYPE:
+        return ofType != OF_TYPE_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -227,6 +282,8 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
     result.append(name);
     result.append(", code: ");
     result.append(code);
+    result.append(", ofType: ");
+    result.append(ofType);
     result.append(')');
     return result.toString();
   }

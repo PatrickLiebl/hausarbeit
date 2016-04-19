@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Event#getName <em>Name</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Event#getCode <em>Code</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Event#getOfType <em>Of Type</em>}</li>
  * </ul>
  *
  * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage#getEvent()
@@ -75,5 +76,34 @@ public interface Event extends EObject
    * @generated
    */
   void setCode(String value);
+
+  /**
+   * Returns the value of the '<em><b>Of Type</b></em>' attribute.
+   * The literals are from the enumeration {@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.ofEventType}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Of Type</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Of Type</em>' attribute.
+   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.ofEventType
+   * @see #setOfType(ofEventType)
+   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage#getEvent_OfType()
+   * @model
+   * @generated
+   */
+  ofEventType getOfType();
+
+  /**
+   * Sets the value of the '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Event#getOfType <em>Of Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Of Type</em>' attribute.
+   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.ofEventType
+   * @see #getOfType()
+   * @generated
+   */
+  void setOfType(ofEventType value);
 
 } // Event

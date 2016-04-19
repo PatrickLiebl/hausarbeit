@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.CustomerImpl#getName <em>Name</em>}</li>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.CustomerImpl#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.CustomerImpl#getCustomerAttribute <em>Customer Attribute</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,14 +60,14 @@ public class CustomerImpl extends MinimalEObjectImpl.Container implements Custom
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
+   * The cached value of the '{@link #getCustomerAttribute() <em>Customer Attribute</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAttributes()
+   * @see #getCustomerAttribute()
    * @generated
    * @ordered
    */
-  protected EList<Attribute> attributes;
+  protected EList<Attribute> customerAttribute;
 
   /**
    * <!-- begin-user-doc -->
@@ -118,13 +118,13 @@ public class CustomerImpl extends MinimalEObjectImpl.Container implements Custom
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Attribute> getAttributes()
+  public EList<Attribute> getCustomerAttribute()
   {
-    if (attributes == null)
+    if (customerAttribute == null)
     {
-      attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, RentalSystemPackage.CUSTOMER__ATTRIBUTES);
+      customerAttribute = new EObjectContainmentEList<Attribute>(Attribute.class, this, RentalSystemPackage.CUSTOMER__CUSTOMER_ATTRIBUTE);
     }
-    return attributes;
+    return customerAttribute;
   }
 
   /**
@@ -137,8 +137,8 @@ public class CustomerImpl extends MinimalEObjectImpl.Container implements Custom
   {
     switch (featureID)
     {
-      case RentalSystemPackage.CUSTOMER__ATTRIBUTES:
-        return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
+      case RentalSystemPackage.CUSTOMER__CUSTOMER_ATTRIBUTE:
+        return ((InternalEList<?>)getCustomerAttribute()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -155,8 +155,8 @@ public class CustomerImpl extends MinimalEObjectImpl.Container implements Custom
     {
       case RentalSystemPackage.CUSTOMER__NAME:
         return getName();
-      case RentalSystemPackage.CUSTOMER__ATTRIBUTES:
-        return getAttributes();
+      case RentalSystemPackage.CUSTOMER__CUSTOMER_ATTRIBUTE:
+        return getCustomerAttribute();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -175,9 +175,9 @@ public class CustomerImpl extends MinimalEObjectImpl.Container implements Custom
       case RentalSystemPackage.CUSTOMER__NAME:
         setName((String)newValue);
         return;
-      case RentalSystemPackage.CUSTOMER__ATTRIBUTES:
-        getAttributes().clear();
-        getAttributes().addAll((Collection<? extends Attribute>)newValue);
+      case RentalSystemPackage.CUSTOMER__CUSTOMER_ATTRIBUTE:
+        getCustomerAttribute().clear();
+        getCustomerAttribute().addAll((Collection<? extends Attribute>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -196,8 +196,8 @@ public class CustomerImpl extends MinimalEObjectImpl.Container implements Custom
       case RentalSystemPackage.CUSTOMER__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case RentalSystemPackage.CUSTOMER__ATTRIBUTES:
-        getAttributes().clear();
+      case RentalSystemPackage.CUSTOMER__CUSTOMER_ATTRIBUTE:
+        getCustomerAttribute().clear();
         return;
     }
     super.eUnset(featureID);
@@ -215,8 +215,8 @@ public class CustomerImpl extends MinimalEObjectImpl.Container implements Custom
     {
       case RentalSystemPackage.CUSTOMER__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case RentalSystemPackage.CUSTOMER__ATTRIBUTES:
-        return attributes != null && !attributes.isEmpty();
+      case RentalSystemPackage.CUSTOMER__CUSTOMER_ATTRIBUTE:
+        return customerAttribute != null && !customerAttribute.isEmpty();
     }
     return super.eIsSet(featureID);
   }

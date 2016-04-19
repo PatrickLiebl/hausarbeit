@@ -16,10 +16,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="Event">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ofType" eType="#//ofEventType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Command">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ofType" eType="#//ofCommandType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="State">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -38,9 +40,18 @@
     <eLiterals name="creating" value="1" literal="creating"/>
     <eLiterals name="beginning" value="2" literal="beginning"/>
     <eLiterals name="running" value="3" literal="running"/>
-    <eLiterals name="cancelling" value="4" literal="cancelling"/>
+    <eLiterals name="canceling" value="4" literal="canceling"/>
     <eLiterals name="replacing" value="5" literal="replacing"/>
-    <eLiterals name="enstoring" value="6" literal="enstoring"/>
+    <eLiterals name="storing" value="6" literal="storing"/>
     <eLiterals name="finishing" value="7" literal="finishing"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ofEventType">
+    <eLiterals name="nextClicked" literal="nextClicked"/>
+    <eLiterals name="backClicked" value="1" literal="backClicked"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ofCommandType">
+    <eLiterals name="doSave" literal="doSave"/>
+    <eLiterals name="doAbord" value="1" literal="doAbort"/>
+    <eLiterals name="doDelete" value="2" literal="doDelete"/>
   </eClassifiers>
 </ecore:EPackage>

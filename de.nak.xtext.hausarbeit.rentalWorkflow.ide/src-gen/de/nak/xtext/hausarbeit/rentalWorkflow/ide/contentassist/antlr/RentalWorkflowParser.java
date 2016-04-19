@@ -36,6 +36,8 @@ public class RentalWorkflowParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getOfTypeAccess().getAlternatives(), "rule__OfType__Alternatives");
+					put(grammarAccess.getOfEventTypeAccess().getAlternatives(), "rule__OfEventType__Alternatives");
+					put(grammarAccess.getOfCommandTypeAccess().getAlternatives(), "rule__OfCommandType__Alternatives");
 					put(grammarAccess.getRentalWorkflowAccess().getGroup(), "rule__RentalWorkflow__Group__0");
 					put(grammarAccess.getEventAccess().getGroup(), "rule__Event__Group__0");
 					put(grammarAccess.getCommandAccess().getGroup(), "rule__Command__Group__0");
@@ -49,8 +51,10 @@ public class RentalWorkflowParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRentalWorkflowAccess().getStatesAssignment_12(), "rule__RentalWorkflow__StatesAssignment_12");
 					put(grammarAccess.getEventAccess().getNameAssignment_0(), "rule__Event__NameAssignment_0");
 					put(grammarAccess.getEventAccess().getCodeAssignment_1(), "rule__Event__CodeAssignment_1");
+					put(grammarAccess.getEventAccess().getOfTypeAssignment_2(), "rule__Event__OfTypeAssignment_2");
 					put(grammarAccess.getCommandAccess().getNameAssignment_0(), "rule__Command__NameAssignment_0");
 					put(grammarAccess.getCommandAccess().getCodeAssignment_1(), "rule__Command__CodeAssignment_1");
+					put(grammarAccess.getCommandAccess().getOfTypeAssignment_2(), "rule__Command__OfTypeAssignment_2");
 					put(grammarAccess.getStateAccess().getNameAssignment_1(), "rule__State__NameAssignment_1");
 					put(grammarAccess.getStateAccess().getOfTypeAssignment_2(), "rule__State__OfTypeAssignment_2");
 					put(grammarAccess.getStateAccess().getActionsAssignment_3_2(), "rule__State__ActionsAssignment_3_2");

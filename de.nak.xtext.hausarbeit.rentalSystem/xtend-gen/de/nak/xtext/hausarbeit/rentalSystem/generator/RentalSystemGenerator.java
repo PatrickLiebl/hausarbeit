@@ -5,8 +5,9 @@ package de.nak.xtext.hausarbeit.rentalSystem.generator;
 
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Customer;
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.OfType;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem;
-import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type;
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalType;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -15,6 +16,7 @@ import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -28,360 +30,99 @@ public class RentalSystemGenerator extends AbstractGenerator {
     EList<EObject> _contents = resource.getContents();
     final EObject rentalSystem = IterableExtensions.<EObject>head(_contents);
     if ((rentalSystem instanceof RentalSystem)) {
-      CharSequence _generateIndex = this.generateIndex(((RentalSystem)rentalSystem));
-      fsa.generateFile("index.html", _generateIndex);
-      CharSequence _generateCustomers = this.generateCustomers(((RentalSystem)rentalSystem));
-      fsa.generateFile("customers.html", _generateCustomers);
-      CharSequence _generateTypes = this.generateTypes(((RentalSystem)rentalSystem));
-      fsa.generateFile("types.html", _generateTypes);
       EList<Customer> _customers = ((RentalSystem)rentalSystem).getCustomers();
       for (final Customer customer : _customers) {
         String _name = customer.getName();
-        String _plus = (_name + ".html");
-        CharSequence _generateCharacterMask = this.generateCharacterMask(customer, ((RentalSystem)rentalSystem));
-        fsa.generateFile(_plus, _generateCharacterMask);
+        String _firstUpper = StringExtensions.toFirstUpper(_name);
+        String _plus = ("model/" + _firstUpper);
+        String _plus_1 = (_plus + ".java");
+        CharSequence _generateCustomerBeans = this.generateCustomerBeans(customer, ((RentalSystem)rentalSystem));
+        fsa.generateFile(_plus_1, _generateCustomerBeans);
       }
-      EList<Type> _types = ((RentalSystem)rentalSystem).getTypes();
-      for (final Type type : _types) {
-        String _name_1 = type.getName();
-        String _plus_1 = (_name_1 + ".html");
-        CharSequence _generateTypeMask = this.generateTypeMask(type, ((RentalSystem)rentalSystem));
-        fsa.generateFile(_plus_1, _generateTypeMask);
-      }
-    }
-  }
-  
-  public CharSequence generateIndex(final RentalSystem rentalSystem) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<html>");
-    _builder.newLine();
-    _builder.append("<head>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<title>");
-    String _name = rentalSystem.getName();
-    _builder.append(_name, "\t");
-    _builder.append("</title>");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<!-- Bootstrap -->");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<link href=\"css/bootstrap.css\" rel=\"stylesheet\" media=\"screen\">");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<link href=\"css/survey.css\" rel=\"stylesheet\" media=\"screen\">");
-    _builder.newLine();
-    _builder.append("</head>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<body>");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<script src=\"http://code.jquery.com/jquery.js\"></script>");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<script src=\"js/bootstrap.js\"></script>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<a href=\"customers.html\">Customers</a>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<a href=\"types.html\">Types</a>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("</body>");
-    _builder.newLine();
-    _builder.append("</html>");
-    _builder.newLine();
-    return _builder;
-  }
-  
-  public CharSequence generateCustomers(final RentalSystem rentalSystem) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<html>");
-    _builder.newLine();
-    _builder.append("<head>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<title>");
-    String _name = rentalSystem.getName();
-    _builder.append(_name, "\t");
-    _builder.append("</title>");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<!-- Bootstrap -->");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<link href=\"css/bootstrap.css\" rel=\"stylesheet\" media=\"screen\">");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<link href=\"css/survey.css\" rel=\"stylesheet\" media=\"screen\">");
-    _builder.newLine();
-    _builder.append("</head>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<body>");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<script src=\"http://code.jquery.com/jquery.js\"></script>");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<script src=\"js/bootstrap.js\"></script>");
-    _builder.newLine();
-    _builder.append("\t\t\t");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t");
-    _builder.append("<ul>");
-    _builder.newLine();
-    {
-      EList<Customer> _customers = rentalSystem.getCustomers();
-      for(final Customer customer : _customers) {
-        _builder.append("\t\t\t\t\t");
-        _builder.append("<li><a href=\"");
-        String _name_1 = customer.getName();
-        _builder.append(_name_1, "\t\t\t\t\t");
-        _builder.append(".html\">");
-        String _name_2 = customer.getName();
-        _builder.append(_name_2, "\t\t\t\t\t");
-        _builder.append("</a></li>");
-        _builder.newLineIfNotEmpty();
+      EList<RentalType> _rentalTypes = ((RentalSystem)rentalSystem).getRentalTypes();
+      for (final RentalType rentalType : _rentalTypes) {
+        String _name_1 = rentalType.getName();
+        String _firstUpper_1 = StringExtensions.toFirstUpper(_name_1);
+        String _plus_2 = ("model/" + _firstUpper_1);
+        String _plus_3 = (_plus_2 + ".java");
+        CharSequence _generateTypeBeans = this.generateTypeBeans(rentalType, ((RentalSystem)rentalSystem));
+        fsa.generateFile(_plus_3, _generateTypeBeans);
       }
     }
-    _builder.append("\t\t\t\t\t");
-    _builder.append("</ul>");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<a href=\"index.html\">Index</a>\t");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("</body>");
-    _builder.newLine();
-    _builder.append("</html>");
-    _builder.newLine();
-    return _builder;
   }
   
-  public CharSequence generateTypes(final RentalSystem rentalSystem) {
+  public CharSequence generateCustomerBeans(final Customer customer, final RentalSystem rentalSystem) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<html>");
+    _builder.append("package main;");
     _builder.newLine();
-    _builder.append("<head>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<title>");
-    String _name = rentalSystem.getName();
-    _builder.append(_name, "\t");
-    _builder.append("</title>");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<!-- Bootstrap -->");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<link href=\"css/bootstrap.css\" rel=\"stylesheet\" media=\"screen\">");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<link href=\"css/survey.css\" rel=\"stylesheet\" media=\"screen\">");
-    _builder.newLine();
-    _builder.append("</head>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<body>");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("<script src=\"http://code.jquery.com/jquery.js\"></script>");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<script src=\"js/bootstrap.js\"></script>");
-    _builder.newLine();
-    _builder.append("\t\t\t");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t");
-    _builder.append("<ul>");
-    _builder.newLine();
-    {
-      EList<Type> _types = rentalSystem.getTypes();
-      for(final Type type : _types) {
-        _builder.append("\t\t\t\t\t");
-        _builder.append("<li><a href=\"");
-        String _name_1 = type.getName();
-        _builder.append(_name_1, "\t\t\t\t\t");
-        _builder.append(".html\">");
-        String _name_2 = type.getName();
-        _builder.append(_name_2, "\t\t\t\t\t");
-        _builder.append("</a></li>");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    _builder.append("\t\t\t\t\t");
-    _builder.append("</ul>");
-    _builder.newLine();
-    _builder.append("\t\t\t");
-    _builder.append("<a href=\"index.html\">Index</a>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("</body>");
-    _builder.newLine();
-    _builder.append("</html>");
-    _builder.newLine();
-    return _builder;
-  }
-  
-  public CharSequence generateCharacterMask(final Customer customer, final RentalSystem rentalSystem) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<html>");
-    _builder.newLine();
-    _builder.append("<head>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<title>");
+    _builder.append("public class ");
     String _name = customer.getName();
-    _builder.append(_name, "\t");
-    _builder.append("</title>");
+    String _firstUpper = StringExtensions.toFirstUpper(_name);
+    _builder.append(_firstUpper, "\t\t");
+    _builder.append(" {");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<!-- Bootstrap -->");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<link href=\"css/bootstrap.css\" rel=\"stylesheet\" media=\"screen\">");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<link href=\"css/survey.css\" rel=\"stylesheet\" media=\"screen\">");
-    _builder.newLine();
-    _builder.append("</head>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<body>");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<script src=\"http://code.jquery.com/jquery.js\"></script>");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<script src=\"js/bootstrap.js\"></script>");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t");
-    _builder.append("<form>");
+    _builder.append("\t\t\t");
     _builder.newLine();
     {
-      EList<Attribute> _attributes = customer.getAttributes();
-      for(final Attribute attribute : _attributes) {
-        _builder.append("\t\t\t\t\t");
-        _builder.append("<input type=\"text\" name=\"");
+      EList<Attribute> _customerAttribute = customer.getCustomerAttribute();
+      for(final Attribute attribute : _customerAttribute) {
+        _builder.append("\t\t\t");
+        _builder.append("public ");
+        OfType _ofType = attribute.getOfType();
+        _builder.append(_ofType, "\t\t\t");
+        _builder.append(" ");
         String _name_1 = attribute.getName();
-        _builder.append(_name_1, "\t\t\t\t\t");
-        _builder.append("\" value=\"");
+        String _firstLower = StringExtensions.toFirstLower(_name_1);
+        _builder.append(_firstLower, "\t\t\t");
+        _builder.append(" = ");
         String _value = attribute.getValue();
-        _builder.append(_value, "\t\t\t\t\t");
-        _builder.append("\" readonly /><br />");
+        _builder.append(_value, "\t\t\t");
+        _builder.append(";");
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("\t\t\t\t\t");
-    _builder.append("</form>");
-    _builder.newLine();
-    _builder.append("\t\t\t");
-    _builder.append("<a href=\"index.html\">Index</a>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("</body>");
-    _builder.newLine();
-    _builder.append("</html>");
+    _builder.append("\t\t");
+    _builder.append("}");
     _builder.newLine();
     return _builder;
   }
   
-  public CharSequence generateTypeMask(final Type type, final RentalSystem rentalSystem) {
+  public CharSequence generateTypeBeans(final RentalType rentalType, final RentalSystem rentalSystem) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<html>");
+    _builder.append("package main;");
     _builder.newLine();
-    _builder.append("<head>");
     _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<title>");
-    String _name = type.getName();
-    _builder.append(_name, "\t");
-    _builder.append("</title>");
+    _builder.append("\t\t");
+    _builder.append("public class ");
+    String _name = rentalType.getName();
+    String _firstUpper = StringExtensions.toFirstUpper(_name);
+    _builder.append(_firstUpper, "\t\t");
+    _builder.append(" {");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<!-- Bootstrap -->");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<link href=\"css/bootstrap.css\" rel=\"stylesheet\" media=\"screen\">");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<link href=\"css/survey.css\" rel=\"stylesheet\" media=\"screen\">");
-    _builder.newLine();
-    _builder.append("</head>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<body>");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<script src=\"http://code.jquery.com/jquery.js\"></script>");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<script src=\"js/bootstrap.js\"></script>");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t");
-    _builder.append("<form>");
+    _builder.append("\t\t\t");
     _builder.newLine();
     {
-      EList<Attribute> _typeAttributes = type.getTypeAttributes();
+      EList<Attribute> _typeAttributes = rentalType.getTypeAttributes();
       for(final Attribute attribute : _typeAttributes) {
-        _builder.append("\t\t\t\t\t");
-        _builder.append("<input type=\"text\" name=\"");
+        _builder.append("\t\t\t");
+        _builder.append("public ");
+        OfType _ofType = attribute.getOfType();
+        _builder.append(_ofType, "\t\t\t");
+        _builder.append(" ");
         String _name_1 = attribute.getName();
-        _builder.append(_name_1, "\t\t\t\t\t");
-        _builder.append("\" value=\"");
+        String _firstLower = StringExtensions.toFirstLower(_name_1);
+        _builder.append(_firstLower, "\t\t\t");
+        _builder.append(" = ");
         String _value = attribute.getValue();
-        _builder.append(_value, "\t\t\t\t\t");
-        _builder.append("\"/>");
+        _builder.append(_value, "\t\t\t");
+        _builder.append(";");
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("\t\t\t\t\t");
-    _builder.append("</form>");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t");
-    _builder.append("<a href=\"index.html\">Index</a>");
-    _builder.newLine();
-    _builder.append("\t\t\t");
-    _builder.append("</div>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("</body>");
-    _builder.newLine();
-    _builder.append("</html>");
+    _builder.append("\t\t");
+    _builder.append("}");
     _builder.newLine();
     return _builder;
   }

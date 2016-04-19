@@ -11,10 +11,19 @@
       <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//OfType/creating"/>
       <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//OfType/beginning"/>
       <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//OfType/running"/>
-      <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//OfType/cancelling"/>
+      <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//OfType/canceling"/>
       <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//OfType/replacing"/>
-      <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//OfType/enstoring"/>
+      <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//OfType/storing"/>
       <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//OfType/finishing"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="RentalWorkflow.ecore#//ofEventType">
+      <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//ofEventType/nextClicked"/>
+      <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//ofEventType/backClicked"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="RentalWorkflow.ecore#//ofCommandType">
+      <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//ofCommandType/doSave"/>
+      <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//ofCommandType/doAbord"/>
+      <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//ofCommandType/doDelete"/>
     </genEnums>
     <genClasses ecoreClass="RentalWorkflow.ecore#//RentalWorkflow">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalWorkflow.ecore#//RentalWorkflow/name"/>
@@ -26,10 +35,12 @@
     <genClasses ecoreClass="RentalWorkflow.ecore#//Event">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalWorkflow.ecore#//Event/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalWorkflow.ecore#//Event/code"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalWorkflow.ecore#//Event/ofType"/>
     </genClasses>
     <genClasses ecoreClass="RentalWorkflow.ecore#//Command">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalWorkflow.ecore#//Command/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalWorkflow.ecore#//Command/code"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalWorkflow.ecore#//Command/ofType"/>
     </genClasses>
     <genClasses ecoreClass="RentalWorkflow.ecore#//State">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalWorkflow.ecore#//State/name"/>

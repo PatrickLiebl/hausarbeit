@@ -67,7 +67,7 @@ public class RentalSystemFactoryImpl extends EFactoryImpl implements RentalSyste
     switch (eClass.getClassifierID())
     {
       case RentalSystemPackage.RENTAL_SYSTEM: return createRentalSystem();
-      case RentalSystemPackage.TYPE: return createType();
+      case RentalSystemPackage.RENTAL_TYPE: return createRentalType();
       case RentalSystemPackage.DEAL: return createDeal();
       case RentalSystemPackage.CUSTOMER: return createCustomer();
       case RentalSystemPackage.ATTRIBUTE: return createAttribute();
@@ -126,10 +126,10 @@ public class RentalSystemFactoryImpl extends EFactoryImpl implements RentalSyste
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type createType()
+  public RentalType createRentalType()
   {
-    TypeImpl type = new TypeImpl();
-    return type;
+    RentalTypeImpl rentalType = new RentalTypeImpl();
+    return rentalType;
   }
 
   /**

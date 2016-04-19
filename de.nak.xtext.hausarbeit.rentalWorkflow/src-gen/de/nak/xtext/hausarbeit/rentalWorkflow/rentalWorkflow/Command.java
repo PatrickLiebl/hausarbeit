@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Command#getName <em>Name</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Command#getCode <em>Code</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Command#getOfType <em>Of Type</em>}</li>
  * </ul>
  *
  * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage#getCommand()
@@ -75,5 +76,34 @@ public interface Command extends EObject
    * @generated
    */
   void setCode(String value);
+
+  /**
+   * Returns the value of the '<em><b>Of Type</b></em>' attribute.
+   * The literals are from the enumeration {@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.ofCommandType}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Of Type</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Of Type</em>' attribute.
+   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.ofCommandType
+   * @see #setOfType(ofCommandType)
+   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage#getCommand_OfType()
+   * @model
+   * @generated
+   */
+  ofCommandType getOfType();
+
+  /**
+   * Sets the value of the '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Command#getOfType <em>Of Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Of Type</em>' attribute.
+   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.ofCommandType
+   * @see #getOfType()
+   * @generated
+   */
+  void setOfType(ofCommandType value);
 
 } // Command

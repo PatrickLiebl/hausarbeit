@@ -7,7 +7,9 @@ import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Customer;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage;
-import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type;
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalType;
+
+import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow;
 
 import java.util.Collection;
 
@@ -36,7 +38,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.DealImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.DealImpl#getCustomer <em>Customer</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.DealImpl#getRentalType <em>Rental Type</em>}</li>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.DealImpl#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.DealImpl#getWf <em>Wf</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.DealImpl#getDealAttribute <em>Deal Attribute</em>}</li>
  * </ul>
  *
  * @generated
@@ -81,17 +84,27 @@ public class DealImpl extends MinimalEObjectImpl.Container implements Deal
    * @generated
    * @ordered
    */
-  protected Type rentalType;
+  protected RentalType rentalType;
 
   /**
-   * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
+   * The cached value of the '{@link #getWf() <em>Wf</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAttributes()
+   * @see #getWf()
    * @generated
    * @ordered
    */
-  protected EList<Attribute> attributes;
+  protected RentalWorkflow wf;
+
+  /**
+   * The cached value of the '{@link #getDealAttribute() <em>Deal Attribute</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDealAttribute()
+   * @generated
+   * @ordered
+   */
+  protected EList<Attribute> dealAttribute;
 
   /**
    * <!-- begin-user-doc -->
@@ -185,12 +198,12 @@ public class DealImpl extends MinimalEObjectImpl.Container implements Deal
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type getRentalType()
+  public RentalType getRentalType()
   {
     if (rentalType != null && rentalType.eIsProxy())
     {
       InternalEObject oldRentalType = (InternalEObject)rentalType;
-      rentalType = (Type)eResolveProxy(oldRentalType);
+      rentalType = (RentalType)eResolveProxy(oldRentalType);
       if (rentalType != oldRentalType)
       {
         if (eNotificationRequired())
@@ -205,7 +218,7 @@ public class DealImpl extends MinimalEObjectImpl.Container implements Deal
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type basicGetRentalType()
+  public RentalType basicGetRentalType()
   {
     return rentalType;
   }
@@ -215,9 +228,9 @@ public class DealImpl extends MinimalEObjectImpl.Container implements Deal
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRentalType(Type newRentalType)
+  public void setRentalType(RentalType newRentalType)
   {
-    Type oldRentalType = rentalType;
+    RentalType oldRentalType = rentalType;
     rentalType = newRentalType;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RentalSystemPackage.DEAL__RENTAL_TYPE, oldRentalType, rentalType));
@@ -228,13 +241,56 @@ public class DealImpl extends MinimalEObjectImpl.Container implements Deal
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Attribute> getAttributes()
+  public RentalWorkflow getWf()
   {
-    if (attributes == null)
+    if (wf != null && wf.eIsProxy())
     {
-      attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, RentalSystemPackage.DEAL__ATTRIBUTES);
+      InternalEObject oldWf = (InternalEObject)wf;
+      wf = (RentalWorkflow)eResolveProxy(oldWf);
+      if (wf != oldWf)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RentalSystemPackage.DEAL__WF, oldWf, wf));
+      }
     }
-    return attributes;
+    return wf;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RentalWorkflow basicGetWf()
+  {
+    return wf;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setWf(RentalWorkflow newWf)
+  {
+    RentalWorkflow oldWf = wf;
+    wf = newWf;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RentalSystemPackage.DEAL__WF, oldWf, wf));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Attribute> getDealAttribute()
+  {
+    if (dealAttribute == null)
+    {
+      dealAttribute = new EObjectContainmentEList<Attribute>(Attribute.class, this, RentalSystemPackage.DEAL__DEAL_ATTRIBUTE);
+    }
+    return dealAttribute;
   }
 
   /**
@@ -247,8 +303,8 @@ public class DealImpl extends MinimalEObjectImpl.Container implements Deal
   {
     switch (featureID)
     {
-      case RentalSystemPackage.DEAL__ATTRIBUTES:
-        return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
+      case RentalSystemPackage.DEAL__DEAL_ATTRIBUTE:
+        return ((InternalEList<?>)getDealAttribute()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -271,8 +327,11 @@ public class DealImpl extends MinimalEObjectImpl.Container implements Deal
       case RentalSystemPackage.DEAL__RENTAL_TYPE:
         if (resolve) return getRentalType();
         return basicGetRentalType();
-      case RentalSystemPackage.DEAL__ATTRIBUTES:
-        return getAttributes();
+      case RentalSystemPackage.DEAL__WF:
+        if (resolve) return getWf();
+        return basicGetWf();
+      case RentalSystemPackage.DEAL__DEAL_ATTRIBUTE:
+        return getDealAttribute();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -295,11 +354,14 @@ public class DealImpl extends MinimalEObjectImpl.Container implements Deal
         setCustomer((Customer)newValue);
         return;
       case RentalSystemPackage.DEAL__RENTAL_TYPE:
-        setRentalType((Type)newValue);
+        setRentalType((RentalType)newValue);
         return;
-      case RentalSystemPackage.DEAL__ATTRIBUTES:
-        getAttributes().clear();
-        getAttributes().addAll((Collection<? extends Attribute>)newValue);
+      case RentalSystemPackage.DEAL__WF:
+        setWf((RentalWorkflow)newValue);
+        return;
+      case RentalSystemPackage.DEAL__DEAL_ATTRIBUTE:
+        getDealAttribute().clear();
+        getDealAttribute().addAll((Collection<? extends Attribute>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -322,10 +384,13 @@ public class DealImpl extends MinimalEObjectImpl.Container implements Deal
         setCustomer((Customer)null);
         return;
       case RentalSystemPackage.DEAL__RENTAL_TYPE:
-        setRentalType((Type)null);
+        setRentalType((RentalType)null);
         return;
-      case RentalSystemPackage.DEAL__ATTRIBUTES:
-        getAttributes().clear();
+      case RentalSystemPackage.DEAL__WF:
+        setWf((RentalWorkflow)null);
+        return;
+      case RentalSystemPackage.DEAL__DEAL_ATTRIBUTE:
+        getDealAttribute().clear();
         return;
     }
     super.eUnset(featureID);
@@ -347,8 +412,10 @@ public class DealImpl extends MinimalEObjectImpl.Container implements Deal
         return customer != null;
       case RentalSystemPackage.DEAL__RENTAL_TYPE:
         return rentalType != null;
-      case RentalSystemPackage.DEAL__ATTRIBUTES:
-        return attributes != null && !attributes.isEmpty();
+      case RentalSystemPackage.DEAL__WF:
+        return wf != null;
+      case RentalSystemPackage.DEAL__DEAL_ATTRIBUTE:
+        return dealAttribute != null && !dealAttribute.isEmpty();
     }
     return super.eIsSet(featureID);
   }

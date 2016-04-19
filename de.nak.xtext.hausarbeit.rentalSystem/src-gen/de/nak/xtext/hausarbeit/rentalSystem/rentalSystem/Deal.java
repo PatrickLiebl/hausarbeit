@@ -3,6 +3,8 @@
  */
 package de.nak.xtext.hausarbeit.rentalSystem.rentalSystem;
 
+import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -19,7 +21,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getName <em>Name</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getCustomer <em>Customer</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getRentalType <em>Rental Type</em>}</li>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getWf <em>Wf</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getDealAttribute <em>Deal Attribute</em>}</li>
  * </ul>
  *
  * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage#getDeal()
@@ -89,12 +92,12 @@ public interface Deal extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Rental Type</em>' reference.
-   * @see #setRentalType(Type)
+   * @see #setRentalType(RentalType)
    * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage#getDeal_RentalType()
    * @model
    * @generated
    */
-  Type getRentalType();
+  RentalType getRentalType();
 
   /**
    * Sets the value of the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getRentalType <em>Rental Type</em>}' reference.
@@ -104,22 +107,48 @@ public interface Deal extends EObject
    * @see #getRentalType()
    * @generated
    */
-  void setRentalType(Type value);
+  void setRentalType(RentalType value);
 
   /**
-   * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
-   * The list contents are of type {@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute}.
+   * Returns the value of the '<em><b>Wf</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Attributes</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Wf</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Attributes</em>' containment reference list.
-   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage#getDeal_Attributes()
+   * @return the value of the '<em>Wf</em>' reference.
+   * @see #setWf(RentalWorkflow)
+   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage#getDeal_Wf()
+   * @model
+   * @generated
+   */
+  RentalWorkflow getWf();
+
+  /**
+   * Sets the value of the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getWf <em>Wf</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Wf</em>' reference.
+   * @see #getWf()
+   * @generated
+   */
+  void setWf(RentalWorkflow value);
+
+  /**
+   * Returns the value of the '<em><b>Deal Attribute</b></em>' containment reference list.
+   * The list contents are of type {@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Deal Attribute</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Deal Attribute</em>' containment reference list.
+   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage#getDeal_DealAttribute()
    * @model containment="true"
    * @generated
    */
-  EList<Attribute> getAttributes();
+  EList<Attribute> getDealAttribute();
 
 } // Deal

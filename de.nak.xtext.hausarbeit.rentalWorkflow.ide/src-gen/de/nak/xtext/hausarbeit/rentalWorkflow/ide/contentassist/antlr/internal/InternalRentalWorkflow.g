@@ -190,6 +190,38 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Rule ofEventType
+ruleofEventType
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getOfEventTypeAccess().getAlternatives()); }
+		(rule__OfEventType__Alternatives)
+		{ after(grammarAccess.getOfEventTypeAccess().getAlternatives()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+// Rule ofCommandType
+ruleofCommandType
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getOfCommandTypeAccess().getAlternatives()); }
+		(rule__OfCommandType__Alternatives)
+		{ after(grammarAccess.getOfCommandTypeAccess().getAlternatives()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__OfType__Alternatives
 	@init {
 		int stackSize = keepStackSize();
@@ -220,9 +252,9 @@ rule__OfType__Alternatives
 	)
 	|
 	(
-		{ before(grammarAccess.getOfTypeAccess().getCancellingEnumLiteralDeclaration_4()); }
-		('cancelling')
-		{ after(grammarAccess.getOfTypeAccess().getCancellingEnumLiteralDeclaration_4()); }
+		{ before(grammarAccess.getOfTypeAccess().getCancelingEnumLiteralDeclaration_4()); }
+		('canceling')
+		{ after(grammarAccess.getOfTypeAccess().getCancelingEnumLiteralDeclaration_4()); }
 	)
 	|
 	(
@@ -232,15 +264,63 @@ rule__OfType__Alternatives
 	)
 	|
 	(
-		{ before(grammarAccess.getOfTypeAccess().getEnstoringEnumLiteralDeclaration_6()); }
-		('enstoring')
-		{ after(grammarAccess.getOfTypeAccess().getEnstoringEnumLiteralDeclaration_6()); }
+		{ before(grammarAccess.getOfTypeAccess().getStoringEnumLiteralDeclaration_6()); }
+		('storing')
+		{ after(grammarAccess.getOfTypeAccess().getStoringEnumLiteralDeclaration_6()); }
 	)
 	|
 	(
 		{ before(grammarAccess.getOfTypeAccess().getFinishingEnumLiteralDeclaration_7()); }
 		('finishing')
 		{ after(grammarAccess.getOfTypeAccess().getFinishingEnumLiteralDeclaration_7()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__OfEventType__Alternatives
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getOfEventTypeAccess().getNextClickedEnumLiteralDeclaration_0()); }
+		('nextClicked')
+		{ after(grammarAccess.getOfEventTypeAccess().getNextClickedEnumLiteralDeclaration_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getOfEventTypeAccess().getBackClickedEnumLiteralDeclaration_1()); }
+		('backClicked')
+		{ after(grammarAccess.getOfEventTypeAccess().getBackClickedEnumLiteralDeclaration_1()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__OfCommandType__Alternatives
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getOfCommandTypeAccess().getDoSaveEnumLiteralDeclaration_0()); }
+		('doSave')
+		{ after(grammarAccess.getOfCommandTypeAccess().getDoSaveEnumLiteralDeclaration_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getOfCommandTypeAccess().getDoAbordEnumLiteralDeclaration_1()); }
+		('doAbort')
+		{ after(grammarAccess.getOfCommandTypeAccess().getDoAbordEnumLiteralDeclaration_1()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getOfCommandTypeAccess().getDoDeleteEnumLiteralDeclaration_2()); }
+		('doDelete')
+		{ after(grammarAccess.getOfCommandTypeAccess().getDoDeleteEnumLiteralDeclaration_2()); }
 	)
 ;
 finally {
@@ -631,6 +711,7 @@ rule__Event__Group__1
 	}
 :
 	rule__Event__Group__1__Impl
+	rule__Event__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -645,6 +726,32 @@ rule__Event__Group__1__Impl
 	{ before(grammarAccess.getEventAccess().getCodeAssignment_1()); }
 	(rule__Event__CodeAssignment_1)
 	{ after(grammarAccess.getEventAccess().getCodeAssignment_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Event__Group__2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Event__Group__2__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Event__Group__2__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getEventAccess().getOfTypeAssignment_2()); }
+	(rule__Event__OfTypeAssignment_2)
+	{ after(grammarAccess.getEventAccess().getOfTypeAssignment_2()); }
 )
 ;
 finally {
@@ -685,6 +792,7 @@ rule__Command__Group__1
 	}
 :
 	rule__Command__Group__1__Impl
+	rule__Command__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -699,6 +807,32 @@ rule__Command__Group__1__Impl
 	{ before(grammarAccess.getCommandAccess().getCodeAssignment_1()); }
 	(rule__Command__CodeAssignment_1)
 	{ after(grammarAccess.getCommandAccess().getCodeAssignment_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Command__Group__2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Command__Group__2__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Command__Group__2__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getCommandAccess().getOfTypeAssignment_2()); }
+	(rule__Command__OfTypeAssignment_2)
+	{ after(grammarAccess.getCommandAccess().getOfTypeAssignment_2()); }
 )
 ;
 finally {
@@ -1173,6 +1307,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__Event__OfTypeAssignment_2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getEventAccess().getOfTypeOfEventTypeEnumRuleCall_2_0()); }
+		ruleofEventType
+		{ after(grammarAccess.getEventAccess().getOfTypeOfEventTypeEnumRuleCall_2_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__Command__NameAssignment_0
 	@init {
 		int stackSize = keepStackSize();
@@ -1197,6 +1346,21 @@ rule__Command__CodeAssignment_1
 		{ before(grammarAccess.getCommandAccess().getCodeIDTerminalRuleCall_1_0()); }
 		RULE_ID
 		{ after(grammarAccess.getCommandAccess().getCodeIDTerminalRuleCall_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Command__OfTypeAssignment_2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getCommandAccess().getOfTypeOfCommandTypeEnumRuleCall_2_0()); }
+		ruleofCommandType
+		{ after(grammarAccess.getCommandAccess().getOfTypeOfCommandTypeEnumRuleCall_2_0()); }
 	)
 ;
 finally {

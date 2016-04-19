@@ -5,6 +5,7 @@ package de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl;
 
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Command;
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage;
+import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.ofCommandType;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -23,6 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.CommandImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.CommandImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.CommandImpl#getOfType <em>Of Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,6 +70,26 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
    * @ordered
    */
   protected String code = CODE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getOfType() <em>Of Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOfType()
+   * @generated
+   * @ordered
+   */
+  protected static final ofCommandType OF_TYPE_EDEFAULT = ofCommandType.DO_SAVE;
+
+  /**
+   * The cached value of the '{@link #getOfType() <em>Of Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOfType()
+   * @generated
+   * @ordered
+   */
+  protected ofCommandType ofType = OF_TYPE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -141,6 +163,29 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
    * <!-- end-user-doc -->
    * @generated
    */
+  public ofCommandType getOfType()
+  {
+    return ofType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOfType(ofCommandType newOfType)
+  {
+    ofCommandType oldOfType = ofType;
+    ofType = newOfType == null ? OF_TYPE_EDEFAULT : newOfType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RentalWorkflowPackage.COMMAND__OF_TYPE, oldOfType, ofType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -150,6 +195,8 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
         return getName();
       case RentalWorkflowPackage.COMMAND__CODE:
         return getCode();
+      case RentalWorkflowPackage.COMMAND__OF_TYPE:
+        return getOfType();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -169,6 +216,9 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
         return;
       case RentalWorkflowPackage.COMMAND__CODE:
         setCode((String)newValue);
+        return;
+      case RentalWorkflowPackage.COMMAND__OF_TYPE:
+        setOfType((ofCommandType)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -190,6 +240,9 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
       case RentalWorkflowPackage.COMMAND__CODE:
         setCode(CODE_EDEFAULT);
         return;
+      case RentalWorkflowPackage.COMMAND__OF_TYPE:
+        setOfType(OF_TYPE_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -208,6 +261,8 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RentalWorkflowPackage.COMMAND__CODE:
         return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
+      case RentalWorkflowPackage.COMMAND__OF_TYPE:
+        return ofType != OF_TYPE_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -227,6 +282,8 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
     result.append(name);
     result.append(", code: ");
     result.append(code);
+    result.append(", ofType: ");
+    result.append(ofType);
     result.append(')');
     return result.toString();
   }

@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Customer#getName <em>Name</em>}</li>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Customer#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Customer#getCustomerAttribute <em>Customer Attribute</em>}</li>
  * </ul>
  *
  * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage#getCustomer()
@@ -53,19 +53,19 @@ public interface Customer extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Customer Attribute</b></em>' containment reference list.
    * The list contents are of type {@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Attributes</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Customer Attribute</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Attributes</em>' containment reference list.
-   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage#getCustomer_Attributes()
+   * @return the value of the '<em>Customer Attribute</em>' containment reference list.
+   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage#getCustomer_CustomerAttribute()
    * @model containment="true"
    * @generated
    */
-  EList<Attribute> getAttributes();
+  EList<Attribute> getCustomerAttribute();
 
 } // Customer

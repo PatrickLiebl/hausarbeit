@@ -255,6 +255,25 @@ ruleEvent returns [EObject current=null]
 				}
 			)
 		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEventAccess().getOfTypeOfEventTypeEnumRuleCall_2_0());
+				}
+				lv_ofType_2_0=ruleofEventType
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEventRule());
+					}
+					set(
+						$current,
+						"ofType",
+						lv_ofType_2_0,
+						"de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.ofEventType");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 
@@ -307,6 +326,25 @@ ruleCommand returns [EObject current=null]
 						"code",
 						lv_code_1_0,
 						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCommandAccess().getOfTypeOfCommandTypeEnumRuleCall_2_0());
+				}
+				lv_ofType_2_0=ruleofCommandType
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCommandRule());
+					}
+					set(
+						$current,
+						"ofType",
+						lv_ofType_2_0,
+						"de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.ofCommandType");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -514,10 +552,10 @@ ruleOfType returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_4='cancelling'
+			enumLiteral_4='canceling'
 			{
-				$current = grammarAccess.getOfTypeAccess().getCancellingEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_4, grammarAccess.getOfTypeAccess().getCancellingEnumLiteralDeclaration_4());
+				$current = grammarAccess.getOfTypeAccess().getCancelingEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_4, grammarAccess.getOfTypeAccess().getCancelingEnumLiteralDeclaration_4());
 			}
 		)
 		    |
@@ -530,10 +568,10 @@ ruleOfType returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_6='enstoring'
+			enumLiteral_6='storing'
 			{
-				$current = grammarAccess.getOfTypeAccess().getEnstoringEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_6, grammarAccess.getOfTypeAccess().getEnstoringEnumLiteralDeclaration_6());
+				$current = grammarAccess.getOfTypeAccess().getStoringEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_6, grammarAccess.getOfTypeAccess().getStoringEnumLiteralDeclaration_6());
 			}
 		)
 		    |
@@ -542,6 +580,68 @@ ruleOfType returns [Enumerator current=null]
 			{
 				$current = grammarAccess.getOfTypeAccess().getFinishingEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_7, grammarAccess.getOfTypeAccess().getFinishingEnumLiteralDeclaration_7());
+			}
+		)
+	)
+;
+
+// Rule ofEventType
+ruleofEventType returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='nextClicked'
+			{
+				$current = grammarAccess.getOfEventTypeAccess().getNextClickedEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getOfEventTypeAccess().getNextClickedEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='backClicked'
+			{
+				$current = grammarAccess.getOfEventTypeAccess().getBackClickedEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getOfEventTypeAccess().getBackClickedEnumLiteralDeclaration_1());
+			}
+		)
+	)
+;
+
+// Rule ofCommandType
+ruleofCommandType returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='doSave'
+			{
+				$current = grammarAccess.getOfCommandTypeAccess().getDoSaveEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getOfCommandTypeAccess().getDoSaveEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='doAbort'
+			{
+				$current = grammarAccess.getOfCommandTypeAccess().getDoAbordEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getOfCommandTypeAccess().getDoAbordEnumLiteralDeclaration_1());
+			}
+		)
+		    |
+		(
+			enumLiteral_2='doDelete'
+			{
+				$current = grammarAccess.getOfCommandTypeAccess().getDoDeleteEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getOfCommandTypeAccess().getDoDeleteEnumLiteralDeclaration_2());
 			}
 		)
 	)

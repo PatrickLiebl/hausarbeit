@@ -5,9 +5,7 @@ package de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl;
 
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage;
-import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type;
-
-import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow;
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalType;
 
 import java.util.Collection;
 
@@ -27,23 +25,22 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Type</b></em>'.
+ * An implementation of the model object '<em><b>Rental Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.TypeImpl#isMovable <em>Movable</em>}</li>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.TypeImpl#isDigital <em>Digital</em>}</li>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.TypeImpl#isFix <em>Fix</em>}</li>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.TypeImpl#getName <em>Name</em>}</li>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.TypeImpl#getWf <em>Wf</em>}</li>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.TypeImpl#getTypeAttributes <em>Type Attributes</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalTypeImpl#isMovable <em>Movable</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalTypeImpl#isDigital <em>Digital</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalTypeImpl#isFix <em>Fix</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalTypeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalTypeImpl#getTypeAttributes <em>Type Attributes</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TypeImpl extends MinimalEObjectImpl.Container implements Type
+public class RentalTypeImpl extends MinimalEObjectImpl.Container implements RentalType
 {
   /**
    * The default value of the '{@link #isMovable() <em>Movable</em>}' attribute.
@@ -126,16 +123,6 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getWf() <em>Wf</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getWf()
-   * @generated
-   * @ordered
-   */
-  protected RentalWorkflow wf;
-
-  /**
    * The cached value of the '{@link #getTypeAttributes() <em>Type Attributes</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -150,7 +137,7 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TypeImpl()
+  protected RentalTypeImpl()
   {
     super();
   }
@@ -163,7 +150,7 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
   @Override
   protected EClass eStaticClass()
   {
-    return RentalSystemPackage.Literals.TYPE;
+    return RentalSystemPackage.Literals.RENTAL_TYPE;
   }
 
   /**
@@ -186,7 +173,7 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
     boolean oldMovable = movable;
     movable = newMovable;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RentalSystemPackage.TYPE__MOVABLE, oldMovable, movable));
+      eNotify(new ENotificationImpl(this, Notification.SET, RentalSystemPackage.RENTAL_TYPE__MOVABLE, oldMovable, movable));
   }
 
   /**
@@ -209,7 +196,7 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
     boolean oldDigital = digital;
     digital = newDigital;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RentalSystemPackage.TYPE__DIGITAL, oldDigital, digital));
+      eNotify(new ENotificationImpl(this, Notification.SET, RentalSystemPackage.RENTAL_TYPE__DIGITAL, oldDigital, digital));
   }
 
   /**
@@ -232,7 +219,7 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
     boolean oldFix = fix;
     fix = newFix;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RentalSystemPackage.TYPE__FIX, oldFix, fix));
+      eNotify(new ENotificationImpl(this, Notification.SET, RentalSystemPackage.RENTAL_TYPE__FIX, oldFix, fix));
   }
 
   /**
@@ -255,50 +242,7 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RentalSystemPackage.TYPE__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RentalWorkflow getWf()
-  {
-    if (wf != null && wf.eIsProxy())
-    {
-      InternalEObject oldWf = (InternalEObject)wf;
-      wf = (RentalWorkflow)eResolveProxy(oldWf);
-      if (wf != oldWf)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RentalSystemPackage.TYPE__WF, oldWf, wf));
-      }
-    }
-    return wf;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RentalWorkflow basicGetWf()
-  {
-    return wf;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setWf(RentalWorkflow newWf)
-  {
-    RentalWorkflow oldWf = wf;
-    wf = newWf;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RentalSystemPackage.TYPE__WF, oldWf, wf));
+      eNotify(new ENotificationImpl(this, Notification.SET, RentalSystemPackage.RENTAL_TYPE__NAME, oldName, name));
   }
 
   /**
@@ -310,7 +254,7 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
   {
     if (typeAttributes == null)
     {
-      typeAttributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, RentalSystemPackage.TYPE__TYPE_ATTRIBUTES);
+      typeAttributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, RentalSystemPackage.RENTAL_TYPE__TYPE_ATTRIBUTES);
     }
     return typeAttributes;
   }
@@ -325,7 +269,7 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
   {
     switch (featureID)
     {
-      case RentalSystemPackage.TYPE__TYPE_ATTRIBUTES:
+      case RentalSystemPackage.RENTAL_TYPE__TYPE_ATTRIBUTES:
         return ((InternalEList<?>)getTypeAttributes()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -341,18 +285,15 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
   {
     switch (featureID)
     {
-      case RentalSystemPackage.TYPE__MOVABLE:
+      case RentalSystemPackage.RENTAL_TYPE__MOVABLE:
         return isMovable();
-      case RentalSystemPackage.TYPE__DIGITAL:
+      case RentalSystemPackage.RENTAL_TYPE__DIGITAL:
         return isDigital();
-      case RentalSystemPackage.TYPE__FIX:
+      case RentalSystemPackage.RENTAL_TYPE__FIX:
         return isFix();
-      case RentalSystemPackage.TYPE__NAME:
+      case RentalSystemPackage.RENTAL_TYPE__NAME:
         return getName();
-      case RentalSystemPackage.TYPE__WF:
-        if (resolve) return getWf();
-        return basicGetWf();
-      case RentalSystemPackage.TYPE__TYPE_ATTRIBUTES:
+      case RentalSystemPackage.RENTAL_TYPE__TYPE_ATTRIBUTES:
         return getTypeAttributes();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -369,22 +310,19 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
   {
     switch (featureID)
     {
-      case RentalSystemPackage.TYPE__MOVABLE:
+      case RentalSystemPackage.RENTAL_TYPE__MOVABLE:
         setMovable((Boolean)newValue);
         return;
-      case RentalSystemPackage.TYPE__DIGITAL:
+      case RentalSystemPackage.RENTAL_TYPE__DIGITAL:
         setDigital((Boolean)newValue);
         return;
-      case RentalSystemPackage.TYPE__FIX:
+      case RentalSystemPackage.RENTAL_TYPE__FIX:
         setFix((Boolean)newValue);
         return;
-      case RentalSystemPackage.TYPE__NAME:
+      case RentalSystemPackage.RENTAL_TYPE__NAME:
         setName((String)newValue);
         return;
-      case RentalSystemPackage.TYPE__WF:
-        setWf((RentalWorkflow)newValue);
-        return;
-      case RentalSystemPackage.TYPE__TYPE_ATTRIBUTES:
+      case RentalSystemPackage.RENTAL_TYPE__TYPE_ATTRIBUTES:
         getTypeAttributes().clear();
         getTypeAttributes().addAll((Collection<? extends Attribute>)newValue);
         return;
@@ -402,22 +340,19 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
   {
     switch (featureID)
     {
-      case RentalSystemPackage.TYPE__MOVABLE:
+      case RentalSystemPackage.RENTAL_TYPE__MOVABLE:
         setMovable(MOVABLE_EDEFAULT);
         return;
-      case RentalSystemPackage.TYPE__DIGITAL:
+      case RentalSystemPackage.RENTAL_TYPE__DIGITAL:
         setDigital(DIGITAL_EDEFAULT);
         return;
-      case RentalSystemPackage.TYPE__FIX:
+      case RentalSystemPackage.RENTAL_TYPE__FIX:
         setFix(FIX_EDEFAULT);
         return;
-      case RentalSystemPackage.TYPE__NAME:
+      case RentalSystemPackage.RENTAL_TYPE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case RentalSystemPackage.TYPE__WF:
-        setWf((RentalWorkflow)null);
-        return;
-      case RentalSystemPackage.TYPE__TYPE_ATTRIBUTES:
+      case RentalSystemPackage.RENTAL_TYPE__TYPE_ATTRIBUTES:
         getTypeAttributes().clear();
         return;
     }
@@ -434,17 +369,15 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
   {
     switch (featureID)
     {
-      case RentalSystemPackage.TYPE__MOVABLE:
+      case RentalSystemPackage.RENTAL_TYPE__MOVABLE:
         return movable != MOVABLE_EDEFAULT;
-      case RentalSystemPackage.TYPE__DIGITAL:
+      case RentalSystemPackage.RENTAL_TYPE__DIGITAL:
         return digital != DIGITAL_EDEFAULT;
-      case RentalSystemPackage.TYPE__FIX:
+      case RentalSystemPackage.RENTAL_TYPE__FIX:
         return fix != FIX_EDEFAULT;
-      case RentalSystemPackage.TYPE__NAME:
+      case RentalSystemPackage.RENTAL_TYPE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case RentalSystemPackage.TYPE__WF:
-        return wf != null;
-      case RentalSystemPackage.TYPE__TYPE_ATTRIBUTES:
+      case RentalSystemPackage.RENTAL_TYPE__TYPE_ATTRIBUTES:
         return typeAttributes != null && !typeAttributes.isEmpty();
     }
     return super.eIsSet(featureID);
@@ -473,4 +406,4 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
     return result.toString();
   }
 
-} //TypeImpl
+} //RentalTypeImpl

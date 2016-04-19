@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem#getName <em>Name</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem#getTitle <em>Title</em>}</li>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem#getTypes <em>Types</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem#getRentalTypes <em>Rental Types</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem#getCustomers <em>Customers</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem#getDeals <em>Deals</em>}</li>
  * </ul>
@@ -82,20 +82,20 @@ public interface RentalSystem extends EObject
   void setTitle(String value);
 
   /**
-   * Returns the value of the '<em><b>Types</b></em>' containment reference list.
-   * The list contents are of type {@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type}.
+   * Returns the value of the '<em><b>Rental Types</b></em>' containment reference list.
+   * The list contents are of type {@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalType}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Types</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Rental Types</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Types</em>' containment reference list.
-   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage#getRentalSystem_Types()
+   * @return the value of the '<em>Rental Types</em>' containment reference list.
+   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage#getRentalSystem_RentalTypes()
    * @model containment="true"
    * @generated
    */
-  EList<Type> getTypes();
+  EList<RentalType> getRentalTypes();
 
   /**
    * Returns the value of the '<em><b>Customers</b></em>' containment reference list.

@@ -3,10 +3,17 @@
  */
 package de.nak.xtext.hausarbeit.rentalWorkflow.generator;
 
+import com.google.common.base.Objects;
+import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow;
+import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.State;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +24,70 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class RentalWorkflowGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    EList<EObject> _contents = resource.getContents();
+    EObject _head = IterableExtensions.<EObject>head(_contents);
+    final RentalWorkflow rentalWorkflow = ((RentalWorkflow) _head);
+    boolean _notEquals = (!Objects.equal(rentalWorkflow, null));
+    if (_notEquals) {
+      CharSequence _rentalFlow = this.toRentalFlow(rentalWorkflow);
+      fsa.generateFile("main/RentalWorkflow.java", _rentalFlow);
+    }
+  }
+  
+  public CharSequence toRentalFlow(final RentalWorkflow rentalWorkflow) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package main;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("import de.nak.xtext.hausarbeit.rentalWorkflow.runtime.IRentalWorkflow;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public class RentalWorkflow implements IRentalWorkflow {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public String getFirstPage() {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("return \"");
+    EList<State> _states = rentalWorkflow.getStates();
+    State _head = IterableExtensions.<State>head(_states);
+    String _name = _head.getName();
+    _builder.append(_name, "\t\t");
+    _builder.append("\";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public String getNextPage(IFormState formState) {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("String currentPage = formState.getCurrentPage();");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("if(currentPage == null)");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("return getFirstPage();");
+    _builder.newLine();
+    {
+      EList<State> _states_1 = rentalWorkflow.getStates();
+      for(final State state : _states_1) {
+        _builder.newLine();
+      }
+    }
+    _builder.append("\t\t");
+    _builder.append("return null;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
   }
 }

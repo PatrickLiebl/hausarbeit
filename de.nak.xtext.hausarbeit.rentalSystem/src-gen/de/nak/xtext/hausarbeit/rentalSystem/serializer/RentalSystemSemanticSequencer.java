@@ -9,7 +9,7 @@ import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Customer;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage;
-import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type;
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalType;
 import de.nak.xtext.hausarbeit.rentalSystem.services.RentalSystemGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -48,8 +48,8 @@ public class RentalSystemSemanticSequencer extends AbstractDelegatingSemanticSeq
 			case RentalSystemPackage.RENTAL_SYSTEM:
 				sequence_RentalSystem(context, (RentalSystem) semanticObject); 
 				return; 
-			case RentalSystemPackage.TYPE:
-				sequence_Type(context, (Type) semanticObject); 
+			case RentalSystemPackage.RENTAL_TYPE:
+				sequence_RentalType(context, (RentalType) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -85,7 +85,7 @@ public class RentalSystemSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Customer returns Customer
 	 *
 	 * Constraint:
-	 *     (name=ID attributes+=Attribute*)
+	 *     (name=ID customerAttribute+=Attribute*)
 	 */
 	protected void sequence_Customer(ISerializationContext context, Customer semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -97,7 +97,7 @@ public class RentalSystemSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Deal returns Deal
 	 *
 	 * Constraint:
-	 *     (name=ID customer=[Customer|ID] rentalType=[Type|ID] attributes+=Attribute*)
+	 *     (name=ID customer=[Customer|ID] rentalType=[RentalType|ID] wf=[RentalWorkflow|QualifiedName] dealAttribute+=Attribute*)
 	 */
 	protected void sequence_Deal(ISerializationContext context, Deal semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -109,7 +109,7 @@ public class RentalSystemSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     RentalSystem returns RentalSystem
 	 *
 	 * Constraint:
-	 *     (name=ID title=STRING types+=Type* customers+=Customer* deals+=Deal*)
+	 *     (name=ID title=STRING rentalTypes+=RentalType* customers+=Customer* deals+=Deal*)
 	 */
 	protected void sequence_RentalSystem(ISerializationContext context, RentalSystem semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -118,12 +118,12 @@ public class RentalSystemSemanticSequencer extends AbstractDelegatingSemanticSeq
 	
 	/**
 	 * Contexts:
-	 *     Type returns Type
+	 *     RentalType returns RentalType
 	 *
 	 * Constraint:
-	 *     ((movable?='movable' | digital?='digital' | fix?='fix') name=ID wf=[RentalWorkflow|ID] typeAttributes+=Attribute*)
+	 *     ((movable?='movable' | digital?='digital' | fix?='fix') name=ID typeAttributes+=Attribute*)
 	 */
-	protected void sequence_Type(ISerializationContext context, Type semanticObject) {
+	protected void sequence_RentalType(ISerializationContext context, RentalType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

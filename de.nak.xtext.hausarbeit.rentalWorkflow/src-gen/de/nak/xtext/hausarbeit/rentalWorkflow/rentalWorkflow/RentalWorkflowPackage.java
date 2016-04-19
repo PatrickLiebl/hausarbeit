@@ -151,13 +151,22 @@ public interface RentalWorkflowPackage extends EPackage
   int EVENT__CODE = 1;
 
   /**
+   * The feature id for the '<em><b>Of Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EVENT__OF_TYPE = 2;
+
+  /**
    * The number of structural features of the '<em>Event</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EVENT_FEATURE_COUNT = 2;
+  int EVENT_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.CommandImpl <em>Command</em>}' class.
@@ -188,13 +197,22 @@ public interface RentalWorkflowPackage extends EPackage
   int COMMAND__CODE = 1;
 
   /**
+   * The feature id for the '<em><b>Of Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMMAND__OF_TYPE = 2;
+
+  /**
    * The number of structural features of the '<em>Command</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMMAND_FEATURE_COUNT = 2;
+  int COMMAND_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.StateImpl <em>State</em>}' class.
@@ -298,6 +316,26 @@ public interface RentalWorkflowPackage extends EPackage
    */
   int OF_TYPE = 5;
 
+  /**
+   * The meta object id for the '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.ofEventType <em>of Event Type</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.ofEventType
+   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.RentalWorkflowPackageImpl#getofEventType()
+   * @generated
+   */
+  int OF_EVENT_TYPE = 6;
+
+  /**
+   * The meta object id for the '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.ofCommandType <em>of Command Type</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.ofCommandType
+   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.RentalWorkflowPackageImpl#getofCommandType()
+   * @generated
+   */
+  int OF_COMMAND_TYPE = 7;
+
 
   /**
    * Returns the meta object for class '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow <em>Rental Workflow</em>}'.
@@ -397,6 +435,17 @@ public interface RentalWorkflowPackage extends EPackage
   EAttribute getEvent_Code();
 
   /**
+   * Returns the meta object for the attribute '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Event#getOfType <em>Of Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Of Type</em>'.
+   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Event#getOfType()
+   * @see #getEvent()
+   * @generated
+   */
+  EAttribute getEvent_OfType();
+
+  /**
    * Returns the meta object for class '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Command <em>Command</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -427,6 +476,17 @@ public interface RentalWorkflowPackage extends EPackage
    * @generated
    */
   EAttribute getCommand_Code();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Command#getOfType <em>Of Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Of Type</em>'.
+   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Command#getOfType()
+   * @see #getCommand()
+   * @generated
+   */
+  EAttribute getCommand_OfType();
 
   /**
    * Returns the meta object for class '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.State <em>State</em>}'.
@@ -523,6 +583,26 @@ public interface RentalWorkflowPackage extends EPackage
    * @generated
    */
   EEnum getOfType();
+
+  /**
+   * Returns the meta object for enum '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.ofEventType <em>of Event Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>of Event Type</em>'.
+   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.ofEventType
+   * @generated
+   */
+  EEnum getofEventType();
+
+  /**
+   * Returns the meta object for enum '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.ofCommandType <em>of Command Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>of Command Type</em>'.
+   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.ofCommandType
+   * @generated
+   */
+  EEnum getofCommandType();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -624,6 +704,14 @@ public interface RentalWorkflowPackage extends EPackage
     EAttribute EVENT__CODE = eINSTANCE.getEvent_Code();
 
     /**
+     * The meta object literal for the '<em><b>Of Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EVENT__OF_TYPE = eINSTANCE.getEvent_OfType();
+
+    /**
      * The meta object literal for the '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.CommandImpl <em>Command</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -648,6 +736,14 @@ public interface RentalWorkflowPackage extends EPackage
      * @generated
      */
     EAttribute COMMAND__CODE = eINSTANCE.getCommand_Code();
+
+    /**
+     * The meta object literal for the '<em><b>Of Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMMAND__OF_TYPE = eINSTANCE.getCommand_OfType();
 
     /**
      * The meta object literal for the '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.StateImpl <em>State</em>}' class.
@@ -726,6 +822,26 @@ public interface RentalWorkflowPackage extends EPackage
      * @generated
      */
     EEnum OF_TYPE = eINSTANCE.getOfType();
+
+    /**
+     * The meta object literal for the '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.ofEventType <em>of Event Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.ofEventType
+     * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.RentalWorkflowPackageImpl#getofEventType()
+     * @generated
+     */
+    EEnum OF_EVENT_TYPE = eINSTANCE.getofEventType();
+
+    /**
+     * The meta object literal for the '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.ofCommandType <em>of Command Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.ofCommandType
+     * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.RentalWorkflowPackageImpl#getofCommandType()
+     * @generated
+     */
+    EEnum OF_COMMAND_TYPE = eINSTANCE.getofCommandType();
 
   }
 

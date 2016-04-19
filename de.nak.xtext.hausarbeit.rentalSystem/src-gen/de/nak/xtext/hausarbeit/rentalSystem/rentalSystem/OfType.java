@@ -38,7 +38,7 @@ public enum OfType implements Enumerator
    * @generated
    * @ordered
    */
-  STRING(1, "string", "string"),
+  STRING(1, "string", "String"),
 
   /**
    * The '<em><b>Date</b></em>' literal object.
@@ -48,7 +48,7 @@ public enum OfType implements Enumerator
    * @generated
    * @ordered
    */
-  DATE(2, "date", "date"),
+  DATE(2, "date", "Date"),
 
   /**
    * The '<em><b>Decimal</b></em>' literal object.
@@ -68,7 +68,7 @@ public enum OfType implements Enumerator
    * @generated
    * @ordered
    */
-  DOUBLE(4, "double", "double"),
+  DOUBLE(4, "double", "Double"),
 
   /**
    * The '<em><b>Day</b></em>' literal object.
@@ -154,7 +154,7 @@ public enum OfType implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #STRING
-   * @model name="string"
+   * @model name="string" literal="String"
    * @generated
    * @ordered
    */
@@ -169,7 +169,7 @@ public enum OfType implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #DATE
-   * @model name="date"
+   * @model name="date" literal="Date"
    * @generated
    * @ordered
    */
@@ -199,7 +199,7 @@ public enum OfType implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #DOUBLE
-   * @model name="double"
+   * @model name="double" literal="Double"
    * @generated
    * @ordered
    */

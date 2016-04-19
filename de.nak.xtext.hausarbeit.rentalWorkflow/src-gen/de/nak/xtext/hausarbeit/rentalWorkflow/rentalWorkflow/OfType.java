@@ -61,14 +61,14 @@ public enum OfType implements Enumerator
   RUNNING(3, "running", "running"),
 
   /**
-   * The '<em><b>Cancelling</b></em>' literal object.
+   * The '<em><b>Canceling</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #CANCELLING_VALUE
+   * @see #CANCELING_VALUE
    * @generated
    * @ordered
    */
-  CANCELLING(4, "cancelling", "cancelling"),
+  CANCELING(4, "canceling", "canceling"),
 
   /**
    * The '<em><b>Replacing</b></em>' literal object.
@@ -81,14 +81,14 @@ public enum OfType implements Enumerator
   REPLACING(5, "replacing", "replacing"),
 
   /**
-   * The '<em><b>Enstoring</b></em>' literal object.
+   * The '<em><b>Storing</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #ENSTORING_VALUE
+   * @see #STORING_VALUE
    * @generated
    * @ordered
    */
-  ENSTORING(6, "enstoring", "enstoring"),
+  STORING(6, "storing", "storing"),
 
   /**
    * The '<em><b>Finishing</b></em>' literal object.
@@ -161,19 +161,19 @@ public enum OfType implements Enumerator
   public static final int RUNNING_VALUE = 3;
 
   /**
-   * The '<em><b>Cancelling</b></em>' literal value.
+   * The '<em><b>Canceling</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>Cancelling</b></em>' literal object isn't clear,
+   * If the meaning of '<em><b>Canceling</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #CANCELLING
-   * @model name="cancelling"
+   * @see #CANCELING
+   * @model name="canceling"
    * @generated
    * @ordered
    */
-  public static final int CANCELLING_VALUE = 4;
+  public static final int CANCELING_VALUE = 4;
 
   /**
    * The '<em><b>Replacing</b></em>' literal value.
@@ -191,19 +191,19 @@ public enum OfType implements Enumerator
   public static final int REPLACING_VALUE = 5;
 
   /**
-   * The '<em><b>Enstoring</b></em>' literal value.
+   * The '<em><b>Storing</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>Enstoring</b></em>' literal object isn't clear,
+   * If the meaning of '<em><b>Storing</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #ENSTORING
-   * @model name="enstoring"
+   * @see #STORING
+   * @model name="storing"
    * @generated
    * @ordered
    */
-  public static final int ENSTORING_VALUE = 6;
+  public static final int STORING_VALUE = 6;
 
   /**
    * The '<em><b>Finishing</b></em>' literal value.
@@ -233,9 +233,9 @@ public enum OfType implements Enumerator
       CREATING,
       BEGINNING,
       RUNNING,
-      CANCELLING,
+      CANCELING,
       REPLACING,
-      ENSTORING,
+      STORING,
       FINISHING,
     };
 
@@ -305,9 +305,9 @@ public enum OfType implements Enumerator
       case CREATING_VALUE: return CREATING;
       case BEGINNING_VALUE: return BEGINNING;
       case RUNNING_VALUE: return RUNNING;
-      case CANCELLING_VALUE: return CANCELLING;
+      case CANCELING_VALUE: return CANCELING;
       case REPLACING_VALUE: return REPLACING;
-      case ENSTORING_VALUE: return ENSTORING;
+      case STORING_VALUE: return STORING;
       case FINISHING_VALUE: return FINISHING;
     }
     return null;

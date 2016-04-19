@@ -117,21 +117,25 @@ ruleRentalSystem returns [EObject current=null]
 				}
 			)
 		)
+		otherlv_3='('
+		{
+			newLeafNode(otherlv_3, grammarAccess.getRentalSystemAccess().getLeftParenthesisKeyword_3());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRentalSystemAccess().getTypesTypeParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getRentalSystemAccess().getRentalTypesRentalTypeParserRuleCall_4_0());
 				}
-				lv_types_3_0=ruleType
+				lv_rentalTypes_4_0=ruleRentalType
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRentalSystemRule());
 					}
 					add(
 						$current,
-						"types",
-						lv_types_3_0,
-						"de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.Type");
+						"rentalTypes",
+						lv_rentalTypes_4_0,
+						"de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.RentalType");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -139,9 +143,9 @@ ruleRentalSystem returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRentalSystemAccess().getCustomersCustomerParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getRentalSystemAccess().getCustomersCustomerParserRuleCall_5_0());
 				}
-				lv_customers_4_0=ruleCustomer
+				lv_customers_5_0=ruleCustomer
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRentalSystemRule());
@@ -149,7 +153,7 @@ ruleRentalSystem returns [EObject current=null]
 					add(
 						$current,
 						"customers",
-						lv_customers_4_0,
+						lv_customers_5_0,
 						"de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.Customer");
 					afterParserOrEnumRuleCall();
 				}
@@ -158,9 +162,9 @@ ruleRentalSystem returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRentalSystemAccess().getDealsDealParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getRentalSystemAccess().getDealsDealParserRuleCall_6_0());
 				}
-				lv_deals_5_0=ruleDeal
+				lv_deals_6_0=ruleDeal
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRentalSystemRule());
@@ -168,24 +172,28 @@ ruleRentalSystem returns [EObject current=null]
 					add(
 						$current,
 						"deals",
-						lv_deals_5_0,
+						lv_deals_6_0,
 						"de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.Deal");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
+		otherlv_7=')'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getRentalSystemAccess().getRightParenthesisKeyword_7());
+		}
 	)
 ;
 
-// Entry rule entryRuleType
-entryRuleType returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getTypeRule()); }
-	iv_ruleType=ruleType
-	{ $current=$iv_ruleType.current; }
+// Entry rule entryRuleRentalType
+entryRuleRentalType returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getRentalTypeRule()); }
+	iv_ruleRentalType=ruleRentalType
+	{ $current=$iv_ruleRentalType.current; }
 	EOF;
 
-// Rule Type
-ruleType returns [EObject current=null]
+// Rule RentalType
+ruleRentalType returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -198,11 +206,11 @@ ruleType returns [EObject current=null]
 				(
 					lv_movable_0_0='movable'
 					{
-						newLeafNode(lv_movable_0_0, grammarAccess.getTypeAccess().getMovableMovableKeyword_0_0_0());
+						newLeafNode(lv_movable_0_0, grammarAccess.getRentalTypeAccess().getMovableMovableKeyword_0_0_0());
 					}
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getTypeRule());
+							$current = createModelElement(grammarAccess.getRentalTypeRule());
 						}
 						setWithLastConsumed($current, "movable", true, "movable");
 					}
@@ -213,11 +221,11 @@ ruleType returns [EObject current=null]
 				(
 					lv_digital_1_0='digital'
 					{
-						newLeafNode(lv_digital_1_0, grammarAccess.getTypeAccess().getDigitalDigitalKeyword_0_1_0());
+						newLeafNode(lv_digital_1_0, grammarAccess.getRentalTypeAccess().getDigitalDigitalKeyword_0_1_0());
 					}
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getTypeRule());
+							$current = createModelElement(grammarAccess.getRentalTypeRule());
 						}
 						setWithLastConsumed($current, "digital", true, "digital");
 					}
@@ -228,30 +236,30 @@ ruleType returns [EObject current=null]
 				(
 					lv_fix_2_0='fix'
 					{
-						newLeafNode(lv_fix_2_0, grammarAccess.getTypeAccess().getFixFixKeyword_0_2_0());
+						newLeafNode(lv_fix_2_0, grammarAccess.getRentalTypeAccess().getFixFixKeyword_0_2_0());
 					}
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getTypeRule());
+							$current = createModelElement(grammarAccess.getRentalTypeRule());
 						}
 						setWithLastConsumed($current, "fix", true, "fix");
 					}
 				)
 			)
 		)
-		otherlv_3='type'
+		otherlv_3='typeMold'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getTypeAccess().getTypeKeyword_1());
+			newLeafNode(otherlv_3, grammarAccess.getRentalTypeAccess().getTypeMoldKeyword_1());
 		}
 		(
 			(
 				lv_name_4_0=RULE_ID
 				{
-					newLeafNode(lv_name_4_0, grammarAccess.getTypeAccess().getNameIDTerminalRuleCall_2_0());
+					newLeafNode(lv_name_4_0, grammarAccess.getRentalTypeAccess().getNameIDTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getTypeRule());
+						$current = createModelElement(grammarAccess.getRentalTypeRule());
 					}
 					setWithLastConsumed(
 						$current,
@@ -263,48 +271,71 @@ ruleType returns [EObject current=null]
 		)
 		otherlv_5='('
 		{
-			newLeafNode(otherlv_5, grammarAccess.getTypeAccess().getLeftParenthesisKeyword_3());
-		}
-		otherlv_6='typeWorkFlow'
-		{
-			newLeafNode(otherlv_6, grammarAccess.getTypeAccess().getTypeWorkFlowKeyword_4());
+			newLeafNode(otherlv_5, grammarAccess.getRentalTypeAccess().getLeftParenthesisKeyword_3());
 		}
 		(
 			(
 				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getTypeRule());
-					}
+					newCompositeNode(grammarAccess.getRentalTypeAccess().getTypeAttributesAttributeParserRuleCall_4_0());
 				}
-				otherlv_7=RULE_ID
-				{
-					newLeafNode(otherlv_7, grammarAccess.getTypeAccess().getWfRentalWorkflowCrossReference_5_0());
-				}
-			)
-		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getTypeAccess().getTypeAttributesAttributeParserRuleCall_6_0());
-				}
-				lv_typeAttributes_8_0=ruleAttribute
+				lv_typeAttributes_6_0=ruleAttribute
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getTypeRule());
+						$current = createModelElementForParent(grammarAccess.getRentalTypeRule());
 					}
 					add(
 						$current,
 						"typeAttributes",
-						lv_typeAttributes_8_0,
+						lv_typeAttributes_6_0,
 						"de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.Attribute");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_9=')'
+		otherlv_7=')'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getTypeAccess().getRightParenthesisKeyword_7());
+			newLeafNode(otherlv_7, grammarAccess.getRentalTypeAccess().getRightParenthesisKeyword_5());
 		}
+	)
+;
+
+// Entry rule entryRuleQualifiedName
+entryRuleQualifiedName returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getQualifiedNameRule()); }
+	iv_ruleQualifiedName=ruleQualifiedName
+	{ $current=$iv_ruleQualifiedName.current.getText(); }
+	EOF;
+
+// Rule QualifiedName
+ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		this_ID_0=RULE_ID
+		{
+			$current.merge(this_ID_0);
+		}
+		{
+			newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0());
+		}
+		(
+			kw='.'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0());
+			}
+			this_ID_2=RULE_ID
+			{
+				$current.merge(this_ID_2);
+			}
+			{
+				newLeafNode(this_ID_2, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1());
+			}
+		)*
 	)
 ;
 
@@ -380,32 +411,56 @@ ruleDeal returns [EObject current=null]
 				}
 				otherlv_6=RULE_ID
 				{
-					newLeafNode(otherlv_6, grammarAccess.getDealAccess().getRentalTypeTypeCrossReference_6_0());
+					newLeafNode(otherlv_6, grammarAccess.getDealAccess().getRentalTypeRentalTypeCrossReference_6_0());
 				}
 			)
 		)
+		otherlv_7='dealWorkFlow'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getDealAccess().getDealWorkFlowKeyword_7());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDealAccess().getAttributesAttributeParserRuleCall_7_0());
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDealRule());
+					}
 				}
-				lv_attributes_7_0=ruleAttribute
+				{
+					newCompositeNode(grammarAccess.getDealAccess().getWfRentalWorkflowCrossReference_8_0());
+				}
+				ruleQualifiedName
+				{
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_9='dealAttribute'
+		{
+			newLeafNode(otherlv_9, grammarAccess.getDealAccess().getDealAttributeKeyword_9());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDealAccess().getDealAttributeAttributeParserRuleCall_10_0());
+				}
+				lv_dealAttribute_10_0=ruleAttribute
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDealRule());
 					}
 					add(
 						$current,
-						"attributes",
-						lv_attributes_7_0,
+						"dealAttribute",
+						lv_dealAttribute_10_0,
 						"de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.Attribute");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_8=')'
+		otherlv_11=')'
 		{
-			newLeafNode(otherlv_8, grammarAccess.getDealAccess().getRightParenthesisKeyword_8());
+			newLeafNode(otherlv_11, grammarAccess.getDealAccess().getRightParenthesisKeyword_11());
 		}
 	)
 ;
@@ -426,9 +481,9 @@ ruleCustomer returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='customer'
+		otherlv_0='customerMold'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getCustomerAccess().getCustomerKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getCustomerAccess().getCustomerMoldKeyword_0());
 		}
 		(
 			(
@@ -455,17 +510,17 @@ ruleCustomer returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getCustomerAccess().getAttributesAttributeParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getCustomerAccess().getCustomerAttributeAttributeParserRuleCall_3_0());
 				}
-				lv_attributes_3_0=ruleAttribute
+				lv_customerAttribute_3_0=ruleAttribute
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getCustomerRule());
 					}
 					add(
 						$current,
-						"attributes",
-						lv_attributes_3_0,
+						"customerAttribute",
+						lv_customerAttribute_3_0,
 						"de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.Attribute");
 					afterParserOrEnumRuleCall();
 				}
@@ -574,7 +629,7 @@ ruleOfType returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_1='string'
+			enumLiteral_1='String'
 			{
 				$current = grammarAccess.getOfTypeAccess().getStringEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_1, grammarAccess.getOfTypeAccess().getStringEnumLiteralDeclaration_1());
@@ -582,7 +637,7 @@ ruleOfType returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_2='date'
+			enumLiteral_2='Date'
 			{
 				$current = grammarAccess.getOfTypeAccess().getDateEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_2, grammarAccess.getOfTypeAccess().getDateEnumLiteralDeclaration_2());
@@ -598,7 +653,7 @@ ruleOfType returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_4='double'
+			enumLiteral_4='Double'
 			{
 				$current = grammarAccess.getOfTypeAccess().getDoubleEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_4, grammarAccess.getOfTypeAccess().getDoubleEnumLiteralDeclaration_4());

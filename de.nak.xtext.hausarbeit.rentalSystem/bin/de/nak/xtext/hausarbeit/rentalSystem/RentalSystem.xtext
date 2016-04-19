@@ -5,15 +5,14 @@ generate rentalSystem "http://www.nak.de/xtext/hausarbeit/rentalSystem/RentalSys
 import "http://www.nak.de/xtext/hausarbeit/rentalWorkflow/RentalWorkflow" as rentalWorkflow
 
 RentalSystem:
-	'rentalSystem' name=ID title=STRING
-	types+=Type*
+	'rentalSystem' name=ID title=STRING '('
+	rentalTypes+=RentalType*
 	customers+=Customer*
-	deals+=Deal*;
+	deals+=Deal* ')';
 
-Type:
+RentalType:
 	((movable?='movable') | (digital?='digital')
-	| (fix?='fix')) 'type' name=ID '('
-	'typeWorkFlow' wf=[rentalWorkflow::RentalWorkflow]
+	| (fix?='fix')) 'typeMold' name=ID '('
 	typeAttributes+=Attribute*
 	')';
 	
@@ -23,24 +22,26 @@ QualifiedName:
 Deal:
 	'deal' name=ID '('
 	'customer' customer=[Customer]
-	'rentalType' rentalType=[Type]
-	attributes+=Attribute*
+	'rentalType' rentalType=[RentalType]
+	'dealWorkFlow' wf=[rentalWorkflow::RentalWorkflow|QualifiedName]
+	'dealAttribute' dealAttribute+=Attribute*
 	')';
 
 Customer:
-	'customer' name=ID '('
-	attributes+=Attribute*
-	')';
+	'customerMold' name=ID '('
+	customerAttribute+=Attribute*
+	')'; 
 	
 Attribute:
 	'attribute' name=ID value=STRING ofType=OfType;
 	
+	
 enum OfType:
 	int='int'
-	| string='string'
-	| date='date'
+	| string='String'
+	| date='Date'
 	| decimal='decimal'
-	| double='double'
+	| double='Double'
 	| day='day'
 	| week='week'
 	| month='month'

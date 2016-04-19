@@ -33,13 +33,13 @@ public interface RentalSystemFactory extends EFactory
   RentalSystem createRentalSystem();
 
   /**
-   * Returns a new object of class '<em>Type</em>'.
+   * Returns a new object of class '<em>Rental Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Type</em>'.
+   * @return a new object of class '<em>Rental Type</em>'.
    * @generated
    */
-  Type createType();
+  RentalType createRentalType();
 
   /**
    * Returns a new object of class '<em>Deal</em>'.

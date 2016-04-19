@@ -10,7 +10,7 @@ import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.OfType;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemFactory;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage;
-import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type;
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalType;
 
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage;
 
@@ -42,7 +42,7 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass typeEClass = null;
+  private EClass rentalTypeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -173,7 +173,7 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRentalSystem_Types()
+  public EReference getRentalSystem_RentalTypes()
   {
     return (EReference)rentalSystemEClass.getEStructuralFeatures().get(2);
   }
@@ -203,9 +203,9 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getType()
+  public EClass getRentalType()
   {
-    return typeEClass;
+    return rentalTypeEClass;
   }
 
   /**
@@ -213,9 +213,9 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getType_Movable()
+  public EAttribute getRentalType_Movable()
   {
-    return (EAttribute)typeEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)rentalTypeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -223,9 +223,9 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getType_Digital()
+  public EAttribute getRentalType_Digital()
   {
-    return (EAttribute)typeEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)rentalTypeEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -233,9 +233,9 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getType_Fix()
+  public EAttribute getRentalType_Fix()
   {
-    return (EAttribute)typeEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)rentalTypeEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -243,9 +243,9 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getType_Name()
+  public EAttribute getRentalType_Name()
   {
-    return (EAttribute)typeEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)rentalTypeEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -253,19 +253,9 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getType_Wf()
+  public EReference getRentalType_TypeAttributes()
   {
-    return (EReference)typeEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getType_TypeAttributes()
-  {
-    return (EReference)typeEClass.getEStructuralFeatures().get(5);
+    return (EReference)rentalTypeEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -313,9 +303,19 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDeal_Attributes()
+  public EReference getDeal_Wf()
   {
     return (EReference)dealEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeal_DealAttribute()
+  {
+    return (EReference)dealEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -343,7 +343,7 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCustomer_Attributes()
+  public EReference getCustomer_CustomerAttribute()
   {
     return (EReference)customerEClass.getEStructuralFeatures().get(1);
   }
@@ -431,27 +431,27 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
     rentalSystemEClass = createEClass(RENTAL_SYSTEM);
     createEAttribute(rentalSystemEClass, RENTAL_SYSTEM__NAME);
     createEAttribute(rentalSystemEClass, RENTAL_SYSTEM__TITLE);
-    createEReference(rentalSystemEClass, RENTAL_SYSTEM__TYPES);
+    createEReference(rentalSystemEClass, RENTAL_SYSTEM__RENTAL_TYPES);
     createEReference(rentalSystemEClass, RENTAL_SYSTEM__CUSTOMERS);
     createEReference(rentalSystemEClass, RENTAL_SYSTEM__DEALS);
 
-    typeEClass = createEClass(TYPE);
-    createEAttribute(typeEClass, TYPE__MOVABLE);
-    createEAttribute(typeEClass, TYPE__DIGITAL);
-    createEAttribute(typeEClass, TYPE__FIX);
-    createEAttribute(typeEClass, TYPE__NAME);
-    createEReference(typeEClass, TYPE__WF);
-    createEReference(typeEClass, TYPE__TYPE_ATTRIBUTES);
+    rentalTypeEClass = createEClass(RENTAL_TYPE);
+    createEAttribute(rentalTypeEClass, RENTAL_TYPE__MOVABLE);
+    createEAttribute(rentalTypeEClass, RENTAL_TYPE__DIGITAL);
+    createEAttribute(rentalTypeEClass, RENTAL_TYPE__FIX);
+    createEAttribute(rentalTypeEClass, RENTAL_TYPE__NAME);
+    createEReference(rentalTypeEClass, RENTAL_TYPE__TYPE_ATTRIBUTES);
 
     dealEClass = createEClass(DEAL);
     createEAttribute(dealEClass, DEAL__NAME);
     createEReference(dealEClass, DEAL__CUSTOMER);
     createEReference(dealEClass, DEAL__RENTAL_TYPE);
-    createEReference(dealEClass, DEAL__ATTRIBUTES);
+    createEReference(dealEClass, DEAL__WF);
+    createEReference(dealEClass, DEAL__DEAL_ATTRIBUTE);
 
     customerEClass = createEClass(CUSTOMER);
     createEAttribute(customerEClass, CUSTOMER__NAME);
-    createEReference(customerEClass, CUSTOMER__ATTRIBUTES);
+    createEReference(customerEClass, CUSTOMER__CUSTOMER_ATTRIBUTE);
 
     attributeEClass = createEClass(ATTRIBUTE);
     createEAttribute(attributeEClass, ATTRIBUTE__NAME);
@@ -499,27 +499,27 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
     initEClass(rentalSystemEClass, RentalSystem.class, "RentalSystem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRentalSystem_Name(), ecorePackage.getEString(), "name", null, 0, 1, RentalSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRentalSystem_Title(), ecorePackage.getEString(), "title", null, 0, 1, RentalSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRentalSystem_Types(), this.getType(), null, "types", null, 0, -1, RentalSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRentalSystem_RentalTypes(), this.getRentalType(), null, "rentalTypes", null, 0, -1, RentalSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRentalSystem_Customers(), this.getCustomer(), null, "customers", null, 0, -1, RentalSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRentalSystem_Deals(), this.getDeal(), null, "deals", null, 0, -1, RentalSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getType_Movable(), ecorePackage.getEBoolean(), "movable", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getType_Digital(), ecorePackage.getEBoolean(), "digital", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getType_Fix(), ecorePackage.getEBoolean(), "fix", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getType_Name(), ecorePackage.getEString(), "name", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getType_Wf(), theRentalWorkflowPackage.getRentalWorkflow(), null, "wf", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getType_TypeAttributes(), this.getAttribute(), null, "typeAttributes", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(rentalTypeEClass, RentalType.class, "RentalType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRentalType_Movable(), ecorePackage.getEBoolean(), "movable", null, 0, 1, RentalType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRentalType_Digital(), ecorePackage.getEBoolean(), "digital", null, 0, 1, RentalType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRentalType_Fix(), ecorePackage.getEBoolean(), "fix", null, 0, 1, RentalType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRentalType_Name(), ecorePackage.getEString(), "name", null, 0, 1, RentalType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRentalType_TypeAttributes(), this.getAttribute(), null, "typeAttributes", null, 0, -1, RentalType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dealEClass, Deal.class, "Deal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDeal_Name(), ecorePackage.getEString(), "name", null, 0, 1, Deal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDeal_Customer(), this.getCustomer(), null, "customer", null, 0, 1, Deal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDeal_RentalType(), this.getType(), null, "rentalType", null, 0, 1, Deal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDeal_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, Deal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeal_RentalType(), this.getRentalType(), null, "rentalType", null, 0, 1, Deal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeal_Wf(), theRentalWorkflowPackage.getRentalWorkflow(), null, "wf", null, 0, 1, Deal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeal_DealAttribute(), this.getAttribute(), null, "dealAttribute", null, 0, -1, Deal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(customerEClass, Customer.class, "Customer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCustomer_Name(), ecorePackage.getEString(), "name", null, 0, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCustomer_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCustomer_CustomerAttribute(), this.getAttribute(), null, "customerAttribute", null, 0, -1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -61,7 +61,7 @@ public class RentalWorkflowSemanticSequencer extends AbstractDelegatingSemanticS
 	 *     Command returns Command
 	 *
 	 * Constraint:
-	 *     (name=ID code=ID)
+	 *     (name=ID code=ID ofType=ofCommandType)
 	 */
 	protected void sequence_Command(ISerializationContext context, Command semanticObject) {
 		if (errorAcceptor != null) {
@@ -69,10 +69,13 @@ public class RentalWorkflowSemanticSequencer extends AbstractDelegatingSemanticS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RentalWorkflowPackage.Literals.COMMAND__NAME));
 			if (transientValues.isValueTransient(semanticObject, RentalWorkflowPackage.Literals.COMMAND__CODE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RentalWorkflowPackage.Literals.COMMAND__CODE));
+			if (transientValues.isValueTransient(semanticObject, RentalWorkflowPackage.Literals.COMMAND__OF_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RentalWorkflowPackage.Literals.COMMAND__OF_TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getCommandAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getCommandAccess().getCodeIDTerminalRuleCall_1_0(), semanticObject.getCode());
+		feeder.accept(grammarAccess.getCommandAccess().getOfTypeOfCommandTypeEnumRuleCall_2_0(), semanticObject.getOfType());
 		feeder.finish();
 	}
 	
@@ -82,7 +85,7 @@ public class RentalWorkflowSemanticSequencer extends AbstractDelegatingSemanticS
 	 *     Event returns Event
 	 *
 	 * Constraint:
-	 *     (name=ID code=ID)
+	 *     (name=ID code=ID ofType=ofEventType)
 	 */
 	protected void sequence_Event(ISerializationContext context, Event semanticObject) {
 		if (errorAcceptor != null) {
@@ -90,10 +93,13 @@ public class RentalWorkflowSemanticSequencer extends AbstractDelegatingSemanticS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RentalWorkflowPackage.Literals.EVENT__NAME));
 			if (transientValues.isValueTransient(semanticObject, RentalWorkflowPackage.Literals.EVENT__CODE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RentalWorkflowPackage.Literals.EVENT__CODE));
+			if (transientValues.isValueTransient(semanticObject, RentalWorkflowPackage.Literals.EVENT__OF_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RentalWorkflowPackage.Literals.EVENT__OF_TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getEventAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getEventAccess().getCodeIDTerminalRuleCall_1_0(), semanticObject.getCode());
+		feeder.accept(grammarAccess.getEventAccess().getOfTypeOfEventTypeEnumRuleCall_2_0(), semanticObject.getOfType());
 		feeder.finish();
 	}
 	

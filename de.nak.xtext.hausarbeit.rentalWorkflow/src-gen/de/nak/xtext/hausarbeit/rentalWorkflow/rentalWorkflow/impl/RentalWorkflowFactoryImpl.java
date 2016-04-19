@@ -88,6 +88,10 @@ public class RentalWorkflowFactoryImpl extends EFactoryImpl implements RentalWor
     {
       case RentalWorkflowPackage.OF_TYPE:
         return createOfTypeFromString(eDataType, initialValue);
+      case RentalWorkflowPackage.OF_EVENT_TYPE:
+        return createofEventTypeFromString(eDataType, initialValue);
+      case RentalWorkflowPackage.OF_COMMAND_TYPE:
+        return createofCommandTypeFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -105,6 +109,10 @@ public class RentalWorkflowFactoryImpl extends EFactoryImpl implements RentalWor
     {
       case RentalWorkflowPackage.OF_TYPE:
         return convertOfTypeToString(eDataType, instanceValue);
+      case RentalWorkflowPackage.OF_EVENT_TYPE:
+        return convertofEventTypeToString(eDataType, instanceValue);
+      case RentalWorkflowPackage.OF_COMMAND_TYPE:
+        return convertofCommandTypeToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -183,6 +191,50 @@ public class RentalWorkflowFactoryImpl extends EFactoryImpl implements RentalWor
    * @generated
    */
   public String convertOfTypeToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ofEventType createofEventTypeFromString(EDataType eDataType, String initialValue)
+  {
+    ofEventType result = ofEventType.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertofEventTypeToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ofCommandType createofCommandTypeFromString(EDataType eDataType, String initialValue)
+  {
+    ofCommandType result = ofCommandType.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertofCommandTypeToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

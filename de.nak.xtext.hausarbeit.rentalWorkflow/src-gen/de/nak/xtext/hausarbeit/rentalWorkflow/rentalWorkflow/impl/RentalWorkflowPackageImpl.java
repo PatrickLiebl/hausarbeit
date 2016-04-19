@@ -11,6 +11,8 @@ import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowFacto
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage;
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.State;
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Transition;
+import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.ofCommandType;
+import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.ofEventType;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -69,6 +71,20 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
    * @generated
    */
   private EEnum ofTypeEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum ofEventTypeEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum ofCommandTypeEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -228,6 +244,16 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getEvent_OfType()
+  {
+    return (EAttribute)eventEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getCommand()
   {
     return commandEClass;
@@ -251,6 +277,16 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
   public EAttribute getCommand_Code()
   {
     return (EAttribute)commandEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCommand_OfType()
+  {
+    return (EAttribute)commandEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -348,6 +384,26 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
    * <!-- end-user-doc -->
    * @generated
    */
+  public EEnum getofEventType()
+  {
+    return ofEventTypeEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getofCommandType()
+  {
+    return ofCommandTypeEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public RentalWorkflowFactory getRentalWorkflowFactory()
   {
     return (RentalWorkflowFactory)getEFactoryInstance();
@@ -383,10 +439,12 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
     eventEClass = createEClass(EVENT);
     createEAttribute(eventEClass, EVENT__NAME);
     createEAttribute(eventEClass, EVENT__CODE);
+    createEAttribute(eventEClass, EVENT__OF_TYPE);
 
     commandEClass = createEClass(COMMAND);
     createEAttribute(commandEClass, COMMAND__NAME);
     createEAttribute(commandEClass, COMMAND__CODE);
+    createEAttribute(commandEClass, COMMAND__OF_TYPE);
 
     stateEClass = createEClass(STATE);
     createEAttribute(stateEClass, STATE__NAME);
@@ -400,6 +458,8 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
 
     // Create enums
     ofTypeEEnum = createEEnum(OF_TYPE);
+    ofEventTypeEEnum = createEEnum(OF_EVENT_TYPE);
+    ofCommandTypeEEnum = createEEnum(OF_COMMAND_TYPE);
   }
 
   /**
@@ -443,10 +503,12 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
     initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEvent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEvent_Code(), ecorePackage.getEString(), "code", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEvent_OfType(), this.getofEventType(), "ofType", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCommand_Name(), ecorePackage.getEString(), "name", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCommand_Code(), ecorePackage.getEString(), "code", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCommand_OfType(), this.getofCommandType(), "ofType", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getState_Name(), ecorePackage.getEString(), "name", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -464,10 +526,19 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
     addEEnumLiteral(ofTypeEEnum, OfType.CREATING);
     addEEnumLiteral(ofTypeEEnum, OfType.BEGINNING);
     addEEnumLiteral(ofTypeEEnum, OfType.RUNNING);
-    addEEnumLiteral(ofTypeEEnum, OfType.CANCELLING);
+    addEEnumLiteral(ofTypeEEnum, OfType.CANCELING);
     addEEnumLiteral(ofTypeEEnum, OfType.REPLACING);
-    addEEnumLiteral(ofTypeEEnum, OfType.ENSTORING);
+    addEEnumLiteral(ofTypeEEnum, OfType.STORING);
     addEEnumLiteral(ofTypeEEnum, OfType.FINISHING);
+
+    initEEnum(ofEventTypeEEnum, ofEventType.class, "ofEventType");
+    addEEnumLiteral(ofEventTypeEEnum, ofEventType.NEXT_CLICKED);
+    addEEnumLiteral(ofEventTypeEEnum, ofEventType.BACK_CLICKED);
+
+    initEEnum(ofCommandTypeEEnum, ofCommandType.class, "ofCommandType");
+    addEEnumLiteral(ofCommandTypeEEnum, ofCommandType.DO_SAVE);
+    addEEnumLiteral(ofCommandTypeEEnum, ofCommandType.DO_ABORD);
+    addEEnumLiteral(ofCommandTypeEEnum, ofCommandType.DO_DELETE);
 
     // Create resource
     createResource(eNS_URI);

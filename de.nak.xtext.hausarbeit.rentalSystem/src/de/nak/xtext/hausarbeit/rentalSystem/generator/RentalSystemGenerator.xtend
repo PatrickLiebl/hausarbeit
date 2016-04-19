@@ -5,7 +5,7 @@ package de.nak.xtext.hausarbeit.rentalSystem.generator
 
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Customer
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem
-import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Type
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalType
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
@@ -20,132 +20,39 @@ class RentalSystemGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		val rentalSystem = resource.getContents().head()
-		
-		if (rentalSystem instanceof RentalSystem){
-			fsa.generateFile('index.html', generateIndex(rentalSystem))
-			fsa.generateFile('customers.html', generateCustomers(rentalSystem))
-			fsa.generateFile('types.html', generateTypes(rentalSystem))
+
+		if (rentalSystem instanceof RentalSystem) {
+
 			for (Customer customer : rentalSystem.customers) {
-				fsa.generateFile(customer.name + '.html', generateCharacterMask(customer, rentalSystem))
-			}
-			for (Type type : rentalSystem.types) {
-				fsa.generateFile(type.name + '.html', generateTypeMask(type, rentalSystem))
+				fsa.generateFile("model/" + customer.name.toFirstUpper + '.java', generateCustomerBeans(customer, rentalSystem))
 			}
 			
+			for (RentalType rentalType : rentalSystem.rentalTypes){
+				fsa.generateFile("model/" + rentalType.name.toFirstUpper + '.java', generateTypeBeans(rentalType, rentalSystem))
+			}
 		}
 	}
 
-	def CharSequence generateIndex(RentalSystem rentalSystem) '''
-		<html>
-		<head>
-			<title>«rentalSystem.name»</title>
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-			<!-- Bootstrap -->
-			<link href="css/bootstrap.css" rel="stylesheet" media="screen">
-			<link href="css/survey.css" rel="stylesheet" media="screen">
-		</head>
-			<body>
-				<script src="http://code.jquery.com/jquery.js"></script>
-				<script src="js/bootstrap.js"></script>
-			<a href="customers.html">Customers</a>
-			<a href="types.html">Types</a>
-			</body>
-		</html>
-	'''
-
-	def CharSequence generateCustomers(RentalSystem rentalSystem) '''
-		<html>
-		<head>
-			<title>«rentalSystem.name»</title>
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-			<!-- Bootstrap -->
-			<link href="css/bootstrap.css" rel="stylesheet" media="screen">
-			<link href="css/survey.css" rel="stylesheet" media="screen">
-		</head>
-			<body>
-				<script src="http://code.jquery.com/jquery.js"></script>
-				<script src="js/bootstrap.js"></script>
+	def CharSequence generateCustomerBeans(Customer customer, RentalSystem rentalSystem) '''
+		package main;
+		
+				public class «customer.name.toFirstUpper» {
 					
-							<ul>
-							«FOR customer : rentalSystem.customers»
-								<li><a href="«customer.name».html">«customer.name»</a></li>
-							«ENDFOR»
-							</ul>
-				<a href="index.html">Index</a>	
-			</body>
-		</html>
-	'''
-
-	def CharSequence generateTypes(RentalSystem rentalSystem) '''
-		<html>
-		<head>
-			<title>«rentalSystem.name»</title>
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-			<!-- Bootstrap -->
-			<link href="css/bootstrap.css" rel="stylesheet" media="screen">
-			<link href="css/survey.css" rel="stylesheet" media="screen">
-		</head>
-			<body>
-				<script src="http://code.jquery.com/jquery.js"></script>
-				<script src="js/bootstrap.js"></script>
+					«FOR attribute : customer.customerAttribute»
+						public «attribute.ofType» «attribute.name.toFirstLower» = «attribute.value»;
+					«ENDFOR»
+				}
+		'''
+		
+		def CharSequence generateTypeBeans(RentalType rentalType, RentalSystem rentalSystem) '''
+		package main;
+		
+				public class «rentalType.name.toFirstUpper» {
 					
-							<ul>
-							«FOR type : rentalSystem.types»
-								<li><a href="«type.name».html">«type.name»</a></li>
-							«ENDFOR»
-							</ul>
-					<a href="index.html">Index</a>
-			</body>
-		</html>
-	'''
+					«FOR attribute : rentalType.typeAttributes»
+						public «attribute.ofType» «attribute.name.toFirstLower» = «attribute.value»;
+					«ENDFOR»
+				}
+		'''
 
-	def CharSequence generateCharacterMask(Customer customer, RentalSystem rentalSystem) '''
-		<html>
-		<head>
-			<title>«customer.name»</title>
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-			<!-- Bootstrap -->
-			<link href="css/bootstrap.css" rel="stylesheet" media="screen">
-			<link href="css/survey.css" rel="stylesheet" media="screen">
-		</head>
-			<body>
-				<script src="http://code.jquery.com/jquery.js"></script>
-				<script src="js/bootstrap.js"></script>
-							<form>
-							«FOR attribute : customer.attributes»
-								<input type="text" name="«attribute.name»" value="«attribute.value»" readonly /><br />
-							«ENDFOR»
-							</form>
-					<a href="index.html">Index</a>
-			</body>
-		</html>
-	'''
-
-	def CharSequence generateTypeMask(Type type, RentalSystem rentalSystem) '''
-		<html>
-		<head>
-			<title>«type.name»</title>
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-			<!-- Bootstrap -->
-			<link href="css/bootstrap.css" rel="stylesheet" media="screen">
-			<link href="css/survey.css" rel="stylesheet" media="screen">
-		</head>
-			<body>
-				<script src="http://code.jquery.com/jquery.js"></script>
-				<script src="js/bootstrap.js"></script>
-							<form>
-							«FOR attribute : type.typeAttributes»
-								<input type="text" name="«attribute.name»" value="«attribute.value»"/>
-							«ENDFOR»
-							</form>
-							<a href="index.html">Index</a>
-					</div>
-			</body>
-		</html>
-	'''
 }
