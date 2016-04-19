@@ -68,8 +68,8 @@ public class RentalSystemFactoryImpl extends EFactoryImpl implements RentalSyste
     {
       case RentalSystemPackage.RENTAL_SYSTEM: return createRentalSystem();
       case RentalSystemPackage.RENTAL_TYPE: return createRentalType();
-      case RentalSystemPackage.DEAL: return createDeal();
       case RentalSystemPackage.CUSTOMER: return createCustomer();
+      case RentalSystemPackage.DEAL: return createDeal();
       case RentalSystemPackage.ATTRIBUTE: return createAttribute();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -137,10 +137,10 @@ public class RentalSystemFactoryImpl extends EFactoryImpl implements RentalSyste
    * <!-- end-user-doc -->
    * @generated
    */
-  public Deal createDeal()
+  public Customer createCustomer()
   {
-    DealImpl deal = new DealImpl();
-    return deal;
+    CustomerImpl customer = new CustomerImpl();
+    return customer;
   }
 
   /**
@@ -148,10 +148,10 @@ public class RentalSystemFactoryImpl extends EFactoryImpl implements RentalSyste
    * <!-- end-user-doc -->
    * @generated
    */
-  public Customer createCustomer()
+  public Deal createDeal()
   {
-    CustomerImpl customer = new CustomerImpl();
-    return customer;
+    DealImpl deal = new DealImpl();
+    return deal;
   }
 
   /**

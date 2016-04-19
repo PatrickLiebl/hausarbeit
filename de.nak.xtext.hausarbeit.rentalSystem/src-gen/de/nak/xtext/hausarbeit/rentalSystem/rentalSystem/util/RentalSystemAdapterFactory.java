@@ -86,14 +86,14 @@ public class RentalSystemAdapterFactory extends AdapterFactoryImpl
         return createRentalTypeAdapter();
       }
       @Override
-      public Adapter caseDeal(Deal object)
-      {
-        return createDealAdapter();
-      }
-      @Override
       public Adapter caseCustomer(Customer object)
       {
         return createCustomerAdapter();
+      }
+      @Override
+      public Adapter caseDeal(Deal object)
+      {
+        return createDealAdapter();
       }
       @Override
       public Adapter caseAttribute(Attribute object)
@@ -153,21 +153,6 @@ public class RentalSystemAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal <em>Deal</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal
-   * @generated
-   */
-  public Adapter createDealAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Customer <em>Customer</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -178,6 +163,21 @@ public class RentalSystemAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createCustomerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal <em>Deal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal
+   * @generated
+   */
+  public Adapter createDealAdapter()
   {
     return null;
   }

@@ -20,17 +20,17 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeAttributes" upperBound="-1"
         eType="#//Attribute" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Customer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="customerAttribute" upperBound="-1"
+        eType="#//Attribute" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Deal">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="customer" eType="#//Customer"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rentalType" eType="#//RentalType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="wf" eType="ecore:EClass platform:/resource/de.nak.xtext.hausarbeit.rentalWorkflow/model/generated/RentalWorkflow.ecore#//RentalWorkflow"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dealAttribute" upperBound="-1"
-        eType="#//Attribute" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Customer">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="customerAttribute" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dealAttributes" upperBound="-1"
         eType="#//Attribute" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Attribute">
@@ -42,13 +42,7 @@
     <eLiterals name="int" literal="int"/>
     <eLiterals name="string" value="1" literal="String"/>
     <eLiterals name="date" value="2" literal="Date"/>
-    <eLiterals name="decimal" value="3" literal="decimal"/>
-    <eLiterals name="double" value="4" literal="Double"/>
-    <eLiterals name="day" value="5" literal="day"/>
-    <eLiterals name="week" value="6" literal="week"/>
-    <eLiterals name="month" value="7" literal="month"/>
-    <eLiterals name="EMail" value="8" literal="email"/>
-    <eLiterals name="Mobile" value="9" literal="mobile"/>
-    <eLiterals name="currency" value="10" literal="currency"/>
+    <eLiterals name="double" value="3" literal="Double"/>
+    <eLiterals name="boolean" value="4" literal="boolean"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -16,14 +16,14 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getName <em>Name</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getCustomer <em>Customer</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getRentalType <em>Rental Type</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getWf <em>Wf</em>}</li>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getDealAttribute <em>Deal Attribute</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getDealAttributes <em>Deal Attributes</em>}</li>
  * </ul>
+ * </p>
  *
  * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage#getDeal()
  * @model
@@ -136,19 +136,19 @@ public interface Deal extends EObject
   void setWf(RentalWorkflow value);
 
   /**
-   * Returns the value of the '<em><b>Deal Attribute</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Deal Attributes</b></em>' containment reference list.
    * The list contents are of type {@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Deal Attribute</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Deal Attributes</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Deal Attribute</em>' containment reference list.
-   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage#getDeal_DealAttribute()
+   * @return the value of the '<em>Deal Attributes</em>' containment reference list.
+   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage#getDeal_DealAttributes()
    * @model containment="true"
    * @generated
    */
-  EList<Attribute> getDealAttribute();
+  EList<Attribute> getDealAttributes();
 
 } // Deal

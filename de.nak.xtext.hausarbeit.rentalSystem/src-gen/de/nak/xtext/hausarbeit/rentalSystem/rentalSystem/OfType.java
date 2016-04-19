@@ -51,16 +51,6 @@ public enum OfType implements Enumerator
   DATE(2, "date", "Date"),
 
   /**
-   * The '<em><b>Decimal</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #DECIMAL_VALUE
-   * @generated
-   * @ordered
-   */
-  DECIMAL(3, "decimal", "decimal"),
-
-  /**
    * The '<em><b>Double</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -68,67 +58,17 @@ public enum OfType implements Enumerator
    * @generated
    * @ordered
    */
-  DOUBLE(4, "double", "Double"),
+  DOUBLE(3, "double", "Double"),
 
   /**
-   * The '<em><b>Day</b></em>' literal object.
+   * The '<em><b>Boolean</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #DAY_VALUE
+   * @see #BOOLEAN_VALUE
    * @generated
    * @ordered
    */
-  DAY(5, "day", "day"),
-
-  /**
-   * The '<em><b>Week</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #WEEK_VALUE
-   * @generated
-   * @ordered
-   */
-  WEEK(6, "week", "week"),
-
-  /**
-   * The '<em><b>Month</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #MONTH_VALUE
-   * @generated
-   * @ordered
-   */
-  MONTH(7, "month", "month"),
-
-  /**
-   * The '<em><b>EMail</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #EMAIL_VALUE
-   * @generated
-   * @ordered
-   */
-  EMAIL(8, "EMail", "email"),
-
-  /**
-   * The '<em><b>Mobile</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #MOBILE_VALUE
-   * @generated
-   * @ordered
-   */
-  MOBILE(9, "Mobile", "mobile"),
-
-  /**
-   * The '<em><b>Currency</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #CURRENCY_VALUE
-   * @generated
-   * @ordered
-   */
-  CURRENCY(10, "currency", "currency");
+  BOOLEAN(4, "boolean", "boolean");
 
   /**
    * The '<em><b>Int</b></em>' literal value.
@@ -176,21 +116,6 @@ public enum OfType implements Enumerator
   public static final int DATE_VALUE = 2;
 
   /**
-   * The '<em><b>Decimal</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Decimal</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #DECIMAL
-   * @model name="decimal"
-   * @generated
-   * @ordered
-   */
-  public static final int DECIMAL_VALUE = 3;
-
-  /**
    * The '<em><b>Double</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
@@ -203,97 +128,22 @@ public enum OfType implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int DOUBLE_VALUE = 4;
+  public static final int DOUBLE_VALUE = 3;
 
   /**
-   * The '<em><b>Day</b></em>' literal value.
+   * The '<em><b>Boolean</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>Day</b></em>' literal object isn't clear,
+   * If the meaning of '<em><b>Boolean</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #DAY
-   * @model name="day"
+   * @see #BOOLEAN
+   * @model name="boolean"
    * @generated
    * @ordered
    */
-  public static final int DAY_VALUE = 5;
-
-  /**
-   * The '<em><b>Week</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Week</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #WEEK
-   * @model name="week"
-   * @generated
-   * @ordered
-   */
-  public static final int WEEK_VALUE = 6;
-
-  /**
-   * The '<em><b>Month</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Month</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #MONTH
-   * @model name="month"
-   * @generated
-   * @ordered
-   */
-  public static final int MONTH_VALUE = 7;
-
-  /**
-   * The '<em><b>EMail</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>EMail</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #EMAIL
-   * @model name="EMail" literal="email"
-   * @generated
-   * @ordered
-   */
-  public static final int EMAIL_VALUE = 8;
-
-  /**
-   * The '<em><b>Mobile</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Mobile</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #MOBILE
-   * @model name="Mobile" literal="mobile"
-   * @generated
-   * @ordered
-   */
-  public static final int MOBILE_VALUE = 9;
-
-  /**
-   * The '<em><b>Currency</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Currency</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #CURRENCY
-   * @model name="currency"
-   * @generated
-   * @ordered
-   */
-  public static final int CURRENCY_VALUE = 10;
+  public static final int BOOLEAN_VALUE = 4;
 
   /**
    * An array of all the '<em><b>Of Type</b></em>' enumerators.
@@ -307,14 +157,8 @@ public enum OfType implements Enumerator
       INT,
       STRING,
       DATE,
-      DECIMAL,
       DOUBLE,
-      DAY,
-      WEEK,
-      MONTH,
-      EMAIL,
-      MOBILE,
-      CURRENCY,
+      BOOLEAN,
     };
 
   /**
@@ -329,8 +173,6 @@ public enum OfType implements Enumerator
    * Returns the '<em><b>Of Type</b></em>' literal with the specified literal value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param literal the literal.
-   * @return the matching enumerator or <code>null</code>.
    * @generated
    */
   public static OfType get(String literal)
@@ -350,8 +192,6 @@ public enum OfType implements Enumerator
    * Returns the '<em><b>Of Type</b></em>' literal with the specified name.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param name the name.
-   * @return the matching enumerator or <code>null</code>.
    * @generated
    */
   public static OfType getByName(String name)
@@ -371,8 +211,6 @@ public enum OfType implements Enumerator
    * Returns the '<em><b>Of Type</b></em>' literal with the specified integer value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the integer value.
-   * @return the matching enumerator or <code>null</code>.
    * @generated
    */
   public static OfType get(int value)
@@ -382,14 +220,8 @@ public enum OfType implements Enumerator
       case INT_VALUE: return INT;
       case STRING_VALUE: return STRING;
       case DATE_VALUE: return DATE;
-      case DECIMAL_VALUE: return DECIMAL;
       case DOUBLE_VALUE: return DOUBLE;
-      case DAY_VALUE: return DAY;
-      case WEEK_VALUE: return WEEK;
-      case MONTH_VALUE: return MONTH;
-      case EMAIL_VALUE: return EMAIL;
-      case MOBILE_VALUE: return MOBILE;
-      case CURRENCY_VALUE: return CURRENCY;
+      case BOOLEAN_VALUE: return BOOLEAN;
     }
     return null;
   }

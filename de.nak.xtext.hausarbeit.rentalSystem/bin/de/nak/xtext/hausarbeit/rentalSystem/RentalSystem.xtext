@@ -8,7 +8,7 @@ RentalSystem:
 	'rentalSystem' name=ID title=STRING '('
 	rentalTypes+=RentalType*
 	customers+=Customer*
-	deals+=Deal* ')';
+	deals+=Deal* ')'; 
 
 RentalType:
 	((movable?='movable') | (digital?='digital')
@@ -16,6 +16,11 @@ RentalType:
 	typeAttributes+=Attribute*
 	')';
 	
+Customer:
+	'customerMold' name=ID '('
+	customerAttribute+=Attribute*
+	')';
+	 
 QualifiedName:
 	ID('.'ID)*;
 
@@ -24,14 +29,9 @@ Deal:
 	'customer' customer=[Customer]
 	'rentalType' rentalType=[RentalType]
 	'dealWorkFlow' wf=[rentalWorkflow::RentalWorkflow|QualifiedName]
-	'dealAttribute' dealAttribute+=Attribute*
+	'dealAttribute' dealAttributes+=Attribute*
 	')';
 
-Customer:
-	'customerMold' name=ID '('
-	customerAttribute+=Attribute*
-	')'; 
-	
 Attribute:
 	'attribute' name=ID value=STRING ofType=OfType;
 	
@@ -40,11 +40,5 @@ enum OfType:
 	int='int'
 	| string='String'
 	| date='Date'
-	| decimal='decimal'
 	| double='Double'
-	| day='day'
-	| week='week'
-	| month='month'
-	| EMail='email'
-	| Mobile='mobile'
-	| currency='currency';
+	| boolean='boolean';

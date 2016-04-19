@@ -161,6 +161,47 @@ public class RentalSystemGrammarAccess extends AbstractGrammarElementFinder {
 		//')'
 		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
 	}
+	public class CustomerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.Customer");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cCustomerMoldKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cCustomerAttributeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cCustomerAttributeAttributeParserRuleCall_3_0 = (RuleCall)cCustomerAttributeAssignment_3.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Customer:
+		//	'customerMold' name=ID '('
+		//	customerAttribute+=Attribute*
+		//	')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'customerMold' name=ID '(' customerAttribute+=Attribute* ')'
+		public Group getGroup() { return cGroup; }
+		
+		//'customerMold'
+		public Keyword getCustomerMoldKeyword_0() { return cCustomerMoldKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
+		
+		//customerAttribute+=Attribute*
+		public Assignment getCustomerAttributeAssignment_3() { return cCustomerAttributeAssignment_3; }
+		
+		//Attribute
+		public RuleCall getCustomerAttributeAttributeParserRuleCall_3_0() { return cCustomerAttributeAttributeParserRuleCall_3_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+	}
 	public class QualifiedNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.QualifiedName");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -208,8 +249,8 @@ public class RentalSystemGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cWfRentalWorkflowCrossReference_8_0 = (CrossReference)cWfAssignment_8.eContents().get(0);
 		private final RuleCall cWfRentalWorkflowQualifiedNameParserRuleCall_8_0_1 = (RuleCall)cWfRentalWorkflowCrossReference_8_0.eContents().get(1);
 		private final Keyword cDealAttributeKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cDealAttributeAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cDealAttributeAttributeParserRuleCall_10_0 = (RuleCall)cDealAttributeAssignment_10.eContents().get(0);
+		private final Assignment cDealAttributesAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cDealAttributesAttributeParserRuleCall_10_0 = (RuleCall)cDealAttributesAssignment_10.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		
 		//Deal:
@@ -217,12 +258,12 @@ public class RentalSystemGrammarAccess extends AbstractGrammarElementFinder {
 		//	'customer' customer=[Customer]
 		//	'rentalType' rentalType=[RentalType]
 		//	'dealWorkFlow' wf=[rentalWorkflow::RentalWorkflow|QualifiedName]
-		//	'dealAttribute' dealAttribute+=Attribute*
+		//	'dealAttribute' dealAttributes+=Attribute*
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'deal' name=ID '(' 'customer' customer=[Customer] 'rentalType' rentalType=[RentalType] 'dealWorkFlow'
-		//wf=[rentalWorkflow::RentalWorkflow|QualifiedName] 'dealAttribute' dealAttribute+=Attribute* ')'
+		//wf=[rentalWorkflow::RentalWorkflow|QualifiedName] 'dealAttribute' dealAttributes+=Attribute* ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'deal'
@@ -276,55 +317,14 @@ public class RentalSystemGrammarAccess extends AbstractGrammarElementFinder {
 		//'dealAttribute'
 		public Keyword getDealAttributeKeyword_9() { return cDealAttributeKeyword_9; }
 		
-		//dealAttribute+=Attribute*
-		public Assignment getDealAttributeAssignment_10() { return cDealAttributeAssignment_10; }
+		//dealAttributes+=Attribute*
+		public Assignment getDealAttributesAssignment_10() { return cDealAttributesAssignment_10; }
 		
 		//Attribute
-		public RuleCall getDealAttributeAttributeParserRuleCall_10_0() { return cDealAttributeAttributeParserRuleCall_10_0; }
+		public RuleCall getDealAttributesAttributeParserRuleCall_10_0() { return cDealAttributesAttributeParserRuleCall_10_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_11() { return cRightParenthesisKeyword_11; }
-	}
-	public class CustomerElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.Customer");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cCustomerMoldKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cCustomerAttributeAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cCustomerAttributeAttributeParserRuleCall_3_0 = (RuleCall)cCustomerAttributeAssignment_3.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		
-		//Customer:
-		//	'customerMold' name=ID '('
-		//	customerAttribute+=Attribute*
-		//	')';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'customerMold' name=ID '(' customerAttribute+=Attribute* ')'
-		public Group getGroup() { return cGroup; }
-		
-		//'customerMold'
-		public Keyword getCustomerMoldKeyword_0() { return cCustomerMoldKeyword_0; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
-		
-		//customerAttribute+=Attribute*
-		public Assignment getCustomerAttributeAssignment_3() { return cCustomerAttributeAssignment_3; }
-		
-		//Attribute
-		public RuleCall getCustomerAttributeAttributeParserRuleCall_3_0() { return cCustomerAttributeAttributeParserRuleCall_3_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
 	}
 	public class AttributeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.Attribute");
@@ -375,34 +375,19 @@ public class RentalSystemGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cStringStringKeyword_1_0 = (Keyword)cStringEnumLiteralDeclaration_1.eContents().get(0);
 		private final EnumLiteralDeclaration cDateEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
 		private final Keyword cDateDateKeyword_2_0 = (Keyword)cDateEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cDecimalEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cDecimalDecimalKeyword_3_0 = (Keyword)cDecimalEnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cDoubleEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cDoubleDoubleKeyword_4_0 = (Keyword)cDoubleEnumLiteralDeclaration_4.eContents().get(0);
-		private final EnumLiteralDeclaration cDayEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
-		private final Keyword cDayDayKeyword_5_0 = (Keyword)cDayEnumLiteralDeclaration_5.eContents().get(0);
-		private final EnumLiteralDeclaration cWeekEnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
-		private final Keyword cWeekWeekKeyword_6_0 = (Keyword)cWeekEnumLiteralDeclaration_6.eContents().get(0);
-		private final EnumLiteralDeclaration cMonthEnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
-		private final Keyword cMonthMonthKeyword_7_0 = (Keyword)cMonthEnumLiteralDeclaration_7.eContents().get(0);
-		private final EnumLiteralDeclaration cEMailEnumLiteralDeclaration_8 = (EnumLiteralDeclaration)cAlternatives.eContents().get(8);
-		private final Keyword cEMailEmailKeyword_8_0 = (Keyword)cEMailEnumLiteralDeclaration_8.eContents().get(0);
-		private final EnumLiteralDeclaration cMobileEnumLiteralDeclaration_9 = (EnumLiteralDeclaration)cAlternatives.eContents().get(9);
-		private final Keyword cMobileMobileKeyword_9_0 = (Keyword)cMobileEnumLiteralDeclaration_9.eContents().get(0);
-		private final EnumLiteralDeclaration cCurrencyEnumLiteralDeclaration_10 = (EnumLiteralDeclaration)cAlternatives.eContents().get(10);
-		private final Keyword cCurrencyCurrencyKeyword_10_0 = (Keyword)cCurrencyEnumLiteralDeclaration_10.eContents().get(0);
+		private final EnumLiteralDeclaration cDoubleEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cDoubleDoubleKeyword_3_0 = (Keyword)cDoubleEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cBooleanEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cBooleanBooleanKeyword_4_0 = (Keyword)cBooleanEnumLiteralDeclaration_4.eContents().get(0);
 		
 		//enum OfType:
 		//	int | string='String'
 		//	| date='Date'
-		//	| decimal | double='Double'
-		//	| day | week | month | EMail='email'
-		//	| Mobile='mobile'
-		//	| currency;
+		//	| double='Double'
+		//	| boolean;
 		public EnumRule getRule() { return rule; }
 		
-		//int | string='String' | date='Date' | decimal | double='Double' | day | week | month | EMail='email' | Mobile='mobile' |
-		//currency
+		//int | string='String' | date='Date' | double='Double' | boolean
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//int
@@ -423,60 +408,24 @@ public class RentalSystemGrammarAccess extends AbstractGrammarElementFinder {
 		//'Date'
 		public Keyword getDateDateKeyword_2_0() { return cDateDateKeyword_2_0; }
 		
-		//decimal
-		public EnumLiteralDeclaration getDecimalEnumLiteralDeclaration_3() { return cDecimalEnumLiteralDeclaration_3; }
-		
-		//'decimal'
-		public Keyword getDecimalDecimalKeyword_3_0() { return cDecimalDecimalKeyword_3_0; }
-		
 		//double='Double'
-		public EnumLiteralDeclaration getDoubleEnumLiteralDeclaration_4() { return cDoubleEnumLiteralDeclaration_4; }
+		public EnumLiteralDeclaration getDoubleEnumLiteralDeclaration_3() { return cDoubleEnumLiteralDeclaration_3; }
 		
 		//'Double'
-		public Keyword getDoubleDoubleKeyword_4_0() { return cDoubleDoubleKeyword_4_0; }
+		public Keyword getDoubleDoubleKeyword_3_0() { return cDoubleDoubleKeyword_3_0; }
 		
-		//day
-		public EnumLiteralDeclaration getDayEnumLiteralDeclaration_5() { return cDayEnumLiteralDeclaration_5; }
+		//boolean
+		public EnumLiteralDeclaration getBooleanEnumLiteralDeclaration_4() { return cBooleanEnumLiteralDeclaration_4; }
 		
-		//'day'
-		public Keyword getDayDayKeyword_5_0() { return cDayDayKeyword_5_0; }
-		
-		//week
-		public EnumLiteralDeclaration getWeekEnumLiteralDeclaration_6() { return cWeekEnumLiteralDeclaration_6; }
-		
-		//'week'
-		public Keyword getWeekWeekKeyword_6_0() { return cWeekWeekKeyword_6_0; }
-		
-		//month
-		public EnumLiteralDeclaration getMonthEnumLiteralDeclaration_7() { return cMonthEnumLiteralDeclaration_7; }
-		
-		//'month'
-		public Keyword getMonthMonthKeyword_7_0() { return cMonthMonthKeyword_7_0; }
-		
-		//EMail='email'
-		public EnumLiteralDeclaration getEMailEnumLiteralDeclaration_8() { return cEMailEnumLiteralDeclaration_8; }
-		
-		//'email'
-		public Keyword getEMailEmailKeyword_8_0() { return cEMailEmailKeyword_8_0; }
-		
-		//Mobile='mobile'
-		public EnumLiteralDeclaration getMobileEnumLiteralDeclaration_9() { return cMobileEnumLiteralDeclaration_9; }
-		
-		//'mobile'
-		public Keyword getMobileMobileKeyword_9_0() { return cMobileMobileKeyword_9_0; }
-		
-		//currency
-		public EnumLiteralDeclaration getCurrencyEnumLiteralDeclaration_10() { return cCurrencyEnumLiteralDeclaration_10; }
-		
-		//'currency'
-		public Keyword getCurrencyCurrencyKeyword_10_0() { return cCurrencyCurrencyKeyword_10_0; }
+		//'boolean'
+		public Keyword getBooleanBooleanKeyword_4_0() { return cBooleanBooleanKeyword_4_0; }
 	}
 	
 	private final RentalSystemElements pRentalSystem;
 	private final RentalTypeElements pRentalType;
+	private final CustomerElements pCustomer;
 	private final QualifiedNameElements pQualifiedName;
 	private final DealElements pDeal;
-	private final CustomerElements pCustomer;
 	private final AttributeElements pAttribute;
 	private final OfTypeElements eOfType;
 	
@@ -491,9 +440,9 @@ public class RentalSystemGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pRentalSystem = new RentalSystemElements();
 		this.pRentalType = new RentalTypeElements();
+		this.pCustomer = new CustomerElements();
 		this.pQualifiedName = new QualifiedNameElements();
 		this.pDeal = new DealElements();
-		this.pCustomer = new CustomerElements();
 		this.pAttribute = new AttributeElements();
 		this.eOfType = new OfTypeElements();
 	}
@@ -550,6 +499,18 @@ public class RentalSystemGrammarAccess extends AbstractGrammarElementFinder {
 		return getRentalTypeAccess().getRule();
 	}
 	
+	//Customer:
+	//	'customerMold' name=ID '('
+	//	customerAttribute+=Attribute*
+	//	')';
+	public CustomerElements getCustomerAccess() {
+		return pCustomer;
+	}
+	
+	public ParserRule getCustomerRule() {
+		return getCustomerAccess().getRule();
+	}
+	
 	//QualifiedName:
 	//	ID ('.' ID)*;
 	public QualifiedNameElements getQualifiedNameAccess() {
@@ -565,7 +526,7 @@ public class RentalSystemGrammarAccess extends AbstractGrammarElementFinder {
 	//	'customer' customer=[Customer]
 	//	'rentalType' rentalType=[RentalType]
 	//	'dealWorkFlow' wf=[rentalWorkflow::RentalWorkflow|QualifiedName]
-	//	'dealAttribute' dealAttribute+=Attribute*
+	//	'dealAttribute' dealAttributes+=Attribute*
 	//	')';
 	public DealElements getDealAccess() {
 		return pDeal;
@@ -573,18 +534,6 @@ public class RentalSystemGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDealRule() {
 		return getDealAccess().getRule();
-	}
-	
-	//Customer:
-	//	'customerMold' name=ID '('
-	//	customerAttribute+=Attribute*
-	//	')';
-	public CustomerElements getCustomerAccess() {
-		return pCustomer;
-	}
-	
-	public ParserRule getCustomerRule() {
-		return getCustomerAccess().getRule();
 	}
 	
 	//Attribute:
@@ -600,10 +549,8 @@ public class RentalSystemGrammarAccess extends AbstractGrammarElementFinder {
 	//enum OfType:
 	//	int | string='String'
 	//	| date='Date'
-	//	| decimal | double='Double'
-	//	| day | week | month | EMail='email'
-	//	| Mobile='mobile'
-	//	| currency;
+	//	| double='Double'
+	//	| boolean;
 	public OfTypeElements getOfTypeAccess() {
 		return eOfType;
 	}

@@ -5,6 +5,7 @@ package de.nak.xtext.hausarbeit.rentalSystem.generator;
 
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Customer;
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.OfType;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalType;
@@ -32,28 +33,61 @@ public class RentalSystemGenerator extends AbstractGenerator {
     if ((rentalSystem instanceof RentalSystem)) {
       EList<Customer> _customers = ((RentalSystem)rentalSystem).getCustomers();
       for (final Customer customer : _customers) {
-        String _name = customer.getName();
-        String _firstUpper = StringExtensions.toFirstUpper(_name);
-        String _plus = ("model/" + _firstUpper);
-        String _plus_1 = (_plus + ".java");
-        CharSequence _generateCustomerBeans = this.generateCustomerBeans(customer, ((RentalSystem)rentalSystem));
-        fsa.generateFile(_plus_1, _generateCustomerBeans);
+        {
+          String _name = customer.getName();
+          String _firstUpper = StringExtensions.toFirstUpper(_name);
+          String _plus = ("src/main/java/" + _firstUpper);
+          String _plus_1 = (_plus + ".java");
+          CharSequence _generateCustomerBeans = this.generateCustomerBeans(customer, ((RentalSystem)rentalSystem));
+          fsa.generateFile(_plus_1, _generateCustomerBeans);
+          String _name_1 = customer.getName();
+          String _firstUpper_1 = StringExtensions.toFirstUpper(_name_1);
+          String _plus_2 = ("src/main/java/I" + _firstUpper_1);
+          String _plus_3 = (_plus_2 + "Repository.java");
+          CharSequence _generateCustomerRepos = this.generateCustomerRepos(customer, ((RentalSystem)rentalSystem));
+          fsa.generateFile(_plus_3, _generateCustomerRepos);
+        }
       }
       EList<RentalType> _rentalTypes = ((RentalSystem)rentalSystem).getRentalTypes();
       for (final RentalType rentalType : _rentalTypes) {
-        String _name_1 = rentalType.getName();
-        String _firstUpper_1 = StringExtensions.toFirstUpper(_name_1);
-        String _plus_2 = ("model/" + _firstUpper_1);
-        String _plus_3 = (_plus_2 + ".java");
-        CharSequence _generateTypeBeans = this.generateTypeBeans(rentalType, ((RentalSystem)rentalSystem));
-        fsa.generateFile(_plus_3, _generateTypeBeans);
+        {
+          String _name = rentalType.getName();
+          String _firstUpper = StringExtensions.toFirstUpper(_name);
+          String _plus = ("src/main/java/" + _firstUpper);
+          String _plus_1 = (_plus + ".java");
+          CharSequence _generateTypeBeans = this.generateTypeBeans(rentalType, ((RentalSystem)rentalSystem));
+          fsa.generateFile(_plus_1, _generateTypeBeans);
+          String _name_1 = rentalType.getName();
+          String _firstUpper_1 = StringExtensions.toFirstUpper(_name_1);
+          String _plus_2 = ("src/main/java/I" + _firstUpper_1);
+          String _plus_3 = (_plus_2 + "Repository.java");
+          CharSequence _generateTypeRepos = this.generateTypeRepos(rentalType, ((RentalSystem)rentalSystem));
+          fsa.generateFile(_plus_3, _generateTypeRepos);
+        }
+      }
+      EList<Deal> _deals = ((RentalSystem)rentalSystem).getDeals();
+      for (final Deal deal : _deals) {
+        {
+          String _name = deal.getName();
+          String _firstUpper = StringExtensions.toFirstUpper(_name);
+          String _plus = ("src/main/java/" + _firstUpper);
+          String _plus_1 = (_plus + ".java");
+          CharSequence _generateDealBeans = this.generateDealBeans(deal, ((RentalSystem)rentalSystem));
+          fsa.generateFile(_plus_1, _generateDealBeans);
+          String _name_1 = deal.getName();
+          String _firstUpper_1 = StringExtensions.toFirstUpper(_name_1);
+          String _plus_2 = ("src/main/java/I" + _firstUpper_1);
+          String _plus_3 = (_plus_2 + "Repository.java");
+          CharSequence _generateDealRepos = this.generateDealRepos(deal, ((RentalSystem)rentalSystem));
+          fsa.generateFile(_plus_3, _generateDealRepos);
+        }
       }
     }
   }
   
   public CharSequence generateCustomerBeans(final Customer customer, final RentalSystem rentalSystem) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("package main;");
+    _builder.append("package de.nordakademie.xtext.hausarbeit.rentalSystem.web;");
     _builder.newLine();
     _builder.newLine();
     _builder.append("\t\t");
@@ -65,25 +99,140 @@ public class RentalSystemGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
     _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("@Id");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("@GeneratedValue");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("private Long id;");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.newLine();
     {
       EList<Attribute> _customerAttribute = customer.getCustomerAttribute();
       for(final Attribute attribute : _customerAttribute) {
-        _builder.append("\t\t\t");
-        _builder.append("public ");
+        _builder.append("\t\t");
+        _builder.append("private ");
         OfType _ofType = attribute.getOfType();
-        _builder.append(_ofType, "\t\t\t");
+        _builder.append(_ofType, "\t\t");
         _builder.append(" ");
         String _name_1 = attribute.getName();
         String _firstLower = StringExtensions.toFirstLower(_name_1);
-        _builder.append(_firstLower, "\t\t\t");
+        _builder.append(_firstLower, "\t\t");
         _builder.append(" = ");
         String _value = attribute.getValue();
-        _builder.append(_value, "\t\t\t");
+        _builder.append(_value, "\t\t");
         _builder.append(";");
         _builder.newLineIfNotEmpty();
       }
     }
     _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("public Long getId() {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("return id;");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    {
+      EList<Attribute> _customerAttribute_1 = customer.getCustomerAttribute();
+      for(final Attribute attribute_1 : _customerAttribute_1) {
+        _builder.append("\t\t");
+        _builder.append("public ");
+        OfType _ofType_1 = attribute_1.getOfType();
+        _builder.append(_ofType_1, "\t\t");
+        _builder.append(" get");
+        String _name_2 = attribute_1.getName();
+        String _firstUpper_1 = StringExtensions.toFirstUpper(_name_2);
+        _builder.append(_firstUpper_1, "\t\t");
+        _builder.append("(){");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("\t");
+        _builder.append("return ");
+        String _value_1 = attribute_1.getValue();
+        _builder.append(_value_1, "\t\t\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("public void setId(Long id) {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("this.id = id;");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    {
+      EList<Attribute> _customerAttribute_2 = customer.getCustomerAttribute();
+      for(final Attribute attribute_2 : _customerAttribute_2) {
+        _builder.append("\t\t");
+        _builder.append("public  void set");
+        String _name_3 = attribute_2.getName();
+        String _firstUpper_2 = StringExtensions.toFirstUpper(_name_3);
+        _builder.append(_firstUpper_2, "\t\t");
+        _builder.append("(");
+        OfType _ofType_2 = attribute_2.getOfType();
+        _builder.append(_ofType_2, "\t\t");
+        _builder.append(" givenParameter){");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("\t");
+        _builder.append("this.");
+        String _name_4 = attribute_2.getName();
+        String _firstLower_1 = StringExtensions.toFirstLower(_name_4);
+        _builder.append(_firstLower_1, "\t\t\t");
+        _builder.append(" = givenParameter;");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence generateCustomerRepos(final Customer customer, final RentalSystem rentalSystem) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package de.nordakademie.xtext.hausarbeit.rentalSystem.web;");
+    _builder.newLine();
+    _builder.append("import org.springframework.data.repository.CrudRepository;");
+    _builder.newLine();
+    _builder.append("import org.springframework.stereotype.Repository;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("@Repository");
+    _builder.newLine();
+    _builder.append("public interface I");
+    String _name = customer.getName();
+    String _firstUpper = StringExtensions.toFirstUpper(_name);
+    _builder.append(_firstUpper, "");
+    _builder.append("Repository extends CrudRepository<");
+    String _name_1 = customer.getName();
+    String _firstUpper_1 = StringExtensions.toFirstUpper(_name_1);
+    _builder.append(_firstUpper_1, "");
+    _builder.append(", Long> {");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
     _builder.append("}");
     _builder.newLine();
     return _builder;
@@ -91,7 +240,7 @@ public class RentalSystemGenerator extends AbstractGenerator {
   
   public CharSequence generateTypeBeans(final RentalType rentalType, final RentalSystem rentalSystem) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("package main;");
+    _builder.append("package de.nordakademie.xtext.hausarbeit.rentalSystem.web;");
     _builder.newLine();
     _builder.newLine();
     _builder.append("\t\t");
@@ -101,26 +250,310 @@ public class RentalSystemGenerator extends AbstractGenerator {
     _builder.append(_firstUpper, "\t\t");
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("@Id");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("@GeneratedValue");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("private Long id;");
+    _builder.newLine();
     _builder.append("\t\t\t");
     _builder.newLine();
     {
       EList<Attribute> _typeAttributes = rentalType.getTypeAttributes();
       for(final Attribute attribute : _typeAttributes) {
-        _builder.append("\t\t\t");
+        _builder.append("\t\t");
         _builder.append("public ");
         OfType _ofType = attribute.getOfType();
-        _builder.append(_ofType, "\t\t\t");
+        _builder.append(_ofType, "\t\t");
         _builder.append(" ");
         String _name_1 = attribute.getName();
         String _firstLower = StringExtensions.toFirstLower(_name_1);
-        _builder.append(_firstLower, "\t\t\t");
+        _builder.append(_firstLower, "\t\t");
         _builder.append(" = ");
         String _value = attribute.getValue();
-        _builder.append(_value, "\t\t\t");
+        _builder.append(_value, "\t\t");
         _builder.append(";");
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("public Long getId() {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("return id;");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    {
+      EList<Attribute> _typeAttributes_1 = rentalType.getTypeAttributes();
+      for(final Attribute attribute_1 : _typeAttributes_1) {
+        _builder.append("\t\t");
+        _builder.append("public ");
+        OfType _ofType_1 = attribute_1.getOfType();
+        _builder.append(_ofType_1, "\t\t");
+        _builder.append(" get");
+        String _name_2 = attribute_1.getName();
+        String _firstUpper_1 = StringExtensions.toFirstUpper(_name_2);
+        _builder.append(_firstUpper_1, "\t\t");
+        _builder.append("(){");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("\t");
+        _builder.append("return ");
+        String _value_1 = attribute_1.getValue();
+        _builder.append(_value_1, "\t\t\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("public void setId(Long id) {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("this.id = id;");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    {
+      EList<Attribute> _typeAttributes_2 = rentalType.getTypeAttributes();
+      for(final Attribute attribute_2 : _typeAttributes_2) {
+        _builder.append("\t\t");
+        _builder.append("public  void set");
+        String _name_3 = attribute_2.getName();
+        String _firstUpper_2 = StringExtensions.toFirstUpper(_name_3);
+        _builder.append(_firstUpper_2, "\t\t");
+        _builder.append("(");
+        OfType _ofType_2 = attribute_2.getOfType();
+        _builder.append(_ofType_2, "\t\t");
+        _builder.append(" givenParameter){");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("\t");
+        _builder.append("this.");
+        String _name_4 = attribute_2.getName();
+        String _firstLower_1 = StringExtensions.toFirstLower(_name_4);
+        _builder.append(_firstLower_1, "\t\t\t");
+        _builder.append(" = givenParameter;");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence generateTypeRepos(final RentalType rentalType, final RentalSystem rentalSystem) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package de.nordakademie.xtext.hausarbeit.rentalSystem.web;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("package de.nordakademie.xtext.hausarbeit.rentalSystem.web;");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("import org.springframework.data.repository.CrudRepository;");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("import org.springframework.stereotype.Repository;");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("@Repository");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("public interface I");
+    String _name = rentalType.getName();
+    String _firstUpper = StringExtensions.toFirstUpper(_name);
+    _builder.append(_firstUpper, "\t\t");
+    _builder.append("Repository extends CrudRepository<");
+    String _name_1 = rentalType.getName();
+    String _firstUpper_1 = StringExtensions.toFirstUpper(_name_1);
+    _builder.append(_firstUpper_1, "\t\t");
+    _builder.append(", Long> {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence generateDealBeans(final Deal deal, final RentalSystem rentalSystem) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package de.nordakademie.xtext.hausarbeit.rentalSystem.web;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("public class ");
+    String _name = deal.getName();
+    String _firstUpper = StringExtensions.toFirstUpper(_name);
+    _builder.append(_firstUpper, "\t\t");
+    _builder.append(" {");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("@Id");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("@GeneratedValue");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("private Long id;");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.newLine();
+    {
+      EList<Attribute> _dealAttributes = deal.getDealAttributes();
+      for(final Attribute attribute : _dealAttributes) {
+        _builder.append("\t\t");
+        _builder.append("public ");
+        OfType _ofType = attribute.getOfType();
+        _builder.append(_ofType, "\t\t");
+        _builder.append(" ");
+        String _name_1 = attribute.getName();
+        String _firstLower = StringExtensions.toFirstLower(_name_1);
+        _builder.append(_firstLower, "\t\t");
+        _builder.append(" = ");
+        String _value = attribute.getValue();
+        _builder.append(_value, "\t\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("public Long getId() {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("return id;");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    {
+      EList<Attribute> _dealAttributes_1 = deal.getDealAttributes();
+      for(final Attribute attribute_1 : _dealAttributes_1) {
+        _builder.append("\t\t");
+        _builder.append("public ");
+        OfType _ofType_1 = attribute_1.getOfType();
+        _builder.append(_ofType_1, "\t\t");
+        _builder.append(" get");
+        String _name_2 = attribute_1.getName();
+        String _firstUpper_1 = StringExtensions.toFirstUpper(_name_2);
+        _builder.append(_firstUpper_1, "\t\t");
+        _builder.append("(){");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("\t");
+        _builder.append("return ");
+        String _value_1 = attribute_1.getValue();
+        _builder.append(_value_1, "\t\t\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("public void setId(Long id) {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("this.id = id;");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    {
+      EList<Attribute> _dealAttributes_2 = deal.getDealAttributes();
+      for(final Attribute attribute_2 : _dealAttributes_2) {
+        _builder.append("\t\t");
+        _builder.append("public  void set");
+        String _name_3 = attribute_2.getName();
+        String _firstUpper_2 = StringExtensions.toFirstUpper(_name_3);
+        _builder.append(_firstUpper_2, "\t\t");
+        _builder.append("(");
+        OfType _ofType_2 = attribute_2.getOfType();
+        _builder.append(_ofType_2, "\t\t");
+        _builder.append(" givenParameter){");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("\t");
+        _builder.append("this.");
+        String _name_4 = attribute_2.getName();
+        String _firstLower_1 = StringExtensions.toFirstLower(_name_4);
+        _builder.append(_firstLower_1, "\t\t\t");
+        _builder.append(" = givenParameter;");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence generateDealRepos(final Deal deal, final RentalSystem rentalSystem) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package de.nordakademie.xtext.hausarbeit.rentalSystem.web;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("package de.nordakademie.xtext.hausarbeit.rentalSystem.web;");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("import org.springframework.data.repository.CrudRepository;");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("import org.springframework.stereotype.Repository;");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("@Repository");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("public interface I");
+    String _name = deal.getName();
+    String _firstUpper = StringExtensions.toFirstUpper(_name);
+    _builder.append(_firstUpper, "\t\t");
+    _builder.append("Repository extends CrudRepository<");
+    String _name_1 = deal.getName();
+    String _firstUpper_1 = StringExtensions.toFirstUpper(_name_1);
+    _builder.append(_firstUpper_1, "\t\t");
+    _builder.append(", Long> {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.newLine();
     _builder.append("\t\t");
     _builder.append("}");
     _builder.newLine();

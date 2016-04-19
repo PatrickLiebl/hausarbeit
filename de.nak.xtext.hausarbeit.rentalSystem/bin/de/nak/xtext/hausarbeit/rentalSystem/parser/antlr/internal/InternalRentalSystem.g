@@ -299,6 +299,74 @@ ruleRentalType returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleCustomer
+entryRuleCustomer returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCustomerRule()); }
+	iv_ruleCustomer=ruleCustomer
+	{ $current=$iv_ruleCustomer.current; }
+	EOF;
+
+// Rule Customer
+ruleCustomer returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='customerMold'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getCustomerAccess().getCustomerMoldKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getCustomerAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getCustomerRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_2='('
+		{
+			newLeafNode(otherlv_2, grammarAccess.getCustomerAccess().getLeftParenthesisKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCustomerAccess().getCustomerAttributeAttributeParserRuleCall_3_0());
+				}
+				lv_customerAttribute_3_0=ruleAttribute
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCustomerRule());
+					}
+					add(
+						$current,
+						"customerAttribute",
+						lv_customerAttribute_3_0,
+						"de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.Attribute");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_4=')'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getCustomerAccess().getRightParenthesisKeyword_4());
+		}
+	)
+;
+
 // Entry rule entryRuleQualifiedName
 entryRuleQualifiedName returns [String current=null]:
 	{ newCompositeNode(grammarAccess.getQualifiedNameRule()); }
@@ -442,17 +510,17 @@ ruleDeal returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDealAccess().getDealAttributeAttributeParserRuleCall_10_0());
+					newCompositeNode(grammarAccess.getDealAccess().getDealAttributesAttributeParserRuleCall_10_0());
 				}
-				lv_dealAttribute_10_0=ruleAttribute
+				lv_dealAttributes_10_0=ruleAttribute
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDealRule());
 					}
 					add(
 						$current,
-						"dealAttribute",
-						lv_dealAttribute_10_0,
+						"dealAttributes",
+						lv_dealAttributes_10_0,
 						"de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.Attribute");
 					afterParserOrEnumRuleCall();
 				}
@@ -461,74 +529,6 @@ ruleDeal returns [EObject current=null]
 		otherlv_11=')'
 		{
 			newLeafNode(otherlv_11, grammarAccess.getDealAccess().getRightParenthesisKeyword_11());
-		}
-	)
-;
-
-// Entry rule entryRuleCustomer
-entryRuleCustomer returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getCustomerRule()); }
-	iv_ruleCustomer=ruleCustomer
-	{ $current=$iv_ruleCustomer.current; }
-	EOF;
-
-// Rule Customer
-ruleCustomer returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='customerMold'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getCustomerAccess().getCustomerMoldKeyword_0());
-		}
-		(
-			(
-				lv_name_1_0=RULE_ID
-				{
-					newLeafNode(lv_name_1_0, grammarAccess.getCustomerAccess().getNameIDTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getCustomerRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-		otherlv_2='('
-		{
-			newLeafNode(otherlv_2, grammarAccess.getCustomerAccess().getLeftParenthesisKeyword_2());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getCustomerAccess().getCustomerAttributeAttributeParserRuleCall_3_0());
-				}
-				lv_customerAttribute_3_0=ruleAttribute
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getCustomerRule());
-					}
-					add(
-						$current,
-						"customerAttribute",
-						lv_customerAttribute_3_0,
-						"de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.Attribute");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		otherlv_4=')'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getCustomerAccess().getRightParenthesisKeyword_4());
 		}
 	)
 ;
@@ -645,66 +645,18 @@ ruleOfType returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_3='decimal'
+			enumLiteral_3='Double'
 			{
-				$current = grammarAccess.getOfTypeAccess().getDecimalEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_3, grammarAccess.getOfTypeAccess().getDecimalEnumLiteralDeclaration_3());
+				$current = grammarAccess.getOfTypeAccess().getDoubleEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getOfTypeAccess().getDoubleEnumLiteralDeclaration_3());
 			}
 		)
 		    |
 		(
-			enumLiteral_4='Double'
+			enumLiteral_4='boolean'
 			{
-				$current = grammarAccess.getOfTypeAccess().getDoubleEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_4, grammarAccess.getOfTypeAccess().getDoubleEnumLiteralDeclaration_4());
-			}
-		)
-		    |
-		(
-			enumLiteral_5='day'
-			{
-				$current = grammarAccess.getOfTypeAccess().getDayEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_5, grammarAccess.getOfTypeAccess().getDayEnumLiteralDeclaration_5());
-			}
-		)
-		    |
-		(
-			enumLiteral_6='week'
-			{
-				$current = grammarAccess.getOfTypeAccess().getWeekEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_6, grammarAccess.getOfTypeAccess().getWeekEnumLiteralDeclaration_6());
-			}
-		)
-		    |
-		(
-			enumLiteral_7='month'
-			{
-				$current = grammarAccess.getOfTypeAccess().getMonthEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_7, grammarAccess.getOfTypeAccess().getMonthEnumLiteralDeclaration_7());
-			}
-		)
-		    |
-		(
-			enumLiteral_8='email'
-			{
-				$current = grammarAccess.getOfTypeAccess().getEMailEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_8, grammarAccess.getOfTypeAccess().getEMailEnumLiteralDeclaration_8());
-			}
-		)
-		    |
-		(
-			enumLiteral_9='mobile'
-			{
-				$current = grammarAccess.getOfTypeAccess().getMobileEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_9, grammarAccess.getOfTypeAccess().getMobileEnumLiteralDeclaration_9());
-			}
-		)
-		    |
-		(
-			enumLiteral_10='currency'
-			{
-				$current = grammarAccess.getOfTypeAccess().getCurrencyEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_10, grammarAccess.getOfTypeAccess().getCurrencyEnumLiteralDeclaration_10());
+				$current = grammarAccess.getOfTypeAccess().getBooleanEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_4, grammarAccess.getOfTypeAccess().getBooleanEnumLiteralDeclaration_4());
 			}
 		)
 	)

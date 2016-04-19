@@ -42,15 +42,6 @@ public interface RentalSystemFactory extends EFactory
   RentalType createRentalType();
 
   /**
-   * Returns a new object of class '<em>Deal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Deal</em>'.
-   * @generated
-   */
-  Deal createDeal();
-
-  /**
    * Returns a new object of class '<em>Customer</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -58,6 +49,15 @@ public interface RentalSystemFactory extends EFactory
    * @generated
    */
   Customer createCustomer();
+
+  /**
+   * Returns a new object of class '<em>Deal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Deal</em>'.
+   * @generated
+   */
+  Deal createDeal();
 
   /**
    * Returns a new object of class '<em>Attribute</em>'.
