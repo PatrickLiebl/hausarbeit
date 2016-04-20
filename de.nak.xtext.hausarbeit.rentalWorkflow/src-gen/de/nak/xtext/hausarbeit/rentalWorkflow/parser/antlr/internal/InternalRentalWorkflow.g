@@ -181,12 +181,32 @@ ruleRentalWorkflow returns [EObject current=null]
 		{
 			newLeafNode(otherlv_11, grammarAccess.getRentalWorkflowAccess().getEndKeyword_11());
 		}
+		otherlv_12='workflowDeal'
+		{
+			newLeafNode(otherlv_12, grammarAccess.getRentalWorkflowAccess().getWorkflowDealKeyword_12());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRentalWorkflowAccess().getStatesStateParserRuleCall_12_0());
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getRentalWorkflowRule());
+					}
 				}
-				lv_states_12_0=ruleState
+				{
+					newCompositeNode(grammarAccess.getRentalWorkflowAccess().getWorkflowDealRentalSystemCrossReference_13_0());
+				}
+				ruleQualifiedName
+				{
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getRentalWorkflowAccess().getStatesStateParserRuleCall_14_0());
+				}
+				lv_states_14_0=ruleState
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRentalWorkflowRule());
@@ -194,7 +214,7 @@ ruleRentalWorkflow returns [EObject current=null]
 					add(
 						$current,
 						"states",
-						lv_states_12_0,
+						lv_states_14_0,
 						"de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.State");
 					afterParserOrEnumRuleCall();
 				}
@@ -510,6 +530,46 @@ ruleTransition returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleQualifiedName
+entryRuleQualifiedName returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getQualifiedNameRule()); }
+	iv_ruleQualifiedName=ruleQualifiedName
+	{ $current=$iv_ruleQualifiedName.current.getText(); }
+	EOF;
+
+// Rule QualifiedName
+ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		this_ID_0=RULE_ID
+		{
+			$current.merge(this_ID_0);
+		}
+		{
+			newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0());
+		}
+		(
+			kw='.'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0());
+			}
+			this_ID_2=RULE_ID
+			{
+				$current.merge(this_ID_2);
+			}
+			{
+				newLeafNode(this_ID_2, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1());
+			}
+		)*
+	)
+;
+
 // Rule OfType
 ruleOfType returns [Enumerator current=null]
 @init {
@@ -536,50 +596,26 @@ ruleOfType returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_2='beginning'
+			enumLiteral_2='running'
 			{
-				$current = grammarAccess.getOfTypeAccess().getBeginningEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getOfTypeAccess().getBeginningEnumLiteralDeclaration_2());
+				$current = grammarAccess.getOfTypeAccess().getRunningEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getOfTypeAccess().getRunningEnumLiteralDeclaration_2());
 			}
 		)
 		    |
 		(
-			enumLiteral_3='running'
+			enumLiteral_3='canceling'
 			{
-				$current = grammarAccess.getOfTypeAccess().getRunningEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_3, grammarAccess.getOfTypeAccess().getRunningEnumLiteralDeclaration_3());
+				$current = grammarAccess.getOfTypeAccess().getCancelingEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getOfTypeAccess().getCancelingEnumLiteralDeclaration_3());
 			}
 		)
 		    |
 		(
-			enumLiteral_4='canceling'
+			enumLiteral_4='finishing'
 			{
-				$current = grammarAccess.getOfTypeAccess().getCancelingEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_4, grammarAccess.getOfTypeAccess().getCancelingEnumLiteralDeclaration_4());
-			}
-		)
-		    |
-		(
-			enumLiteral_5='replacing'
-			{
-				$current = grammarAccess.getOfTypeAccess().getReplacingEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_5, grammarAccess.getOfTypeAccess().getReplacingEnumLiteralDeclaration_5());
-			}
-		)
-		    |
-		(
-			enumLiteral_6='storing'
-			{
-				$current = grammarAccess.getOfTypeAccess().getStoringEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_6, grammarAccess.getOfTypeAccess().getStoringEnumLiteralDeclaration_6());
-			}
-		)
-		    |
-		(
-			enumLiteral_7='finishing'
-			{
-				$current = grammarAccess.getOfTypeAccess().getFinishingEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_7, grammarAccess.getOfTypeAccess().getFinishingEnumLiteralDeclaration_7());
+				$current = grammarAccess.getOfTypeAccess().getFinishingEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_4, grammarAccess.getOfTypeAccess().getFinishingEnumLiteralDeclaration_4());
 			}
 		)
 	)
@@ -607,6 +643,14 @@ ruleofEventType returns [Enumerator current=null]
 			{
 				$current = grammarAccess.getOfEventTypeAccess().getBackClickedEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_1, grammarAccess.getOfEventTypeAccess().getBackClickedEnumLiteralDeclaration_1());
+			}
+		)
+		    |
+		(
+			enumLiteral_2='cancelClicked'
+			{
+				$current = grammarAccess.getOfEventTypeAccess().getCancelClickedEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getOfEventTypeAccess().getCancelClickedEnumLiteralDeclaration_2());
 			}
 		)
 	)

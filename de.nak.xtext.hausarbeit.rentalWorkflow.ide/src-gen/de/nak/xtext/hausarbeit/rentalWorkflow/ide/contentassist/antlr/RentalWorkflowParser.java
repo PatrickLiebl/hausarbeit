@@ -44,11 +44,14 @@ public class RentalWorkflowParser extends AbstractContentAssistParser {
 					put(grammarAccess.getStateAccess().getGroup(), "rule__State__Group__0");
 					put(grammarAccess.getStateAccess().getGroup_3(), "rule__State__Group_3__0");
 					put(grammarAccess.getTransitionAccess().getGroup(), "rule__Transition__Group__0");
+					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
+					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
 					put(grammarAccess.getRentalWorkflowAccess().getNameAssignment_2(), "rule__RentalWorkflow__NameAssignment_2");
 					put(grammarAccess.getRentalWorkflowAccess().getEventAssignment_4(), "rule__RentalWorkflow__EventAssignment_4");
 					put(grammarAccess.getRentalWorkflowAccess().getResetEventsAssignment_7(), "rule__RentalWorkflow__ResetEventsAssignment_7");
 					put(grammarAccess.getRentalWorkflowAccess().getCommandsAssignment_10(), "rule__RentalWorkflow__CommandsAssignment_10");
-					put(grammarAccess.getRentalWorkflowAccess().getStatesAssignment_12(), "rule__RentalWorkflow__StatesAssignment_12");
+					put(grammarAccess.getRentalWorkflowAccess().getWorkflowDealAssignment_13(), "rule__RentalWorkflow__WorkflowDealAssignment_13");
+					put(grammarAccess.getRentalWorkflowAccess().getStatesAssignment_14(), "rule__RentalWorkflow__StatesAssignment_14");
 					put(grammarAccess.getEventAccess().getNameAssignment_0(), "rule__Event__NameAssignment_0");
 					put(grammarAccess.getEventAccess().getCodeAssignment_1(), "rule__Event__CodeAssignment_1");
 					put(grammarAccess.getEventAccess().getOfTypeAssignment_2(), "rule__Event__OfTypeAssignment_2");

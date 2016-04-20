@@ -3,8 +3,6 @@
  */
 package de.nak.xtext.hausarbeit.rentalSystem.rentalSystem;
 
-import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -16,14 +14,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getName <em>Name</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getCustomer <em>Customer</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getRentalType <em>Rental Type</em>}</li>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getWf <em>Wf</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getDealAttributes <em>Deal Attributes</em>}</li>
  * </ul>
- * </p>
  *
  * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage#getDeal()
  * @model
@@ -108,32 +105,6 @@ public interface Deal extends EObject
    * @generated
    */
   void setRentalType(RentalType value);
-
-  /**
-   * Returns the value of the '<em><b>Wf</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Wf</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Wf</em>' reference.
-   * @see #setWf(RentalWorkflow)
-   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage#getDeal_Wf()
-   * @model
-   * @generated
-   */
-  RentalWorkflow getWf();
-
-  /**
-   * Sets the value of the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getWf <em>Wf</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Wf</em>' reference.
-   * @see #getWf()
-   * @generated
-   */
-  void setWf(RentalWorkflow value);
 
   /**
    * Returns the value of the '<em><b>Deal Attributes</b></em>' containment reference list.

@@ -10,6 +10,7 @@
         upperBound="-1" eType="#//Event"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="commands" upperBound="-1"
         eType="#//Command" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="workflowDeal" eType="ecore:EClass platform:/resource/de.nak.xtext.hausarbeit.rentalSystem/model/generated/RentalSystem.ecore#//RentalSystem"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
         eType="#//State" containment="true"/>
   </eClassifiers>
@@ -38,16 +39,14 @@
   <eClassifiers xsi:type="ecore:EEnum" name="OfType">
     <eLiterals name="initializing" literal="initializing"/>
     <eLiterals name="creating" value="1" literal="creating"/>
-    <eLiterals name="beginning" value="2" literal="beginning"/>
-    <eLiterals name="running" value="3" literal="running"/>
-    <eLiterals name="canceling" value="4" literal="canceling"/>
-    <eLiterals name="replacing" value="5" literal="replacing"/>
-    <eLiterals name="storing" value="6" literal="storing"/>
-    <eLiterals name="finishing" value="7" literal="finishing"/>
+    <eLiterals name="running" value="2" literal="running"/>
+    <eLiterals name="canceling" value="3" literal="canceling"/>
+    <eLiterals name="finishing" value="4" literal="finishing"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ofEventType">
     <eLiterals name="nextClicked" literal="nextClicked"/>
     <eLiterals name="backClicked" value="1" literal="backClicked"/>
+    <eLiterals name="cancelClicked" value="2" literal="cancelClicked"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ofCommandType">
     <eLiterals name="doSave" literal="doSave"/>

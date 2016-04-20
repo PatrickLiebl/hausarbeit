@@ -13,7 +13,8 @@ Require-Bundle: org.eclipse.xtext,
  org.antlr.runtime,
  org.eclipse.xtext.util,
  org.eclipse.xtend.lib,
- org.eclipse.emf.common
+ org.eclipse.emf.common,
+ de.nak.xtext.hausarbeit.rentalSystem;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: de.nak.xtext.hausarbeit.rentalWorkflow.validation,
  de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.util,

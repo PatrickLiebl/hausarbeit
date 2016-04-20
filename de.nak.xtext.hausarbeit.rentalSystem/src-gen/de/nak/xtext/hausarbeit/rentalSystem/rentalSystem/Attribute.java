@@ -12,12 +12,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute#getName <em>Name</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute#getValue <em>Value</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute#getOfType <em>Of Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage#getAttribute()
  * @model

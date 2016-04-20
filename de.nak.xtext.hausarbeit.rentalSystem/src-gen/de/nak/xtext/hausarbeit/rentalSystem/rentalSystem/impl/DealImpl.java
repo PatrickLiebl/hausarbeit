@@ -9,8 +9,6 @@ import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalType;
 
-import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -33,14 +31,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.DealImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.DealImpl#getCustomer <em>Customer</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.DealImpl#getRentalType <em>Rental Type</em>}</li>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.DealImpl#getWf <em>Wf</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.DealImpl#getDealAttributes <em>Deal Attributes</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -85,16 +82,6 @@ public class DealImpl extends MinimalEObjectImpl.Container implements Deal
    * @ordered
    */
   protected RentalType rentalType;
-
-  /**
-   * The cached value of the '{@link #getWf() <em>Wf</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getWf()
-   * @generated
-   * @ordered
-   */
-  protected RentalWorkflow wf;
 
   /**
    * The cached value of the '{@link #getDealAttributes() <em>Deal Attributes</em>}' containment reference list.
@@ -241,49 +228,6 @@ public class DealImpl extends MinimalEObjectImpl.Container implements Deal
    * <!-- end-user-doc -->
    * @generated
    */
-  public RentalWorkflow getWf()
-  {
-    if (wf != null && wf.eIsProxy())
-    {
-      InternalEObject oldWf = (InternalEObject)wf;
-      wf = (RentalWorkflow)eResolveProxy(oldWf);
-      if (wf != oldWf)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RentalSystemPackage.DEAL__WF, oldWf, wf));
-      }
-    }
-    return wf;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RentalWorkflow basicGetWf()
-  {
-    return wf;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setWf(RentalWorkflow newWf)
-  {
-    RentalWorkflow oldWf = wf;
-    wf = newWf;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RentalSystemPackage.DEAL__WF, oldWf, wf));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<Attribute> getDealAttributes()
   {
     if (dealAttributes == null)
@@ -327,9 +271,6 @@ public class DealImpl extends MinimalEObjectImpl.Container implements Deal
       case RentalSystemPackage.DEAL__RENTAL_TYPE:
         if (resolve) return getRentalType();
         return basicGetRentalType();
-      case RentalSystemPackage.DEAL__WF:
-        if (resolve) return getWf();
-        return basicGetWf();
       case RentalSystemPackage.DEAL__DEAL_ATTRIBUTES:
         return getDealAttributes();
     }
@@ -355,9 +296,6 @@ public class DealImpl extends MinimalEObjectImpl.Container implements Deal
         return;
       case RentalSystemPackage.DEAL__RENTAL_TYPE:
         setRentalType((RentalType)newValue);
-        return;
-      case RentalSystemPackage.DEAL__WF:
-        setWf((RentalWorkflow)newValue);
         return;
       case RentalSystemPackage.DEAL__DEAL_ATTRIBUTES:
         getDealAttributes().clear();
@@ -386,9 +324,6 @@ public class DealImpl extends MinimalEObjectImpl.Container implements Deal
       case RentalSystemPackage.DEAL__RENTAL_TYPE:
         setRentalType((RentalType)null);
         return;
-      case RentalSystemPackage.DEAL__WF:
-        setWf((RentalWorkflow)null);
-        return;
       case RentalSystemPackage.DEAL__DEAL_ATTRIBUTES:
         getDealAttributes().clear();
         return;
@@ -412,8 +347,6 @@ public class DealImpl extends MinimalEObjectImpl.Container implements Deal
         return customer != null;
       case RentalSystemPackage.DEAL__RENTAL_TYPE:
         return rentalType != null;
-      case RentalSystemPackage.DEAL__WF:
-        return wf != null;
       case RentalSystemPackage.DEAL__DEAL_ATTRIBUTES:
         return dealAttributes != null && !dealAttributes.isEmpty();
     }

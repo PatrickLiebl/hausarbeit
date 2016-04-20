@@ -3,6 +3,8 @@
  */
 package de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl;
 
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage;
+
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Command;
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Event;
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.OfType;
@@ -134,6 +136,9 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
 
     isInited = true;
 
+    // Initialize simple dependencies
+    RentalSystemPackage.eINSTANCE.eClass();
+
     // Create package meta-data objects
     theRentalWorkflowPackage.createPackageContents();
 
@@ -204,9 +209,19 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRentalWorkflow_States()
+  public EReference getRentalWorkflow_WorkflowDeal()
   {
     return (EReference)rentalWorkflowEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRentalWorkflow_States()
+  {
+    return (EReference)rentalWorkflowEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -434,6 +449,7 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
     createEReference(rentalWorkflowEClass, RENTAL_WORKFLOW__EVENT);
     createEReference(rentalWorkflowEClass, RENTAL_WORKFLOW__RESET_EVENTS);
     createEReference(rentalWorkflowEClass, RENTAL_WORKFLOW__COMMANDS);
+    createEReference(rentalWorkflowEClass, RENTAL_WORKFLOW__WORKFLOW_DEAL);
     createEReference(rentalWorkflowEClass, RENTAL_WORKFLOW__STATES);
 
     eventEClass = createEClass(EVENT);
@@ -486,6 +502,9 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
     setNsPrefix(eNS_PREFIX);
     setNsURI(eNS_URI);
 
+    // Obtain other dependent packages
+    RentalSystemPackage theRentalSystemPackage = (RentalSystemPackage)EPackage.Registry.INSTANCE.getEPackage(RentalSystemPackage.eNS_URI);
+
     // Create type parameters
 
     // Set bounds for type parameters
@@ -498,6 +517,7 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
     initEReference(getRentalWorkflow_Event(), this.getEvent(), null, "event", null, 0, -1, RentalWorkflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRentalWorkflow_ResetEvents(), this.getEvent(), null, "resetEvents", null, 0, -1, RentalWorkflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRentalWorkflow_Commands(), this.getCommand(), null, "commands", null, 0, -1, RentalWorkflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRentalWorkflow_WorkflowDeal(), theRentalSystemPackage.getRentalSystem(), null, "workflowDeal", null, 0, 1, RentalWorkflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRentalWorkflow_States(), this.getState(), null, "states", null, 0, -1, RentalWorkflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -524,16 +544,14 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
     initEEnum(ofTypeEEnum, OfType.class, "OfType");
     addEEnumLiteral(ofTypeEEnum, OfType.INITIALIZING);
     addEEnumLiteral(ofTypeEEnum, OfType.CREATING);
-    addEEnumLiteral(ofTypeEEnum, OfType.BEGINNING);
     addEEnumLiteral(ofTypeEEnum, OfType.RUNNING);
     addEEnumLiteral(ofTypeEEnum, OfType.CANCELING);
-    addEEnumLiteral(ofTypeEEnum, OfType.REPLACING);
-    addEEnumLiteral(ofTypeEEnum, OfType.STORING);
     addEEnumLiteral(ofTypeEEnum, OfType.FINISHING);
 
     initEEnum(ofEventTypeEEnum, ofEventType.class, "ofEventType");
     addEEnumLiteral(ofEventTypeEEnum, ofEventType.NEXT_CLICKED);
     addEEnumLiteral(ofEventTypeEEnum, ofEventType.BACK_CLICKED);
+    addEEnumLiteral(ofEventTypeEEnum, ofEventType.CANCEL_CLICKED);
 
     initEEnum(ofCommandTypeEEnum, ofCommandType.class, "ofCommandType");
     addEEnumLiteral(ofCommandTypeEEnum, ofCommandType.DO_SAVE);

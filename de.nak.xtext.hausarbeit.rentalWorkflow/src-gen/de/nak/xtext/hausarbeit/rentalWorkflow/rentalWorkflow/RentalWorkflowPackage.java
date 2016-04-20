@@ -105,13 +105,22 @@ public interface RentalWorkflowPackage extends EPackage
   int RENTAL_WORKFLOW__COMMANDS = 3;
 
   /**
+   * The feature id for the '<em><b>Workflow Deal</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RENTAL_WORKFLOW__WORKFLOW_DEAL = 4;
+
+  /**
    * The feature id for the '<em><b>States</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RENTAL_WORKFLOW__STATES = 4;
+  int RENTAL_WORKFLOW__STATES = 5;
 
   /**
    * The number of structural features of the '<em>Rental Workflow</em>' class.
@@ -120,7 +129,7 @@ public interface RentalWorkflowPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RENTAL_WORKFLOW_FEATURE_COUNT = 5;
+  int RENTAL_WORKFLOW_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.EventImpl <em>Event</em>}' class.
@@ -390,6 +399,17 @@ public interface RentalWorkflowPackage extends EPackage
    * @generated
    */
   EReference getRentalWorkflow_Commands();
+
+  /**
+   * Returns the meta object for the reference '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getWorkflowDeal <em>Workflow Deal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Workflow Deal</em>'.
+   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getWorkflowDeal()
+   * @see #getRentalWorkflow()
+   * @generated
+   */
+  EReference getRentalWorkflow_WorkflowDeal();
 
   /**
    * Returns the meta object for the containment reference list '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getStates <em>States</em>}'.
@@ -668,6 +688,14 @@ public interface RentalWorkflowPackage extends EPackage
      * @generated
      */
     EReference RENTAL_WORKFLOW__COMMANDS = eINSTANCE.getRentalWorkflow_Commands();
+
+    /**
+     * The meta object literal for the '<em><b>Workflow Deal</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RENTAL_WORKFLOW__WORKFLOW_DEAL = eINSTANCE.getRentalWorkflow_WorkflowDeal();
 
     /**
      * The meta object literal for the '<em><b>States</b></em>' containment reference list feature.

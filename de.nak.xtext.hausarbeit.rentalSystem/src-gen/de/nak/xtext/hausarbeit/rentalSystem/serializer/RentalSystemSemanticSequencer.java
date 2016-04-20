@@ -97,7 +97,7 @@ public class RentalSystemSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Deal returns Deal
 	 *
 	 * Constraint:
-	 *     (name=ID customer=[Customer|ID] rentalType=[RentalType|ID] wf=[RentalWorkflow|QualifiedName] dealAttributes+=Attribute*)
+	 *     (name=ID customer=[Customer|ID] rentalType=[RentalType|ID] dealAttributes+=Attribute*)
 	 */
 	protected void sequence_Deal(ISerializationContext context, Deal semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

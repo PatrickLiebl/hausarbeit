@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemImpl#getTitle <em>Title</em>}</li>
@@ -38,7 +39,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemImpl#getCustomers <em>Customers</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalSystemImpl#getDeals <em>Deals</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

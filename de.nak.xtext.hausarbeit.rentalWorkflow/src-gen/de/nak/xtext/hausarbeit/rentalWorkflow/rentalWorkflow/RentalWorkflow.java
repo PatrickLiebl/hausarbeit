@@ -3,6 +3,8 @@
  */
 package de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow;
 
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -14,14 +16,15 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getName <em>Name</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getEvent <em>Event</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getResetEvents <em>Reset Events</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getCommands <em>Commands</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getWorkflowDeal <em>Workflow Deal</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getStates <em>States</em>}</li>
  * </ul>
- * </p>
  *
  * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage#getRentalWorkflow()
  * @model
@@ -102,6 +105,32 @@ public interface RentalWorkflow extends EObject
    * @generated
    */
   EList<Command> getCommands();
+
+  /**
+   * Returns the value of the '<em><b>Workflow Deal</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Workflow Deal</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Workflow Deal</em>' reference.
+   * @see #setWorkflowDeal(RentalSystem)
+   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage#getRentalWorkflow_WorkflowDeal()
+   * @model
+   * @generated
+   */
+  RentalSystem getWorkflowDeal();
+
+  /**
+   * Sets the value of the '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getWorkflowDeal <em>Workflow Deal</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Workflow Deal</em>' reference.
+   * @see #getWorkflowDeal()
+   * @generated
+   */
+  void setWorkflowDeal(RentalSystem value);
 
   /**
    * Returns the value of the '<em><b>States</b></em>' containment reference list.

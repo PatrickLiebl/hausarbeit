@@ -367,46 +367,6 @@ ruleCustomer returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleQualifiedName
-entryRuleQualifiedName returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getQualifiedNameRule()); }
-	iv_ruleQualifiedName=ruleQualifiedName
-	{ $current=$iv_ruleQualifiedName.current.getText(); }
-	EOF;
-
-// Rule QualifiedName
-ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		this_ID_0=RULE_ID
-		{
-			$current.merge(this_ID_0);
-		}
-		{
-			newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0());
-		}
-		(
-			kw='.'
-			{
-				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0());
-			}
-			this_ID_2=RULE_ID
-			{
-				$current.merge(this_ID_2);
-			}
-			{
-				newLeafNode(this_ID_2, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1());
-			}
-		)*
-	)
-;
-
 // Entry rule entryRuleDeal
 entryRuleDeal returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getDealRule()); }
@@ -483,36 +443,16 @@ ruleDeal returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_7='dealWorkFlow'
+		otherlv_7='dealAttribute'
 		{
-			newLeafNode(otherlv_7, grammarAccess.getDealAccess().getDealWorkFlowKeyword_7());
+			newLeafNode(otherlv_7, grammarAccess.getDealAccess().getDealAttributeKeyword_7());
 		}
 		(
 			(
 				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDealRule());
-					}
+					newCompositeNode(grammarAccess.getDealAccess().getDealAttributesAttributeParserRuleCall_8_0());
 				}
-				{
-					newCompositeNode(grammarAccess.getDealAccess().getWfRentalWorkflowCrossReference_8_0());
-				}
-				ruleQualifiedName
-				{
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_9='dealAttribute'
-		{
-			newLeafNode(otherlv_9, grammarAccess.getDealAccess().getDealAttributeKeyword_9());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getDealAccess().getDealAttributesAttributeParserRuleCall_10_0());
-				}
-				lv_dealAttributes_10_0=ruleAttribute
+				lv_dealAttributes_8_0=ruleAttribute
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDealRule());
@@ -520,15 +460,15 @@ ruleDeal returns [EObject current=null]
 					add(
 						$current,
 						"dealAttributes",
-						lv_dealAttributes_10_0,
+						lv_dealAttributes_8_0,
 						"de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.Attribute");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_11=')'
+		otherlv_9=')'
 		{
-			newLeafNode(otherlv_11, grammarAccess.getDealAccess().getRightParenthesisKeyword_11());
+			newLeafNode(otherlv_9, grammarAccess.getDealAccess().getRightParenthesisKeyword_9());
 		}
 	)
 ;

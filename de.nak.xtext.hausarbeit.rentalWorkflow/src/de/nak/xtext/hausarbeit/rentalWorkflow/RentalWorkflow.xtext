@@ -2,12 +2,15 @@ grammar de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow with org.eclipse.x
 
 generate rentalWorkflow "http://www.nak.de/xtext/hausarbeit/rentalWorkflow/RentalWorkflow"
 
+import "http://www.nak.de/xtext/hausarbeit/rentalSystem/RentalSystem" as rentalSystem
+
 RentalWorkflow:
 	{RentalWorkflow}
 	'defineWf' name=ID
 	'events' (event+=Event)* 'end'
 	'resetEvents' (resetEvents+=[Event])* 'end'
 	'commands' (commands+=Command)* 'end'
+	'workflowDeal' workflowDeal=[rentalSystem::RentalSystem|QualifiedName]
 	(states+=State)*;
 
 Event:
@@ -26,19 +29,20 @@ State:
 Transition:
 	event=[Event] '=>' state=[State];
 	
+QualifiedName:
+	ID('.'ID)*;
+	
 enum OfType:
 		initializing='initializing'
 	|	creating='creating'
-	|	beginning='beginning'
 	|	running='running'
 	|	canceling='canceling'
-	|	replacing='replacing'
-	|	storing='storing'
 	|	finishing='finishing';
 	
 enum ofEventType:
 		nextClicked='nextClicked'
-	|	backClicked='backClicked';
+	|	backClicked='backClicked'
+	|	cancelClicked='cancelClicked';
 
 enum ofCommandType:
 		doSave='doSave'

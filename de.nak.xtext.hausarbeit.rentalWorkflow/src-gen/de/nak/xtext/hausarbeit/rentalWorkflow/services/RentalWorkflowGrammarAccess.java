@@ -47,8 +47,12 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cCommandsAssignment_10 = (Assignment)cGroup.eContents().get(10);
 		private final RuleCall cCommandsCommandParserRuleCall_10_0 = (RuleCall)cCommandsAssignment_10.eContents().get(0);
 		private final Keyword cEndKeyword_11 = (Keyword)cGroup.eContents().get(11);
-		private final Assignment cStatesAssignment_12 = (Assignment)cGroup.eContents().get(12);
-		private final RuleCall cStatesStateParserRuleCall_12_0 = (RuleCall)cStatesAssignment_12.eContents().get(0);
+		private final Keyword cWorkflowDealKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Assignment cWorkflowDealAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final CrossReference cWorkflowDealRentalSystemCrossReference_13_0 = (CrossReference)cWorkflowDealAssignment_13.eContents().get(0);
+		private final RuleCall cWorkflowDealRentalSystemQualifiedNameParserRuleCall_13_0_1 = (RuleCall)cWorkflowDealRentalSystemCrossReference_13_0.eContents().get(1);
+		private final Assignment cStatesAssignment_14 = (Assignment)cGroup.eContents().get(14);
+		private final RuleCall cStatesStateParserRuleCall_14_0 = (RuleCall)cStatesAssignment_14.eContents().get(0);
 		
 		//RentalWorkflow:
 		//	{RentalWorkflow}
@@ -56,11 +60,11 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 		//	'events' event+=Event* 'end'
 		//	'resetEvents' resetEvents+=[Event]* 'end'
 		//	'commands' commands+=Command* 'end'
-		//	states+=State*;
+		//	'workflowDeal' workflowDeal=[rentalSystem::RentalSystem|QualifiedName] states+=State*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{RentalWorkflow} 'defineWf' name=ID 'events' event+=Event* 'end' 'resetEvents' resetEvents+=[Event]* 'end' 'commands'
-		//commands+=Command* 'end' states+=State*
+		//commands+=Command* 'end' 'workflowDeal' workflowDeal=[rentalSystem::RentalSystem|QualifiedName] states+=State*
 		public Group getGroup() { return cGroup; }
 		
 		//{RentalWorkflow}
@@ -114,11 +118,23 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 		//'end'
 		public Keyword getEndKeyword_11() { return cEndKeyword_11; }
 		
+		//'workflowDeal'
+		public Keyword getWorkflowDealKeyword_12() { return cWorkflowDealKeyword_12; }
+		
+		//workflowDeal=[rentalSystem::RentalSystem|QualifiedName]
+		public Assignment getWorkflowDealAssignment_13() { return cWorkflowDealAssignment_13; }
+		
+		//[rentalSystem::RentalSystem|QualifiedName]
+		public CrossReference getWorkflowDealRentalSystemCrossReference_13_0() { return cWorkflowDealRentalSystemCrossReference_13_0; }
+		
+		//QualifiedName
+		public RuleCall getWorkflowDealRentalSystemQualifiedNameParserRuleCall_13_0_1() { return cWorkflowDealRentalSystemQualifiedNameParserRuleCall_13_0_1; }
+		
 		//states+=State*
-		public Assignment getStatesAssignment_12() { return cStatesAssignment_12; }
+		public Assignment getStatesAssignment_14() { return cStatesAssignment_14; }
 		
 		//State
-		public RuleCall getStatesStateParserRuleCall_12_0() { return cStatesStateParserRuleCall_12_0; }
+		public RuleCall getStatesStateParserRuleCall_14_0() { return cStatesStateParserRuleCall_14_0; }
 	}
 	public class EventElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.Event");
@@ -303,6 +319,33 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getStateStateIDTerminalRuleCall_2_0_1() { return cStateStateIDTerminalRuleCall_2_0_1; }
 	}
+	public class QualifiedNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.QualifiedName");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		
+		//QualifiedName:
+		//	ID ('.' ID)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ID ('.' ID)*
+		public Group getGroup() { return cGroup; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+		
+		//('.' ID)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
+	}
 	
 	public class OfTypeElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.OfType");
@@ -311,24 +354,18 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cInitializingInitializingKeyword_0_0 = (Keyword)cInitializingEnumLiteralDeclaration_0.eContents().get(0);
 		private final EnumLiteralDeclaration cCreatingEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
 		private final Keyword cCreatingCreatingKeyword_1_0 = (Keyword)cCreatingEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cBeginningEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cBeginningBeginningKeyword_2_0 = (Keyword)cBeginningEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cRunningEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cRunningRunningKeyword_3_0 = (Keyword)cRunningEnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cCancelingEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cCancelingCancelingKeyword_4_0 = (Keyword)cCancelingEnumLiteralDeclaration_4.eContents().get(0);
-		private final EnumLiteralDeclaration cReplacingEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
-		private final Keyword cReplacingReplacingKeyword_5_0 = (Keyword)cReplacingEnumLiteralDeclaration_5.eContents().get(0);
-		private final EnumLiteralDeclaration cStoringEnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
-		private final Keyword cStoringStoringKeyword_6_0 = (Keyword)cStoringEnumLiteralDeclaration_6.eContents().get(0);
-		private final EnumLiteralDeclaration cFinishingEnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
-		private final Keyword cFinishingFinishingKeyword_7_0 = (Keyword)cFinishingEnumLiteralDeclaration_7.eContents().get(0);
+		private final EnumLiteralDeclaration cRunningEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cRunningRunningKeyword_2_0 = (Keyword)cRunningEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cCancelingEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cCancelingCancelingKeyword_3_0 = (Keyword)cCancelingEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cFinishingEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cFinishingFinishingKeyword_4_0 = (Keyword)cFinishingEnumLiteralDeclaration_4.eContents().get(0);
 		
 		//enum OfType:
-		//	initializing | creating | beginning | running | canceling | replacing | storing | finishing;
+		//	initializing | creating | running | canceling | finishing;
 		public EnumRule getRule() { return rule; }
 		
-		//initializing | creating | beginning | running | canceling | replacing | storing | finishing
+		//initializing | creating | running | canceling | finishing
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//initializing
@@ -343,41 +380,23 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 		//'creating'
 		public Keyword getCreatingCreatingKeyword_1_0() { return cCreatingCreatingKeyword_1_0; }
 		
-		//beginning
-		public EnumLiteralDeclaration getBeginningEnumLiteralDeclaration_2() { return cBeginningEnumLiteralDeclaration_2; }
-		
-		//'beginning'
-		public Keyword getBeginningBeginningKeyword_2_0() { return cBeginningBeginningKeyword_2_0; }
-		
 		//running
-		public EnumLiteralDeclaration getRunningEnumLiteralDeclaration_3() { return cRunningEnumLiteralDeclaration_3; }
+		public EnumLiteralDeclaration getRunningEnumLiteralDeclaration_2() { return cRunningEnumLiteralDeclaration_2; }
 		
 		//'running'
-		public Keyword getRunningRunningKeyword_3_0() { return cRunningRunningKeyword_3_0; }
+		public Keyword getRunningRunningKeyword_2_0() { return cRunningRunningKeyword_2_0; }
 		
 		//canceling
-		public EnumLiteralDeclaration getCancelingEnumLiteralDeclaration_4() { return cCancelingEnumLiteralDeclaration_4; }
+		public EnumLiteralDeclaration getCancelingEnumLiteralDeclaration_3() { return cCancelingEnumLiteralDeclaration_3; }
 		
 		//'canceling'
-		public Keyword getCancelingCancelingKeyword_4_0() { return cCancelingCancelingKeyword_4_0; }
-		
-		//replacing
-		public EnumLiteralDeclaration getReplacingEnumLiteralDeclaration_5() { return cReplacingEnumLiteralDeclaration_5; }
-		
-		//'replacing'
-		public Keyword getReplacingReplacingKeyword_5_0() { return cReplacingReplacingKeyword_5_0; }
-		
-		//storing
-		public EnumLiteralDeclaration getStoringEnumLiteralDeclaration_6() { return cStoringEnumLiteralDeclaration_6; }
-		
-		//'storing'
-		public Keyword getStoringStoringKeyword_6_0() { return cStoringStoringKeyword_6_0; }
+		public Keyword getCancelingCancelingKeyword_3_0() { return cCancelingCancelingKeyword_3_0; }
 		
 		//finishing
-		public EnumLiteralDeclaration getFinishingEnumLiteralDeclaration_7() { return cFinishingEnumLiteralDeclaration_7; }
+		public EnumLiteralDeclaration getFinishingEnumLiteralDeclaration_4() { return cFinishingEnumLiteralDeclaration_4; }
 		
 		//'finishing'
-		public Keyword getFinishingFinishingKeyword_7_0() { return cFinishingFinishingKeyword_7_0; }
+		public Keyword getFinishingFinishingKeyword_4_0() { return cFinishingFinishingKeyword_4_0; }
 	}
 	public class OfEventTypeElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.ofEventType");
@@ -386,12 +405,14 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cNextClickedNextClickedKeyword_0_0 = (Keyword)cNextClickedEnumLiteralDeclaration_0.eContents().get(0);
 		private final EnumLiteralDeclaration cBackClickedEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
 		private final Keyword cBackClickedBackClickedKeyword_1_0 = (Keyword)cBackClickedEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cCancelClickedEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cCancelClickedCancelClickedKeyword_2_0 = (Keyword)cCancelClickedEnumLiteralDeclaration_2.eContents().get(0);
 		
 		//enum ofEventType:
-		//	nextClicked | backClicked;
+		//	nextClicked | backClicked | cancelClicked;
 		public EnumRule getRule() { return rule; }
 		
-		//nextClicked | backClicked
+		//nextClicked | backClicked | cancelClicked
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//nextClicked
@@ -405,6 +426,12 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'backClicked'
 		public Keyword getBackClickedBackClickedKeyword_1_0() { return cBackClickedBackClickedKeyword_1_0; }
+		
+		//cancelClicked
+		public EnumLiteralDeclaration getCancelClickedEnumLiteralDeclaration_2() { return cCancelClickedEnumLiteralDeclaration_2; }
+		
+		//'cancelClicked'
+		public Keyword getCancelClickedCancelClickedKeyword_2_0() { return cCancelClickedCancelClickedKeyword_2_0; }
 	}
 	public class OfCommandTypeElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.ofCommandType");
@@ -448,6 +475,7 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 	private final CommandElements pCommand;
 	private final StateElements pState;
 	private final TransitionElements pTransition;
+	private final QualifiedNameElements pQualifiedName;
 	private final OfTypeElements eOfType;
 	private final OfEventTypeElements eOfEventType;
 	private final OfCommandTypeElements eOfCommandType;
@@ -466,6 +494,7 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 		this.pCommand = new CommandElements();
 		this.pState = new StateElements();
 		this.pTransition = new TransitionElements();
+		this.pQualifiedName = new QualifiedNameElements();
 		this.eOfType = new OfTypeElements();
 		this.eOfEventType = new OfEventTypeElements();
 		this.eOfCommandType = new OfCommandTypeElements();
@@ -504,7 +533,7 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 	//	'events' event+=Event* 'end'
 	//	'resetEvents' resetEvents+=[Event]* 'end'
 	//	'commands' commands+=Command* 'end'
-	//	states+=State*;
+	//	'workflowDeal' workflowDeal=[rentalSystem::RentalSystem|QualifiedName] states+=State*;
 	public RentalWorkflowElements getRentalWorkflowAccess() {
 		return pRentalWorkflow;
 	}
@@ -556,8 +585,18 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 		return getTransitionAccess().getRule();
 	}
 	
+	//QualifiedName:
+	//	ID ('.' ID)*;
+	public QualifiedNameElements getQualifiedNameAccess() {
+		return pQualifiedName;
+	}
+	
+	public ParserRule getQualifiedNameRule() {
+		return getQualifiedNameAccess().getRule();
+	}
+	
 	//enum OfType:
-	//	initializing | creating | beginning | running | canceling | replacing | storing | finishing;
+	//	initializing | creating | running | canceling | finishing;
 	public OfTypeElements getOfTypeAccess() {
 		return eOfType;
 	}
@@ -567,7 +606,7 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum ofEventType:
-	//	nextClicked | backClicked;
+	//	nextClicked | backClicked | cancelClicked;
 	public OfEventTypeElements getOfEventTypeAccess() {
 		return eOfEventType;
 	}

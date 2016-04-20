@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalTypeImpl#isMovable <em>Movable</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalTypeImpl#isDigital <em>Digital</em>}</li>
@@ -36,7 +37,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalTypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.RentalTypeImpl#getTypeAttributes <em>Type Attributes</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

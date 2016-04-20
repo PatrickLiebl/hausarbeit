@@ -261,22 +261,13 @@ public interface RentalSystemPackage extends EPackage
   int DEAL__RENTAL_TYPE = 2;
 
   /**
-   * The feature id for the '<em><b>Wf</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEAL__WF = 3;
-
-  /**
    * The feature id for the '<em><b>Deal Attributes</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DEAL__DEAL_ATTRIBUTES = 4;
+  int DEAL__DEAL_ATTRIBUTES = 3;
 
   /**
    * The number of structural features of the '<em>Deal</em>' class.
@@ -285,7 +276,7 @@ public interface RentalSystemPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEAL_FEATURE_COUNT = 5;
+  int DEAL_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -550,17 +541,6 @@ public interface RentalSystemPackage extends EPackage
   EReference getDeal_RentalType();
 
   /**
-   * Returns the meta object for the reference '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getWf <em>Wf</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Wf</em>'.
-   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getWf()
-   * @see #getDeal()
-   * @generated
-   */
-  EReference getDeal_Wf();
-
-  /**
    * Returns the meta object for the containment reference list '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getDealAttributes <em>Deal Attributes</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -806,14 +786,6 @@ public interface RentalSystemPackage extends EPackage
      * @generated
      */
     EReference DEAL__RENTAL_TYPE = eINSTANCE.getDeal_RentalType();
-
-    /**
-     * The meta object literal for the '<em><b>Wf</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DEAL__WF = eINSTANCE.getDeal_Wf();
 
     /**
      * The meta object literal for the '<em><b>Deal Attributes</b></em>' containment reference list feature.

@@ -41,16 +41,6 @@ public enum OfType implements Enumerator
   CREATING(1, "creating", "creating"),
 
   /**
-   * The '<em><b>Beginning</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #BEGINNING_VALUE
-   * @generated
-   * @ordered
-   */
-  BEGINNING(2, "beginning", "beginning"),
-
-  /**
    * The '<em><b>Running</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -58,7 +48,7 @@ public enum OfType implements Enumerator
    * @generated
    * @ordered
    */
-  RUNNING(3, "running", "running"),
+  RUNNING(2, "running", "running"),
 
   /**
    * The '<em><b>Canceling</b></em>' literal object.
@@ -68,27 +58,7 @@ public enum OfType implements Enumerator
    * @generated
    * @ordered
    */
-  CANCELING(4, "canceling", "canceling"),
-
-  /**
-   * The '<em><b>Replacing</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #REPLACING_VALUE
-   * @generated
-   * @ordered
-   */
-  REPLACING(5, "replacing", "replacing"),
-
-  /**
-   * The '<em><b>Storing</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #STORING_VALUE
-   * @generated
-   * @ordered
-   */
-  STORING(6, "storing", "storing"),
+  CANCELING(3, "canceling", "canceling"),
 
   /**
    * The '<em><b>Finishing</b></em>' literal object.
@@ -98,7 +68,7 @@ public enum OfType implements Enumerator
    * @generated
    * @ordered
    */
-  FINISHING(7, "finishing", "finishing");
+  FINISHING(4, "finishing", "finishing");
 
   /**
    * The '<em><b>Initializing</b></em>' literal value.
@@ -131,21 +101,6 @@ public enum OfType implements Enumerator
   public static final int CREATING_VALUE = 1;
 
   /**
-   * The '<em><b>Beginning</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Beginning</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #BEGINNING
-   * @model name="beginning"
-   * @generated
-   * @ordered
-   */
-  public static final int BEGINNING_VALUE = 2;
-
-  /**
    * The '<em><b>Running</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
@@ -158,7 +113,7 @@ public enum OfType implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int RUNNING_VALUE = 3;
+  public static final int RUNNING_VALUE = 2;
 
   /**
    * The '<em><b>Canceling</b></em>' literal value.
@@ -173,37 +128,7 @@ public enum OfType implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int CANCELING_VALUE = 4;
-
-  /**
-   * The '<em><b>Replacing</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Replacing</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #REPLACING
-   * @model name="replacing"
-   * @generated
-   * @ordered
-   */
-  public static final int REPLACING_VALUE = 5;
-
-  /**
-   * The '<em><b>Storing</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Storing</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #STORING
-   * @model name="storing"
-   * @generated
-   * @ordered
-   */
-  public static final int STORING_VALUE = 6;
+  public static final int CANCELING_VALUE = 3;
 
   /**
    * The '<em><b>Finishing</b></em>' literal value.
@@ -218,7 +143,7 @@ public enum OfType implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int FINISHING_VALUE = 7;
+  public static final int FINISHING_VALUE = 4;
 
   /**
    * An array of all the '<em><b>Of Type</b></em>' enumerators.
@@ -231,11 +156,8 @@ public enum OfType implements Enumerator
     {
       INITIALIZING,
       CREATING,
-      BEGINNING,
       RUNNING,
       CANCELING,
-      REPLACING,
-      STORING,
       FINISHING,
     };
 
@@ -251,6 +173,8 @@ public enum OfType implements Enumerator
    * Returns the '<em><b>Of Type</b></em>' literal with the specified literal value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
+   * @param literal the literal.
+   * @return the matching enumerator or <code>null</code>.
    * @generated
    */
   public static OfType get(String literal)
@@ -270,6 +194,8 @@ public enum OfType implements Enumerator
    * Returns the '<em><b>Of Type</b></em>' literal with the specified name.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
+   * @param name the name.
+   * @return the matching enumerator or <code>null</code>.
    * @generated
    */
   public static OfType getByName(String name)
@@ -289,6 +215,8 @@ public enum OfType implements Enumerator
    * Returns the '<em><b>Of Type</b></em>' literal with the specified integer value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
+   * @param value the integer value.
+   * @return the matching enumerator or <code>null</code>.
    * @generated
    */
   public static OfType get(int value)
@@ -297,11 +225,8 @@ public enum OfType implements Enumerator
     {
       case INITIALIZING_VALUE: return INITIALIZING;
       case CREATING_VALUE: return CREATING;
-      case BEGINNING_VALUE: return BEGINNING;
       case RUNNING_VALUE: return RUNNING;
       case CANCELING_VALUE: return CANCELING;
-      case REPLACING_VALUE: return REPLACING;
-      case STORING_VALUE: return STORING;
       case FINISHING_VALUE: return FINISHING;
     }
     return null;

@@ -3,6 +3,8 @@
  */
 package de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl;
 
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem;
+
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Command;
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Event;
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow;
@@ -32,14 +34,15 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.RentalWorkflowImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.RentalWorkflowImpl#getEvent <em>Event</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.RentalWorkflowImpl#getResetEvents <em>Reset Events</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.RentalWorkflowImpl#getCommands <em>Commands</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.RentalWorkflowImpl#getWorkflowDeal <em>Workflow Deal</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.RentalWorkflowImpl#getStates <em>States</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -94,6 +97,16 @@ public class RentalWorkflowImpl extends MinimalEObjectImpl.Container implements 
    * @ordered
    */
   protected EList<Command> commands;
+
+  /**
+   * The cached value of the '{@link #getWorkflowDeal() <em>Workflow Deal</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getWorkflowDeal()
+   * @generated
+   * @ordered
+   */
+  protected RentalSystem workflowDeal;
 
   /**
    * The cached value of the '{@link #getStates() <em>States</em>}' containment reference list.
@@ -196,6 +209,49 @@ public class RentalWorkflowImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
+  public RentalSystem getWorkflowDeal()
+  {
+    if (workflowDeal != null && workflowDeal.eIsProxy())
+    {
+      InternalEObject oldWorkflowDeal = (InternalEObject)workflowDeal;
+      workflowDeal = (RentalSystem)eResolveProxy(oldWorkflowDeal);
+      if (workflowDeal != oldWorkflowDeal)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RentalWorkflowPackage.RENTAL_WORKFLOW__WORKFLOW_DEAL, oldWorkflowDeal, workflowDeal));
+      }
+    }
+    return workflowDeal;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RentalSystem basicGetWorkflowDeal()
+  {
+    return workflowDeal;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setWorkflowDeal(RentalSystem newWorkflowDeal)
+  {
+    RentalSystem oldWorkflowDeal = workflowDeal;
+    workflowDeal = newWorkflowDeal;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RentalWorkflowPackage.RENTAL_WORKFLOW__WORKFLOW_DEAL, oldWorkflowDeal, workflowDeal));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<State> getStates()
   {
     if (states == null)
@@ -243,6 +299,9 @@ public class RentalWorkflowImpl extends MinimalEObjectImpl.Container implements 
         return getResetEvents();
       case RentalWorkflowPackage.RENTAL_WORKFLOW__COMMANDS:
         return getCommands();
+      case RentalWorkflowPackage.RENTAL_WORKFLOW__WORKFLOW_DEAL:
+        if (resolve) return getWorkflowDeal();
+        return basicGetWorkflowDeal();
       case RentalWorkflowPackage.RENTAL_WORKFLOW__STATES:
         return getStates();
     }
@@ -275,6 +334,9 @@ public class RentalWorkflowImpl extends MinimalEObjectImpl.Container implements 
         getCommands().clear();
         getCommands().addAll((Collection<? extends Command>)newValue);
         return;
+      case RentalWorkflowPackage.RENTAL_WORKFLOW__WORKFLOW_DEAL:
+        setWorkflowDeal((RentalSystem)newValue);
+        return;
       case RentalWorkflowPackage.RENTAL_WORKFLOW__STATES:
         getStates().clear();
         getStates().addAll((Collection<? extends State>)newValue);
@@ -305,6 +367,9 @@ public class RentalWorkflowImpl extends MinimalEObjectImpl.Container implements 
       case RentalWorkflowPackage.RENTAL_WORKFLOW__COMMANDS:
         getCommands().clear();
         return;
+      case RentalWorkflowPackage.RENTAL_WORKFLOW__WORKFLOW_DEAL:
+        setWorkflowDeal((RentalSystem)null);
+        return;
       case RentalWorkflowPackage.RENTAL_WORKFLOW__STATES:
         getStates().clear();
         return;
@@ -330,6 +395,8 @@ public class RentalWorkflowImpl extends MinimalEObjectImpl.Container implements 
         return resetEvents != null && !resetEvents.isEmpty();
       case RentalWorkflowPackage.RENTAL_WORKFLOW__COMMANDS:
         return commands != null && !commands.isEmpty();
+      case RentalWorkflowPackage.RENTAL_WORKFLOW__WORKFLOW_DEAL:
+        return workflowDeal != null;
       case RentalWorkflowPackage.RENTAL_WORKFLOW__STATES:
         return states != null && !states.isEmpty();
     }

@@ -2,8 +2,6 @@ grammar de.nak.xtext.hausarbeit.rentalSystem.RentalSystem with org.eclipse.xtext
 
 generate rentalSystem "http://www.nak.de/xtext/hausarbeit/rentalSystem/RentalSystem"
 
-import "http://www.nak.de/xtext/hausarbeit/rentalWorkflow/RentalWorkflow" as rentalWorkflow
-
 RentalSystem:
 	'rentalSystem' name=ID title=STRING '('
 	rentalTypes+=RentalType*
@@ -28,7 +26,6 @@ Deal:
 	'deal' name=ID '('
 	'customer' customer=[Customer]
 	'rentalType' rentalType=[RentalType]
-	'dealWorkFlow' wf=[rentalWorkflow::RentalWorkflow|QualifiedName]
 	'dealAttribute' dealAttributes+=Attribute*
 	')';
 

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalRentalWorkflowParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'initializing'", "'creating'", "'beginning'", "'running'", "'canceling'", "'replacing'", "'storing'", "'finishing'", "'nextClicked'", "'backClicked'", "'doSave'", "'doAbort'", "'doDelete'", "'defineWf'", "'events'", "'end'", "'resetEvents'", "'commands'", "'state'", "'actions'", "'{'", "'}'", "'=>'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'initializing'", "'creating'", "'running'", "'canceling'", "'finishing'", "'nextClicked'", "'backClicked'", "'cancelClicked'", "'doSave'", "'doAbort'", "'doDelete'", "'defineWf'", "'events'", "'end'", "'resetEvents'", "'commands'", "'workflowDeal'", "'state'", "'actions'", "'{'", "'}'", "'=>'", "'.'"
     };
     public static final int RULE_STRING=6;
     public static final int RULE_SL_COMMENT=8;
@@ -476,22 +476,99 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
     // $ANTLR end "ruleTransition"
 
 
+    // $ANTLR start "entryRuleQualifiedName"
+    // InternalRentalWorkflow.g:178:1: entryRuleQualifiedName : ruleQualifiedName EOF ;
+    public final void entryRuleQualifiedName() throws RecognitionException {
+        try {
+            // InternalRentalWorkflow.g:179:1: ( ruleQualifiedName EOF )
+            // InternalRentalWorkflow.g:180:1: ruleQualifiedName EOF
+            {
+             before(grammarAccess.getQualifiedNameRule()); 
+            pushFollow(FOLLOW_1);
+            ruleQualifiedName();
+
+            state._fsp--;
+
+             after(grammarAccess.getQualifiedNameRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleQualifiedName"
+
+
+    // $ANTLR start "ruleQualifiedName"
+    // InternalRentalWorkflow.g:187:1: ruleQualifiedName : ( ( rule__QualifiedName__Group__0 ) ) ;
+    public final void ruleQualifiedName() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalRentalWorkflow.g:191:2: ( ( ( rule__QualifiedName__Group__0 ) ) )
+            // InternalRentalWorkflow.g:192:2: ( ( rule__QualifiedName__Group__0 ) )
+            {
+            // InternalRentalWorkflow.g:192:2: ( ( rule__QualifiedName__Group__0 ) )
+            // InternalRentalWorkflow.g:193:3: ( rule__QualifiedName__Group__0 )
+            {
+             before(grammarAccess.getQualifiedNameAccess().getGroup()); 
+            // InternalRentalWorkflow.g:194:3: ( rule__QualifiedName__Group__0 )
+            // InternalRentalWorkflow.g:194:4: rule__QualifiedName__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__QualifiedName__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getQualifiedNameAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleQualifiedName"
+
+
     // $ANTLR start "ruleOfType"
-    // InternalRentalWorkflow.g:178:1: ruleOfType : ( ( rule__OfType__Alternatives ) ) ;
+    // InternalRentalWorkflow.g:203:1: ruleOfType : ( ( rule__OfType__Alternatives ) ) ;
     public final void ruleOfType() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:182:1: ( ( ( rule__OfType__Alternatives ) ) )
-            // InternalRentalWorkflow.g:183:2: ( ( rule__OfType__Alternatives ) )
+            // InternalRentalWorkflow.g:207:1: ( ( ( rule__OfType__Alternatives ) ) )
+            // InternalRentalWorkflow.g:208:2: ( ( rule__OfType__Alternatives ) )
             {
-            // InternalRentalWorkflow.g:183:2: ( ( rule__OfType__Alternatives ) )
-            // InternalRentalWorkflow.g:184:3: ( rule__OfType__Alternatives )
+            // InternalRentalWorkflow.g:208:2: ( ( rule__OfType__Alternatives ) )
+            // InternalRentalWorkflow.g:209:3: ( rule__OfType__Alternatives )
             {
              before(grammarAccess.getOfTypeAccess().getAlternatives()); 
-            // InternalRentalWorkflow.g:185:3: ( rule__OfType__Alternatives )
-            // InternalRentalWorkflow.g:185:4: rule__OfType__Alternatives
+            // InternalRentalWorkflow.g:210:3: ( rule__OfType__Alternatives )
+            // InternalRentalWorkflow.g:210:4: rule__OfType__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__OfType__Alternatives();
@@ -524,21 +601,21 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "ruleofEventType"
-    // InternalRentalWorkflow.g:194:1: ruleofEventType : ( ( rule__OfEventType__Alternatives ) ) ;
+    // InternalRentalWorkflow.g:219:1: ruleofEventType : ( ( rule__OfEventType__Alternatives ) ) ;
     public final void ruleofEventType() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:198:1: ( ( ( rule__OfEventType__Alternatives ) ) )
-            // InternalRentalWorkflow.g:199:2: ( ( rule__OfEventType__Alternatives ) )
+            // InternalRentalWorkflow.g:223:1: ( ( ( rule__OfEventType__Alternatives ) ) )
+            // InternalRentalWorkflow.g:224:2: ( ( rule__OfEventType__Alternatives ) )
             {
-            // InternalRentalWorkflow.g:199:2: ( ( rule__OfEventType__Alternatives ) )
-            // InternalRentalWorkflow.g:200:3: ( rule__OfEventType__Alternatives )
+            // InternalRentalWorkflow.g:224:2: ( ( rule__OfEventType__Alternatives ) )
+            // InternalRentalWorkflow.g:225:3: ( rule__OfEventType__Alternatives )
             {
              before(grammarAccess.getOfEventTypeAccess().getAlternatives()); 
-            // InternalRentalWorkflow.g:201:3: ( rule__OfEventType__Alternatives )
-            // InternalRentalWorkflow.g:201:4: rule__OfEventType__Alternatives
+            // InternalRentalWorkflow.g:226:3: ( rule__OfEventType__Alternatives )
+            // InternalRentalWorkflow.g:226:4: rule__OfEventType__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__OfEventType__Alternatives();
@@ -571,21 +648,21 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "ruleofCommandType"
-    // InternalRentalWorkflow.g:210:1: ruleofCommandType : ( ( rule__OfCommandType__Alternatives ) ) ;
+    // InternalRentalWorkflow.g:235:1: ruleofCommandType : ( ( rule__OfCommandType__Alternatives ) ) ;
     public final void ruleofCommandType() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:214:1: ( ( ( rule__OfCommandType__Alternatives ) ) )
-            // InternalRentalWorkflow.g:215:2: ( ( rule__OfCommandType__Alternatives ) )
+            // InternalRentalWorkflow.g:239:1: ( ( ( rule__OfCommandType__Alternatives ) ) )
+            // InternalRentalWorkflow.g:240:2: ( ( rule__OfCommandType__Alternatives ) )
             {
-            // InternalRentalWorkflow.g:215:2: ( ( rule__OfCommandType__Alternatives ) )
-            // InternalRentalWorkflow.g:216:3: ( rule__OfCommandType__Alternatives )
+            // InternalRentalWorkflow.g:240:2: ( ( rule__OfCommandType__Alternatives ) )
+            // InternalRentalWorkflow.g:241:3: ( rule__OfCommandType__Alternatives )
             {
              before(grammarAccess.getOfCommandTypeAccess().getAlternatives()); 
-            // InternalRentalWorkflow.g:217:3: ( rule__OfCommandType__Alternatives )
-            // InternalRentalWorkflow.g:217:4: rule__OfCommandType__Alternatives
+            // InternalRentalWorkflow.g:242:3: ( rule__OfCommandType__Alternatives )
+            // InternalRentalWorkflow.g:242:4: rule__OfCommandType__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__OfCommandType__Alternatives();
@@ -618,14 +695,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__OfType__Alternatives"
-    // InternalRentalWorkflow.g:225:1: rule__OfType__Alternatives : ( ( ( 'initializing' ) ) | ( ( 'creating' ) ) | ( ( 'beginning' ) ) | ( ( 'running' ) ) | ( ( 'canceling' ) ) | ( ( 'replacing' ) ) | ( ( 'storing' ) ) | ( ( 'finishing' ) ) );
+    // InternalRentalWorkflow.g:250:1: rule__OfType__Alternatives : ( ( ( 'initializing' ) ) | ( ( 'creating' ) ) | ( ( 'running' ) ) | ( ( 'canceling' ) ) | ( ( 'finishing' ) ) );
     public final void rule__OfType__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:229:1: ( ( ( 'initializing' ) ) | ( ( 'creating' ) ) | ( ( 'beginning' ) ) | ( ( 'running' ) ) | ( ( 'canceling' ) ) | ( ( 'replacing' ) ) | ( ( 'storing' ) ) | ( ( 'finishing' ) ) )
-            int alt1=8;
+            // InternalRentalWorkflow.g:254:1: ( ( ( 'initializing' ) ) | ( ( 'creating' ) ) | ( ( 'running' ) ) | ( ( 'canceling' ) ) | ( ( 'finishing' ) ) )
+            int alt1=5;
             switch ( input.LA(1) ) {
             case 11:
                 {
@@ -652,21 +729,6 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
                 alt1=5;
                 }
                 break;
-            case 16:
-                {
-                alt1=6;
-                }
-                break;
-            case 17:
-                {
-                alt1=7;
-                }
-                break;
-            case 18:
-                {
-                alt1=8;
-                }
-                break;
             default:
                 NoViableAltException nvae =
                     new NoViableAltException("", 1, 0, input);
@@ -676,14 +738,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
             switch (alt1) {
                 case 1 :
-                    // InternalRentalWorkflow.g:230:2: ( ( 'initializing' ) )
+                    // InternalRentalWorkflow.g:255:2: ( ( 'initializing' ) )
                     {
-                    // InternalRentalWorkflow.g:230:2: ( ( 'initializing' ) )
-                    // InternalRentalWorkflow.g:231:3: ( 'initializing' )
+                    // InternalRentalWorkflow.g:255:2: ( ( 'initializing' ) )
+                    // InternalRentalWorkflow.g:256:3: ( 'initializing' )
                     {
                      before(grammarAccess.getOfTypeAccess().getInitializingEnumLiteralDeclaration_0()); 
-                    // InternalRentalWorkflow.g:232:3: ( 'initializing' )
-                    // InternalRentalWorkflow.g:232:4: 'initializing'
+                    // InternalRentalWorkflow.g:257:3: ( 'initializing' )
+                    // InternalRentalWorkflow.g:257:4: 'initializing'
                     {
                     match(input,11,FOLLOW_2); 
 
@@ -697,14 +759,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
                     }
                     break;
                 case 2 :
-                    // InternalRentalWorkflow.g:236:2: ( ( 'creating' ) )
+                    // InternalRentalWorkflow.g:261:2: ( ( 'creating' ) )
                     {
-                    // InternalRentalWorkflow.g:236:2: ( ( 'creating' ) )
-                    // InternalRentalWorkflow.g:237:3: ( 'creating' )
+                    // InternalRentalWorkflow.g:261:2: ( ( 'creating' ) )
+                    // InternalRentalWorkflow.g:262:3: ( 'creating' )
                     {
                      before(grammarAccess.getOfTypeAccess().getCreatingEnumLiteralDeclaration_1()); 
-                    // InternalRentalWorkflow.g:238:3: ( 'creating' )
-                    // InternalRentalWorkflow.g:238:4: 'creating'
+                    // InternalRentalWorkflow.g:263:3: ( 'creating' )
+                    // InternalRentalWorkflow.g:263:4: 'creating'
                     {
                     match(input,12,FOLLOW_2); 
 
@@ -718,20 +780,20 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
                     }
                     break;
                 case 3 :
-                    // InternalRentalWorkflow.g:242:2: ( ( 'beginning' ) )
+                    // InternalRentalWorkflow.g:267:2: ( ( 'running' ) )
                     {
-                    // InternalRentalWorkflow.g:242:2: ( ( 'beginning' ) )
-                    // InternalRentalWorkflow.g:243:3: ( 'beginning' )
+                    // InternalRentalWorkflow.g:267:2: ( ( 'running' ) )
+                    // InternalRentalWorkflow.g:268:3: ( 'running' )
                     {
-                     before(grammarAccess.getOfTypeAccess().getBeginningEnumLiteralDeclaration_2()); 
-                    // InternalRentalWorkflow.g:244:3: ( 'beginning' )
-                    // InternalRentalWorkflow.g:244:4: 'beginning'
+                     before(grammarAccess.getOfTypeAccess().getRunningEnumLiteralDeclaration_2()); 
+                    // InternalRentalWorkflow.g:269:3: ( 'running' )
+                    // InternalRentalWorkflow.g:269:4: 'running'
                     {
                     match(input,13,FOLLOW_2); 
 
                     }
 
-                     after(grammarAccess.getOfTypeAccess().getBeginningEnumLiteralDeclaration_2()); 
+                     after(grammarAccess.getOfTypeAccess().getRunningEnumLiteralDeclaration_2()); 
 
                     }
 
@@ -739,20 +801,20 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
                     }
                     break;
                 case 4 :
-                    // InternalRentalWorkflow.g:248:2: ( ( 'running' ) )
+                    // InternalRentalWorkflow.g:273:2: ( ( 'canceling' ) )
                     {
-                    // InternalRentalWorkflow.g:248:2: ( ( 'running' ) )
-                    // InternalRentalWorkflow.g:249:3: ( 'running' )
+                    // InternalRentalWorkflow.g:273:2: ( ( 'canceling' ) )
+                    // InternalRentalWorkflow.g:274:3: ( 'canceling' )
                     {
-                     before(grammarAccess.getOfTypeAccess().getRunningEnumLiteralDeclaration_3()); 
-                    // InternalRentalWorkflow.g:250:3: ( 'running' )
-                    // InternalRentalWorkflow.g:250:4: 'running'
+                     before(grammarAccess.getOfTypeAccess().getCancelingEnumLiteralDeclaration_3()); 
+                    // InternalRentalWorkflow.g:275:3: ( 'canceling' )
+                    // InternalRentalWorkflow.g:275:4: 'canceling'
                     {
                     match(input,14,FOLLOW_2); 
 
                     }
 
-                     after(grammarAccess.getOfTypeAccess().getRunningEnumLiteralDeclaration_3()); 
+                     after(grammarAccess.getOfTypeAccess().getCancelingEnumLiteralDeclaration_3()); 
 
                     }
 
@@ -760,83 +822,20 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
                     }
                     break;
                 case 5 :
-                    // InternalRentalWorkflow.g:254:2: ( ( 'canceling' ) )
+                    // InternalRentalWorkflow.g:279:2: ( ( 'finishing' ) )
                     {
-                    // InternalRentalWorkflow.g:254:2: ( ( 'canceling' ) )
-                    // InternalRentalWorkflow.g:255:3: ( 'canceling' )
+                    // InternalRentalWorkflow.g:279:2: ( ( 'finishing' ) )
+                    // InternalRentalWorkflow.g:280:3: ( 'finishing' )
                     {
-                     before(grammarAccess.getOfTypeAccess().getCancelingEnumLiteralDeclaration_4()); 
-                    // InternalRentalWorkflow.g:256:3: ( 'canceling' )
-                    // InternalRentalWorkflow.g:256:4: 'canceling'
+                     before(grammarAccess.getOfTypeAccess().getFinishingEnumLiteralDeclaration_4()); 
+                    // InternalRentalWorkflow.g:281:3: ( 'finishing' )
+                    // InternalRentalWorkflow.g:281:4: 'finishing'
                     {
                     match(input,15,FOLLOW_2); 
 
                     }
 
-                     after(grammarAccess.getOfTypeAccess().getCancelingEnumLiteralDeclaration_4()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 6 :
-                    // InternalRentalWorkflow.g:260:2: ( ( 'replacing' ) )
-                    {
-                    // InternalRentalWorkflow.g:260:2: ( ( 'replacing' ) )
-                    // InternalRentalWorkflow.g:261:3: ( 'replacing' )
-                    {
-                     before(grammarAccess.getOfTypeAccess().getReplacingEnumLiteralDeclaration_5()); 
-                    // InternalRentalWorkflow.g:262:3: ( 'replacing' )
-                    // InternalRentalWorkflow.g:262:4: 'replacing'
-                    {
-                    match(input,16,FOLLOW_2); 
-
-                    }
-
-                     after(grammarAccess.getOfTypeAccess().getReplacingEnumLiteralDeclaration_5()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 7 :
-                    // InternalRentalWorkflow.g:266:2: ( ( 'storing' ) )
-                    {
-                    // InternalRentalWorkflow.g:266:2: ( ( 'storing' ) )
-                    // InternalRentalWorkflow.g:267:3: ( 'storing' )
-                    {
-                     before(grammarAccess.getOfTypeAccess().getStoringEnumLiteralDeclaration_6()); 
-                    // InternalRentalWorkflow.g:268:3: ( 'storing' )
-                    // InternalRentalWorkflow.g:268:4: 'storing'
-                    {
-                    match(input,17,FOLLOW_2); 
-
-                    }
-
-                     after(grammarAccess.getOfTypeAccess().getStoringEnumLiteralDeclaration_6()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 8 :
-                    // InternalRentalWorkflow.g:272:2: ( ( 'finishing' ) )
-                    {
-                    // InternalRentalWorkflow.g:272:2: ( ( 'finishing' ) )
-                    // InternalRentalWorkflow.g:273:3: ( 'finishing' )
-                    {
-                     before(grammarAccess.getOfTypeAccess().getFinishingEnumLiteralDeclaration_7()); 
-                    // InternalRentalWorkflow.g:274:3: ( 'finishing' )
-                    // InternalRentalWorkflow.g:274:4: 'finishing'
-                    {
-                    match(input,18,FOLLOW_2); 
-
-                    }
-
-                     after(grammarAccess.getOfTypeAccess().getFinishingEnumLiteralDeclaration_7()); 
+                     after(grammarAccess.getOfTypeAccess().getFinishingEnumLiteralDeclaration_4()); 
 
                     }
 
@@ -861,40 +860,49 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__OfEventType__Alternatives"
-    // InternalRentalWorkflow.g:282:1: rule__OfEventType__Alternatives : ( ( ( 'nextClicked' ) ) | ( ( 'backClicked' ) ) );
+    // InternalRentalWorkflow.g:289:1: rule__OfEventType__Alternatives : ( ( ( 'nextClicked' ) ) | ( ( 'backClicked' ) ) | ( ( 'cancelClicked' ) ) );
     public final void rule__OfEventType__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:286:1: ( ( ( 'nextClicked' ) ) | ( ( 'backClicked' ) ) )
-            int alt2=2;
-            int LA2_0 = input.LA(1);
-
-            if ( (LA2_0==19) ) {
+            // InternalRentalWorkflow.g:293:1: ( ( ( 'nextClicked' ) ) | ( ( 'backClicked' ) ) | ( ( 'cancelClicked' ) ) )
+            int alt2=3;
+            switch ( input.LA(1) ) {
+            case 16:
+                {
                 alt2=1;
-            }
-            else if ( (LA2_0==20) ) {
+                }
+                break;
+            case 17:
+                {
                 alt2=2;
-            }
-            else {
+                }
+                break;
+            case 18:
+                {
+                alt2=3;
+                }
+                break;
+            default:
                 NoViableAltException nvae =
                     new NoViableAltException("", 2, 0, input);
 
                 throw nvae;
             }
+
             switch (alt2) {
                 case 1 :
-                    // InternalRentalWorkflow.g:287:2: ( ( 'nextClicked' ) )
+                    // InternalRentalWorkflow.g:294:2: ( ( 'nextClicked' ) )
                     {
-                    // InternalRentalWorkflow.g:287:2: ( ( 'nextClicked' ) )
-                    // InternalRentalWorkflow.g:288:3: ( 'nextClicked' )
+                    // InternalRentalWorkflow.g:294:2: ( ( 'nextClicked' ) )
+                    // InternalRentalWorkflow.g:295:3: ( 'nextClicked' )
                     {
                      before(grammarAccess.getOfEventTypeAccess().getNextClickedEnumLiteralDeclaration_0()); 
-                    // InternalRentalWorkflow.g:289:3: ( 'nextClicked' )
-                    // InternalRentalWorkflow.g:289:4: 'nextClicked'
+                    // InternalRentalWorkflow.g:296:3: ( 'nextClicked' )
+                    // InternalRentalWorkflow.g:296:4: 'nextClicked'
                     {
-                    match(input,19,FOLLOW_2); 
+                    match(input,16,FOLLOW_2); 
 
                     }
 
@@ -906,20 +914,41 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
                     }
                     break;
                 case 2 :
-                    // InternalRentalWorkflow.g:293:2: ( ( 'backClicked' ) )
+                    // InternalRentalWorkflow.g:300:2: ( ( 'backClicked' ) )
                     {
-                    // InternalRentalWorkflow.g:293:2: ( ( 'backClicked' ) )
-                    // InternalRentalWorkflow.g:294:3: ( 'backClicked' )
+                    // InternalRentalWorkflow.g:300:2: ( ( 'backClicked' ) )
+                    // InternalRentalWorkflow.g:301:3: ( 'backClicked' )
                     {
                      before(grammarAccess.getOfEventTypeAccess().getBackClickedEnumLiteralDeclaration_1()); 
-                    // InternalRentalWorkflow.g:295:3: ( 'backClicked' )
-                    // InternalRentalWorkflow.g:295:4: 'backClicked'
+                    // InternalRentalWorkflow.g:302:3: ( 'backClicked' )
+                    // InternalRentalWorkflow.g:302:4: 'backClicked'
                     {
-                    match(input,20,FOLLOW_2); 
+                    match(input,17,FOLLOW_2); 
 
                     }
 
                      after(grammarAccess.getOfEventTypeAccess().getBackClickedEnumLiteralDeclaration_1()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 3 :
+                    // InternalRentalWorkflow.g:306:2: ( ( 'cancelClicked' ) )
+                    {
+                    // InternalRentalWorkflow.g:306:2: ( ( 'cancelClicked' ) )
+                    // InternalRentalWorkflow.g:307:3: ( 'cancelClicked' )
+                    {
+                     before(grammarAccess.getOfEventTypeAccess().getCancelClickedEnumLiteralDeclaration_2()); 
+                    // InternalRentalWorkflow.g:308:3: ( 'cancelClicked' )
+                    // InternalRentalWorkflow.g:308:4: 'cancelClicked'
+                    {
+                    match(input,18,FOLLOW_2); 
+
+                    }
+
+                     after(grammarAccess.getOfEventTypeAccess().getCancelClickedEnumLiteralDeclaration_2()); 
 
                     }
 
@@ -944,26 +973,26 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__OfCommandType__Alternatives"
-    // InternalRentalWorkflow.g:303:1: rule__OfCommandType__Alternatives : ( ( ( 'doSave' ) ) | ( ( 'doAbort' ) ) | ( ( 'doDelete' ) ) );
+    // InternalRentalWorkflow.g:316:1: rule__OfCommandType__Alternatives : ( ( ( 'doSave' ) ) | ( ( 'doAbort' ) ) | ( ( 'doDelete' ) ) );
     public final void rule__OfCommandType__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:307:1: ( ( ( 'doSave' ) ) | ( ( 'doAbort' ) ) | ( ( 'doDelete' ) ) )
+            // InternalRentalWorkflow.g:320:1: ( ( ( 'doSave' ) ) | ( ( 'doAbort' ) ) | ( ( 'doDelete' ) ) )
             int alt3=3;
             switch ( input.LA(1) ) {
-            case 21:
+            case 19:
                 {
                 alt3=1;
                 }
                 break;
-            case 22:
+            case 20:
                 {
                 alt3=2;
                 }
                 break;
-            case 23:
+            case 21:
                 {
                 alt3=3;
                 }
@@ -977,16 +1006,16 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
             switch (alt3) {
                 case 1 :
-                    // InternalRentalWorkflow.g:308:2: ( ( 'doSave' ) )
+                    // InternalRentalWorkflow.g:321:2: ( ( 'doSave' ) )
                     {
-                    // InternalRentalWorkflow.g:308:2: ( ( 'doSave' ) )
-                    // InternalRentalWorkflow.g:309:3: ( 'doSave' )
+                    // InternalRentalWorkflow.g:321:2: ( ( 'doSave' ) )
+                    // InternalRentalWorkflow.g:322:3: ( 'doSave' )
                     {
                      before(grammarAccess.getOfCommandTypeAccess().getDoSaveEnumLiteralDeclaration_0()); 
-                    // InternalRentalWorkflow.g:310:3: ( 'doSave' )
-                    // InternalRentalWorkflow.g:310:4: 'doSave'
+                    // InternalRentalWorkflow.g:323:3: ( 'doSave' )
+                    // InternalRentalWorkflow.g:323:4: 'doSave'
                     {
-                    match(input,21,FOLLOW_2); 
+                    match(input,19,FOLLOW_2); 
 
                     }
 
@@ -998,16 +1027,16 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
                     }
                     break;
                 case 2 :
-                    // InternalRentalWorkflow.g:314:2: ( ( 'doAbort' ) )
+                    // InternalRentalWorkflow.g:327:2: ( ( 'doAbort' ) )
                     {
-                    // InternalRentalWorkflow.g:314:2: ( ( 'doAbort' ) )
-                    // InternalRentalWorkflow.g:315:3: ( 'doAbort' )
+                    // InternalRentalWorkflow.g:327:2: ( ( 'doAbort' ) )
+                    // InternalRentalWorkflow.g:328:3: ( 'doAbort' )
                     {
                      before(grammarAccess.getOfCommandTypeAccess().getDoAbordEnumLiteralDeclaration_1()); 
-                    // InternalRentalWorkflow.g:316:3: ( 'doAbort' )
-                    // InternalRentalWorkflow.g:316:4: 'doAbort'
+                    // InternalRentalWorkflow.g:329:3: ( 'doAbort' )
+                    // InternalRentalWorkflow.g:329:4: 'doAbort'
                     {
-                    match(input,22,FOLLOW_2); 
+                    match(input,20,FOLLOW_2); 
 
                     }
 
@@ -1019,16 +1048,16 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
                     }
                     break;
                 case 3 :
-                    // InternalRentalWorkflow.g:320:2: ( ( 'doDelete' ) )
+                    // InternalRentalWorkflow.g:333:2: ( ( 'doDelete' ) )
                     {
-                    // InternalRentalWorkflow.g:320:2: ( ( 'doDelete' ) )
-                    // InternalRentalWorkflow.g:321:3: ( 'doDelete' )
+                    // InternalRentalWorkflow.g:333:2: ( ( 'doDelete' ) )
+                    // InternalRentalWorkflow.g:334:3: ( 'doDelete' )
                     {
                      before(grammarAccess.getOfCommandTypeAccess().getDoDeleteEnumLiteralDeclaration_2()); 
-                    // InternalRentalWorkflow.g:322:3: ( 'doDelete' )
-                    // InternalRentalWorkflow.g:322:4: 'doDelete'
+                    // InternalRentalWorkflow.g:335:3: ( 'doDelete' )
+                    // InternalRentalWorkflow.g:335:4: 'doDelete'
                     {
-                    match(input,23,FOLLOW_2); 
+                    match(input,21,FOLLOW_2); 
 
                     }
 
@@ -1057,14 +1086,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__0"
-    // InternalRentalWorkflow.g:330:1: rule__RentalWorkflow__Group__0 : rule__RentalWorkflow__Group__0__Impl rule__RentalWorkflow__Group__1 ;
+    // InternalRentalWorkflow.g:343:1: rule__RentalWorkflow__Group__0 : rule__RentalWorkflow__Group__0__Impl rule__RentalWorkflow__Group__1 ;
     public final void rule__RentalWorkflow__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:334:1: ( rule__RentalWorkflow__Group__0__Impl rule__RentalWorkflow__Group__1 )
-            // InternalRentalWorkflow.g:335:2: rule__RentalWorkflow__Group__0__Impl rule__RentalWorkflow__Group__1
+            // InternalRentalWorkflow.g:347:1: ( rule__RentalWorkflow__Group__0__Impl rule__RentalWorkflow__Group__1 )
+            // InternalRentalWorkflow.g:348:2: rule__RentalWorkflow__Group__0__Impl rule__RentalWorkflow__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__RentalWorkflow__Group__0__Impl();
@@ -1095,21 +1124,21 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__0__Impl"
-    // InternalRentalWorkflow.g:342:1: rule__RentalWorkflow__Group__0__Impl : ( () ) ;
+    // InternalRentalWorkflow.g:355:1: rule__RentalWorkflow__Group__0__Impl : ( () ) ;
     public final void rule__RentalWorkflow__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:346:1: ( ( () ) )
-            // InternalRentalWorkflow.g:347:1: ( () )
+            // InternalRentalWorkflow.g:359:1: ( ( () ) )
+            // InternalRentalWorkflow.g:360:1: ( () )
             {
-            // InternalRentalWorkflow.g:347:1: ( () )
-            // InternalRentalWorkflow.g:348:2: ()
+            // InternalRentalWorkflow.g:360:1: ( () )
+            // InternalRentalWorkflow.g:361:2: ()
             {
              before(grammarAccess.getRentalWorkflowAccess().getRentalWorkflowAction_0()); 
-            // InternalRentalWorkflow.g:349:2: ()
-            // InternalRentalWorkflow.g:349:3: 
+            // InternalRentalWorkflow.g:362:2: ()
+            // InternalRentalWorkflow.g:362:3: 
             {
             }
 
@@ -1132,14 +1161,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__1"
-    // InternalRentalWorkflow.g:357:1: rule__RentalWorkflow__Group__1 : rule__RentalWorkflow__Group__1__Impl rule__RentalWorkflow__Group__2 ;
+    // InternalRentalWorkflow.g:370:1: rule__RentalWorkflow__Group__1 : rule__RentalWorkflow__Group__1__Impl rule__RentalWorkflow__Group__2 ;
     public final void rule__RentalWorkflow__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:361:1: ( rule__RentalWorkflow__Group__1__Impl rule__RentalWorkflow__Group__2 )
-            // InternalRentalWorkflow.g:362:2: rule__RentalWorkflow__Group__1__Impl rule__RentalWorkflow__Group__2
+            // InternalRentalWorkflow.g:374:1: ( rule__RentalWorkflow__Group__1__Impl rule__RentalWorkflow__Group__2 )
+            // InternalRentalWorkflow.g:375:2: rule__RentalWorkflow__Group__1__Impl rule__RentalWorkflow__Group__2
             {
             pushFollow(FOLLOW_4);
             rule__RentalWorkflow__Group__1__Impl();
@@ -1170,20 +1199,20 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__1__Impl"
-    // InternalRentalWorkflow.g:369:1: rule__RentalWorkflow__Group__1__Impl : ( 'defineWf' ) ;
+    // InternalRentalWorkflow.g:382:1: rule__RentalWorkflow__Group__1__Impl : ( 'defineWf' ) ;
     public final void rule__RentalWorkflow__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:373:1: ( ( 'defineWf' ) )
-            // InternalRentalWorkflow.g:374:1: ( 'defineWf' )
+            // InternalRentalWorkflow.g:386:1: ( ( 'defineWf' ) )
+            // InternalRentalWorkflow.g:387:1: ( 'defineWf' )
             {
-            // InternalRentalWorkflow.g:374:1: ( 'defineWf' )
-            // InternalRentalWorkflow.g:375:2: 'defineWf'
+            // InternalRentalWorkflow.g:387:1: ( 'defineWf' )
+            // InternalRentalWorkflow.g:388:2: 'defineWf'
             {
              before(grammarAccess.getRentalWorkflowAccess().getDefineWfKeyword_1()); 
-            match(input,24,FOLLOW_2); 
+            match(input,22,FOLLOW_2); 
              after(grammarAccess.getRentalWorkflowAccess().getDefineWfKeyword_1()); 
 
             }
@@ -1207,14 +1236,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__2"
-    // InternalRentalWorkflow.g:384:1: rule__RentalWorkflow__Group__2 : rule__RentalWorkflow__Group__2__Impl rule__RentalWorkflow__Group__3 ;
+    // InternalRentalWorkflow.g:397:1: rule__RentalWorkflow__Group__2 : rule__RentalWorkflow__Group__2__Impl rule__RentalWorkflow__Group__3 ;
     public final void rule__RentalWorkflow__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:388:1: ( rule__RentalWorkflow__Group__2__Impl rule__RentalWorkflow__Group__3 )
-            // InternalRentalWorkflow.g:389:2: rule__RentalWorkflow__Group__2__Impl rule__RentalWorkflow__Group__3
+            // InternalRentalWorkflow.g:401:1: ( rule__RentalWorkflow__Group__2__Impl rule__RentalWorkflow__Group__3 )
+            // InternalRentalWorkflow.g:402:2: rule__RentalWorkflow__Group__2__Impl rule__RentalWorkflow__Group__3
             {
             pushFollow(FOLLOW_5);
             rule__RentalWorkflow__Group__2__Impl();
@@ -1245,21 +1274,21 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__2__Impl"
-    // InternalRentalWorkflow.g:396:1: rule__RentalWorkflow__Group__2__Impl : ( ( rule__RentalWorkflow__NameAssignment_2 ) ) ;
+    // InternalRentalWorkflow.g:409:1: rule__RentalWorkflow__Group__2__Impl : ( ( rule__RentalWorkflow__NameAssignment_2 ) ) ;
     public final void rule__RentalWorkflow__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:400:1: ( ( ( rule__RentalWorkflow__NameAssignment_2 ) ) )
-            // InternalRentalWorkflow.g:401:1: ( ( rule__RentalWorkflow__NameAssignment_2 ) )
+            // InternalRentalWorkflow.g:413:1: ( ( ( rule__RentalWorkflow__NameAssignment_2 ) ) )
+            // InternalRentalWorkflow.g:414:1: ( ( rule__RentalWorkflow__NameAssignment_2 ) )
             {
-            // InternalRentalWorkflow.g:401:1: ( ( rule__RentalWorkflow__NameAssignment_2 ) )
-            // InternalRentalWorkflow.g:402:2: ( rule__RentalWorkflow__NameAssignment_2 )
+            // InternalRentalWorkflow.g:414:1: ( ( rule__RentalWorkflow__NameAssignment_2 ) )
+            // InternalRentalWorkflow.g:415:2: ( rule__RentalWorkflow__NameAssignment_2 )
             {
              before(grammarAccess.getRentalWorkflowAccess().getNameAssignment_2()); 
-            // InternalRentalWorkflow.g:403:2: ( rule__RentalWorkflow__NameAssignment_2 )
-            // InternalRentalWorkflow.g:403:3: rule__RentalWorkflow__NameAssignment_2
+            // InternalRentalWorkflow.g:416:2: ( rule__RentalWorkflow__NameAssignment_2 )
+            // InternalRentalWorkflow.g:416:3: rule__RentalWorkflow__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__RentalWorkflow__NameAssignment_2();
@@ -1292,14 +1321,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__3"
-    // InternalRentalWorkflow.g:411:1: rule__RentalWorkflow__Group__3 : rule__RentalWorkflow__Group__3__Impl rule__RentalWorkflow__Group__4 ;
+    // InternalRentalWorkflow.g:424:1: rule__RentalWorkflow__Group__3 : rule__RentalWorkflow__Group__3__Impl rule__RentalWorkflow__Group__4 ;
     public final void rule__RentalWorkflow__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:415:1: ( rule__RentalWorkflow__Group__3__Impl rule__RentalWorkflow__Group__4 )
-            // InternalRentalWorkflow.g:416:2: rule__RentalWorkflow__Group__3__Impl rule__RentalWorkflow__Group__4
+            // InternalRentalWorkflow.g:428:1: ( rule__RentalWorkflow__Group__3__Impl rule__RentalWorkflow__Group__4 )
+            // InternalRentalWorkflow.g:429:2: rule__RentalWorkflow__Group__3__Impl rule__RentalWorkflow__Group__4
             {
             pushFollow(FOLLOW_6);
             rule__RentalWorkflow__Group__3__Impl();
@@ -1330,20 +1359,20 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__3__Impl"
-    // InternalRentalWorkflow.g:423:1: rule__RentalWorkflow__Group__3__Impl : ( 'events' ) ;
+    // InternalRentalWorkflow.g:436:1: rule__RentalWorkflow__Group__3__Impl : ( 'events' ) ;
     public final void rule__RentalWorkflow__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:427:1: ( ( 'events' ) )
-            // InternalRentalWorkflow.g:428:1: ( 'events' )
+            // InternalRentalWorkflow.g:440:1: ( ( 'events' ) )
+            // InternalRentalWorkflow.g:441:1: ( 'events' )
             {
-            // InternalRentalWorkflow.g:428:1: ( 'events' )
-            // InternalRentalWorkflow.g:429:2: 'events'
+            // InternalRentalWorkflow.g:441:1: ( 'events' )
+            // InternalRentalWorkflow.g:442:2: 'events'
             {
              before(grammarAccess.getRentalWorkflowAccess().getEventsKeyword_3()); 
-            match(input,25,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getRentalWorkflowAccess().getEventsKeyword_3()); 
 
             }
@@ -1367,14 +1396,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__4"
-    // InternalRentalWorkflow.g:438:1: rule__RentalWorkflow__Group__4 : rule__RentalWorkflow__Group__4__Impl rule__RentalWorkflow__Group__5 ;
+    // InternalRentalWorkflow.g:451:1: rule__RentalWorkflow__Group__4 : rule__RentalWorkflow__Group__4__Impl rule__RentalWorkflow__Group__5 ;
     public final void rule__RentalWorkflow__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:442:1: ( rule__RentalWorkflow__Group__4__Impl rule__RentalWorkflow__Group__5 )
-            // InternalRentalWorkflow.g:443:2: rule__RentalWorkflow__Group__4__Impl rule__RentalWorkflow__Group__5
+            // InternalRentalWorkflow.g:455:1: ( rule__RentalWorkflow__Group__4__Impl rule__RentalWorkflow__Group__5 )
+            // InternalRentalWorkflow.g:456:2: rule__RentalWorkflow__Group__4__Impl rule__RentalWorkflow__Group__5
             {
             pushFollow(FOLLOW_6);
             rule__RentalWorkflow__Group__4__Impl();
@@ -1405,20 +1434,20 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__4__Impl"
-    // InternalRentalWorkflow.g:450:1: rule__RentalWorkflow__Group__4__Impl : ( ( rule__RentalWorkflow__EventAssignment_4 )* ) ;
+    // InternalRentalWorkflow.g:463:1: rule__RentalWorkflow__Group__4__Impl : ( ( rule__RentalWorkflow__EventAssignment_4 )* ) ;
     public final void rule__RentalWorkflow__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:454:1: ( ( ( rule__RentalWorkflow__EventAssignment_4 )* ) )
-            // InternalRentalWorkflow.g:455:1: ( ( rule__RentalWorkflow__EventAssignment_4 )* )
+            // InternalRentalWorkflow.g:467:1: ( ( ( rule__RentalWorkflow__EventAssignment_4 )* ) )
+            // InternalRentalWorkflow.g:468:1: ( ( rule__RentalWorkflow__EventAssignment_4 )* )
             {
-            // InternalRentalWorkflow.g:455:1: ( ( rule__RentalWorkflow__EventAssignment_4 )* )
-            // InternalRentalWorkflow.g:456:2: ( rule__RentalWorkflow__EventAssignment_4 )*
+            // InternalRentalWorkflow.g:468:1: ( ( rule__RentalWorkflow__EventAssignment_4 )* )
+            // InternalRentalWorkflow.g:469:2: ( rule__RentalWorkflow__EventAssignment_4 )*
             {
              before(grammarAccess.getRentalWorkflowAccess().getEventAssignment_4()); 
-            // InternalRentalWorkflow.g:457:2: ( rule__RentalWorkflow__EventAssignment_4 )*
+            // InternalRentalWorkflow.g:470:2: ( rule__RentalWorkflow__EventAssignment_4 )*
             loop4:
             do {
                 int alt4=2;
@@ -1431,7 +1460,7 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
                 switch (alt4) {
             	case 1 :
-            	    // InternalRentalWorkflow.g:457:3: rule__RentalWorkflow__EventAssignment_4
+            	    // InternalRentalWorkflow.g:470:3: rule__RentalWorkflow__EventAssignment_4
             	    {
             	    pushFollow(FOLLOW_7);
             	    rule__RentalWorkflow__EventAssignment_4();
@@ -1470,14 +1499,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__5"
-    // InternalRentalWorkflow.g:465:1: rule__RentalWorkflow__Group__5 : rule__RentalWorkflow__Group__5__Impl rule__RentalWorkflow__Group__6 ;
+    // InternalRentalWorkflow.g:478:1: rule__RentalWorkflow__Group__5 : rule__RentalWorkflow__Group__5__Impl rule__RentalWorkflow__Group__6 ;
     public final void rule__RentalWorkflow__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:469:1: ( rule__RentalWorkflow__Group__5__Impl rule__RentalWorkflow__Group__6 )
-            // InternalRentalWorkflow.g:470:2: rule__RentalWorkflow__Group__5__Impl rule__RentalWorkflow__Group__6
+            // InternalRentalWorkflow.g:482:1: ( rule__RentalWorkflow__Group__5__Impl rule__RentalWorkflow__Group__6 )
+            // InternalRentalWorkflow.g:483:2: rule__RentalWorkflow__Group__5__Impl rule__RentalWorkflow__Group__6
             {
             pushFollow(FOLLOW_8);
             rule__RentalWorkflow__Group__5__Impl();
@@ -1508,20 +1537,20 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__5__Impl"
-    // InternalRentalWorkflow.g:477:1: rule__RentalWorkflow__Group__5__Impl : ( 'end' ) ;
+    // InternalRentalWorkflow.g:490:1: rule__RentalWorkflow__Group__5__Impl : ( 'end' ) ;
     public final void rule__RentalWorkflow__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:481:1: ( ( 'end' ) )
-            // InternalRentalWorkflow.g:482:1: ( 'end' )
+            // InternalRentalWorkflow.g:494:1: ( ( 'end' ) )
+            // InternalRentalWorkflow.g:495:1: ( 'end' )
             {
-            // InternalRentalWorkflow.g:482:1: ( 'end' )
-            // InternalRentalWorkflow.g:483:2: 'end'
+            // InternalRentalWorkflow.g:495:1: ( 'end' )
+            // InternalRentalWorkflow.g:496:2: 'end'
             {
              before(grammarAccess.getRentalWorkflowAccess().getEndKeyword_5()); 
-            match(input,26,FOLLOW_2); 
+            match(input,24,FOLLOW_2); 
              after(grammarAccess.getRentalWorkflowAccess().getEndKeyword_5()); 
 
             }
@@ -1545,14 +1574,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__6"
-    // InternalRentalWorkflow.g:492:1: rule__RentalWorkflow__Group__6 : rule__RentalWorkflow__Group__6__Impl rule__RentalWorkflow__Group__7 ;
+    // InternalRentalWorkflow.g:505:1: rule__RentalWorkflow__Group__6 : rule__RentalWorkflow__Group__6__Impl rule__RentalWorkflow__Group__7 ;
     public final void rule__RentalWorkflow__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:496:1: ( rule__RentalWorkflow__Group__6__Impl rule__RentalWorkflow__Group__7 )
-            // InternalRentalWorkflow.g:497:2: rule__RentalWorkflow__Group__6__Impl rule__RentalWorkflow__Group__7
+            // InternalRentalWorkflow.g:509:1: ( rule__RentalWorkflow__Group__6__Impl rule__RentalWorkflow__Group__7 )
+            // InternalRentalWorkflow.g:510:2: rule__RentalWorkflow__Group__6__Impl rule__RentalWorkflow__Group__7
             {
             pushFollow(FOLLOW_6);
             rule__RentalWorkflow__Group__6__Impl();
@@ -1583,20 +1612,20 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__6__Impl"
-    // InternalRentalWorkflow.g:504:1: rule__RentalWorkflow__Group__6__Impl : ( 'resetEvents' ) ;
+    // InternalRentalWorkflow.g:517:1: rule__RentalWorkflow__Group__6__Impl : ( 'resetEvents' ) ;
     public final void rule__RentalWorkflow__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:508:1: ( ( 'resetEvents' ) )
-            // InternalRentalWorkflow.g:509:1: ( 'resetEvents' )
+            // InternalRentalWorkflow.g:521:1: ( ( 'resetEvents' ) )
+            // InternalRentalWorkflow.g:522:1: ( 'resetEvents' )
             {
-            // InternalRentalWorkflow.g:509:1: ( 'resetEvents' )
-            // InternalRentalWorkflow.g:510:2: 'resetEvents'
+            // InternalRentalWorkflow.g:522:1: ( 'resetEvents' )
+            // InternalRentalWorkflow.g:523:2: 'resetEvents'
             {
              before(grammarAccess.getRentalWorkflowAccess().getResetEventsKeyword_6()); 
-            match(input,27,FOLLOW_2); 
+            match(input,25,FOLLOW_2); 
              after(grammarAccess.getRentalWorkflowAccess().getResetEventsKeyword_6()); 
 
             }
@@ -1620,14 +1649,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__7"
-    // InternalRentalWorkflow.g:519:1: rule__RentalWorkflow__Group__7 : rule__RentalWorkflow__Group__7__Impl rule__RentalWorkflow__Group__8 ;
+    // InternalRentalWorkflow.g:532:1: rule__RentalWorkflow__Group__7 : rule__RentalWorkflow__Group__7__Impl rule__RentalWorkflow__Group__8 ;
     public final void rule__RentalWorkflow__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:523:1: ( rule__RentalWorkflow__Group__7__Impl rule__RentalWorkflow__Group__8 )
-            // InternalRentalWorkflow.g:524:2: rule__RentalWorkflow__Group__7__Impl rule__RentalWorkflow__Group__8
+            // InternalRentalWorkflow.g:536:1: ( rule__RentalWorkflow__Group__7__Impl rule__RentalWorkflow__Group__8 )
+            // InternalRentalWorkflow.g:537:2: rule__RentalWorkflow__Group__7__Impl rule__RentalWorkflow__Group__8
             {
             pushFollow(FOLLOW_6);
             rule__RentalWorkflow__Group__7__Impl();
@@ -1658,20 +1687,20 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__7__Impl"
-    // InternalRentalWorkflow.g:531:1: rule__RentalWorkflow__Group__7__Impl : ( ( rule__RentalWorkflow__ResetEventsAssignment_7 )* ) ;
+    // InternalRentalWorkflow.g:544:1: rule__RentalWorkflow__Group__7__Impl : ( ( rule__RentalWorkflow__ResetEventsAssignment_7 )* ) ;
     public final void rule__RentalWorkflow__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:535:1: ( ( ( rule__RentalWorkflow__ResetEventsAssignment_7 )* ) )
-            // InternalRentalWorkflow.g:536:1: ( ( rule__RentalWorkflow__ResetEventsAssignment_7 )* )
+            // InternalRentalWorkflow.g:548:1: ( ( ( rule__RentalWorkflow__ResetEventsAssignment_7 )* ) )
+            // InternalRentalWorkflow.g:549:1: ( ( rule__RentalWorkflow__ResetEventsAssignment_7 )* )
             {
-            // InternalRentalWorkflow.g:536:1: ( ( rule__RentalWorkflow__ResetEventsAssignment_7 )* )
-            // InternalRentalWorkflow.g:537:2: ( rule__RentalWorkflow__ResetEventsAssignment_7 )*
+            // InternalRentalWorkflow.g:549:1: ( ( rule__RentalWorkflow__ResetEventsAssignment_7 )* )
+            // InternalRentalWorkflow.g:550:2: ( rule__RentalWorkflow__ResetEventsAssignment_7 )*
             {
              before(grammarAccess.getRentalWorkflowAccess().getResetEventsAssignment_7()); 
-            // InternalRentalWorkflow.g:538:2: ( rule__RentalWorkflow__ResetEventsAssignment_7 )*
+            // InternalRentalWorkflow.g:551:2: ( rule__RentalWorkflow__ResetEventsAssignment_7 )*
             loop5:
             do {
                 int alt5=2;
@@ -1684,7 +1713,7 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
                 switch (alt5) {
             	case 1 :
-            	    // InternalRentalWorkflow.g:538:3: rule__RentalWorkflow__ResetEventsAssignment_7
+            	    // InternalRentalWorkflow.g:551:3: rule__RentalWorkflow__ResetEventsAssignment_7
             	    {
             	    pushFollow(FOLLOW_7);
             	    rule__RentalWorkflow__ResetEventsAssignment_7();
@@ -1723,14 +1752,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__8"
-    // InternalRentalWorkflow.g:546:1: rule__RentalWorkflow__Group__8 : rule__RentalWorkflow__Group__8__Impl rule__RentalWorkflow__Group__9 ;
+    // InternalRentalWorkflow.g:559:1: rule__RentalWorkflow__Group__8 : rule__RentalWorkflow__Group__8__Impl rule__RentalWorkflow__Group__9 ;
     public final void rule__RentalWorkflow__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:550:1: ( rule__RentalWorkflow__Group__8__Impl rule__RentalWorkflow__Group__9 )
-            // InternalRentalWorkflow.g:551:2: rule__RentalWorkflow__Group__8__Impl rule__RentalWorkflow__Group__9
+            // InternalRentalWorkflow.g:563:1: ( rule__RentalWorkflow__Group__8__Impl rule__RentalWorkflow__Group__9 )
+            // InternalRentalWorkflow.g:564:2: rule__RentalWorkflow__Group__8__Impl rule__RentalWorkflow__Group__9
             {
             pushFollow(FOLLOW_9);
             rule__RentalWorkflow__Group__8__Impl();
@@ -1761,20 +1790,20 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__8__Impl"
-    // InternalRentalWorkflow.g:558:1: rule__RentalWorkflow__Group__8__Impl : ( 'end' ) ;
+    // InternalRentalWorkflow.g:571:1: rule__RentalWorkflow__Group__8__Impl : ( 'end' ) ;
     public final void rule__RentalWorkflow__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:562:1: ( ( 'end' ) )
-            // InternalRentalWorkflow.g:563:1: ( 'end' )
+            // InternalRentalWorkflow.g:575:1: ( ( 'end' ) )
+            // InternalRentalWorkflow.g:576:1: ( 'end' )
             {
-            // InternalRentalWorkflow.g:563:1: ( 'end' )
-            // InternalRentalWorkflow.g:564:2: 'end'
+            // InternalRentalWorkflow.g:576:1: ( 'end' )
+            // InternalRentalWorkflow.g:577:2: 'end'
             {
              before(grammarAccess.getRentalWorkflowAccess().getEndKeyword_8()); 
-            match(input,26,FOLLOW_2); 
+            match(input,24,FOLLOW_2); 
              after(grammarAccess.getRentalWorkflowAccess().getEndKeyword_8()); 
 
             }
@@ -1798,14 +1827,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__9"
-    // InternalRentalWorkflow.g:573:1: rule__RentalWorkflow__Group__9 : rule__RentalWorkflow__Group__9__Impl rule__RentalWorkflow__Group__10 ;
+    // InternalRentalWorkflow.g:586:1: rule__RentalWorkflow__Group__9 : rule__RentalWorkflow__Group__9__Impl rule__RentalWorkflow__Group__10 ;
     public final void rule__RentalWorkflow__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:577:1: ( rule__RentalWorkflow__Group__9__Impl rule__RentalWorkflow__Group__10 )
-            // InternalRentalWorkflow.g:578:2: rule__RentalWorkflow__Group__9__Impl rule__RentalWorkflow__Group__10
+            // InternalRentalWorkflow.g:590:1: ( rule__RentalWorkflow__Group__9__Impl rule__RentalWorkflow__Group__10 )
+            // InternalRentalWorkflow.g:591:2: rule__RentalWorkflow__Group__9__Impl rule__RentalWorkflow__Group__10
             {
             pushFollow(FOLLOW_6);
             rule__RentalWorkflow__Group__9__Impl();
@@ -1836,20 +1865,20 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__9__Impl"
-    // InternalRentalWorkflow.g:585:1: rule__RentalWorkflow__Group__9__Impl : ( 'commands' ) ;
+    // InternalRentalWorkflow.g:598:1: rule__RentalWorkflow__Group__9__Impl : ( 'commands' ) ;
     public final void rule__RentalWorkflow__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:589:1: ( ( 'commands' ) )
-            // InternalRentalWorkflow.g:590:1: ( 'commands' )
+            // InternalRentalWorkflow.g:602:1: ( ( 'commands' ) )
+            // InternalRentalWorkflow.g:603:1: ( 'commands' )
             {
-            // InternalRentalWorkflow.g:590:1: ( 'commands' )
-            // InternalRentalWorkflow.g:591:2: 'commands'
+            // InternalRentalWorkflow.g:603:1: ( 'commands' )
+            // InternalRentalWorkflow.g:604:2: 'commands'
             {
              before(grammarAccess.getRentalWorkflowAccess().getCommandsKeyword_9()); 
-            match(input,28,FOLLOW_2); 
+            match(input,26,FOLLOW_2); 
              after(grammarAccess.getRentalWorkflowAccess().getCommandsKeyword_9()); 
 
             }
@@ -1873,14 +1902,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__10"
-    // InternalRentalWorkflow.g:600:1: rule__RentalWorkflow__Group__10 : rule__RentalWorkflow__Group__10__Impl rule__RentalWorkflow__Group__11 ;
+    // InternalRentalWorkflow.g:613:1: rule__RentalWorkflow__Group__10 : rule__RentalWorkflow__Group__10__Impl rule__RentalWorkflow__Group__11 ;
     public final void rule__RentalWorkflow__Group__10() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:604:1: ( rule__RentalWorkflow__Group__10__Impl rule__RentalWorkflow__Group__11 )
-            // InternalRentalWorkflow.g:605:2: rule__RentalWorkflow__Group__10__Impl rule__RentalWorkflow__Group__11
+            // InternalRentalWorkflow.g:617:1: ( rule__RentalWorkflow__Group__10__Impl rule__RentalWorkflow__Group__11 )
+            // InternalRentalWorkflow.g:618:2: rule__RentalWorkflow__Group__10__Impl rule__RentalWorkflow__Group__11
             {
             pushFollow(FOLLOW_6);
             rule__RentalWorkflow__Group__10__Impl();
@@ -1911,20 +1940,20 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__10__Impl"
-    // InternalRentalWorkflow.g:612:1: rule__RentalWorkflow__Group__10__Impl : ( ( rule__RentalWorkflow__CommandsAssignment_10 )* ) ;
+    // InternalRentalWorkflow.g:625:1: rule__RentalWorkflow__Group__10__Impl : ( ( rule__RentalWorkflow__CommandsAssignment_10 )* ) ;
     public final void rule__RentalWorkflow__Group__10__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:616:1: ( ( ( rule__RentalWorkflow__CommandsAssignment_10 )* ) )
-            // InternalRentalWorkflow.g:617:1: ( ( rule__RentalWorkflow__CommandsAssignment_10 )* )
+            // InternalRentalWorkflow.g:629:1: ( ( ( rule__RentalWorkflow__CommandsAssignment_10 )* ) )
+            // InternalRentalWorkflow.g:630:1: ( ( rule__RentalWorkflow__CommandsAssignment_10 )* )
             {
-            // InternalRentalWorkflow.g:617:1: ( ( rule__RentalWorkflow__CommandsAssignment_10 )* )
-            // InternalRentalWorkflow.g:618:2: ( rule__RentalWorkflow__CommandsAssignment_10 )*
+            // InternalRentalWorkflow.g:630:1: ( ( rule__RentalWorkflow__CommandsAssignment_10 )* )
+            // InternalRentalWorkflow.g:631:2: ( rule__RentalWorkflow__CommandsAssignment_10 )*
             {
              before(grammarAccess.getRentalWorkflowAccess().getCommandsAssignment_10()); 
-            // InternalRentalWorkflow.g:619:2: ( rule__RentalWorkflow__CommandsAssignment_10 )*
+            // InternalRentalWorkflow.g:632:2: ( rule__RentalWorkflow__CommandsAssignment_10 )*
             loop6:
             do {
                 int alt6=2;
@@ -1937,7 +1966,7 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalRentalWorkflow.g:619:3: rule__RentalWorkflow__CommandsAssignment_10
+            	    // InternalRentalWorkflow.g:632:3: rule__RentalWorkflow__CommandsAssignment_10
             	    {
             	    pushFollow(FOLLOW_7);
             	    rule__RentalWorkflow__CommandsAssignment_10();
@@ -1976,14 +2005,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__11"
-    // InternalRentalWorkflow.g:627:1: rule__RentalWorkflow__Group__11 : rule__RentalWorkflow__Group__11__Impl rule__RentalWorkflow__Group__12 ;
+    // InternalRentalWorkflow.g:640:1: rule__RentalWorkflow__Group__11 : rule__RentalWorkflow__Group__11__Impl rule__RentalWorkflow__Group__12 ;
     public final void rule__RentalWorkflow__Group__11() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:631:1: ( rule__RentalWorkflow__Group__11__Impl rule__RentalWorkflow__Group__12 )
-            // InternalRentalWorkflow.g:632:2: rule__RentalWorkflow__Group__11__Impl rule__RentalWorkflow__Group__12
+            // InternalRentalWorkflow.g:644:1: ( rule__RentalWorkflow__Group__11__Impl rule__RentalWorkflow__Group__12 )
+            // InternalRentalWorkflow.g:645:2: rule__RentalWorkflow__Group__11__Impl rule__RentalWorkflow__Group__12
             {
             pushFollow(FOLLOW_10);
             rule__RentalWorkflow__Group__11__Impl();
@@ -2014,20 +2043,20 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__11__Impl"
-    // InternalRentalWorkflow.g:639:1: rule__RentalWorkflow__Group__11__Impl : ( 'end' ) ;
+    // InternalRentalWorkflow.g:652:1: rule__RentalWorkflow__Group__11__Impl : ( 'end' ) ;
     public final void rule__RentalWorkflow__Group__11__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:643:1: ( ( 'end' ) )
-            // InternalRentalWorkflow.g:644:1: ( 'end' )
+            // InternalRentalWorkflow.g:656:1: ( ( 'end' ) )
+            // InternalRentalWorkflow.g:657:1: ( 'end' )
             {
-            // InternalRentalWorkflow.g:644:1: ( 'end' )
-            // InternalRentalWorkflow.g:645:2: 'end'
+            // InternalRentalWorkflow.g:657:1: ( 'end' )
+            // InternalRentalWorkflow.g:658:2: 'end'
             {
              before(grammarAccess.getRentalWorkflowAccess().getEndKeyword_11()); 
-            match(input,26,FOLLOW_2); 
+            match(input,24,FOLLOW_2); 
              after(grammarAccess.getRentalWorkflowAccess().getEndKeyword_11()); 
 
             }
@@ -2051,17 +2080,22 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__12"
-    // InternalRentalWorkflow.g:654:1: rule__RentalWorkflow__Group__12 : rule__RentalWorkflow__Group__12__Impl ;
+    // InternalRentalWorkflow.g:667:1: rule__RentalWorkflow__Group__12 : rule__RentalWorkflow__Group__12__Impl rule__RentalWorkflow__Group__13 ;
     public final void rule__RentalWorkflow__Group__12() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:658:1: ( rule__RentalWorkflow__Group__12__Impl )
-            // InternalRentalWorkflow.g:659:2: rule__RentalWorkflow__Group__12__Impl
+            // InternalRentalWorkflow.g:671:1: ( rule__RentalWorkflow__Group__12__Impl rule__RentalWorkflow__Group__13 )
+            // InternalRentalWorkflow.g:672:2: rule__RentalWorkflow__Group__12__Impl rule__RentalWorkflow__Group__13
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_4);
             rule__RentalWorkflow__Group__12__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RentalWorkflow__Group__13();
 
             state._fsp--;
 
@@ -2084,49 +2118,21 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__Group__12__Impl"
-    // InternalRentalWorkflow.g:665:1: rule__RentalWorkflow__Group__12__Impl : ( ( rule__RentalWorkflow__StatesAssignment_12 )* ) ;
+    // InternalRentalWorkflow.g:679:1: rule__RentalWorkflow__Group__12__Impl : ( 'workflowDeal' ) ;
     public final void rule__RentalWorkflow__Group__12__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:669:1: ( ( ( rule__RentalWorkflow__StatesAssignment_12 )* ) )
-            // InternalRentalWorkflow.g:670:1: ( ( rule__RentalWorkflow__StatesAssignment_12 )* )
+            // InternalRentalWorkflow.g:683:1: ( ( 'workflowDeal' ) )
+            // InternalRentalWorkflow.g:684:1: ( 'workflowDeal' )
             {
-            // InternalRentalWorkflow.g:670:1: ( ( rule__RentalWorkflow__StatesAssignment_12 )* )
-            // InternalRentalWorkflow.g:671:2: ( rule__RentalWorkflow__StatesAssignment_12 )*
+            // InternalRentalWorkflow.g:684:1: ( 'workflowDeal' )
+            // InternalRentalWorkflow.g:685:2: 'workflowDeal'
             {
-             before(grammarAccess.getRentalWorkflowAccess().getStatesAssignment_12()); 
-            // InternalRentalWorkflow.g:672:2: ( rule__RentalWorkflow__StatesAssignment_12 )*
-            loop7:
-            do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
-
-                if ( (LA7_0==29) ) {
-                    alt7=1;
-                }
-
-
-                switch (alt7) {
-            	case 1 :
-            	    // InternalRentalWorkflow.g:672:3: rule__RentalWorkflow__StatesAssignment_12
-            	    {
-            	    pushFollow(FOLLOW_11);
-            	    rule__RentalWorkflow__StatesAssignment_12();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop7;
-                }
-            } while (true);
-
-             after(grammarAccess.getRentalWorkflowAccess().getStatesAssignment_12()); 
+             before(grammarAccess.getRentalWorkflowAccess().getWorkflowDealKeyword_12()); 
+            match(input,27,FOLLOW_2); 
+             after(grammarAccess.getRentalWorkflowAccess().getWorkflowDealKeyword_12()); 
 
             }
 
@@ -2148,15 +2154,198 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
     // $ANTLR end "rule__RentalWorkflow__Group__12__Impl"
 
 
+    // $ANTLR start "rule__RentalWorkflow__Group__13"
+    // InternalRentalWorkflow.g:694:1: rule__RentalWorkflow__Group__13 : rule__RentalWorkflow__Group__13__Impl rule__RentalWorkflow__Group__14 ;
+    public final void rule__RentalWorkflow__Group__13() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalRentalWorkflow.g:698:1: ( rule__RentalWorkflow__Group__13__Impl rule__RentalWorkflow__Group__14 )
+            // InternalRentalWorkflow.g:699:2: rule__RentalWorkflow__Group__13__Impl rule__RentalWorkflow__Group__14
+            {
+            pushFollow(FOLLOW_11);
+            rule__RentalWorkflow__Group__13__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RentalWorkflow__Group__14();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RentalWorkflow__Group__13"
+
+
+    // $ANTLR start "rule__RentalWorkflow__Group__13__Impl"
+    // InternalRentalWorkflow.g:706:1: rule__RentalWorkflow__Group__13__Impl : ( ( rule__RentalWorkflow__WorkflowDealAssignment_13 ) ) ;
+    public final void rule__RentalWorkflow__Group__13__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalRentalWorkflow.g:710:1: ( ( ( rule__RentalWorkflow__WorkflowDealAssignment_13 ) ) )
+            // InternalRentalWorkflow.g:711:1: ( ( rule__RentalWorkflow__WorkflowDealAssignment_13 ) )
+            {
+            // InternalRentalWorkflow.g:711:1: ( ( rule__RentalWorkflow__WorkflowDealAssignment_13 ) )
+            // InternalRentalWorkflow.g:712:2: ( rule__RentalWorkflow__WorkflowDealAssignment_13 )
+            {
+             before(grammarAccess.getRentalWorkflowAccess().getWorkflowDealAssignment_13()); 
+            // InternalRentalWorkflow.g:713:2: ( rule__RentalWorkflow__WorkflowDealAssignment_13 )
+            // InternalRentalWorkflow.g:713:3: rule__RentalWorkflow__WorkflowDealAssignment_13
+            {
+            pushFollow(FOLLOW_2);
+            rule__RentalWorkflow__WorkflowDealAssignment_13();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRentalWorkflowAccess().getWorkflowDealAssignment_13()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RentalWorkflow__Group__13__Impl"
+
+
+    // $ANTLR start "rule__RentalWorkflow__Group__14"
+    // InternalRentalWorkflow.g:721:1: rule__RentalWorkflow__Group__14 : rule__RentalWorkflow__Group__14__Impl ;
+    public final void rule__RentalWorkflow__Group__14() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalRentalWorkflow.g:725:1: ( rule__RentalWorkflow__Group__14__Impl )
+            // InternalRentalWorkflow.g:726:2: rule__RentalWorkflow__Group__14__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__RentalWorkflow__Group__14__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RentalWorkflow__Group__14"
+
+
+    // $ANTLR start "rule__RentalWorkflow__Group__14__Impl"
+    // InternalRentalWorkflow.g:732:1: rule__RentalWorkflow__Group__14__Impl : ( ( rule__RentalWorkflow__StatesAssignment_14 )* ) ;
+    public final void rule__RentalWorkflow__Group__14__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalRentalWorkflow.g:736:1: ( ( ( rule__RentalWorkflow__StatesAssignment_14 )* ) )
+            // InternalRentalWorkflow.g:737:1: ( ( rule__RentalWorkflow__StatesAssignment_14 )* )
+            {
+            // InternalRentalWorkflow.g:737:1: ( ( rule__RentalWorkflow__StatesAssignment_14 )* )
+            // InternalRentalWorkflow.g:738:2: ( rule__RentalWorkflow__StatesAssignment_14 )*
+            {
+             before(grammarAccess.getRentalWorkflowAccess().getStatesAssignment_14()); 
+            // InternalRentalWorkflow.g:739:2: ( rule__RentalWorkflow__StatesAssignment_14 )*
+            loop7:
+            do {
+                int alt7=2;
+                int LA7_0 = input.LA(1);
+
+                if ( (LA7_0==28) ) {
+                    alt7=1;
+                }
+
+
+                switch (alt7) {
+            	case 1 :
+            	    // InternalRentalWorkflow.g:739:3: rule__RentalWorkflow__StatesAssignment_14
+            	    {
+            	    pushFollow(FOLLOW_12);
+            	    rule__RentalWorkflow__StatesAssignment_14();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop7;
+                }
+            } while (true);
+
+             after(grammarAccess.getRentalWorkflowAccess().getStatesAssignment_14()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RentalWorkflow__Group__14__Impl"
+
+
     // $ANTLR start "rule__Event__Group__0"
-    // InternalRentalWorkflow.g:681:1: rule__Event__Group__0 : rule__Event__Group__0__Impl rule__Event__Group__1 ;
+    // InternalRentalWorkflow.g:748:1: rule__Event__Group__0 : rule__Event__Group__0__Impl rule__Event__Group__1 ;
     public final void rule__Event__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:685:1: ( rule__Event__Group__0__Impl rule__Event__Group__1 )
-            // InternalRentalWorkflow.g:686:2: rule__Event__Group__0__Impl rule__Event__Group__1
+            // InternalRentalWorkflow.g:752:1: ( rule__Event__Group__0__Impl rule__Event__Group__1 )
+            // InternalRentalWorkflow.g:753:2: rule__Event__Group__0__Impl rule__Event__Group__1
             {
             pushFollow(FOLLOW_4);
             rule__Event__Group__0__Impl();
@@ -2187,21 +2376,21 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Event__Group__0__Impl"
-    // InternalRentalWorkflow.g:693:1: rule__Event__Group__0__Impl : ( ( rule__Event__NameAssignment_0 ) ) ;
+    // InternalRentalWorkflow.g:760:1: rule__Event__Group__0__Impl : ( ( rule__Event__NameAssignment_0 ) ) ;
     public final void rule__Event__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:697:1: ( ( ( rule__Event__NameAssignment_0 ) ) )
-            // InternalRentalWorkflow.g:698:1: ( ( rule__Event__NameAssignment_0 ) )
+            // InternalRentalWorkflow.g:764:1: ( ( ( rule__Event__NameAssignment_0 ) ) )
+            // InternalRentalWorkflow.g:765:1: ( ( rule__Event__NameAssignment_0 ) )
             {
-            // InternalRentalWorkflow.g:698:1: ( ( rule__Event__NameAssignment_0 ) )
-            // InternalRentalWorkflow.g:699:2: ( rule__Event__NameAssignment_0 )
+            // InternalRentalWorkflow.g:765:1: ( ( rule__Event__NameAssignment_0 ) )
+            // InternalRentalWorkflow.g:766:2: ( rule__Event__NameAssignment_0 )
             {
              before(grammarAccess.getEventAccess().getNameAssignment_0()); 
-            // InternalRentalWorkflow.g:700:2: ( rule__Event__NameAssignment_0 )
-            // InternalRentalWorkflow.g:700:3: rule__Event__NameAssignment_0
+            // InternalRentalWorkflow.g:767:2: ( rule__Event__NameAssignment_0 )
+            // InternalRentalWorkflow.g:767:3: rule__Event__NameAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Event__NameAssignment_0();
@@ -2234,16 +2423,16 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Event__Group__1"
-    // InternalRentalWorkflow.g:708:1: rule__Event__Group__1 : rule__Event__Group__1__Impl rule__Event__Group__2 ;
+    // InternalRentalWorkflow.g:775:1: rule__Event__Group__1 : rule__Event__Group__1__Impl rule__Event__Group__2 ;
     public final void rule__Event__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:712:1: ( rule__Event__Group__1__Impl rule__Event__Group__2 )
-            // InternalRentalWorkflow.g:713:2: rule__Event__Group__1__Impl rule__Event__Group__2
+            // InternalRentalWorkflow.g:779:1: ( rule__Event__Group__1__Impl rule__Event__Group__2 )
+            // InternalRentalWorkflow.g:780:2: rule__Event__Group__1__Impl rule__Event__Group__2
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__Event__Group__1__Impl();
 
             state._fsp--;
@@ -2272,21 +2461,21 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Event__Group__1__Impl"
-    // InternalRentalWorkflow.g:720:1: rule__Event__Group__1__Impl : ( ( rule__Event__CodeAssignment_1 ) ) ;
+    // InternalRentalWorkflow.g:787:1: rule__Event__Group__1__Impl : ( ( rule__Event__CodeAssignment_1 ) ) ;
     public final void rule__Event__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:724:1: ( ( ( rule__Event__CodeAssignment_1 ) ) )
-            // InternalRentalWorkflow.g:725:1: ( ( rule__Event__CodeAssignment_1 ) )
+            // InternalRentalWorkflow.g:791:1: ( ( ( rule__Event__CodeAssignment_1 ) ) )
+            // InternalRentalWorkflow.g:792:1: ( ( rule__Event__CodeAssignment_1 ) )
             {
-            // InternalRentalWorkflow.g:725:1: ( ( rule__Event__CodeAssignment_1 ) )
-            // InternalRentalWorkflow.g:726:2: ( rule__Event__CodeAssignment_1 )
+            // InternalRentalWorkflow.g:792:1: ( ( rule__Event__CodeAssignment_1 ) )
+            // InternalRentalWorkflow.g:793:2: ( rule__Event__CodeAssignment_1 )
             {
              before(grammarAccess.getEventAccess().getCodeAssignment_1()); 
-            // InternalRentalWorkflow.g:727:2: ( rule__Event__CodeAssignment_1 )
-            // InternalRentalWorkflow.g:727:3: rule__Event__CodeAssignment_1
+            // InternalRentalWorkflow.g:794:2: ( rule__Event__CodeAssignment_1 )
+            // InternalRentalWorkflow.g:794:3: rule__Event__CodeAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Event__CodeAssignment_1();
@@ -2319,14 +2508,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Event__Group__2"
-    // InternalRentalWorkflow.g:735:1: rule__Event__Group__2 : rule__Event__Group__2__Impl ;
+    // InternalRentalWorkflow.g:802:1: rule__Event__Group__2 : rule__Event__Group__2__Impl ;
     public final void rule__Event__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:739:1: ( rule__Event__Group__2__Impl )
-            // InternalRentalWorkflow.g:740:2: rule__Event__Group__2__Impl
+            // InternalRentalWorkflow.g:806:1: ( rule__Event__Group__2__Impl )
+            // InternalRentalWorkflow.g:807:2: rule__Event__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Event__Group__2__Impl();
@@ -2352,21 +2541,21 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Event__Group__2__Impl"
-    // InternalRentalWorkflow.g:746:1: rule__Event__Group__2__Impl : ( ( rule__Event__OfTypeAssignment_2 ) ) ;
+    // InternalRentalWorkflow.g:813:1: rule__Event__Group__2__Impl : ( ( rule__Event__OfTypeAssignment_2 ) ) ;
     public final void rule__Event__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:750:1: ( ( ( rule__Event__OfTypeAssignment_2 ) ) )
-            // InternalRentalWorkflow.g:751:1: ( ( rule__Event__OfTypeAssignment_2 ) )
+            // InternalRentalWorkflow.g:817:1: ( ( ( rule__Event__OfTypeAssignment_2 ) ) )
+            // InternalRentalWorkflow.g:818:1: ( ( rule__Event__OfTypeAssignment_2 ) )
             {
-            // InternalRentalWorkflow.g:751:1: ( ( rule__Event__OfTypeAssignment_2 ) )
-            // InternalRentalWorkflow.g:752:2: ( rule__Event__OfTypeAssignment_2 )
+            // InternalRentalWorkflow.g:818:1: ( ( rule__Event__OfTypeAssignment_2 ) )
+            // InternalRentalWorkflow.g:819:2: ( rule__Event__OfTypeAssignment_2 )
             {
              before(grammarAccess.getEventAccess().getOfTypeAssignment_2()); 
-            // InternalRentalWorkflow.g:753:2: ( rule__Event__OfTypeAssignment_2 )
-            // InternalRentalWorkflow.g:753:3: rule__Event__OfTypeAssignment_2
+            // InternalRentalWorkflow.g:820:2: ( rule__Event__OfTypeAssignment_2 )
+            // InternalRentalWorkflow.g:820:3: rule__Event__OfTypeAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Event__OfTypeAssignment_2();
@@ -2399,14 +2588,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Command__Group__0"
-    // InternalRentalWorkflow.g:762:1: rule__Command__Group__0 : rule__Command__Group__0__Impl rule__Command__Group__1 ;
+    // InternalRentalWorkflow.g:829:1: rule__Command__Group__0 : rule__Command__Group__0__Impl rule__Command__Group__1 ;
     public final void rule__Command__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:766:1: ( rule__Command__Group__0__Impl rule__Command__Group__1 )
-            // InternalRentalWorkflow.g:767:2: rule__Command__Group__0__Impl rule__Command__Group__1
+            // InternalRentalWorkflow.g:833:1: ( rule__Command__Group__0__Impl rule__Command__Group__1 )
+            // InternalRentalWorkflow.g:834:2: rule__Command__Group__0__Impl rule__Command__Group__1
             {
             pushFollow(FOLLOW_4);
             rule__Command__Group__0__Impl();
@@ -2437,21 +2626,21 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Command__Group__0__Impl"
-    // InternalRentalWorkflow.g:774:1: rule__Command__Group__0__Impl : ( ( rule__Command__NameAssignment_0 ) ) ;
+    // InternalRentalWorkflow.g:841:1: rule__Command__Group__0__Impl : ( ( rule__Command__NameAssignment_0 ) ) ;
     public final void rule__Command__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:778:1: ( ( ( rule__Command__NameAssignment_0 ) ) )
-            // InternalRentalWorkflow.g:779:1: ( ( rule__Command__NameAssignment_0 ) )
+            // InternalRentalWorkflow.g:845:1: ( ( ( rule__Command__NameAssignment_0 ) ) )
+            // InternalRentalWorkflow.g:846:1: ( ( rule__Command__NameAssignment_0 ) )
             {
-            // InternalRentalWorkflow.g:779:1: ( ( rule__Command__NameAssignment_0 ) )
-            // InternalRentalWorkflow.g:780:2: ( rule__Command__NameAssignment_0 )
+            // InternalRentalWorkflow.g:846:1: ( ( rule__Command__NameAssignment_0 ) )
+            // InternalRentalWorkflow.g:847:2: ( rule__Command__NameAssignment_0 )
             {
              before(grammarAccess.getCommandAccess().getNameAssignment_0()); 
-            // InternalRentalWorkflow.g:781:2: ( rule__Command__NameAssignment_0 )
-            // InternalRentalWorkflow.g:781:3: rule__Command__NameAssignment_0
+            // InternalRentalWorkflow.g:848:2: ( rule__Command__NameAssignment_0 )
+            // InternalRentalWorkflow.g:848:3: rule__Command__NameAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Command__NameAssignment_0();
@@ -2484,16 +2673,16 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Command__Group__1"
-    // InternalRentalWorkflow.g:789:1: rule__Command__Group__1 : rule__Command__Group__1__Impl rule__Command__Group__2 ;
+    // InternalRentalWorkflow.g:856:1: rule__Command__Group__1 : rule__Command__Group__1__Impl rule__Command__Group__2 ;
     public final void rule__Command__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:793:1: ( rule__Command__Group__1__Impl rule__Command__Group__2 )
-            // InternalRentalWorkflow.g:794:2: rule__Command__Group__1__Impl rule__Command__Group__2
+            // InternalRentalWorkflow.g:860:1: ( rule__Command__Group__1__Impl rule__Command__Group__2 )
+            // InternalRentalWorkflow.g:861:2: rule__Command__Group__1__Impl rule__Command__Group__2
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_14);
             rule__Command__Group__1__Impl();
 
             state._fsp--;
@@ -2522,21 +2711,21 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Command__Group__1__Impl"
-    // InternalRentalWorkflow.g:801:1: rule__Command__Group__1__Impl : ( ( rule__Command__CodeAssignment_1 ) ) ;
+    // InternalRentalWorkflow.g:868:1: rule__Command__Group__1__Impl : ( ( rule__Command__CodeAssignment_1 ) ) ;
     public final void rule__Command__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:805:1: ( ( ( rule__Command__CodeAssignment_1 ) ) )
-            // InternalRentalWorkflow.g:806:1: ( ( rule__Command__CodeAssignment_1 ) )
+            // InternalRentalWorkflow.g:872:1: ( ( ( rule__Command__CodeAssignment_1 ) ) )
+            // InternalRentalWorkflow.g:873:1: ( ( rule__Command__CodeAssignment_1 ) )
             {
-            // InternalRentalWorkflow.g:806:1: ( ( rule__Command__CodeAssignment_1 ) )
-            // InternalRentalWorkflow.g:807:2: ( rule__Command__CodeAssignment_1 )
+            // InternalRentalWorkflow.g:873:1: ( ( rule__Command__CodeAssignment_1 ) )
+            // InternalRentalWorkflow.g:874:2: ( rule__Command__CodeAssignment_1 )
             {
              before(grammarAccess.getCommandAccess().getCodeAssignment_1()); 
-            // InternalRentalWorkflow.g:808:2: ( rule__Command__CodeAssignment_1 )
-            // InternalRentalWorkflow.g:808:3: rule__Command__CodeAssignment_1
+            // InternalRentalWorkflow.g:875:2: ( rule__Command__CodeAssignment_1 )
+            // InternalRentalWorkflow.g:875:3: rule__Command__CodeAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Command__CodeAssignment_1();
@@ -2569,14 +2758,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Command__Group__2"
-    // InternalRentalWorkflow.g:816:1: rule__Command__Group__2 : rule__Command__Group__2__Impl ;
+    // InternalRentalWorkflow.g:883:1: rule__Command__Group__2 : rule__Command__Group__2__Impl ;
     public final void rule__Command__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:820:1: ( rule__Command__Group__2__Impl )
-            // InternalRentalWorkflow.g:821:2: rule__Command__Group__2__Impl
+            // InternalRentalWorkflow.g:887:1: ( rule__Command__Group__2__Impl )
+            // InternalRentalWorkflow.g:888:2: rule__Command__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Command__Group__2__Impl();
@@ -2602,21 +2791,21 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Command__Group__2__Impl"
-    // InternalRentalWorkflow.g:827:1: rule__Command__Group__2__Impl : ( ( rule__Command__OfTypeAssignment_2 ) ) ;
+    // InternalRentalWorkflow.g:894:1: rule__Command__Group__2__Impl : ( ( rule__Command__OfTypeAssignment_2 ) ) ;
     public final void rule__Command__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:831:1: ( ( ( rule__Command__OfTypeAssignment_2 ) ) )
-            // InternalRentalWorkflow.g:832:1: ( ( rule__Command__OfTypeAssignment_2 ) )
+            // InternalRentalWorkflow.g:898:1: ( ( ( rule__Command__OfTypeAssignment_2 ) ) )
+            // InternalRentalWorkflow.g:899:1: ( ( rule__Command__OfTypeAssignment_2 ) )
             {
-            // InternalRentalWorkflow.g:832:1: ( ( rule__Command__OfTypeAssignment_2 ) )
-            // InternalRentalWorkflow.g:833:2: ( rule__Command__OfTypeAssignment_2 )
+            // InternalRentalWorkflow.g:899:1: ( ( rule__Command__OfTypeAssignment_2 ) )
+            // InternalRentalWorkflow.g:900:2: ( rule__Command__OfTypeAssignment_2 )
             {
              before(grammarAccess.getCommandAccess().getOfTypeAssignment_2()); 
-            // InternalRentalWorkflow.g:834:2: ( rule__Command__OfTypeAssignment_2 )
-            // InternalRentalWorkflow.g:834:3: rule__Command__OfTypeAssignment_2
+            // InternalRentalWorkflow.g:901:2: ( rule__Command__OfTypeAssignment_2 )
+            // InternalRentalWorkflow.g:901:3: rule__Command__OfTypeAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Command__OfTypeAssignment_2();
@@ -2649,14 +2838,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__State__Group__0"
-    // InternalRentalWorkflow.g:843:1: rule__State__Group__0 : rule__State__Group__0__Impl rule__State__Group__1 ;
+    // InternalRentalWorkflow.g:910:1: rule__State__Group__0 : rule__State__Group__0__Impl rule__State__Group__1 ;
     public final void rule__State__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:847:1: ( rule__State__Group__0__Impl rule__State__Group__1 )
-            // InternalRentalWorkflow.g:848:2: rule__State__Group__0__Impl rule__State__Group__1
+            // InternalRentalWorkflow.g:914:1: ( rule__State__Group__0__Impl rule__State__Group__1 )
+            // InternalRentalWorkflow.g:915:2: rule__State__Group__0__Impl rule__State__Group__1
             {
             pushFollow(FOLLOW_4);
             rule__State__Group__0__Impl();
@@ -2687,20 +2876,20 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__State__Group__0__Impl"
-    // InternalRentalWorkflow.g:855:1: rule__State__Group__0__Impl : ( 'state' ) ;
+    // InternalRentalWorkflow.g:922:1: rule__State__Group__0__Impl : ( 'state' ) ;
     public final void rule__State__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:859:1: ( ( 'state' ) )
-            // InternalRentalWorkflow.g:860:1: ( 'state' )
+            // InternalRentalWorkflow.g:926:1: ( ( 'state' ) )
+            // InternalRentalWorkflow.g:927:1: ( 'state' )
             {
-            // InternalRentalWorkflow.g:860:1: ( 'state' )
-            // InternalRentalWorkflow.g:861:2: 'state'
+            // InternalRentalWorkflow.g:927:1: ( 'state' )
+            // InternalRentalWorkflow.g:928:2: 'state'
             {
              before(grammarAccess.getStateAccess().getStateKeyword_0()); 
-            match(input,29,FOLLOW_2); 
+            match(input,28,FOLLOW_2); 
              after(grammarAccess.getStateAccess().getStateKeyword_0()); 
 
             }
@@ -2724,16 +2913,16 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__State__Group__1"
-    // InternalRentalWorkflow.g:870:1: rule__State__Group__1 : rule__State__Group__1__Impl rule__State__Group__2 ;
+    // InternalRentalWorkflow.g:937:1: rule__State__Group__1 : rule__State__Group__1__Impl rule__State__Group__2 ;
     public final void rule__State__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:874:1: ( rule__State__Group__1__Impl rule__State__Group__2 )
-            // InternalRentalWorkflow.g:875:2: rule__State__Group__1__Impl rule__State__Group__2
+            // InternalRentalWorkflow.g:941:1: ( rule__State__Group__1__Impl rule__State__Group__2 )
+            // InternalRentalWorkflow.g:942:2: rule__State__Group__1__Impl rule__State__Group__2
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_15);
             rule__State__Group__1__Impl();
 
             state._fsp--;
@@ -2762,21 +2951,21 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__State__Group__1__Impl"
-    // InternalRentalWorkflow.g:882:1: rule__State__Group__1__Impl : ( ( rule__State__NameAssignment_1 ) ) ;
+    // InternalRentalWorkflow.g:949:1: rule__State__Group__1__Impl : ( ( rule__State__NameAssignment_1 ) ) ;
     public final void rule__State__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:886:1: ( ( ( rule__State__NameAssignment_1 ) ) )
-            // InternalRentalWorkflow.g:887:1: ( ( rule__State__NameAssignment_1 ) )
+            // InternalRentalWorkflow.g:953:1: ( ( ( rule__State__NameAssignment_1 ) ) )
+            // InternalRentalWorkflow.g:954:1: ( ( rule__State__NameAssignment_1 ) )
             {
-            // InternalRentalWorkflow.g:887:1: ( ( rule__State__NameAssignment_1 ) )
-            // InternalRentalWorkflow.g:888:2: ( rule__State__NameAssignment_1 )
+            // InternalRentalWorkflow.g:954:1: ( ( rule__State__NameAssignment_1 ) )
+            // InternalRentalWorkflow.g:955:2: ( rule__State__NameAssignment_1 )
             {
              before(grammarAccess.getStateAccess().getNameAssignment_1()); 
-            // InternalRentalWorkflow.g:889:2: ( rule__State__NameAssignment_1 )
-            // InternalRentalWorkflow.g:889:3: rule__State__NameAssignment_1
+            // InternalRentalWorkflow.g:956:2: ( rule__State__NameAssignment_1 )
+            // InternalRentalWorkflow.g:956:3: rule__State__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__State__NameAssignment_1();
@@ -2809,16 +2998,16 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__State__Group__2"
-    // InternalRentalWorkflow.g:897:1: rule__State__Group__2 : rule__State__Group__2__Impl rule__State__Group__3 ;
+    // InternalRentalWorkflow.g:964:1: rule__State__Group__2 : rule__State__Group__2__Impl rule__State__Group__3 ;
     public final void rule__State__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:901:1: ( rule__State__Group__2__Impl rule__State__Group__3 )
-            // InternalRentalWorkflow.g:902:2: rule__State__Group__2__Impl rule__State__Group__3
+            // InternalRentalWorkflow.g:968:1: ( rule__State__Group__2__Impl rule__State__Group__3 )
+            // InternalRentalWorkflow.g:969:2: rule__State__Group__2__Impl rule__State__Group__3
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__State__Group__2__Impl();
 
             state._fsp--;
@@ -2847,21 +3036,21 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__State__Group__2__Impl"
-    // InternalRentalWorkflow.g:909:1: rule__State__Group__2__Impl : ( ( rule__State__OfTypeAssignment_2 ) ) ;
+    // InternalRentalWorkflow.g:976:1: rule__State__Group__2__Impl : ( ( rule__State__OfTypeAssignment_2 ) ) ;
     public final void rule__State__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:913:1: ( ( ( rule__State__OfTypeAssignment_2 ) ) )
-            // InternalRentalWorkflow.g:914:1: ( ( rule__State__OfTypeAssignment_2 ) )
+            // InternalRentalWorkflow.g:980:1: ( ( ( rule__State__OfTypeAssignment_2 ) ) )
+            // InternalRentalWorkflow.g:981:1: ( ( rule__State__OfTypeAssignment_2 ) )
             {
-            // InternalRentalWorkflow.g:914:1: ( ( rule__State__OfTypeAssignment_2 ) )
-            // InternalRentalWorkflow.g:915:2: ( rule__State__OfTypeAssignment_2 )
+            // InternalRentalWorkflow.g:981:1: ( ( rule__State__OfTypeAssignment_2 ) )
+            // InternalRentalWorkflow.g:982:2: ( rule__State__OfTypeAssignment_2 )
             {
              before(grammarAccess.getStateAccess().getOfTypeAssignment_2()); 
-            // InternalRentalWorkflow.g:916:2: ( rule__State__OfTypeAssignment_2 )
-            // InternalRentalWorkflow.g:916:3: rule__State__OfTypeAssignment_2
+            // InternalRentalWorkflow.g:983:2: ( rule__State__OfTypeAssignment_2 )
+            // InternalRentalWorkflow.g:983:3: rule__State__OfTypeAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__State__OfTypeAssignment_2();
@@ -2894,16 +3083,16 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__State__Group__3"
-    // InternalRentalWorkflow.g:924:1: rule__State__Group__3 : rule__State__Group__3__Impl rule__State__Group__4 ;
+    // InternalRentalWorkflow.g:991:1: rule__State__Group__3 : rule__State__Group__3__Impl rule__State__Group__4 ;
     public final void rule__State__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:928:1: ( rule__State__Group__3__Impl rule__State__Group__4 )
-            // InternalRentalWorkflow.g:929:2: rule__State__Group__3__Impl rule__State__Group__4
+            // InternalRentalWorkflow.g:995:1: ( rule__State__Group__3__Impl rule__State__Group__4 )
+            // InternalRentalWorkflow.g:996:2: rule__State__Group__3__Impl rule__State__Group__4
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__State__Group__3__Impl();
 
             state._fsp--;
@@ -2932,29 +3121,29 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__State__Group__3__Impl"
-    // InternalRentalWorkflow.g:936:1: rule__State__Group__3__Impl : ( ( rule__State__Group_3__0 )? ) ;
+    // InternalRentalWorkflow.g:1003:1: rule__State__Group__3__Impl : ( ( rule__State__Group_3__0 )? ) ;
     public final void rule__State__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:940:1: ( ( ( rule__State__Group_3__0 )? ) )
-            // InternalRentalWorkflow.g:941:1: ( ( rule__State__Group_3__0 )? )
+            // InternalRentalWorkflow.g:1007:1: ( ( ( rule__State__Group_3__0 )? ) )
+            // InternalRentalWorkflow.g:1008:1: ( ( rule__State__Group_3__0 )? )
             {
-            // InternalRentalWorkflow.g:941:1: ( ( rule__State__Group_3__0 )? )
-            // InternalRentalWorkflow.g:942:2: ( rule__State__Group_3__0 )?
+            // InternalRentalWorkflow.g:1008:1: ( ( rule__State__Group_3__0 )? )
+            // InternalRentalWorkflow.g:1009:2: ( rule__State__Group_3__0 )?
             {
              before(grammarAccess.getStateAccess().getGroup_3()); 
-            // InternalRentalWorkflow.g:943:2: ( rule__State__Group_3__0 )?
+            // InternalRentalWorkflow.g:1010:2: ( rule__State__Group_3__0 )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
-            if ( (LA8_0==30) ) {
+            if ( (LA8_0==29) ) {
                 alt8=1;
             }
             switch (alt8) {
                 case 1 :
-                    // InternalRentalWorkflow.g:943:3: rule__State__Group_3__0
+                    // InternalRentalWorkflow.g:1010:3: rule__State__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__State__Group_3__0();
@@ -2990,16 +3179,16 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__State__Group__4"
-    // InternalRentalWorkflow.g:951:1: rule__State__Group__4 : rule__State__Group__4__Impl rule__State__Group__5 ;
+    // InternalRentalWorkflow.g:1018:1: rule__State__Group__4 : rule__State__Group__4__Impl rule__State__Group__5 ;
     public final void rule__State__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:955:1: ( rule__State__Group__4__Impl rule__State__Group__5 )
-            // InternalRentalWorkflow.g:956:2: rule__State__Group__4__Impl rule__State__Group__5
+            // InternalRentalWorkflow.g:1022:1: ( rule__State__Group__4__Impl rule__State__Group__5 )
+            // InternalRentalWorkflow.g:1023:2: rule__State__Group__4__Impl rule__State__Group__5
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__State__Group__4__Impl();
 
             state._fsp--;
@@ -3028,20 +3217,20 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__State__Group__4__Impl"
-    // InternalRentalWorkflow.g:963:1: rule__State__Group__4__Impl : ( ( rule__State__TransitionsAssignment_4 )* ) ;
+    // InternalRentalWorkflow.g:1030:1: rule__State__Group__4__Impl : ( ( rule__State__TransitionsAssignment_4 )* ) ;
     public final void rule__State__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:967:1: ( ( ( rule__State__TransitionsAssignment_4 )* ) )
-            // InternalRentalWorkflow.g:968:1: ( ( rule__State__TransitionsAssignment_4 )* )
+            // InternalRentalWorkflow.g:1034:1: ( ( ( rule__State__TransitionsAssignment_4 )* ) )
+            // InternalRentalWorkflow.g:1035:1: ( ( rule__State__TransitionsAssignment_4 )* )
             {
-            // InternalRentalWorkflow.g:968:1: ( ( rule__State__TransitionsAssignment_4 )* )
-            // InternalRentalWorkflow.g:969:2: ( rule__State__TransitionsAssignment_4 )*
+            // InternalRentalWorkflow.g:1035:1: ( ( rule__State__TransitionsAssignment_4 )* )
+            // InternalRentalWorkflow.g:1036:2: ( rule__State__TransitionsAssignment_4 )*
             {
              before(grammarAccess.getStateAccess().getTransitionsAssignment_4()); 
-            // InternalRentalWorkflow.g:970:2: ( rule__State__TransitionsAssignment_4 )*
+            // InternalRentalWorkflow.g:1037:2: ( rule__State__TransitionsAssignment_4 )*
             loop9:
             do {
                 int alt9=2;
@@ -3054,7 +3243,7 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalRentalWorkflow.g:970:3: rule__State__TransitionsAssignment_4
+            	    // InternalRentalWorkflow.g:1037:3: rule__State__TransitionsAssignment_4
             	    {
             	    pushFollow(FOLLOW_7);
             	    rule__State__TransitionsAssignment_4();
@@ -3093,14 +3282,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__State__Group__5"
-    // InternalRentalWorkflow.g:978:1: rule__State__Group__5 : rule__State__Group__5__Impl ;
+    // InternalRentalWorkflow.g:1045:1: rule__State__Group__5 : rule__State__Group__5__Impl ;
     public final void rule__State__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:982:1: ( rule__State__Group__5__Impl )
-            // InternalRentalWorkflow.g:983:2: rule__State__Group__5__Impl
+            // InternalRentalWorkflow.g:1049:1: ( rule__State__Group__5__Impl )
+            // InternalRentalWorkflow.g:1050:2: rule__State__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__State__Group__5__Impl();
@@ -3126,20 +3315,20 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__State__Group__5__Impl"
-    // InternalRentalWorkflow.g:989:1: rule__State__Group__5__Impl : ( 'end' ) ;
+    // InternalRentalWorkflow.g:1056:1: rule__State__Group__5__Impl : ( 'end' ) ;
     public final void rule__State__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:993:1: ( ( 'end' ) )
-            // InternalRentalWorkflow.g:994:1: ( 'end' )
+            // InternalRentalWorkflow.g:1060:1: ( ( 'end' ) )
+            // InternalRentalWorkflow.g:1061:1: ( 'end' )
             {
-            // InternalRentalWorkflow.g:994:1: ( 'end' )
-            // InternalRentalWorkflow.g:995:2: 'end'
+            // InternalRentalWorkflow.g:1061:1: ( 'end' )
+            // InternalRentalWorkflow.g:1062:2: 'end'
             {
              before(grammarAccess.getStateAccess().getEndKeyword_5()); 
-            match(input,26,FOLLOW_2); 
+            match(input,24,FOLLOW_2); 
              after(grammarAccess.getStateAccess().getEndKeyword_5()); 
 
             }
@@ -3163,16 +3352,16 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__State__Group_3__0"
-    // InternalRentalWorkflow.g:1005:1: rule__State__Group_3__0 : rule__State__Group_3__0__Impl rule__State__Group_3__1 ;
+    // InternalRentalWorkflow.g:1072:1: rule__State__Group_3__0 : rule__State__Group_3__0__Impl rule__State__Group_3__1 ;
     public final void rule__State__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1009:1: ( rule__State__Group_3__0__Impl rule__State__Group_3__1 )
-            // InternalRentalWorkflow.g:1010:2: rule__State__Group_3__0__Impl rule__State__Group_3__1
+            // InternalRentalWorkflow.g:1076:1: ( rule__State__Group_3__0__Impl rule__State__Group_3__1 )
+            // InternalRentalWorkflow.g:1077:2: rule__State__Group_3__0__Impl rule__State__Group_3__1
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_17);
             rule__State__Group_3__0__Impl();
 
             state._fsp--;
@@ -3201,20 +3390,20 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__State__Group_3__0__Impl"
-    // InternalRentalWorkflow.g:1017:1: rule__State__Group_3__0__Impl : ( 'actions' ) ;
+    // InternalRentalWorkflow.g:1084:1: rule__State__Group_3__0__Impl : ( 'actions' ) ;
     public final void rule__State__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1021:1: ( ( 'actions' ) )
-            // InternalRentalWorkflow.g:1022:1: ( 'actions' )
+            // InternalRentalWorkflow.g:1088:1: ( ( 'actions' ) )
+            // InternalRentalWorkflow.g:1089:1: ( 'actions' )
             {
-            // InternalRentalWorkflow.g:1022:1: ( 'actions' )
-            // InternalRentalWorkflow.g:1023:2: 'actions'
+            // InternalRentalWorkflow.g:1089:1: ( 'actions' )
+            // InternalRentalWorkflow.g:1090:2: 'actions'
             {
              before(grammarAccess.getStateAccess().getActionsKeyword_3_0()); 
-            match(input,30,FOLLOW_2); 
+            match(input,29,FOLLOW_2); 
              after(grammarAccess.getStateAccess().getActionsKeyword_3_0()); 
 
             }
@@ -3238,14 +3427,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__State__Group_3__1"
-    // InternalRentalWorkflow.g:1032:1: rule__State__Group_3__1 : rule__State__Group_3__1__Impl rule__State__Group_3__2 ;
+    // InternalRentalWorkflow.g:1099:1: rule__State__Group_3__1 : rule__State__Group_3__1__Impl rule__State__Group_3__2 ;
     public final void rule__State__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1036:1: ( rule__State__Group_3__1__Impl rule__State__Group_3__2 )
-            // InternalRentalWorkflow.g:1037:2: rule__State__Group_3__1__Impl rule__State__Group_3__2
+            // InternalRentalWorkflow.g:1103:1: ( rule__State__Group_3__1__Impl rule__State__Group_3__2 )
+            // InternalRentalWorkflow.g:1104:2: rule__State__Group_3__1__Impl rule__State__Group_3__2
             {
             pushFollow(FOLLOW_4);
             rule__State__Group_3__1__Impl();
@@ -3276,20 +3465,20 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__State__Group_3__1__Impl"
-    // InternalRentalWorkflow.g:1044:1: rule__State__Group_3__1__Impl : ( '{' ) ;
+    // InternalRentalWorkflow.g:1111:1: rule__State__Group_3__1__Impl : ( '{' ) ;
     public final void rule__State__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1048:1: ( ( '{' ) )
-            // InternalRentalWorkflow.g:1049:1: ( '{' )
+            // InternalRentalWorkflow.g:1115:1: ( ( '{' ) )
+            // InternalRentalWorkflow.g:1116:1: ( '{' )
             {
-            // InternalRentalWorkflow.g:1049:1: ( '{' )
-            // InternalRentalWorkflow.g:1050:2: '{'
+            // InternalRentalWorkflow.g:1116:1: ( '{' )
+            // InternalRentalWorkflow.g:1117:2: '{'
             {
              before(grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_3_1()); 
-            match(input,31,FOLLOW_2); 
+            match(input,30,FOLLOW_2); 
              after(grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_3_1()); 
 
             }
@@ -3313,16 +3502,16 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__State__Group_3__2"
-    // InternalRentalWorkflow.g:1059:1: rule__State__Group_3__2 : rule__State__Group_3__2__Impl rule__State__Group_3__3 ;
+    // InternalRentalWorkflow.g:1126:1: rule__State__Group_3__2 : rule__State__Group_3__2__Impl rule__State__Group_3__3 ;
     public final void rule__State__Group_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1063:1: ( rule__State__Group_3__2__Impl rule__State__Group_3__3 )
-            // InternalRentalWorkflow.g:1064:2: rule__State__Group_3__2__Impl rule__State__Group_3__3
+            // InternalRentalWorkflow.g:1130:1: ( rule__State__Group_3__2__Impl rule__State__Group_3__3 )
+            // InternalRentalWorkflow.g:1131:2: rule__State__Group_3__2__Impl rule__State__Group_3__3
             {
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_18);
             rule__State__Group_3__2__Impl();
 
             state._fsp--;
@@ -3351,24 +3540,24 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__State__Group_3__2__Impl"
-    // InternalRentalWorkflow.g:1071:1: rule__State__Group_3__2__Impl : ( ( ( rule__State__ActionsAssignment_3_2 ) ) ( ( rule__State__ActionsAssignment_3_2 )* ) ) ;
+    // InternalRentalWorkflow.g:1138:1: rule__State__Group_3__2__Impl : ( ( ( rule__State__ActionsAssignment_3_2 ) ) ( ( rule__State__ActionsAssignment_3_2 )* ) ) ;
     public final void rule__State__Group_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1075:1: ( ( ( ( rule__State__ActionsAssignment_3_2 ) ) ( ( rule__State__ActionsAssignment_3_2 )* ) ) )
-            // InternalRentalWorkflow.g:1076:1: ( ( ( rule__State__ActionsAssignment_3_2 ) ) ( ( rule__State__ActionsAssignment_3_2 )* ) )
+            // InternalRentalWorkflow.g:1142:1: ( ( ( ( rule__State__ActionsAssignment_3_2 ) ) ( ( rule__State__ActionsAssignment_3_2 )* ) ) )
+            // InternalRentalWorkflow.g:1143:1: ( ( ( rule__State__ActionsAssignment_3_2 ) ) ( ( rule__State__ActionsAssignment_3_2 )* ) )
             {
-            // InternalRentalWorkflow.g:1076:1: ( ( ( rule__State__ActionsAssignment_3_2 ) ) ( ( rule__State__ActionsAssignment_3_2 )* ) )
-            // InternalRentalWorkflow.g:1077:2: ( ( rule__State__ActionsAssignment_3_2 ) ) ( ( rule__State__ActionsAssignment_3_2 )* )
+            // InternalRentalWorkflow.g:1143:1: ( ( ( rule__State__ActionsAssignment_3_2 ) ) ( ( rule__State__ActionsAssignment_3_2 )* ) )
+            // InternalRentalWorkflow.g:1144:2: ( ( rule__State__ActionsAssignment_3_2 ) ) ( ( rule__State__ActionsAssignment_3_2 )* )
             {
-            // InternalRentalWorkflow.g:1077:2: ( ( rule__State__ActionsAssignment_3_2 ) )
-            // InternalRentalWorkflow.g:1078:3: ( rule__State__ActionsAssignment_3_2 )
+            // InternalRentalWorkflow.g:1144:2: ( ( rule__State__ActionsAssignment_3_2 ) )
+            // InternalRentalWorkflow.g:1145:3: ( rule__State__ActionsAssignment_3_2 )
             {
              before(grammarAccess.getStateAccess().getActionsAssignment_3_2()); 
-            // InternalRentalWorkflow.g:1079:3: ( rule__State__ActionsAssignment_3_2 )
-            // InternalRentalWorkflow.g:1079:4: rule__State__ActionsAssignment_3_2
+            // InternalRentalWorkflow.g:1146:3: ( rule__State__ActionsAssignment_3_2 )
+            // InternalRentalWorkflow.g:1146:4: rule__State__ActionsAssignment_3_2
             {
             pushFollow(FOLLOW_7);
             rule__State__ActionsAssignment_3_2();
@@ -3382,11 +3571,11 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
             }
 
-            // InternalRentalWorkflow.g:1082:2: ( ( rule__State__ActionsAssignment_3_2 )* )
-            // InternalRentalWorkflow.g:1083:3: ( rule__State__ActionsAssignment_3_2 )*
+            // InternalRentalWorkflow.g:1149:2: ( ( rule__State__ActionsAssignment_3_2 )* )
+            // InternalRentalWorkflow.g:1150:3: ( rule__State__ActionsAssignment_3_2 )*
             {
              before(grammarAccess.getStateAccess().getActionsAssignment_3_2()); 
-            // InternalRentalWorkflow.g:1084:3: ( rule__State__ActionsAssignment_3_2 )*
+            // InternalRentalWorkflow.g:1151:3: ( rule__State__ActionsAssignment_3_2 )*
             loop10:
             do {
                 int alt10=2;
@@ -3399,7 +3588,7 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalRentalWorkflow.g:1084:4: rule__State__ActionsAssignment_3_2
+            	    // InternalRentalWorkflow.g:1151:4: rule__State__ActionsAssignment_3_2
             	    {
             	    pushFollow(FOLLOW_7);
             	    rule__State__ActionsAssignment_3_2();
@@ -3441,14 +3630,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__State__Group_3__3"
-    // InternalRentalWorkflow.g:1093:1: rule__State__Group_3__3 : rule__State__Group_3__3__Impl ;
+    // InternalRentalWorkflow.g:1160:1: rule__State__Group_3__3 : rule__State__Group_3__3__Impl ;
     public final void rule__State__Group_3__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1097:1: ( rule__State__Group_3__3__Impl )
-            // InternalRentalWorkflow.g:1098:2: rule__State__Group_3__3__Impl
+            // InternalRentalWorkflow.g:1164:1: ( rule__State__Group_3__3__Impl )
+            // InternalRentalWorkflow.g:1165:2: rule__State__Group_3__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__State__Group_3__3__Impl();
@@ -3474,20 +3663,20 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__State__Group_3__3__Impl"
-    // InternalRentalWorkflow.g:1104:1: rule__State__Group_3__3__Impl : ( '}' ) ;
+    // InternalRentalWorkflow.g:1171:1: rule__State__Group_3__3__Impl : ( '}' ) ;
     public final void rule__State__Group_3__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1108:1: ( ( '}' ) )
-            // InternalRentalWorkflow.g:1109:1: ( '}' )
+            // InternalRentalWorkflow.g:1175:1: ( ( '}' ) )
+            // InternalRentalWorkflow.g:1176:1: ( '}' )
             {
-            // InternalRentalWorkflow.g:1109:1: ( '}' )
-            // InternalRentalWorkflow.g:1110:2: '}'
+            // InternalRentalWorkflow.g:1176:1: ( '}' )
+            // InternalRentalWorkflow.g:1177:2: '}'
             {
              before(grammarAccess.getStateAccess().getRightCurlyBracketKeyword_3_3()); 
-            match(input,32,FOLLOW_2); 
+            match(input,31,FOLLOW_2); 
              after(grammarAccess.getStateAccess().getRightCurlyBracketKeyword_3_3()); 
 
             }
@@ -3511,16 +3700,16 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Transition__Group__0"
-    // InternalRentalWorkflow.g:1120:1: rule__Transition__Group__0 : rule__Transition__Group__0__Impl rule__Transition__Group__1 ;
+    // InternalRentalWorkflow.g:1187:1: rule__Transition__Group__0 : rule__Transition__Group__0__Impl rule__Transition__Group__1 ;
     public final void rule__Transition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1124:1: ( rule__Transition__Group__0__Impl rule__Transition__Group__1 )
-            // InternalRentalWorkflow.g:1125:2: rule__Transition__Group__0__Impl rule__Transition__Group__1
+            // InternalRentalWorkflow.g:1191:1: ( rule__Transition__Group__0__Impl rule__Transition__Group__1 )
+            // InternalRentalWorkflow.g:1192:2: rule__Transition__Group__0__Impl rule__Transition__Group__1
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_19);
             rule__Transition__Group__0__Impl();
 
             state._fsp--;
@@ -3549,21 +3738,21 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Transition__Group__0__Impl"
-    // InternalRentalWorkflow.g:1132:1: rule__Transition__Group__0__Impl : ( ( rule__Transition__EventAssignment_0 ) ) ;
+    // InternalRentalWorkflow.g:1199:1: rule__Transition__Group__0__Impl : ( ( rule__Transition__EventAssignment_0 ) ) ;
     public final void rule__Transition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1136:1: ( ( ( rule__Transition__EventAssignment_0 ) ) )
-            // InternalRentalWorkflow.g:1137:1: ( ( rule__Transition__EventAssignment_0 ) )
+            // InternalRentalWorkflow.g:1203:1: ( ( ( rule__Transition__EventAssignment_0 ) ) )
+            // InternalRentalWorkflow.g:1204:1: ( ( rule__Transition__EventAssignment_0 ) )
             {
-            // InternalRentalWorkflow.g:1137:1: ( ( rule__Transition__EventAssignment_0 ) )
-            // InternalRentalWorkflow.g:1138:2: ( rule__Transition__EventAssignment_0 )
+            // InternalRentalWorkflow.g:1204:1: ( ( rule__Transition__EventAssignment_0 ) )
+            // InternalRentalWorkflow.g:1205:2: ( rule__Transition__EventAssignment_0 )
             {
              before(grammarAccess.getTransitionAccess().getEventAssignment_0()); 
-            // InternalRentalWorkflow.g:1139:2: ( rule__Transition__EventAssignment_0 )
-            // InternalRentalWorkflow.g:1139:3: rule__Transition__EventAssignment_0
+            // InternalRentalWorkflow.g:1206:2: ( rule__Transition__EventAssignment_0 )
+            // InternalRentalWorkflow.g:1206:3: rule__Transition__EventAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Transition__EventAssignment_0();
@@ -3596,14 +3785,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Transition__Group__1"
-    // InternalRentalWorkflow.g:1147:1: rule__Transition__Group__1 : rule__Transition__Group__1__Impl rule__Transition__Group__2 ;
+    // InternalRentalWorkflow.g:1214:1: rule__Transition__Group__1 : rule__Transition__Group__1__Impl rule__Transition__Group__2 ;
     public final void rule__Transition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1151:1: ( rule__Transition__Group__1__Impl rule__Transition__Group__2 )
-            // InternalRentalWorkflow.g:1152:2: rule__Transition__Group__1__Impl rule__Transition__Group__2
+            // InternalRentalWorkflow.g:1218:1: ( rule__Transition__Group__1__Impl rule__Transition__Group__2 )
+            // InternalRentalWorkflow.g:1219:2: rule__Transition__Group__1__Impl rule__Transition__Group__2
             {
             pushFollow(FOLLOW_4);
             rule__Transition__Group__1__Impl();
@@ -3634,20 +3823,20 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Transition__Group__1__Impl"
-    // InternalRentalWorkflow.g:1159:1: rule__Transition__Group__1__Impl : ( '=>' ) ;
+    // InternalRentalWorkflow.g:1226:1: rule__Transition__Group__1__Impl : ( '=>' ) ;
     public final void rule__Transition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1163:1: ( ( '=>' ) )
-            // InternalRentalWorkflow.g:1164:1: ( '=>' )
+            // InternalRentalWorkflow.g:1230:1: ( ( '=>' ) )
+            // InternalRentalWorkflow.g:1231:1: ( '=>' )
             {
-            // InternalRentalWorkflow.g:1164:1: ( '=>' )
-            // InternalRentalWorkflow.g:1165:2: '=>'
+            // InternalRentalWorkflow.g:1231:1: ( '=>' )
+            // InternalRentalWorkflow.g:1232:2: '=>'
             {
              before(grammarAccess.getTransitionAccess().getEqualsSignGreaterThanSignKeyword_1()); 
-            match(input,33,FOLLOW_2); 
+            match(input,32,FOLLOW_2); 
              after(grammarAccess.getTransitionAccess().getEqualsSignGreaterThanSignKeyword_1()); 
 
             }
@@ -3671,14 +3860,14 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Transition__Group__2"
-    // InternalRentalWorkflow.g:1174:1: rule__Transition__Group__2 : rule__Transition__Group__2__Impl ;
+    // InternalRentalWorkflow.g:1241:1: rule__Transition__Group__2 : rule__Transition__Group__2__Impl ;
     public final void rule__Transition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1178:1: ( rule__Transition__Group__2__Impl )
-            // InternalRentalWorkflow.g:1179:2: rule__Transition__Group__2__Impl
+            // InternalRentalWorkflow.g:1245:1: ( rule__Transition__Group__2__Impl )
+            // InternalRentalWorkflow.g:1246:2: rule__Transition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Transition__Group__2__Impl();
@@ -3704,21 +3893,21 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Transition__Group__2__Impl"
-    // InternalRentalWorkflow.g:1185:1: rule__Transition__Group__2__Impl : ( ( rule__Transition__StateAssignment_2 ) ) ;
+    // InternalRentalWorkflow.g:1252:1: rule__Transition__Group__2__Impl : ( ( rule__Transition__StateAssignment_2 ) ) ;
     public final void rule__Transition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1189:1: ( ( ( rule__Transition__StateAssignment_2 ) ) )
-            // InternalRentalWorkflow.g:1190:1: ( ( rule__Transition__StateAssignment_2 ) )
+            // InternalRentalWorkflow.g:1256:1: ( ( ( rule__Transition__StateAssignment_2 ) ) )
+            // InternalRentalWorkflow.g:1257:1: ( ( rule__Transition__StateAssignment_2 ) )
             {
-            // InternalRentalWorkflow.g:1190:1: ( ( rule__Transition__StateAssignment_2 ) )
-            // InternalRentalWorkflow.g:1191:2: ( rule__Transition__StateAssignment_2 )
+            // InternalRentalWorkflow.g:1257:1: ( ( rule__Transition__StateAssignment_2 ) )
+            // InternalRentalWorkflow.g:1258:2: ( rule__Transition__StateAssignment_2 )
             {
              before(grammarAccess.getTransitionAccess().getStateAssignment_2()); 
-            // InternalRentalWorkflow.g:1192:2: ( rule__Transition__StateAssignment_2 )
-            // InternalRentalWorkflow.g:1192:3: rule__Transition__StateAssignment_2
+            // InternalRentalWorkflow.g:1259:2: ( rule__Transition__StateAssignment_2 )
+            // InternalRentalWorkflow.g:1259:3: rule__Transition__StateAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Transition__StateAssignment_2();
@@ -3750,18 +3939,336 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
     // $ANTLR end "rule__Transition__Group__2__Impl"
 
 
+    // $ANTLR start "rule__QualifiedName__Group__0"
+    // InternalRentalWorkflow.g:1268:1: rule__QualifiedName__Group__0 : rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 ;
+    public final void rule__QualifiedName__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalRentalWorkflow.g:1272:1: ( rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 )
+            // InternalRentalWorkflow.g:1273:2: rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1
+            {
+            pushFollow(FOLLOW_20);
+            rule__QualifiedName__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__QualifiedName__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__QualifiedName__Group__0"
+
+
+    // $ANTLR start "rule__QualifiedName__Group__0__Impl"
+    // InternalRentalWorkflow.g:1280:1: rule__QualifiedName__Group__0__Impl : ( RULE_ID ) ;
+    public final void rule__QualifiedName__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalRentalWorkflow.g:1284:1: ( ( RULE_ID ) )
+            // InternalRentalWorkflow.g:1285:1: ( RULE_ID )
+            {
+            // InternalRentalWorkflow.g:1285:1: ( RULE_ID )
+            // InternalRentalWorkflow.g:1286:2: RULE_ID
+            {
+             before(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__QualifiedName__Group__0__Impl"
+
+
+    // $ANTLR start "rule__QualifiedName__Group__1"
+    // InternalRentalWorkflow.g:1295:1: rule__QualifiedName__Group__1 : rule__QualifiedName__Group__1__Impl ;
+    public final void rule__QualifiedName__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalRentalWorkflow.g:1299:1: ( rule__QualifiedName__Group__1__Impl )
+            // InternalRentalWorkflow.g:1300:2: rule__QualifiedName__Group__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__QualifiedName__Group__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__QualifiedName__Group__1"
+
+
+    // $ANTLR start "rule__QualifiedName__Group__1__Impl"
+    // InternalRentalWorkflow.g:1306:1: rule__QualifiedName__Group__1__Impl : ( ( rule__QualifiedName__Group_1__0 )* ) ;
+    public final void rule__QualifiedName__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalRentalWorkflow.g:1310:1: ( ( ( rule__QualifiedName__Group_1__0 )* ) )
+            // InternalRentalWorkflow.g:1311:1: ( ( rule__QualifiedName__Group_1__0 )* )
+            {
+            // InternalRentalWorkflow.g:1311:1: ( ( rule__QualifiedName__Group_1__0 )* )
+            // InternalRentalWorkflow.g:1312:2: ( rule__QualifiedName__Group_1__0 )*
+            {
+             before(grammarAccess.getQualifiedNameAccess().getGroup_1()); 
+            // InternalRentalWorkflow.g:1313:2: ( rule__QualifiedName__Group_1__0 )*
+            loop11:
+            do {
+                int alt11=2;
+                int LA11_0 = input.LA(1);
+
+                if ( (LA11_0==33) ) {
+                    alt11=1;
+                }
+
+
+                switch (alt11) {
+            	case 1 :
+            	    // InternalRentalWorkflow.g:1313:3: rule__QualifiedName__Group_1__0
+            	    {
+            	    pushFollow(FOLLOW_21);
+            	    rule__QualifiedName__Group_1__0();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop11;
+                }
+            } while (true);
+
+             after(grammarAccess.getQualifiedNameAccess().getGroup_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__QualifiedName__Group__1__Impl"
+
+
+    // $ANTLR start "rule__QualifiedName__Group_1__0"
+    // InternalRentalWorkflow.g:1322:1: rule__QualifiedName__Group_1__0 : rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 ;
+    public final void rule__QualifiedName__Group_1__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalRentalWorkflow.g:1326:1: ( rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 )
+            // InternalRentalWorkflow.g:1327:2: rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1
+            {
+            pushFollow(FOLLOW_4);
+            rule__QualifiedName__Group_1__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__QualifiedName__Group_1__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__QualifiedName__Group_1__0"
+
+
+    // $ANTLR start "rule__QualifiedName__Group_1__0__Impl"
+    // InternalRentalWorkflow.g:1334:1: rule__QualifiedName__Group_1__0__Impl : ( '.' ) ;
+    public final void rule__QualifiedName__Group_1__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalRentalWorkflow.g:1338:1: ( ( '.' ) )
+            // InternalRentalWorkflow.g:1339:1: ( '.' )
+            {
+            // InternalRentalWorkflow.g:1339:1: ( '.' )
+            // InternalRentalWorkflow.g:1340:2: '.'
+            {
+             before(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
+            match(input,33,FOLLOW_2); 
+             after(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__QualifiedName__Group_1__0__Impl"
+
+
+    // $ANTLR start "rule__QualifiedName__Group_1__1"
+    // InternalRentalWorkflow.g:1349:1: rule__QualifiedName__Group_1__1 : rule__QualifiedName__Group_1__1__Impl ;
+    public final void rule__QualifiedName__Group_1__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalRentalWorkflow.g:1353:1: ( rule__QualifiedName__Group_1__1__Impl )
+            // InternalRentalWorkflow.g:1354:2: rule__QualifiedName__Group_1__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__QualifiedName__Group_1__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__QualifiedName__Group_1__1"
+
+
+    // $ANTLR start "rule__QualifiedName__Group_1__1__Impl"
+    // InternalRentalWorkflow.g:1360:1: rule__QualifiedName__Group_1__1__Impl : ( RULE_ID ) ;
+    public final void rule__QualifiedName__Group_1__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalRentalWorkflow.g:1364:1: ( ( RULE_ID ) )
+            // InternalRentalWorkflow.g:1365:1: ( RULE_ID )
+            {
+            // InternalRentalWorkflow.g:1365:1: ( RULE_ID )
+            // InternalRentalWorkflow.g:1366:2: RULE_ID
+            {
+             before(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__QualifiedName__Group_1__1__Impl"
+
+
     // $ANTLR start "rule__RentalWorkflow__NameAssignment_2"
-    // InternalRentalWorkflow.g:1201:1: rule__RentalWorkflow__NameAssignment_2 : ( RULE_ID ) ;
+    // InternalRentalWorkflow.g:1376:1: rule__RentalWorkflow__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__RentalWorkflow__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1205:1: ( ( RULE_ID ) )
-            // InternalRentalWorkflow.g:1206:2: ( RULE_ID )
+            // InternalRentalWorkflow.g:1380:1: ( ( RULE_ID ) )
+            // InternalRentalWorkflow.g:1381:2: ( RULE_ID )
             {
-            // InternalRentalWorkflow.g:1206:2: ( RULE_ID )
-            // InternalRentalWorkflow.g:1207:3: RULE_ID
+            // InternalRentalWorkflow.g:1381:2: ( RULE_ID )
+            // InternalRentalWorkflow.g:1382:3: RULE_ID
             {
              before(grammarAccess.getRentalWorkflowAccess().getNameIDTerminalRuleCall_2_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -3788,17 +4295,17 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__EventAssignment_4"
-    // InternalRentalWorkflow.g:1216:1: rule__RentalWorkflow__EventAssignment_4 : ( ruleEvent ) ;
+    // InternalRentalWorkflow.g:1391:1: rule__RentalWorkflow__EventAssignment_4 : ( ruleEvent ) ;
     public final void rule__RentalWorkflow__EventAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1220:1: ( ( ruleEvent ) )
-            // InternalRentalWorkflow.g:1221:2: ( ruleEvent )
+            // InternalRentalWorkflow.g:1395:1: ( ( ruleEvent ) )
+            // InternalRentalWorkflow.g:1396:2: ( ruleEvent )
             {
-            // InternalRentalWorkflow.g:1221:2: ( ruleEvent )
-            // InternalRentalWorkflow.g:1222:3: ruleEvent
+            // InternalRentalWorkflow.g:1396:2: ( ruleEvent )
+            // InternalRentalWorkflow.g:1397:3: ruleEvent
             {
              before(grammarAccess.getRentalWorkflowAccess().getEventEventParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -3829,21 +4336,21 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__ResetEventsAssignment_7"
-    // InternalRentalWorkflow.g:1231:1: rule__RentalWorkflow__ResetEventsAssignment_7 : ( ( RULE_ID ) ) ;
+    // InternalRentalWorkflow.g:1406:1: rule__RentalWorkflow__ResetEventsAssignment_7 : ( ( RULE_ID ) ) ;
     public final void rule__RentalWorkflow__ResetEventsAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1235:1: ( ( ( RULE_ID ) ) )
-            // InternalRentalWorkflow.g:1236:2: ( ( RULE_ID ) )
+            // InternalRentalWorkflow.g:1410:1: ( ( ( RULE_ID ) ) )
+            // InternalRentalWorkflow.g:1411:2: ( ( RULE_ID ) )
             {
-            // InternalRentalWorkflow.g:1236:2: ( ( RULE_ID ) )
-            // InternalRentalWorkflow.g:1237:3: ( RULE_ID )
+            // InternalRentalWorkflow.g:1411:2: ( ( RULE_ID ) )
+            // InternalRentalWorkflow.g:1412:3: ( RULE_ID )
             {
              before(grammarAccess.getRentalWorkflowAccess().getResetEventsEventCrossReference_7_0()); 
-            // InternalRentalWorkflow.g:1238:3: ( RULE_ID )
-            // InternalRentalWorkflow.g:1239:4: RULE_ID
+            // InternalRentalWorkflow.g:1413:3: ( RULE_ID )
+            // InternalRentalWorkflow.g:1414:4: RULE_ID
             {
              before(grammarAccess.getRentalWorkflowAccess().getResetEventsEventIDTerminalRuleCall_7_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -3874,17 +4381,17 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RentalWorkflow__CommandsAssignment_10"
-    // InternalRentalWorkflow.g:1250:1: rule__RentalWorkflow__CommandsAssignment_10 : ( ruleCommand ) ;
+    // InternalRentalWorkflow.g:1425:1: rule__RentalWorkflow__CommandsAssignment_10 : ( ruleCommand ) ;
     public final void rule__RentalWorkflow__CommandsAssignment_10() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1254:1: ( ( ruleCommand ) )
-            // InternalRentalWorkflow.g:1255:2: ( ruleCommand )
+            // InternalRentalWorkflow.g:1429:1: ( ( ruleCommand ) )
+            // InternalRentalWorkflow.g:1430:2: ( ruleCommand )
             {
-            // InternalRentalWorkflow.g:1255:2: ( ruleCommand )
-            // InternalRentalWorkflow.g:1256:3: ruleCommand
+            // InternalRentalWorkflow.g:1430:2: ( ruleCommand )
+            // InternalRentalWorkflow.g:1431:3: ruleCommand
             {
              before(grammarAccess.getRentalWorkflowAccess().getCommandsCommandParserRuleCall_10_0()); 
             pushFollow(FOLLOW_2);
@@ -3914,26 +4421,34 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
     // $ANTLR end "rule__RentalWorkflow__CommandsAssignment_10"
 
 
-    // $ANTLR start "rule__RentalWorkflow__StatesAssignment_12"
-    // InternalRentalWorkflow.g:1265:1: rule__RentalWorkflow__StatesAssignment_12 : ( ruleState ) ;
-    public final void rule__RentalWorkflow__StatesAssignment_12() throws RecognitionException {
+    // $ANTLR start "rule__RentalWorkflow__WorkflowDealAssignment_13"
+    // InternalRentalWorkflow.g:1440:1: rule__RentalWorkflow__WorkflowDealAssignment_13 : ( ( ruleQualifiedName ) ) ;
+    public final void rule__RentalWorkflow__WorkflowDealAssignment_13() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1269:1: ( ( ruleState ) )
-            // InternalRentalWorkflow.g:1270:2: ( ruleState )
+            // InternalRentalWorkflow.g:1444:1: ( ( ( ruleQualifiedName ) ) )
+            // InternalRentalWorkflow.g:1445:2: ( ( ruleQualifiedName ) )
             {
-            // InternalRentalWorkflow.g:1270:2: ( ruleState )
-            // InternalRentalWorkflow.g:1271:3: ruleState
+            // InternalRentalWorkflow.g:1445:2: ( ( ruleQualifiedName ) )
+            // InternalRentalWorkflow.g:1446:3: ( ruleQualifiedName )
             {
-             before(grammarAccess.getRentalWorkflowAccess().getStatesStateParserRuleCall_12_0()); 
+             before(grammarAccess.getRentalWorkflowAccess().getWorkflowDealRentalSystemCrossReference_13_0()); 
+            // InternalRentalWorkflow.g:1447:3: ( ruleQualifiedName )
+            // InternalRentalWorkflow.g:1448:4: ruleQualifiedName
+            {
+             before(grammarAccess.getRentalWorkflowAccess().getWorkflowDealRentalSystemQualifiedNameParserRuleCall_13_0_1()); 
             pushFollow(FOLLOW_2);
-            ruleState();
+            ruleQualifiedName();
 
             state._fsp--;
 
-             after(grammarAccess.getRentalWorkflowAccess().getStatesStateParserRuleCall_12_0()); 
+             after(grammarAccess.getRentalWorkflowAccess().getWorkflowDealRentalSystemQualifiedNameParserRuleCall_13_0_1()); 
+
+            }
+
+             after(grammarAccess.getRentalWorkflowAccess().getWorkflowDealRentalSystemCrossReference_13_0()); 
 
             }
 
@@ -3952,21 +4467,62 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end "rule__RentalWorkflow__StatesAssignment_12"
+    // $ANTLR end "rule__RentalWorkflow__WorkflowDealAssignment_13"
+
+
+    // $ANTLR start "rule__RentalWorkflow__StatesAssignment_14"
+    // InternalRentalWorkflow.g:1459:1: rule__RentalWorkflow__StatesAssignment_14 : ( ruleState ) ;
+    public final void rule__RentalWorkflow__StatesAssignment_14() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalRentalWorkflow.g:1463:1: ( ( ruleState ) )
+            // InternalRentalWorkflow.g:1464:2: ( ruleState )
+            {
+            // InternalRentalWorkflow.g:1464:2: ( ruleState )
+            // InternalRentalWorkflow.g:1465:3: ruleState
+            {
+             before(grammarAccess.getRentalWorkflowAccess().getStatesStateParserRuleCall_14_0()); 
+            pushFollow(FOLLOW_2);
+            ruleState();
+
+            state._fsp--;
+
+             after(grammarAccess.getRentalWorkflowAccess().getStatesStateParserRuleCall_14_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RentalWorkflow__StatesAssignment_14"
 
 
     // $ANTLR start "rule__Event__NameAssignment_0"
-    // InternalRentalWorkflow.g:1280:1: rule__Event__NameAssignment_0 : ( RULE_ID ) ;
+    // InternalRentalWorkflow.g:1474:1: rule__Event__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__Event__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1284:1: ( ( RULE_ID ) )
-            // InternalRentalWorkflow.g:1285:2: ( RULE_ID )
+            // InternalRentalWorkflow.g:1478:1: ( ( RULE_ID ) )
+            // InternalRentalWorkflow.g:1479:2: ( RULE_ID )
             {
-            // InternalRentalWorkflow.g:1285:2: ( RULE_ID )
-            // InternalRentalWorkflow.g:1286:3: RULE_ID
+            // InternalRentalWorkflow.g:1479:2: ( RULE_ID )
+            // InternalRentalWorkflow.g:1480:3: RULE_ID
             {
              before(grammarAccess.getEventAccess().getNameIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -3993,17 +4549,17 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Event__CodeAssignment_1"
-    // InternalRentalWorkflow.g:1295:1: rule__Event__CodeAssignment_1 : ( RULE_ID ) ;
+    // InternalRentalWorkflow.g:1489:1: rule__Event__CodeAssignment_1 : ( RULE_ID ) ;
     public final void rule__Event__CodeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1299:1: ( ( RULE_ID ) )
-            // InternalRentalWorkflow.g:1300:2: ( RULE_ID )
+            // InternalRentalWorkflow.g:1493:1: ( ( RULE_ID ) )
+            // InternalRentalWorkflow.g:1494:2: ( RULE_ID )
             {
-            // InternalRentalWorkflow.g:1300:2: ( RULE_ID )
-            // InternalRentalWorkflow.g:1301:3: RULE_ID
+            // InternalRentalWorkflow.g:1494:2: ( RULE_ID )
+            // InternalRentalWorkflow.g:1495:3: RULE_ID
             {
              before(grammarAccess.getEventAccess().getCodeIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4030,17 +4586,17 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Event__OfTypeAssignment_2"
-    // InternalRentalWorkflow.g:1310:1: rule__Event__OfTypeAssignment_2 : ( ruleofEventType ) ;
+    // InternalRentalWorkflow.g:1504:1: rule__Event__OfTypeAssignment_2 : ( ruleofEventType ) ;
     public final void rule__Event__OfTypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1314:1: ( ( ruleofEventType ) )
-            // InternalRentalWorkflow.g:1315:2: ( ruleofEventType )
+            // InternalRentalWorkflow.g:1508:1: ( ( ruleofEventType ) )
+            // InternalRentalWorkflow.g:1509:2: ( ruleofEventType )
             {
-            // InternalRentalWorkflow.g:1315:2: ( ruleofEventType )
-            // InternalRentalWorkflow.g:1316:3: ruleofEventType
+            // InternalRentalWorkflow.g:1509:2: ( ruleofEventType )
+            // InternalRentalWorkflow.g:1510:3: ruleofEventType
             {
              before(grammarAccess.getEventAccess().getOfTypeOfEventTypeEnumRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -4071,17 +4627,17 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Command__NameAssignment_0"
-    // InternalRentalWorkflow.g:1325:1: rule__Command__NameAssignment_0 : ( RULE_ID ) ;
+    // InternalRentalWorkflow.g:1519:1: rule__Command__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__Command__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1329:1: ( ( RULE_ID ) )
-            // InternalRentalWorkflow.g:1330:2: ( RULE_ID )
+            // InternalRentalWorkflow.g:1523:1: ( ( RULE_ID ) )
+            // InternalRentalWorkflow.g:1524:2: ( RULE_ID )
             {
-            // InternalRentalWorkflow.g:1330:2: ( RULE_ID )
-            // InternalRentalWorkflow.g:1331:3: RULE_ID
+            // InternalRentalWorkflow.g:1524:2: ( RULE_ID )
+            // InternalRentalWorkflow.g:1525:3: RULE_ID
             {
              before(grammarAccess.getCommandAccess().getNameIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4108,17 +4664,17 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Command__CodeAssignment_1"
-    // InternalRentalWorkflow.g:1340:1: rule__Command__CodeAssignment_1 : ( RULE_ID ) ;
+    // InternalRentalWorkflow.g:1534:1: rule__Command__CodeAssignment_1 : ( RULE_ID ) ;
     public final void rule__Command__CodeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1344:1: ( ( RULE_ID ) )
-            // InternalRentalWorkflow.g:1345:2: ( RULE_ID )
+            // InternalRentalWorkflow.g:1538:1: ( ( RULE_ID ) )
+            // InternalRentalWorkflow.g:1539:2: ( RULE_ID )
             {
-            // InternalRentalWorkflow.g:1345:2: ( RULE_ID )
-            // InternalRentalWorkflow.g:1346:3: RULE_ID
+            // InternalRentalWorkflow.g:1539:2: ( RULE_ID )
+            // InternalRentalWorkflow.g:1540:3: RULE_ID
             {
              before(grammarAccess.getCommandAccess().getCodeIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4145,17 +4701,17 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Command__OfTypeAssignment_2"
-    // InternalRentalWorkflow.g:1355:1: rule__Command__OfTypeAssignment_2 : ( ruleofCommandType ) ;
+    // InternalRentalWorkflow.g:1549:1: rule__Command__OfTypeAssignment_2 : ( ruleofCommandType ) ;
     public final void rule__Command__OfTypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1359:1: ( ( ruleofCommandType ) )
-            // InternalRentalWorkflow.g:1360:2: ( ruleofCommandType )
+            // InternalRentalWorkflow.g:1553:1: ( ( ruleofCommandType ) )
+            // InternalRentalWorkflow.g:1554:2: ( ruleofCommandType )
             {
-            // InternalRentalWorkflow.g:1360:2: ( ruleofCommandType )
-            // InternalRentalWorkflow.g:1361:3: ruleofCommandType
+            // InternalRentalWorkflow.g:1554:2: ( ruleofCommandType )
+            // InternalRentalWorkflow.g:1555:3: ruleofCommandType
             {
              before(grammarAccess.getCommandAccess().getOfTypeOfCommandTypeEnumRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -4186,17 +4742,17 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__State__NameAssignment_1"
-    // InternalRentalWorkflow.g:1370:1: rule__State__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalRentalWorkflow.g:1564:1: rule__State__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__State__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1374:1: ( ( RULE_ID ) )
-            // InternalRentalWorkflow.g:1375:2: ( RULE_ID )
+            // InternalRentalWorkflow.g:1568:1: ( ( RULE_ID ) )
+            // InternalRentalWorkflow.g:1569:2: ( RULE_ID )
             {
-            // InternalRentalWorkflow.g:1375:2: ( RULE_ID )
-            // InternalRentalWorkflow.g:1376:3: RULE_ID
+            // InternalRentalWorkflow.g:1569:2: ( RULE_ID )
+            // InternalRentalWorkflow.g:1570:3: RULE_ID
             {
              before(grammarAccess.getStateAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4223,17 +4779,17 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__State__OfTypeAssignment_2"
-    // InternalRentalWorkflow.g:1385:1: rule__State__OfTypeAssignment_2 : ( ruleOfType ) ;
+    // InternalRentalWorkflow.g:1579:1: rule__State__OfTypeAssignment_2 : ( ruleOfType ) ;
     public final void rule__State__OfTypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1389:1: ( ( ruleOfType ) )
-            // InternalRentalWorkflow.g:1390:2: ( ruleOfType )
+            // InternalRentalWorkflow.g:1583:1: ( ( ruleOfType ) )
+            // InternalRentalWorkflow.g:1584:2: ( ruleOfType )
             {
-            // InternalRentalWorkflow.g:1390:2: ( ruleOfType )
-            // InternalRentalWorkflow.g:1391:3: ruleOfType
+            // InternalRentalWorkflow.g:1584:2: ( ruleOfType )
+            // InternalRentalWorkflow.g:1585:3: ruleOfType
             {
              before(grammarAccess.getStateAccess().getOfTypeOfTypeEnumRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -4264,21 +4820,21 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__State__ActionsAssignment_3_2"
-    // InternalRentalWorkflow.g:1400:1: rule__State__ActionsAssignment_3_2 : ( ( RULE_ID ) ) ;
+    // InternalRentalWorkflow.g:1594:1: rule__State__ActionsAssignment_3_2 : ( ( RULE_ID ) ) ;
     public final void rule__State__ActionsAssignment_3_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1404:1: ( ( ( RULE_ID ) ) )
-            // InternalRentalWorkflow.g:1405:2: ( ( RULE_ID ) )
+            // InternalRentalWorkflow.g:1598:1: ( ( ( RULE_ID ) ) )
+            // InternalRentalWorkflow.g:1599:2: ( ( RULE_ID ) )
             {
-            // InternalRentalWorkflow.g:1405:2: ( ( RULE_ID ) )
-            // InternalRentalWorkflow.g:1406:3: ( RULE_ID )
+            // InternalRentalWorkflow.g:1599:2: ( ( RULE_ID ) )
+            // InternalRentalWorkflow.g:1600:3: ( RULE_ID )
             {
              before(grammarAccess.getStateAccess().getActionsCommandCrossReference_3_2_0()); 
-            // InternalRentalWorkflow.g:1407:3: ( RULE_ID )
-            // InternalRentalWorkflow.g:1408:4: RULE_ID
+            // InternalRentalWorkflow.g:1601:3: ( RULE_ID )
+            // InternalRentalWorkflow.g:1602:4: RULE_ID
             {
              before(grammarAccess.getStateAccess().getActionsCommandIDTerminalRuleCall_3_2_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4309,17 +4865,17 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__State__TransitionsAssignment_4"
-    // InternalRentalWorkflow.g:1419:1: rule__State__TransitionsAssignment_4 : ( ruleTransition ) ;
+    // InternalRentalWorkflow.g:1613:1: rule__State__TransitionsAssignment_4 : ( ruleTransition ) ;
     public final void rule__State__TransitionsAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1423:1: ( ( ruleTransition ) )
-            // InternalRentalWorkflow.g:1424:2: ( ruleTransition )
+            // InternalRentalWorkflow.g:1617:1: ( ( ruleTransition ) )
+            // InternalRentalWorkflow.g:1618:2: ( ruleTransition )
             {
-            // InternalRentalWorkflow.g:1424:2: ( ruleTransition )
-            // InternalRentalWorkflow.g:1425:3: ruleTransition
+            // InternalRentalWorkflow.g:1618:2: ( ruleTransition )
+            // InternalRentalWorkflow.g:1619:3: ruleTransition
             {
              before(grammarAccess.getStateAccess().getTransitionsTransitionParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -4350,21 +4906,21 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Transition__EventAssignment_0"
-    // InternalRentalWorkflow.g:1434:1: rule__Transition__EventAssignment_0 : ( ( RULE_ID ) ) ;
+    // InternalRentalWorkflow.g:1628:1: rule__Transition__EventAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__Transition__EventAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1438:1: ( ( ( RULE_ID ) ) )
-            // InternalRentalWorkflow.g:1439:2: ( ( RULE_ID ) )
+            // InternalRentalWorkflow.g:1632:1: ( ( ( RULE_ID ) ) )
+            // InternalRentalWorkflow.g:1633:2: ( ( RULE_ID ) )
             {
-            // InternalRentalWorkflow.g:1439:2: ( ( RULE_ID ) )
-            // InternalRentalWorkflow.g:1440:3: ( RULE_ID )
+            // InternalRentalWorkflow.g:1633:2: ( ( RULE_ID ) )
+            // InternalRentalWorkflow.g:1634:3: ( RULE_ID )
             {
              before(grammarAccess.getTransitionAccess().getEventEventCrossReference_0_0()); 
-            // InternalRentalWorkflow.g:1441:3: ( RULE_ID )
-            // InternalRentalWorkflow.g:1442:4: RULE_ID
+            // InternalRentalWorkflow.g:1635:3: ( RULE_ID )
+            // InternalRentalWorkflow.g:1636:4: RULE_ID
             {
              before(grammarAccess.getTransitionAccess().getEventEventIDTerminalRuleCall_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4395,21 +4951,21 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Transition__StateAssignment_2"
-    // InternalRentalWorkflow.g:1453:1: rule__Transition__StateAssignment_2 : ( ( RULE_ID ) ) ;
+    // InternalRentalWorkflow.g:1647:1: rule__Transition__StateAssignment_2 : ( ( RULE_ID ) ) ;
     public final void rule__Transition__StateAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalWorkflow.g:1457:1: ( ( ( RULE_ID ) ) )
-            // InternalRentalWorkflow.g:1458:2: ( ( RULE_ID ) )
+            // InternalRentalWorkflow.g:1651:1: ( ( ( RULE_ID ) ) )
+            // InternalRentalWorkflow.g:1652:2: ( ( RULE_ID ) )
             {
-            // InternalRentalWorkflow.g:1458:2: ( ( RULE_ID ) )
-            // InternalRentalWorkflow.g:1459:3: ( RULE_ID )
+            // InternalRentalWorkflow.g:1652:2: ( ( RULE_ID ) )
+            // InternalRentalWorkflow.g:1653:3: ( RULE_ID )
             {
              before(grammarAccess.getTransitionAccess().getStateStateCrossReference_2_0()); 
-            // InternalRentalWorkflow.g:1460:3: ( RULE_ID )
-            // InternalRentalWorkflow.g:1461:4: RULE_ID
+            // InternalRentalWorkflow.g:1654:3: ( RULE_ID )
+            // InternalRentalWorkflow.g:1655:4: RULE_ID
             {
              before(grammarAccess.getTransitionAccess().getStateStateIDTerminalRuleCall_2_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4445,21 +5001,24 @@ public class InternalRentalWorkflowParser extends AbstractInternalContentAssistP
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000004000010L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000001000010L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000020000002L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000180000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000E00000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x000000000007F800L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000044000010L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000010000002L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000070000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000380000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x000000000000F800L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000021000010L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000200000002L});
 
 }

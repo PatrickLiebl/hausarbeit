@@ -38,7 +38,17 @@ public enum ofEventType implements Enumerator
    * @generated
    * @ordered
    */
-  BACK_CLICKED(1, "backClicked", "backClicked");
+  BACK_CLICKED(1, "backClicked", "backClicked"),
+
+  /**
+   * The '<em><b>Cancel Clicked</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #CANCEL_CLICKED_VALUE
+   * @generated
+   * @ordered
+   */
+  CANCEL_CLICKED(2, "cancelClicked", "cancelClicked");
 
   /**
    * The '<em><b>Next Clicked</b></em>' literal value.
@@ -71,6 +81,21 @@ public enum ofEventType implements Enumerator
   public static final int BACK_CLICKED_VALUE = 1;
 
   /**
+   * The '<em><b>Cancel Clicked</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>Cancel Clicked</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #CANCEL_CLICKED
+   * @model name="cancelClicked"
+   * @generated
+   * @ordered
+   */
+  public static final int CANCEL_CLICKED_VALUE = 2;
+
+  /**
    * An array of all the '<em><b>of Event Type</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -81,6 +106,7 @@ public enum ofEventType implements Enumerator
     {
       NEXT_CLICKED,
       BACK_CLICKED,
+      CANCEL_CLICKED,
     };
 
   /**
@@ -95,6 +121,8 @@ public enum ofEventType implements Enumerator
    * Returns the '<em><b>of Event Type</b></em>' literal with the specified literal value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
+   * @param literal the literal.
+   * @return the matching enumerator or <code>null</code>.
    * @generated
    */
   public static ofEventType get(String literal)
@@ -114,6 +142,8 @@ public enum ofEventType implements Enumerator
    * Returns the '<em><b>of Event Type</b></em>' literal with the specified name.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
+   * @param name the name.
+   * @return the matching enumerator or <code>null</code>.
    * @generated
    */
   public static ofEventType getByName(String name)
@@ -133,6 +163,8 @@ public enum ofEventType implements Enumerator
    * Returns the '<em><b>of Event Type</b></em>' literal with the specified integer value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
+   * @param value the integer value.
+   * @return the matching enumerator or <code>null</code>.
    * @generated
    */
   public static ofEventType get(int value)
@@ -141,6 +173,7 @@ public enum ofEventType implements Enumerator
     {
       case NEXT_CLICKED_VALUE: return NEXT_CLICKED;
       case BACK_CLICKED_VALUE: return BACK_CLICKED;
+      case CANCEL_CLICKED_VALUE: return CANCEL_CLICKED;
     }
     return null;
   }
