@@ -3,6 +3,8 @@
  */
 package de.nak.xtext.hausarbeit.rentalSystem.rentalSystem;
 
+import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -19,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getName <em>Name</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getCustomer <em>Customer</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getRentalType <em>Rental Type</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getRentalWorkflow <em>Rental Workflow</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getDealAttributes <em>Deal Attributes</em>}</li>
  * </ul>
  *
@@ -105,6 +108,32 @@ public interface Deal extends EObject
    * @generated
    */
   void setRentalType(RentalType value);
+
+  /**
+   * Returns the value of the '<em><b>Rental Workflow</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Rental Workflow</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Rental Workflow</em>' reference.
+   * @see #setRentalWorkflow(RentalWorkflow)
+   * @see de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage#getDeal_RentalWorkflow()
+   * @model
+   * @generated
+   */
+  RentalWorkflow getRentalWorkflow();
+
+  /**
+   * Sets the value of the '{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal#getRentalWorkflow <em>Rental Workflow</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Rental Workflow</em>' reference.
+   * @see #getRentalWorkflow()
+   * @generated
+   */
+  void setRentalWorkflow(RentalWorkflow value);
 
   /**
    * Returns the value of the '<em><b>Deal Attributes</b></em>' containment reference list.

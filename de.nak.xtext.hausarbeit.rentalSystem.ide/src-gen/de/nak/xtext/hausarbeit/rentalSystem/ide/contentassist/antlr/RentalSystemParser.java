@@ -59,10 +59,10 @@ public class RentalSystemParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDealAccess().getNameAssignment_1(), "rule__Deal__NameAssignment_1");
 					put(grammarAccess.getDealAccess().getCustomerAssignment_4(), "rule__Deal__CustomerAssignment_4");
 					put(grammarAccess.getDealAccess().getRentalTypeAssignment_6(), "rule__Deal__RentalTypeAssignment_6");
-					put(grammarAccess.getDealAccess().getDealAttributesAssignment_8(), "rule__Deal__DealAttributesAssignment_8");
+					put(grammarAccess.getDealAccess().getRentalWorkflowAssignment_8(), "rule__Deal__RentalWorkflowAssignment_8");
+					put(grammarAccess.getDealAccess().getDealAttributesAssignment_10(), "rule__Deal__DealAttributesAssignment_10");
 					put(grammarAccess.getAttributeAccess().getNameAssignment_1(), "rule__Attribute__NameAssignment_1");
-					put(grammarAccess.getAttributeAccess().getValueAssignment_2(), "rule__Attribute__ValueAssignment_2");
-					put(grammarAccess.getAttributeAccess().getOfTypeAssignment_3(), "rule__Attribute__OfTypeAssignment_3");
+					put(grammarAccess.getAttributeAccess().getOfTypeAssignment_2(), "rule__Attribute__OfTypeAssignment_2");
 				}
 			};
 		}

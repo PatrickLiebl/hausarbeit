@@ -2,22 +2,20 @@ grammar de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow with org.eclipse.x
 
 generate rentalWorkflow "http://www.nak.de/xtext/hausarbeit/rentalWorkflow/RentalWorkflow"
 
-import "http://www.nak.de/xtext/hausarbeit/rentalSystem/RentalSystem" as rentalSystem
 
 RentalWorkflow:
 	{RentalWorkflow}
-	'defineWf' name=ID
+	'defineWorkflow' name=ID
 	'events' (event+=Event)* 'end'
-	'resetEvents' (resetEvents+=[Event])* 'end'
 	'commands' (commands+=Command)* 'end'
-	'workflowDeal' workflowDeal=[rentalSystem::RentalSystem|QualifiedName]
+	'resetEvents' (resetEvents+=[Event])* 'end'
 	(states+=State)*;
 
 Event:
-	name=ID code=ID ofType=ofEventType;
+	name=ID ofType=ofEventType;
 	
 Command:
-	name=ID code=ID ofType=ofCommandType;
+	name=ID ofType=ofCommandType;
 	
 State:
 	'state' name=ID

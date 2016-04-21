@@ -61,21 +61,18 @@ public class RentalSystemSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Attribute returns Attribute
 	 *
 	 * Constraint:
-	 *     (name=ID value=STRING ofType=OfType)
+	 *     (name=ID ofType=OfType)
 	 */
 	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, RentalSystemPackage.Literals.ATTRIBUTE__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RentalSystemPackage.Literals.ATTRIBUTE__NAME));
-			if (transientValues.isValueTransient(semanticObject, RentalSystemPackage.Literals.ATTRIBUTE__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RentalSystemPackage.Literals.ATTRIBUTE__VALUE));
 			if (transientValues.isValueTransient(semanticObject, RentalSystemPackage.Literals.ATTRIBUTE__OF_TYPE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RentalSystemPackage.Literals.ATTRIBUTE__OF_TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getAttributeAccess().getValueSTRINGTerminalRuleCall_2_0(), semanticObject.getValue());
-		feeder.accept(grammarAccess.getAttributeAccess().getOfTypeOfTypeEnumRuleCall_3_0(), semanticObject.getOfType());
+		feeder.accept(grammarAccess.getAttributeAccess().getOfTypeOfTypeEnumRuleCall_2_0(), semanticObject.getOfType());
 		feeder.finish();
 	}
 	
@@ -97,7 +94,7 @@ public class RentalSystemSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Deal returns Deal
 	 *
 	 * Constraint:
-	 *     (name=ID customer=[Customer|ID] rentalType=[RentalType|ID] dealAttributes+=Attribute*)
+	 *     (name=ID customer=[Customer|ID] rentalType=[RentalType|ID] rentalWorkflow=[RentalWorkflow|QualifiedName] dealAttributes+=Attribute*)
 	 */
 	protected void sequence_Deal(ISerializationContext context, Deal semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

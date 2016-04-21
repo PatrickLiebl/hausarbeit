@@ -3,8 +3,6 @@
  */
 package de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl;
 
-import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage;
-
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Command;
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Event;
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.OfType;
@@ -136,9 +134,6 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
 
     isInited = true;
 
-    // Initialize simple dependencies
-    RentalSystemPackage.eINSTANCE.eClass();
-
     // Create package meta-data objects
     theRentalWorkflowPackage.createPackageContents();
 
@@ -189,7 +184,7 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRentalWorkflow_ResetEvents()
+  public EReference getRentalWorkflow_Commands()
   {
     return (EReference)rentalWorkflowEClass.getEStructuralFeatures().get(2);
   }
@@ -199,7 +194,7 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRentalWorkflow_Commands()
+  public EReference getRentalWorkflow_ResetEvents()
   {
     return (EReference)rentalWorkflowEClass.getEStructuralFeatures().get(3);
   }
@@ -209,19 +204,9 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRentalWorkflow_WorkflowDeal()
-  {
-    return (EReference)rentalWorkflowEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getRentalWorkflow_States()
   {
-    return (EReference)rentalWorkflowEClass.getEStructuralFeatures().get(5);
+    return (EReference)rentalWorkflowEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -249,19 +234,9 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getEvent_Code()
-  {
-    return (EAttribute)eventEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getEvent_OfType()
   {
-    return (EAttribute)eventEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)eventEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -289,19 +264,9 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getCommand_Code()
-  {
-    return (EAttribute)commandEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getCommand_OfType()
   {
-    return (EAttribute)commandEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)commandEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -447,19 +412,16 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
     rentalWorkflowEClass = createEClass(RENTAL_WORKFLOW);
     createEAttribute(rentalWorkflowEClass, RENTAL_WORKFLOW__NAME);
     createEReference(rentalWorkflowEClass, RENTAL_WORKFLOW__EVENT);
-    createEReference(rentalWorkflowEClass, RENTAL_WORKFLOW__RESET_EVENTS);
     createEReference(rentalWorkflowEClass, RENTAL_WORKFLOW__COMMANDS);
-    createEReference(rentalWorkflowEClass, RENTAL_WORKFLOW__WORKFLOW_DEAL);
+    createEReference(rentalWorkflowEClass, RENTAL_WORKFLOW__RESET_EVENTS);
     createEReference(rentalWorkflowEClass, RENTAL_WORKFLOW__STATES);
 
     eventEClass = createEClass(EVENT);
     createEAttribute(eventEClass, EVENT__NAME);
-    createEAttribute(eventEClass, EVENT__CODE);
     createEAttribute(eventEClass, EVENT__OF_TYPE);
 
     commandEClass = createEClass(COMMAND);
     createEAttribute(commandEClass, COMMAND__NAME);
-    createEAttribute(commandEClass, COMMAND__CODE);
     createEAttribute(commandEClass, COMMAND__OF_TYPE);
 
     stateEClass = createEClass(STATE);
@@ -502,9 +464,6 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
     setNsPrefix(eNS_PREFIX);
     setNsURI(eNS_URI);
 
-    // Obtain other dependent packages
-    RentalSystemPackage theRentalSystemPackage = (RentalSystemPackage)EPackage.Registry.INSTANCE.getEPackage(RentalSystemPackage.eNS_URI);
-
     // Create type parameters
 
     // Set bounds for type parameters
@@ -515,19 +474,16 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
     initEClass(rentalWorkflowEClass, RentalWorkflow.class, "RentalWorkflow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRentalWorkflow_Name(), ecorePackage.getEString(), "name", null, 0, 1, RentalWorkflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRentalWorkflow_Event(), this.getEvent(), null, "event", null, 0, -1, RentalWorkflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRentalWorkflow_ResetEvents(), this.getEvent(), null, "resetEvents", null, 0, -1, RentalWorkflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRentalWorkflow_Commands(), this.getCommand(), null, "commands", null, 0, -1, RentalWorkflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRentalWorkflow_WorkflowDeal(), theRentalSystemPackage.getRentalSystem(), null, "workflowDeal", null, 0, 1, RentalWorkflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRentalWorkflow_ResetEvents(), this.getEvent(), null, "resetEvents", null, 0, -1, RentalWorkflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRentalWorkflow_States(), this.getState(), null, "states", null, 0, -1, RentalWorkflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEvent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getEvent_Code(), ecorePackage.getEString(), "code", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEvent_OfType(), this.getofEventType(), "ofType", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCommand_Name(), ecorePackage.getEString(), "name", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getCommand_Code(), ecorePackage.getEString(), "code", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCommand_OfType(), this.getofCommandType(), "ofType", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

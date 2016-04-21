@@ -84,9 +84,9 @@ ruleRentalWorkflow returns [EObject current=null]
 					$current);
 			}
 		)
-		otherlv_1='defineWf'
+		otherlv_1='defineWorkflow'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getRentalWorkflowAccess().getDefineWfKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getRentalWorkflowAccess().getDefineWorkflowKeyword_1());
 		}
 		(
 			(
@@ -133,37 +133,16 @@ ruleRentalWorkflow returns [EObject current=null]
 		{
 			newLeafNode(otherlv_5, grammarAccess.getRentalWorkflowAccess().getEndKeyword_5());
 		}
-		otherlv_6='resetEvents'
+		otherlv_6='commands'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getRentalWorkflowAccess().getResetEventsKeyword_6());
+			newLeafNode(otherlv_6, grammarAccess.getRentalWorkflowAccess().getCommandsKeyword_6());
 		}
 		(
 			(
 				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getRentalWorkflowRule());
-					}
+					newCompositeNode(grammarAccess.getRentalWorkflowAccess().getCommandsCommandParserRuleCall_7_0());
 				}
-				otherlv_7=RULE_ID
-				{
-					newLeafNode(otherlv_7, grammarAccess.getRentalWorkflowAccess().getResetEventsEventCrossReference_7_0());
-				}
-			)
-		)*
-		otherlv_8='end'
-		{
-			newLeafNode(otherlv_8, grammarAccess.getRentalWorkflowAccess().getEndKeyword_8());
-		}
-		otherlv_9='commands'
-		{
-			newLeafNode(otherlv_9, grammarAccess.getRentalWorkflowAccess().getCommandsKeyword_9());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getRentalWorkflowAccess().getCommandsCommandParserRuleCall_10_0());
-				}
-				lv_commands_10_0=ruleCommand
+				lv_commands_7_0=ruleCommand
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRentalWorkflowRule());
@@ -171,19 +150,19 @@ ruleRentalWorkflow returns [EObject current=null]
 					add(
 						$current,
 						"commands",
-						lv_commands_10_0,
+						lv_commands_7_0,
 						"de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.Command");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_11='end'
+		otherlv_8='end'
 		{
-			newLeafNode(otherlv_11, grammarAccess.getRentalWorkflowAccess().getEndKeyword_11());
+			newLeafNode(otherlv_8, grammarAccess.getRentalWorkflowAccess().getEndKeyword_8());
 		}
-		otherlv_12='workflowDeal'
+		otherlv_9='resetEvents'
 		{
-			newLeafNode(otherlv_12, grammarAccess.getRentalWorkflowAccess().getWorkflowDealKeyword_12());
+			newLeafNode(otherlv_9, grammarAccess.getRentalWorkflowAccess().getResetEventsKeyword_9());
 		}
 		(
 			(
@@ -192,21 +171,22 @@ ruleRentalWorkflow returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getRentalWorkflowRule());
 					}
 				}
+				otherlv_10=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getRentalWorkflowAccess().getWorkflowDealRentalSystemCrossReference_13_0());
-				}
-				ruleQualifiedName
-				{
-					afterParserOrEnumRuleCall();
+					newLeafNode(otherlv_10, grammarAccess.getRentalWorkflowAccess().getResetEventsEventCrossReference_10_0());
 				}
 			)
-		)
+		)*
+		otherlv_11='end'
+		{
+			newLeafNode(otherlv_11, grammarAccess.getRentalWorkflowAccess().getEndKeyword_11());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRentalWorkflowAccess().getStatesStateParserRuleCall_14_0());
+					newCompositeNode(grammarAccess.getRentalWorkflowAccess().getStatesStateParserRuleCall_12_0());
 				}
-				lv_states_14_0=ruleState
+				lv_states_12_0=ruleState
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRentalWorkflowRule());
@@ -214,7 +194,7 @@ ruleRentalWorkflow returns [EObject current=null]
 					add(
 						$current,
 						"states",
-						lv_states_14_0,
+						lv_states_12_0,
 						"de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.State");
 					afterParserOrEnumRuleCall();
 				}
@@ -259,28 +239,10 @@ ruleEvent returns [EObject current=null]
 		)
 		(
 			(
-				lv_code_1_0=RULE_ID
 				{
-					newLeafNode(lv_code_1_0, grammarAccess.getEventAccess().getCodeIDTerminalRuleCall_1_0());
+					newCompositeNode(grammarAccess.getEventAccess().getOfTypeOfEventTypeEnumRuleCall_1_0());
 				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEventRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"code",
-						lv_code_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getEventAccess().getOfTypeOfEventTypeEnumRuleCall_2_0());
-				}
-				lv_ofType_2_0=ruleofEventType
+				lv_ofType_1_0=ruleofEventType
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getEventRule());
@@ -288,7 +250,7 @@ ruleEvent returns [EObject current=null]
 					set(
 						$current,
 						"ofType",
-						lv_ofType_2_0,
+						lv_ofType_1_0,
 						"de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.ofEventType");
 					afterParserOrEnumRuleCall();
 				}
@@ -333,28 +295,10 @@ ruleCommand returns [EObject current=null]
 		)
 		(
 			(
-				lv_code_1_0=RULE_ID
 				{
-					newLeafNode(lv_code_1_0, grammarAccess.getCommandAccess().getCodeIDTerminalRuleCall_1_0());
+					newCompositeNode(grammarAccess.getCommandAccess().getOfTypeOfCommandTypeEnumRuleCall_1_0());
 				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getCommandRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"code",
-						lv_code_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getCommandAccess().getOfTypeOfCommandTypeEnumRuleCall_2_0());
-				}
-				lv_ofType_2_0=ruleofCommandType
+				lv_ofType_1_0=ruleofCommandType
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getCommandRule());
@@ -362,7 +306,7 @@ ruleCommand returns [EObject current=null]
 					set(
 						$current,
 						"ofType",
-						lv_ofType_2_0,
+						lv_ofType_1_0,
 						"de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.ofCommandType");
 					afterParserOrEnumRuleCall();
 				}
@@ -527,46 +471,6 @@ ruleTransition returns [EObject current=null]
 				}
 			)
 		)
-	)
-;
-
-// Entry rule entryRuleQualifiedName
-entryRuleQualifiedName returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getQualifiedNameRule()); }
-	iv_ruleQualifiedName=ruleQualifiedName
-	{ $current=$iv_ruleQualifiedName.current.getText(); }
-	EOF;
-
-// Rule QualifiedName
-ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		this_ID_0=RULE_ID
-		{
-			$current.merge(this_ID_0);
-		}
-		{
-			newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0());
-		}
-		(
-			kw='.'
-			{
-				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0());
-			}
-			this_ID_2=RULE_ID
-			{
-				$current.merge(this_ID_2);
-			}
-			{
-				newLeafNode(this_ID_2, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1());
-			}
-		)*
 	)
 ;
 

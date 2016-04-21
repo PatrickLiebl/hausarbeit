@@ -30,8 +30,7 @@ Workflow {
 			}
 		}
 		language = StandardLanguage {
-			name = "de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow"
-			referencedResource = "platform:/resource/de.nak.xtext.hausarbeit.rentalSystem/model/generated/RentalSystem.genmodel"
+			name = "de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow"			
 			fileExtensions = "rentalWorkflow"
 
 			serializer = {

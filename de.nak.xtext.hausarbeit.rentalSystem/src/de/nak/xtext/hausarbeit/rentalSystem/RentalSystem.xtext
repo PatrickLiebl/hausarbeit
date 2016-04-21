@@ -1,38 +1,39 @@
 grammar de.nak.xtext.hausarbeit.rentalSystem.RentalSystem with org.eclipse.xtext.common.Terminals
 
 generate rentalSystem "http://www.nak.de/xtext/hausarbeit/rentalSystem/RentalSystem"
+import "http://www.nak.de/xtext/hausarbeit/rentalWorkflow/RentalWorkflow" as rentalWorkflow
 
 RentalSystem:
 	'rentalSystem' name=ID title=STRING '('
 	rentalTypes+=RentalType*
 	customers+=Customer*
-	deals+=Deal* ')'; 
+	deals+=Deal* ')';
 
 RentalType:
 	((movable?='movable') | (digital?='digital')
 	| (fix?='fix')) 'typeMold' name=ID '('
 	typeAttributes+=Attribute*
 	')';
-	
+
 Customer:
 	'customerMold' name=ID '('
 	customerAttribute+=Attribute*
 	')';
-	 
+
 QualifiedName:
-	ID('.'ID)*;
+	ID ('.' ID)*;
 
 Deal:
 	'deal' name=ID '('
 	'customer' customer=[Customer]
 	'rentalType' rentalType=[RentalType]
+	'dealWorkflow' rentalWorkflow=[rentalWorkflow::RentalWorkflow|QualifiedName]
 	'dealAttribute' dealAttributes+=Attribute*
 	')';
 
 Attribute:
-	'attribute' name=ID value=STRING ofType=OfType;
-	
-	
+	'attribute' name=ID ofType=OfType;
+
 enum OfType:
 	int='int'
 	| string='String'

@@ -87,31 +87,22 @@ public interface RentalWorkflowPackage extends EPackage
   int RENTAL_WORKFLOW__EVENT = 1;
 
   /**
-   * The feature id for the '<em><b>Reset Events</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RENTAL_WORKFLOW__RESET_EVENTS = 2;
-
-  /**
    * The feature id for the '<em><b>Commands</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RENTAL_WORKFLOW__COMMANDS = 3;
+  int RENTAL_WORKFLOW__COMMANDS = 2;
 
   /**
-   * The feature id for the '<em><b>Workflow Deal</b></em>' reference.
+   * The feature id for the '<em><b>Reset Events</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RENTAL_WORKFLOW__WORKFLOW_DEAL = 4;
+  int RENTAL_WORKFLOW__RESET_EVENTS = 3;
 
   /**
    * The feature id for the '<em><b>States</b></em>' containment reference list.
@@ -120,7 +111,7 @@ public interface RentalWorkflowPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RENTAL_WORKFLOW__STATES = 5;
+  int RENTAL_WORKFLOW__STATES = 4;
 
   /**
    * The number of structural features of the '<em>Rental Workflow</em>' class.
@@ -129,7 +120,7 @@ public interface RentalWorkflowPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RENTAL_WORKFLOW_FEATURE_COUNT = 6;
+  int RENTAL_WORKFLOW_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.EventImpl <em>Event</em>}' class.
@@ -151,22 +142,13 @@ public interface RentalWorkflowPackage extends EPackage
   int EVENT__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EVENT__CODE = 1;
-
-  /**
    * The feature id for the '<em><b>Of Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EVENT__OF_TYPE = 2;
+  int EVENT__OF_TYPE = 1;
 
   /**
    * The number of structural features of the '<em>Event</em>' class.
@@ -175,7 +157,7 @@ public interface RentalWorkflowPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EVENT_FEATURE_COUNT = 3;
+  int EVENT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.CommandImpl <em>Command</em>}' class.
@@ -197,22 +179,13 @@ public interface RentalWorkflowPackage extends EPackage
   int COMMAND__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMMAND__CODE = 1;
-
-  /**
    * The feature id for the '<em><b>Of Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMMAND__OF_TYPE = 2;
+  int COMMAND__OF_TYPE = 1;
 
   /**
    * The number of structural features of the '<em>Command</em>' class.
@@ -221,7 +194,7 @@ public interface RentalWorkflowPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMMAND_FEATURE_COUNT = 3;
+  int COMMAND_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.StateImpl <em>State</em>}' class.
@@ -379,17 +352,6 @@ public interface RentalWorkflowPackage extends EPackage
   EReference getRentalWorkflow_Event();
 
   /**
-   * Returns the meta object for the reference list '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getResetEvents <em>Reset Events</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Reset Events</em>'.
-   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getResetEvents()
-   * @see #getRentalWorkflow()
-   * @generated
-   */
-  EReference getRentalWorkflow_ResetEvents();
-
-  /**
    * Returns the meta object for the containment reference list '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getCommands <em>Commands</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -401,15 +363,15 @@ public interface RentalWorkflowPackage extends EPackage
   EReference getRentalWorkflow_Commands();
 
   /**
-   * Returns the meta object for the reference '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getWorkflowDeal <em>Workflow Deal</em>}'.
+   * Returns the meta object for the reference list '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getResetEvents <em>Reset Events</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Workflow Deal</em>'.
-   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getWorkflowDeal()
+   * @return the meta object for the reference list '<em>Reset Events</em>'.
+   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getResetEvents()
    * @see #getRentalWorkflow()
    * @generated
    */
-  EReference getRentalWorkflow_WorkflowDeal();
+  EReference getRentalWorkflow_ResetEvents();
 
   /**
    * Returns the meta object for the containment reference list '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getStates <em>States</em>}'.
@@ -444,17 +406,6 @@ public interface RentalWorkflowPackage extends EPackage
   EAttribute getEvent_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Event#getCode <em>Code</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Code</em>'.
-   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Event#getCode()
-   * @see #getEvent()
-   * @generated
-   */
-  EAttribute getEvent_Code();
-
-  /**
    * Returns the meta object for the attribute '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Event#getOfType <em>Of Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -485,17 +436,6 @@ public interface RentalWorkflowPackage extends EPackage
    * @generated
    */
   EAttribute getCommand_Name();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Command#getCode <em>Code</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Code</em>'.
-   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Command#getCode()
-   * @see #getCommand()
-   * @generated
-   */
-  EAttribute getCommand_Code();
 
   /**
    * Returns the meta object for the attribute '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Command#getOfType <em>Of Type</em>}'.
@@ -674,14 +614,6 @@ public interface RentalWorkflowPackage extends EPackage
     EReference RENTAL_WORKFLOW__EVENT = eINSTANCE.getRentalWorkflow_Event();
 
     /**
-     * The meta object literal for the '<em><b>Reset Events</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference RENTAL_WORKFLOW__RESET_EVENTS = eINSTANCE.getRentalWorkflow_ResetEvents();
-
-    /**
      * The meta object literal for the '<em><b>Commands</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -690,12 +622,12 @@ public interface RentalWorkflowPackage extends EPackage
     EReference RENTAL_WORKFLOW__COMMANDS = eINSTANCE.getRentalWorkflow_Commands();
 
     /**
-     * The meta object literal for the '<em><b>Workflow Deal</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Reset Events</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference RENTAL_WORKFLOW__WORKFLOW_DEAL = eINSTANCE.getRentalWorkflow_WorkflowDeal();
+    EReference RENTAL_WORKFLOW__RESET_EVENTS = eINSTANCE.getRentalWorkflow_ResetEvents();
 
     /**
      * The meta object literal for the '<em><b>States</b></em>' containment reference list feature.
@@ -724,14 +656,6 @@ public interface RentalWorkflowPackage extends EPackage
     EAttribute EVENT__NAME = eINSTANCE.getEvent_Name();
 
     /**
-     * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EVENT__CODE = eINSTANCE.getEvent_Code();
-
-    /**
      * The meta object literal for the '<em><b>Of Type</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -756,14 +680,6 @@ public interface RentalWorkflowPackage extends EPackage
      * @generated
      */
     EAttribute COMMAND__NAME = eINSTANCE.getCommand_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute COMMAND__CODE = eINSTANCE.getCommand_Code();
 
     /**
      * The meta object literal for the '<em><b>Of Type</b></em>' attribute feature.

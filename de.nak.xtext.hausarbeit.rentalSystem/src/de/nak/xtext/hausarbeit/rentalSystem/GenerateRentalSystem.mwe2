@@ -33,6 +33,7 @@ Workflow {
 		}
 		language = StandardLanguage {
 			name = "de.nak.xtext.hausarbeit.rentalSystem.RentalSystem"
+			referencedResource = "platform:/resource/de.nak.xtext.hausarbeit.rentalWorkflow/model/generated/RentalWorkflow.genmodel"
 			fileExtensions = "rentalSystem"
 			serializer = {
 				generateStub = false

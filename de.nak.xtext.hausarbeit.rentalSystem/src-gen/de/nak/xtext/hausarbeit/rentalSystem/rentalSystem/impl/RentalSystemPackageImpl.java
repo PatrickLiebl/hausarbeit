@@ -12,6 +12,8 @@ import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemFactory;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalType;
 
+import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -117,6 +119,9 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
     RentalSystemPackageImpl theRentalSystemPackage = (RentalSystemPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof RentalSystemPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new RentalSystemPackageImpl());
 
     isInited = true;
+
+    // Initialize simple dependencies
+    RentalWorkflowPackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
     theRentalSystemPackage.createPackageContents();
@@ -328,9 +333,19 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDeal_DealAttributes()
+  public EReference getDeal_RentalWorkflow()
   {
     return (EReference)dealEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeal_DealAttributes()
+  {
+    return (EReference)dealEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -358,19 +373,9 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAttribute_Value()
-  {
-    return (EAttribute)attributeEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getAttribute_OfType()
   {
-    return (EAttribute)attributeEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)attributeEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -435,11 +440,11 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
     createEAttribute(dealEClass, DEAL__NAME);
     createEReference(dealEClass, DEAL__CUSTOMER);
     createEReference(dealEClass, DEAL__RENTAL_TYPE);
+    createEReference(dealEClass, DEAL__RENTAL_WORKFLOW);
     createEReference(dealEClass, DEAL__DEAL_ATTRIBUTES);
 
     attributeEClass = createEClass(ATTRIBUTE);
     createEAttribute(attributeEClass, ATTRIBUTE__NAME);
-    createEAttribute(attributeEClass, ATTRIBUTE__VALUE);
     createEAttribute(attributeEClass, ATTRIBUTE__OF_TYPE);
 
     // Create enums
@@ -470,6 +475,9 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
     setNsPrefix(eNS_PREFIX);
     setNsURI(eNS_URI);
 
+    // Obtain other dependent packages
+    RentalWorkflowPackage theRentalWorkflowPackage = (RentalWorkflowPackage)EPackage.Registry.INSTANCE.getEPackage(RentalWorkflowPackage.eNS_URI);
+
     // Create type parameters
 
     // Set bounds for type parameters
@@ -499,11 +507,11 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
     initEAttribute(getDeal_Name(), ecorePackage.getEString(), "name", null, 0, 1, Deal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDeal_Customer(), this.getCustomer(), null, "customer", null, 0, 1, Deal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDeal_RentalType(), this.getRentalType(), null, "rentalType", null, 0, 1, Deal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeal_RentalWorkflow(), theRentalWorkflowPackage.getRentalWorkflow(), null, "rentalWorkflow", null, 0, 1, Deal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDeal_DealAttributes(), this.getAttribute(), null, "dealAttributes", null, 0, -1, Deal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAttribute_Value(), ecorePackage.getEString(), "value", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAttribute_OfType(), this.getOfType(), "ofType", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals

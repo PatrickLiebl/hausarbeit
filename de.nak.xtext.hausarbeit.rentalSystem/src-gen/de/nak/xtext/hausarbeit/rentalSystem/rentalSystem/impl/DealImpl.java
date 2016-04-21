@@ -9,6 +9,8 @@ import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalType;
 
+import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -36,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.DealImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.DealImpl#getCustomer <em>Customer</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.DealImpl#getRentalType <em>Rental Type</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.DealImpl#getRentalWorkflow <em>Rental Workflow</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.DealImpl#getDealAttributes <em>Deal Attributes</em>}</li>
  * </ul>
  *
@@ -82,6 +85,16 @@ public class DealImpl extends MinimalEObjectImpl.Container implements Deal
    * @ordered
    */
   protected RentalType rentalType;
+
+  /**
+   * The cached value of the '{@link #getRentalWorkflow() <em>Rental Workflow</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRentalWorkflow()
+   * @generated
+   * @ordered
+   */
+  protected RentalWorkflow rentalWorkflow;
 
   /**
    * The cached value of the '{@link #getDealAttributes() <em>Deal Attributes</em>}' containment reference list.
@@ -228,6 +241,49 @@ public class DealImpl extends MinimalEObjectImpl.Container implements Deal
    * <!-- end-user-doc -->
    * @generated
    */
+  public RentalWorkflow getRentalWorkflow()
+  {
+    if (rentalWorkflow != null && rentalWorkflow.eIsProxy())
+    {
+      InternalEObject oldRentalWorkflow = (InternalEObject)rentalWorkflow;
+      rentalWorkflow = (RentalWorkflow)eResolveProxy(oldRentalWorkflow);
+      if (rentalWorkflow != oldRentalWorkflow)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RentalSystemPackage.DEAL__RENTAL_WORKFLOW, oldRentalWorkflow, rentalWorkflow));
+      }
+    }
+    return rentalWorkflow;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RentalWorkflow basicGetRentalWorkflow()
+  {
+    return rentalWorkflow;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRentalWorkflow(RentalWorkflow newRentalWorkflow)
+  {
+    RentalWorkflow oldRentalWorkflow = rentalWorkflow;
+    rentalWorkflow = newRentalWorkflow;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RentalSystemPackage.DEAL__RENTAL_WORKFLOW, oldRentalWorkflow, rentalWorkflow));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Attribute> getDealAttributes()
   {
     if (dealAttributes == null)
@@ -271,6 +327,9 @@ public class DealImpl extends MinimalEObjectImpl.Container implements Deal
       case RentalSystemPackage.DEAL__RENTAL_TYPE:
         if (resolve) return getRentalType();
         return basicGetRentalType();
+      case RentalSystemPackage.DEAL__RENTAL_WORKFLOW:
+        if (resolve) return getRentalWorkflow();
+        return basicGetRentalWorkflow();
       case RentalSystemPackage.DEAL__DEAL_ATTRIBUTES:
         return getDealAttributes();
     }
@@ -296,6 +355,9 @@ public class DealImpl extends MinimalEObjectImpl.Container implements Deal
         return;
       case RentalSystemPackage.DEAL__RENTAL_TYPE:
         setRentalType((RentalType)newValue);
+        return;
+      case RentalSystemPackage.DEAL__RENTAL_WORKFLOW:
+        setRentalWorkflow((RentalWorkflow)newValue);
         return;
       case RentalSystemPackage.DEAL__DEAL_ATTRIBUTES:
         getDealAttributes().clear();
@@ -324,6 +386,9 @@ public class DealImpl extends MinimalEObjectImpl.Container implements Deal
       case RentalSystemPackage.DEAL__RENTAL_TYPE:
         setRentalType((RentalType)null);
         return;
+      case RentalSystemPackage.DEAL__RENTAL_WORKFLOW:
+        setRentalWorkflow((RentalWorkflow)null);
+        return;
       case RentalSystemPackage.DEAL__DEAL_ATTRIBUTES:
         getDealAttributes().clear();
         return;
@@ -347,6 +412,8 @@ public class DealImpl extends MinimalEObjectImpl.Container implements Deal
         return customer != null;
       case RentalSystemPackage.DEAL__RENTAL_TYPE:
         return rentalType != null;
+      case RentalSystemPackage.DEAL__RENTAL_WORKFLOW:
+        return rentalWorkflow != null;
       case RentalSystemPackage.DEAL__DEAL_ATTRIBUTES:
         return dealAttributes != null && !dealAttributes.isEmpty();
     }

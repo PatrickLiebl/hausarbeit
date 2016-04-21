@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.AttributeImpl#getName <em>Name</em>}</li>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.AttributeImpl#getValue <em>Value</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.impl.AttributeImpl#getOfType <em>Of Type</em>}</li>
  * </ul>
  *
@@ -50,26 +49,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected static final String VALUE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected String value = VALUE_EDEFAULT;
 
   /**
    * The default value of the '{@link #getOfType() <em>Of Type</em>}' attribute.
@@ -140,29 +119,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getValue()
-  {
-    return value;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setValue(String newValue)
-  {
-    String oldValue = value;
-    value = newValue;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RentalSystemPackage.ATTRIBUTE__VALUE, oldValue, value));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public OfType getOfType()
   {
     return ofType;
@@ -193,8 +149,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
     {
       case RentalSystemPackage.ATTRIBUTE__NAME:
         return getName();
-      case RentalSystemPackage.ATTRIBUTE__VALUE:
-        return getValue();
       case RentalSystemPackage.ATTRIBUTE__OF_TYPE:
         return getOfType();
     }
@@ -213,9 +167,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
     {
       case RentalSystemPackage.ATTRIBUTE__NAME:
         setName((String)newValue);
-        return;
-      case RentalSystemPackage.ATTRIBUTE__VALUE:
-        setValue((String)newValue);
         return;
       case RentalSystemPackage.ATTRIBUTE__OF_TYPE:
         setOfType((OfType)newValue);
@@ -237,9 +188,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
       case RentalSystemPackage.ATTRIBUTE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case RentalSystemPackage.ATTRIBUTE__VALUE:
-        setValue(VALUE_EDEFAULT);
-        return;
       case RentalSystemPackage.ATTRIBUTE__OF_TYPE:
         setOfType(OF_TYPE_EDEFAULT);
         return;
@@ -259,8 +207,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
     {
       case RentalSystemPackage.ATTRIBUTE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case RentalSystemPackage.ATTRIBUTE__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
       case RentalSystemPackage.ATTRIBUTE__OF_TYPE:
         return ofType != OF_TYPE_EDEFAULT;
     }
@@ -280,8 +226,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", value: ");
-    result.append(value);
     result.append(", ofType: ");
     result.append(ofType);
     result.append(')');
