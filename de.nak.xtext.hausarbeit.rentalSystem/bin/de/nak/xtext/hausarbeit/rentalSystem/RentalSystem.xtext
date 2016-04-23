@@ -28,7 +28,7 @@ Deal:
 	'customer' customer=[Customer]
 	'rentalType' rentalType=[RentalType]
 	'dealWorkflow' rentalWorkflow=[rentalWorkflow::RentalWorkflow|QualifiedName]
-	'dealAttribute' dealAttributes+=Attribute*
+	('dealAttribute' dealAttributes+=Attribute*)?
 	')';
 
 Attribute:

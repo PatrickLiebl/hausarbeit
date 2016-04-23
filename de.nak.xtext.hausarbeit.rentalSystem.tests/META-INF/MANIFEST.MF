@@ -12,10 +12,11 @@ Require-Bundle: de.nak.xtext.hausarbeit.rentalSystem,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: de.nak.xtext.hausarbeit.rentalSystem.tests
-Import-Package: org.hamcrest.core,
+Import-Package: de.nak.xtext.hausarbeit.rentalWorkflow.tests,
+ org.hamcrest.core,
  org.junit;version="4.5.0",
- org.junit.runners.model;version="4.5.0",
  org.junit.runner;version="4.5.0",
- org.junit.runners;version="4.5.0",
  org.junit.runner.manipulation;version="4.5.0",
- org.junit.runner.notification;version="4.5.0"
+ org.junit.runner.notification;version="4.5.0",
+ org.junit.runners;version="4.5.0",
+ org.junit.runners.model;version="4.5.0"

@@ -11,6 +11,8 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 
@@ -18,10 +20,12 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class RentalSystemSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected RentalSystemGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_Deal_DealAttributeKeyword_9_0_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (RentalSystemGrammarAccess) access;
+		match_Deal_DealAttributeKeyword_9_0_q = new TokenAlias(false, true, grammarAccess.getDealAccess().getDealAttributeKeyword_9_0());
 	}
 	
 	@Override
@@ -36,8 +40,21 @@ public class RentalSystemSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if (match_Deal_DealAttributeKeyword_9_0_q.equals(syntax))
+				emit_Deal_DealAttributeKeyword_9_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     'dealAttribute'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     rentalWorkflow=[RentalWorkflow|QualifiedName] (ambiguity) ')' (rule end)
+	 */
+	protected void emit_Deal_DealAttributeKeyword_9_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

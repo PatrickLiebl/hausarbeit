@@ -1163,9 +1163,9 @@ rule__Deal__Group__9__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDealAccess().getDealAttributeKeyword_9()); }
-	'dealAttribute'
-	{ after(grammarAccess.getDealAccess().getDealAttributeKeyword_9()); }
+	{ before(grammarAccess.getDealAccess().getGroup_9()); }
+	(rule__Deal__Group_9__0)?
+	{ after(grammarAccess.getDealAccess().getGroup_9()); }
 )
 ;
 finally {
@@ -1178,7 +1178,6 @@ rule__Deal__Group__10
 	}
 :
 	rule__Deal__Group__10__Impl
-	rule__Deal__Group__11
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -1190,35 +1189,63 @@ rule__Deal__Group__10__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDealAccess().getDealAttributesAssignment_10()); }
-	(rule__Deal__DealAttributesAssignment_10)*
-	{ after(grammarAccess.getDealAccess().getDealAttributesAssignment_10()); }
+	{ before(grammarAccess.getDealAccess().getRightParenthesisKeyword_10()); }
+	')'
+	{ after(grammarAccess.getDealAccess().getRightParenthesisKeyword_10()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Deal__Group__11
+
+rule__Deal__Group_9__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__Deal__Group__11__Impl
+	rule__Deal__Group_9__0__Impl
+	rule__Deal__Group_9__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Deal__Group__11__Impl
+rule__Deal__Group_9__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getDealAccess().getRightParenthesisKeyword_11()); }
-	')'
-	{ after(grammarAccess.getDealAccess().getRightParenthesisKeyword_11()); }
+	{ before(grammarAccess.getDealAccess().getDealAttributeKeyword_9_0()); }
+	'dealAttribute'
+	{ after(grammarAccess.getDealAccess().getDealAttributeKeyword_9_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Deal__Group_9__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Deal__Group_9__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Deal__Group_9__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getDealAccess().getDealAttributesAssignment_9_1()); }
+	(rule__Deal__DealAttributesAssignment_9_1)*
+	{ after(grammarAccess.getDealAccess().getDealAttributesAssignment_9_1()); }
 )
 ;
 finally {
@@ -1571,15 +1598,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Deal__DealAttributesAssignment_10
+rule__Deal__DealAttributesAssignment_9_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getDealAccess().getDealAttributesAttributeParserRuleCall_10_0()); }
+		{ before(grammarAccess.getDealAccess().getDealAttributesAttributeParserRuleCall_9_1_0()); }
 		ruleAttribute
-		{ after(grammarAccess.getDealAccess().getDealAttributesAttributeParserRuleCall_10_0()); }
+		{ after(grammarAccess.getDealAccess().getDealAttributesAttributeParserRuleCall_9_1_0()); }
 	)
 ;
 finally {

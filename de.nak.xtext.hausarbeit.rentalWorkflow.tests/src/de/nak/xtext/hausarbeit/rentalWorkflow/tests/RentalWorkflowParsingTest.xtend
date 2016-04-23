@@ -25,6 +25,7 @@ class RentalWorkflowParsingTest{
 			Hello Xtext!
 		''')
 		Assert.assertNotNull(result)
+		
 	}
 
 }

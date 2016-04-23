@@ -241,18 +241,19 @@ public class RentalSystemGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRentalWorkflowAssignment_8 = (Assignment)cGroup.eContents().get(8);
 		private final CrossReference cRentalWorkflowRentalWorkflowCrossReference_8_0 = (CrossReference)cRentalWorkflowAssignment_8.eContents().get(0);
 		private final RuleCall cRentalWorkflowRentalWorkflowQualifiedNameParserRuleCall_8_0_1 = (RuleCall)cRentalWorkflowRentalWorkflowCrossReference_8_0.eContents().get(1);
-		private final Keyword cDealAttributeKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cDealAttributesAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cDealAttributesAttributeParserRuleCall_10_0 = (RuleCall)cDealAttributesAssignment_10.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cDealAttributeKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cDealAttributesAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cDealAttributesAttributeParserRuleCall_9_1_0 = (RuleCall)cDealAttributesAssignment_9_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//Deal:
 		//	'deal' name=ID '(' 'customer' customer=[Customer] 'rentalType' rentalType=[RentalType] 'dealWorkflow'
-		//	rentalWorkflow=[rentalWorkflow::RentalWorkflow|QualifiedName] 'dealAttribute' dealAttributes+=Attribute* ')';
+		//	rentalWorkflow=[rentalWorkflow::RentalWorkflow|QualifiedName] ('dealAttribute' dealAttributes+=Attribute*)? ')';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'deal' name=ID '(' 'customer' customer=[Customer] 'rentalType' rentalType=[RentalType] 'dealWorkflow'
-		//rentalWorkflow=[rentalWorkflow::RentalWorkflow|QualifiedName] 'dealAttribute' dealAttributes+=Attribute* ')'
+		//rentalWorkflow=[rentalWorkflow::RentalWorkflow|QualifiedName] ('dealAttribute' dealAttributes+=Attribute*)? ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'deal'
@@ -303,17 +304,20 @@ public class RentalSystemGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getRentalWorkflowRentalWorkflowQualifiedNameParserRuleCall_8_0_1() { return cRentalWorkflowRentalWorkflowQualifiedNameParserRuleCall_8_0_1; }
 		
+		//('dealAttribute' dealAttributes+=Attribute*)?
+		public Group getGroup_9() { return cGroup_9; }
+		
 		//'dealAttribute'
-		public Keyword getDealAttributeKeyword_9() { return cDealAttributeKeyword_9; }
+		public Keyword getDealAttributeKeyword_9_0() { return cDealAttributeKeyword_9_0; }
 		
 		//dealAttributes+=Attribute*
-		public Assignment getDealAttributesAssignment_10() { return cDealAttributesAssignment_10; }
+		public Assignment getDealAttributesAssignment_9_1() { return cDealAttributesAssignment_9_1; }
 		
 		//Attribute
-		public RuleCall getDealAttributesAttributeParserRuleCall_10_0() { return cDealAttributesAttributeParserRuleCall_10_0; }
+		public RuleCall getDealAttributesAttributeParserRuleCall_9_1_0() { return cDealAttributesAttributeParserRuleCall_9_1_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_11() { return cRightParenthesisKeyword_11; }
+		public Keyword getRightParenthesisKeyword_10() { return cRightParenthesisKeyword_10; }
 	}
 	public class AttributeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.Attribute");
@@ -494,7 +498,7 @@ public class RentalSystemGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Deal:
 	//	'deal' name=ID '(' 'customer' customer=[Customer] 'rentalType' rentalType=[RentalType] 'dealWorkflow'
-	//	rentalWorkflow=[rentalWorkflow::RentalWorkflow|QualifiedName] 'dealAttribute' dealAttributes+=Attribute* ')';
+	//	rentalWorkflow=[rentalWorkflow::RentalWorkflow|QualifiedName] ('dealAttribute' dealAttributes+=Attribute*)? ')';
 	public DealElements getDealAccess() {
 		return pDeal;
 	}

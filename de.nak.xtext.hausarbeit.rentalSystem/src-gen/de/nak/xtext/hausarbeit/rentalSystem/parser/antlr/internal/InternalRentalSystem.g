@@ -503,32 +503,34 @@ ruleDeal returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_9='dealAttribute'
-		{
-			newLeafNode(otherlv_9, grammarAccess.getDealAccess().getDealAttributeKeyword_9());
-		}
 		(
+			otherlv_9='dealAttribute'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getDealAccess().getDealAttributeKeyword_9_0());
+			}
 			(
-				{
-					newCompositeNode(grammarAccess.getDealAccess().getDealAttributesAttributeParserRuleCall_10_0());
-				}
-				lv_dealAttributes_10_0=ruleAttribute
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDealRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getDealAccess().getDealAttributesAttributeParserRuleCall_9_1_0());
 					}
-					add(
-						$current,
-						"dealAttributes",
-						lv_dealAttributes_10_0,
-						"de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.Attribute");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
+					lv_dealAttributes_10_0=ruleAttribute
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getDealRule());
+						}
+						add(
+							$current,
+							"dealAttributes",
+							lv_dealAttributes_10_0,
+							"de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.Attribute");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
+		)?
 		otherlv_11=')'
 		{
-			newLeafNode(otherlv_11, grammarAccess.getDealAccess().getRightParenthesisKeyword_11());
+			newLeafNode(otherlv_11, grammarAccess.getDealAccess().getRightParenthesisKeyword_10());
 		}
 	)
 ;

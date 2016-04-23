@@ -4,27 +4,176 @@
 package de.nak.xtext.hausarbeit.rentalSystem.tests
 
 import com.google.inject.Inject
+import com.google.inject.Provider
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem
+import org.eclipse.emf.common.util.URI
 import org.eclipse.xtext.junit4.InjectWith
 import org.eclipse.xtext.junit4.XtextRunner
 import org.eclipse.xtext.junit4.util.ParseHelper
+import org.eclipse.xtext.junit4.validation.ValidationTestHelper
+import org.eclipse.xtext.resource.XtextResourceSet
+import org.eclipse.xtext.util.StringInputStream
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(XtextRunner)
-@InjectWith(RentalSystemInjectorProvider)
+@InjectWith(BothLanguagesInjectorProvider)
 class RentalSystemParsingTest{
 
 	@Inject
 	ParseHelper<RentalSystem> parseHelper;
+	
+	@Inject
+	ValidationTestHelper validationTestHelper;
+	
+	@Inject 
+	Provider<XtextResourceSet> resourceSetProvider
+	
 
 	@Test 
 	def void loadModel() {
 		val result = parseHelper.parse('''
-			Hello Xtext!
+		rentalSystem SampleSystem "systemTitle"
+		(
+				
+		)
 		''')
-		Assert.assertNotNull(result)
+		Assert.assertEquals("systemTitle", result.title);
+		Assert.assertEquals("SampleSystem", result.name);
+		
+		validationTestHelper.assertNoErrors(result)
+	}
+	
+	@Test 
+	def void loadModelWithRentalTypeAndNoAttributes() {		
+		val result = parseHelper.parse('''
+		rentalSystem testSystem "Title"(
+			movable typeMold rentalTypeID1(
+			)
+		)
+		''')
+		
+		val rentalType = result.rentalTypes.get(0);
+		Assert.assertEquals("rentalTypeID1", rentalType.name);
+		Assert.assertTrue(rentalType.movable)
+		Assert.assertFalse(rentalType.fix)
+		Assert.assertFalse(rentalType.digital)
+
+	}
+	@Test
+	def void loadModelWithRentalTypeAndAttributes() {
+		val result = parseHelper.parse('''
+		rentalSystem testSystem "Title"(
+			movable typeMold rentalTypeID1(
+				attribute title String
+				attribute price int
+			)
+		)
+		''')
+		
+		Assert.assertEquals(2,result.rentalTypes.get(0).typeAttributes.length)		
+		validationTestHelper.assertNoErrors(result)		
+	}
+	
+	@Test 
+	def void loadModelWithRentalTypes() {
+		val result = parseHelper.parse('''
+		rentalSystem testSystem "Title"(
+			movable typeMold rentalTypeID1(
+				attribute title String
+				attribute price int
+			)
+			fix typeMold rentalTypeID2(
+				
+			)	
+		)
+		''')
+		
+		
+		Assert.assertEquals(2,result.rentalTypes.length)		
+		validationTestHelper.assertNoErrors(result)
+	}
+	
+	@Test 
+	def void loadModelWithCustomer() {
+		val result = parseHelper.parse('''
+		rentalSystem testSystem "Title"(
+			customerMold customerID1 (
+				attribute title String			
+			)	
+		)
+		''')
+		
+		Assert.assertEquals("customerID1",result.customers.get(0).name)		
+		validationTestHelper.assertNoErrors(result)
+	}
+	
+	@Test def void loadModelWithDealAndWorkflow() {
+		val resourceSet = resourceSetProvider.get
+		
+		// create a resource for language 'RentalWorkflow'
+		val testWorkflow = resourceSet.createResource(URI.createURI("workflow.rentalWorkflow"))
+		// parse sample contents
+		testWorkflow.load(new StringInputStream(
+			"defineWorkflow workflow1
+			events 
+				onNext nextClicked 
+				onCancel cancelClicked
+				onBack backClicked
+			end
+			
+			commands
+			abortNow doAbort
+			deleteNow doDelete
+			saveNow doSave 
+			end
+			
+			resetEvents
+			onCancel
+			end"
+			), emptyMap)
+				
+		validationTestHelper.assertNoErrors(testWorkflow)
+		
+		// use the parse helper to read the model under test
+		// into the same resource set
+		val testRentalSystem = parseHelper.parse(
+			"rentalSystem testSystem \"Title\"(
+				movable typeMold rentalTypeID1(
+					attribute title String
+					attribute price int
+				)
+				customerMold customerID1 (
+					attribute title String			
+				)
+				deal dealID1(
+					customer customerID1
+					rentalType rentalTypeID1 
+					dealWorkflow  workflow1 
+					dealAttribute
+				)
+				
+			)", resourceSet)
+
+		validationTestHelper.assertNoErrors(testRentalSystem)
+		
+
+		//compare the workflow inside the RentalSystem to the referenced Workflow Object
+		//val wfRoot = testWorkflow.contents.head as RentalWorkflow
+		//Assert.assertNotNull(wfRoot)
+		//val systemWfRoot = testRentalSystem.deals
+		//Assert.assertNotNull(systemWfRoot)
+		
+		//Assert.assertSame(wfRoot,systemWfRoot)
+		//Assert.assertEquals("workflow1",systemWfRoot)
+		
+		
+		//Assert.assertNotNull(testMe)
+		// and also valid		
+		//validationTestHelper.assertNoIssues(testMe)
+		// more assertions below
+	
 	}
 
 }

@@ -4,32 +4,208 @@
 package de.nak.xtext.hausarbeit.rentalSystem.tests;
 
 import com.google.inject.Inject;
+import com.google.inject.Provider;
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute;
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Customer;
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem;
-import de.nak.xtext.hausarbeit.rentalSystem.tests.RentalSystemInjectorProvider;
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalType;
+import de.nak.xtext.hausarbeit.rentalSystem.tests.BothLanguagesInjectorProvider;
+import java.util.Map;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
 import org.eclipse.xtext.junit4.util.ParseHelper;
+import org.eclipse.xtext.junit4.validation.ValidationTestHelper;
+import org.eclipse.xtext.resource.XtextResourceSet;
+import org.eclipse.xtext.util.StringInputStream;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(XtextRunner.class)
-@InjectWith(RentalSystemInjectorProvider.class)
+@InjectWith(BothLanguagesInjectorProvider.class)
 @SuppressWarnings("all")
 public class RentalSystemParsingTest {
   @Inject
   private ParseHelper<RentalSystem> parseHelper;
   
+  @Inject
+  private ValidationTestHelper validationTestHelper;
+  
+  @Inject
+  private Provider<XtextResourceSet> resourceSetProvider;
+  
   @Test
   public void loadModel() {
     try {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("Hello Xtext!");
+      _builder.append("rentalSystem SampleSystem \"systemTitle\"");
+      _builder.newLine();
+      _builder.append("(");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.newLine();
+      _builder.append(")");
       _builder.newLine();
       final RentalSystem result = this.parseHelper.parse(_builder);
-      Assert.assertNotNull(result);
+      String _title = result.getTitle();
+      Assert.assertEquals("systemTitle", _title);
+      String _name = result.getName();
+      Assert.assertEquals("SampleSystem", _name);
+      this.validationTestHelper.assertNoErrors(result);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void loadModelWithRentalTypeAndNoAttributes() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("rentalSystem testSystem \"Title\"(");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("movable typeMold rentalTypeID1(");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append(")");
+      _builder.newLine();
+      _builder.append(")");
+      _builder.newLine();
+      final RentalSystem result = this.parseHelper.parse(_builder);
+      EList<RentalType> _rentalTypes = result.getRentalTypes();
+      final RentalType rentalType = _rentalTypes.get(0);
+      String _name = rentalType.getName();
+      Assert.assertEquals("rentalTypeID1", _name);
+      boolean _isMovable = rentalType.isMovable();
+      Assert.assertTrue(_isMovable);
+      boolean _isFix = rentalType.isFix();
+      Assert.assertFalse(_isFix);
+      boolean _isDigital = rentalType.isDigital();
+      Assert.assertFalse(_isDigital);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void loadModelWithRentalTypeAndAttributes() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("rentalSystem testSystem \"Title\"(");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("movable typeMold rentalTypeID1(");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("attribute title String");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("attribute price int");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append(")");
+      _builder.newLine();
+      _builder.append(")");
+      _builder.newLine();
+      final RentalSystem result = this.parseHelper.parse(_builder);
+      EList<RentalType> _rentalTypes = result.getRentalTypes();
+      RentalType _get = _rentalTypes.get(0);
+      EList<Attribute> _typeAttributes = _get.getTypeAttributes();
+      int _length = ((Object[])Conversions.unwrapArray(_typeAttributes, Object.class)).length;
+      Assert.assertEquals(2, _length);
+      this.validationTestHelper.assertNoErrors(result);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void loadModelWithRentalTypes() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("rentalSystem testSystem \"Title\"(");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("movable typeMold rentalTypeID1(");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("attribute title String");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("attribute price int");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append(")");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("fix typeMold rentalTypeID2(");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append(")\t");
+      _builder.newLine();
+      _builder.append(")");
+      _builder.newLine();
+      final RentalSystem result = this.parseHelper.parse(_builder);
+      EList<RentalType> _rentalTypes = result.getRentalTypes();
+      int _length = ((Object[])Conversions.unwrapArray(_rentalTypes, Object.class)).length;
+      Assert.assertEquals(2, _length);
+      this.validationTestHelper.assertNoErrors(result);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void loadModelWithCustomer() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("rentalSystem testSystem \"Title\"(");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("customerMold customerID1 (");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("attribute title String\t\t\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append(")\t");
+      _builder.newLine();
+      _builder.append(")");
+      _builder.newLine();
+      final RentalSystem result = this.parseHelper.parse(_builder);
+      EList<Customer> _customers = result.getCustomers();
+      Customer _get = _customers.get(0);
+      String _name = _get.getName();
+      Assert.assertEquals("customerID1", _name);
+      this.validationTestHelper.assertNoErrors(result);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void loadModelWithDealAndWorkflow() {
+    try {
+      final XtextResourceSet resourceSet = this.resourceSetProvider.get();
+      URI _createURI = URI.createURI("workflow.rentalWorkflow");
+      final Resource testWorkflow = resourceSet.createResource(_createURI);
+      StringInputStream _stringInputStream = new StringInputStream(
+        "defineWorkflow workflow1\n\t\t\tevents \n\t\t\t\tonNext nextClicked \n\t\t\t\tonCancel cancelClicked\n\t\t\t\tonBack backClicked\n\t\t\tend\n\t\t\t\n\t\t\tcommands\n\t\t\tabortNow doAbort\n\t\t\tdeleteNow doDelete\n\t\t\tsaveNow doSave \n\t\t\tend\n\t\t\t\n\t\t\tresetEvents\n\t\t\tonCancel\n\t\t\tend");
+      Map<Object, Object> _emptyMap = CollectionLiterals.<Object, Object>emptyMap();
+      testWorkflow.load(_stringInputStream, _emptyMap);
+      this.validationTestHelper.assertNoErrors(testWorkflow);
+      final RentalSystem testRentalSystem = this.parseHelper.parse(
+        "rentalSystem testSystem \"Title\"(\n\t\t\t\tmovable typeMold rentalTypeID1(\n\t\t\t\t\tattribute title String\n\t\t\t\t\tattribute price int\n\t\t\t\t)\n\t\t\t\tcustomerMold customerID1 (\n\t\t\t\t\tattribute title String\t\t\t\n\t\t\t\t)\n\t\t\t\tdeal dealID1(\n\t\t\t\t\tcustomer customerID1\n\t\t\t\t\trentalType rentalTypeID1 \n\t\t\t\t\tdealWorkflow  workflow1 \n\t\t\t\t\tdealAttribute\n\t\t\t\t)\n\t\t\t\t\n\t\t\t)", resourceSet);
+      this.validationTestHelper.assertNoErrors(testRentalSystem);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

@@ -995,7 +995,7 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDeal"
-    // InternalRentalSystem.g:418:1: ruleDeal returns [EObject current=null] : (otherlv_0= 'deal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' otherlv_3= 'customer' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'rentalType' ( (otherlv_6= RULE_ID ) ) otherlv_7= 'dealWorkflow' ( ( ruleQualifiedName ) ) otherlv_9= 'dealAttribute' ( (lv_dealAttributes_10_0= ruleAttribute ) )* otherlv_11= ')' ) ;
+    // InternalRentalSystem.g:418:1: ruleDeal returns [EObject current=null] : (otherlv_0= 'deal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' otherlv_3= 'customer' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'rentalType' ( (otherlv_6= RULE_ID ) ) otherlv_7= 'dealWorkflow' ( ( ruleQualifiedName ) ) (otherlv_9= 'dealAttribute' ( (lv_dealAttributes_10_0= ruleAttribute ) )* )? otherlv_11= ')' ) ;
     public final EObject ruleDeal() throws RecognitionException {
         EObject current = null;
 
@@ -1016,11 +1016,11 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalRentalSystem.g:424:2: ( (otherlv_0= 'deal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' otherlv_3= 'customer' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'rentalType' ( (otherlv_6= RULE_ID ) ) otherlv_7= 'dealWorkflow' ( ( ruleQualifiedName ) ) otherlv_9= 'dealAttribute' ( (lv_dealAttributes_10_0= ruleAttribute ) )* otherlv_11= ')' ) )
-            // InternalRentalSystem.g:425:2: (otherlv_0= 'deal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' otherlv_3= 'customer' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'rentalType' ( (otherlv_6= RULE_ID ) ) otherlv_7= 'dealWorkflow' ( ( ruleQualifiedName ) ) otherlv_9= 'dealAttribute' ( (lv_dealAttributes_10_0= ruleAttribute ) )* otherlv_11= ')' )
+            // InternalRentalSystem.g:424:2: ( (otherlv_0= 'deal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' otherlv_3= 'customer' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'rentalType' ( (otherlv_6= RULE_ID ) ) otherlv_7= 'dealWorkflow' ( ( ruleQualifiedName ) ) (otherlv_9= 'dealAttribute' ( (lv_dealAttributes_10_0= ruleAttribute ) )* )? otherlv_11= ')' ) )
+            // InternalRentalSystem.g:425:2: (otherlv_0= 'deal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' otherlv_3= 'customer' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'rentalType' ( (otherlv_6= RULE_ID ) ) otherlv_7= 'dealWorkflow' ( ( ruleQualifiedName ) ) (otherlv_9= 'dealAttribute' ( (lv_dealAttributes_10_0= ruleAttribute ) )* )? otherlv_11= ')' )
             {
-            // InternalRentalSystem.g:425:2: (otherlv_0= 'deal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' otherlv_3= 'customer' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'rentalType' ( (otherlv_6= RULE_ID ) ) otherlv_7= 'dealWorkflow' ( ( ruleQualifiedName ) ) otherlv_9= 'dealAttribute' ( (lv_dealAttributes_10_0= ruleAttribute ) )* otherlv_11= ')' )
-            // InternalRentalSystem.g:426:3: otherlv_0= 'deal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' otherlv_3= 'customer' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'rentalType' ( (otherlv_6= RULE_ID ) ) otherlv_7= 'dealWorkflow' ( ( ruleQualifiedName ) ) otherlv_9= 'dealAttribute' ( (lv_dealAttributes_10_0= ruleAttribute ) )* otherlv_11= ')'
+            // InternalRentalSystem.g:425:2: (otherlv_0= 'deal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' otherlv_3= 'customer' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'rentalType' ( (otherlv_6= RULE_ID ) ) otherlv_7= 'dealWorkflow' ( ( ruleQualifiedName ) ) (otherlv_9= 'dealAttribute' ( (lv_dealAttributes_10_0= ruleAttribute ) )* )? otherlv_11= ')' )
+            // InternalRentalSystem.g:426:3: otherlv_0= 'deal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' otherlv_3= 'customer' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'rentalType' ( (otherlv_6= RULE_ID ) ) otherlv_7= 'dealWorkflow' ( ( ruleQualifiedName ) ) (otherlv_9= 'dealAttribute' ( (lv_dealAttributes_10_0= ruleAttribute ) )* )? otherlv_11= ')'
             {
             otherlv_0=(Token)match(input,20,FOLLOW_3); 
 
@@ -1138,62 +1138,79 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_9=(Token)match(input,24,FOLLOW_10); 
+            // InternalRentalSystem.g:506:3: (otherlv_9= 'dealAttribute' ( (lv_dealAttributes_10_0= ruleAttribute ) )* )?
+            int alt9=2;
+            int LA9_0 = input.LA(1);
 
-            			newLeafNode(otherlv_9, grammarAccess.getDealAccess().getDealAttributeKeyword_9());
-            		
-            // InternalRentalSystem.g:510:3: ( (lv_dealAttributes_10_0= ruleAttribute ) )*
-            loop8:
-            do {
-                int alt8=2;
-                int LA8_0 = input.LA(1);
+            if ( (LA9_0==24) ) {
+                alt9=1;
+            }
+            switch (alt9) {
+                case 1 :
+                    // InternalRentalSystem.g:507:4: otherlv_9= 'dealAttribute' ( (lv_dealAttributes_10_0= ruleAttribute ) )*
+                    {
+                    otherlv_9=(Token)match(input,24,FOLLOW_10); 
 
-                if ( (LA8_0==25) ) {
-                    alt8=1;
-                }
+                    				newLeafNode(otherlv_9, grammarAccess.getDealAccess().getDealAttributeKeyword_9_0());
+                    			
+                    // InternalRentalSystem.g:511:4: ( (lv_dealAttributes_10_0= ruleAttribute ) )*
+                    loop8:
+                    do {
+                        int alt8=2;
+                        int LA8_0 = input.LA(1);
 
-
-                switch (alt8) {
-            	case 1 :
-            	    // InternalRentalSystem.g:511:4: (lv_dealAttributes_10_0= ruleAttribute )
-            	    {
-            	    // InternalRentalSystem.g:511:4: (lv_dealAttributes_10_0= ruleAttribute )
-            	    // InternalRentalSystem.g:512:5: lv_dealAttributes_10_0= ruleAttribute
-            	    {
-
-            	    					newCompositeNode(grammarAccess.getDealAccess().getDealAttributesAttributeParserRuleCall_10_0());
-            	    				
-            	    pushFollow(FOLLOW_10);
-            	    lv_dealAttributes_10_0=ruleAttribute();
-
-            	    state._fsp--;
+                        if ( (LA8_0==25) ) {
+                            alt8=1;
+                        }
 
 
-            	    					if (current==null) {
-            	    						current = createModelElementForParent(grammarAccess.getDealRule());
-            	    					}
-            	    					add(
-            	    						current,
-            	    						"dealAttributes",
-            	    						lv_dealAttributes_10_0,
-            	    						"de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.Attribute");
-            	    					afterParserOrEnumRuleCall();
-            	    				
+                        switch (alt8) {
+                    	case 1 :
+                    	    // InternalRentalSystem.g:512:5: (lv_dealAttributes_10_0= ruleAttribute )
+                    	    {
+                    	    // InternalRentalSystem.g:512:5: (lv_dealAttributes_10_0= ruleAttribute )
+                    	    // InternalRentalSystem.g:513:6: lv_dealAttributes_10_0= ruleAttribute
+                    	    {
 
-            	    }
+                    	    						newCompositeNode(grammarAccess.getDealAccess().getDealAttributesAttributeParserRuleCall_9_1_0());
+                    	    					
+                    	    pushFollow(FOLLOW_10);
+                    	    lv_dealAttributes_10_0=ruleAttribute();
+
+                    	    state._fsp--;
 
 
-            	    }
-            	    break;
+                    	    						if (current==null) {
+                    	    							current = createModelElementForParent(grammarAccess.getDealRule());
+                    	    						}
+                    	    						add(
+                    	    							current,
+                    	    							"dealAttributes",
+                    	    							lv_dealAttributes_10_0,
+                    	    							"de.nak.xtext.hausarbeit.rentalSystem.RentalSystem.Attribute");
+                    	    						afterParserOrEnumRuleCall();
+                    	    					
 
-            	default :
-            	    break loop8;
-                }
-            } while (true);
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop8;
+                        }
+                    } while (true);
+
+
+                    }
+                    break;
+
+            }
 
             otherlv_11=(Token)match(input,13,FOLLOW_2); 
 
-            			newLeafNode(otherlv_11, grammarAccess.getDealAccess().getRightParenthesisKeyword_11());
+            			newLeafNode(otherlv_11, grammarAccess.getDealAccess().getRightParenthesisKeyword_10());
             		
 
             }
@@ -1218,7 +1235,7 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAttribute"
-    // InternalRentalSystem.g:537:1: entryRuleAttribute returns [EObject current=null] : iv_ruleAttribute= ruleAttribute EOF ;
+    // InternalRentalSystem.g:539:1: entryRuleAttribute returns [EObject current=null] : iv_ruleAttribute= ruleAttribute EOF ;
     public final EObject entryRuleAttribute() throws RecognitionException {
         EObject current = null;
 
@@ -1226,8 +1243,8 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalRentalSystem.g:537:50: (iv_ruleAttribute= ruleAttribute EOF )
-            // InternalRentalSystem.g:538:2: iv_ruleAttribute= ruleAttribute EOF
+            // InternalRentalSystem.g:539:50: (iv_ruleAttribute= ruleAttribute EOF )
+            // InternalRentalSystem.g:540:2: iv_ruleAttribute= ruleAttribute EOF
             {
              newCompositeNode(grammarAccess.getAttributeRule()); 
             pushFollow(FOLLOW_1);
@@ -1254,7 +1271,7 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAttribute"
-    // InternalRentalSystem.g:544:1: ruleAttribute returns [EObject current=null] : (otherlv_0= 'attribute' ( (lv_name_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleOfType ) ) ) ;
+    // InternalRentalSystem.g:546:1: ruleAttribute returns [EObject current=null] : (otherlv_0= 'attribute' ( (lv_name_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleOfType ) ) ) ;
     public final EObject ruleAttribute() throws RecognitionException {
         EObject current = null;
 
@@ -1267,21 +1284,21 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalRentalSystem.g:550:2: ( (otherlv_0= 'attribute' ( (lv_name_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleOfType ) ) ) )
-            // InternalRentalSystem.g:551:2: (otherlv_0= 'attribute' ( (lv_name_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleOfType ) ) )
+            // InternalRentalSystem.g:552:2: ( (otherlv_0= 'attribute' ( (lv_name_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleOfType ) ) ) )
+            // InternalRentalSystem.g:553:2: (otherlv_0= 'attribute' ( (lv_name_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleOfType ) ) )
             {
-            // InternalRentalSystem.g:551:2: (otherlv_0= 'attribute' ( (lv_name_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleOfType ) ) )
-            // InternalRentalSystem.g:552:3: otherlv_0= 'attribute' ( (lv_name_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleOfType ) )
+            // InternalRentalSystem.g:553:2: (otherlv_0= 'attribute' ( (lv_name_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleOfType ) ) )
+            // InternalRentalSystem.g:554:3: otherlv_0= 'attribute' ( (lv_name_1_0= RULE_ID ) ) ( (lv_ofType_2_0= ruleOfType ) )
             {
             otherlv_0=(Token)match(input,25,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getAttributeAccess().getAttributeKeyword_0());
             		
-            // InternalRentalSystem.g:556:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalRentalSystem.g:557:4: (lv_name_1_0= RULE_ID )
+            // InternalRentalSystem.g:558:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalRentalSystem.g:559:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalRentalSystem.g:557:4: (lv_name_1_0= RULE_ID )
-            // InternalRentalSystem.g:558:5: lv_name_1_0= RULE_ID
+            // InternalRentalSystem.g:559:4: (lv_name_1_0= RULE_ID )
+            // InternalRentalSystem.g:560:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_16); 
 
@@ -1303,11 +1320,11 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalRentalSystem.g:574:3: ( (lv_ofType_2_0= ruleOfType ) )
-            // InternalRentalSystem.g:575:4: (lv_ofType_2_0= ruleOfType )
+            // InternalRentalSystem.g:576:3: ( (lv_ofType_2_0= ruleOfType ) )
+            // InternalRentalSystem.g:577:4: (lv_ofType_2_0= ruleOfType )
             {
-            // InternalRentalSystem.g:575:4: (lv_ofType_2_0= ruleOfType )
-            // InternalRentalSystem.g:576:5: lv_ofType_2_0= ruleOfType
+            // InternalRentalSystem.g:577:4: (lv_ofType_2_0= ruleOfType )
+            // InternalRentalSystem.g:578:5: lv_ofType_2_0= ruleOfType
             {
 
             					newCompositeNode(grammarAccess.getAttributeAccess().getOfTypeOfTypeEnumRuleCall_2_0());
@@ -1357,7 +1374,7 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOfType"
-    // InternalRentalSystem.g:597:1: ruleOfType returns [Enumerator current=null] : ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'String' ) | (enumLiteral_2= 'Date' ) | (enumLiteral_3= 'Double' ) | (enumLiteral_4= 'boolean' ) ) ;
+    // InternalRentalSystem.g:599:1: ruleOfType returns [Enumerator current=null] : ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'String' ) | (enumLiteral_2= 'Date' ) | (enumLiteral_3= 'Double' ) | (enumLiteral_4= 'boolean' ) ) ;
     public final Enumerator ruleOfType() throws RecognitionException {
         Enumerator current = null;
 
@@ -1371,50 +1388,50 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalRentalSystem.g:603:2: ( ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'String' ) | (enumLiteral_2= 'Date' ) | (enumLiteral_3= 'Double' ) | (enumLiteral_4= 'boolean' ) ) )
-            // InternalRentalSystem.g:604:2: ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'String' ) | (enumLiteral_2= 'Date' ) | (enumLiteral_3= 'Double' ) | (enumLiteral_4= 'boolean' ) )
+            // InternalRentalSystem.g:605:2: ( ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'String' ) | (enumLiteral_2= 'Date' ) | (enumLiteral_3= 'Double' ) | (enumLiteral_4= 'boolean' ) ) )
+            // InternalRentalSystem.g:606:2: ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'String' ) | (enumLiteral_2= 'Date' ) | (enumLiteral_3= 'Double' ) | (enumLiteral_4= 'boolean' ) )
             {
-            // InternalRentalSystem.g:604:2: ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'String' ) | (enumLiteral_2= 'Date' ) | (enumLiteral_3= 'Double' ) | (enumLiteral_4= 'boolean' ) )
-            int alt9=5;
+            // InternalRentalSystem.g:606:2: ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'String' ) | (enumLiteral_2= 'Date' ) | (enumLiteral_3= 'Double' ) | (enumLiteral_4= 'boolean' ) )
+            int alt10=5;
             switch ( input.LA(1) ) {
             case 26:
                 {
-                alt9=1;
+                alt10=1;
                 }
                 break;
             case 27:
                 {
-                alt9=2;
+                alt10=2;
                 }
                 break;
             case 28:
                 {
-                alt9=3;
+                alt10=3;
                 }
                 break;
             case 29:
                 {
-                alt9=4;
+                alt10=4;
                 }
                 break;
             case 30:
                 {
-                alt9=5;
+                alt10=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 9, 0, input);
+                    new NoViableAltException("", 10, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt9) {
+            switch (alt10) {
                 case 1 :
-                    // InternalRentalSystem.g:605:3: (enumLiteral_0= 'int' )
+                    // InternalRentalSystem.g:607:3: (enumLiteral_0= 'int' )
                     {
-                    // InternalRentalSystem.g:605:3: (enumLiteral_0= 'int' )
-                    // InternalRentalSystem.g:606:4: enumLiteral_0= 'int'
+                    // InternalRentalSystem.g:607:3: (enumLiteral_0= 'int' )
+                    // InternalRentalSystem.g:608:4: enumLiteral_0= 'int'
                     {
                     enumLiteral_0=(Token)match(input,26,FOLLOW_2); 
 
@@ -1428,10 +1445,10 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalRentalSystem.g:613:3: (enumLiteral_1= 'String' )
+                    // InternalRentalSystem.g:615:3: (enumLiteral_1= 'String' )
                     {
-                    // InternalRentalSystem.g:613:3: (enumLiteral_1= 'String' )
-                    // InternalRentalSystem.g:614:4: enumLiteral_1= 'String'
+                    // InternalRentalSystem.g:615:3: (enumLiteral_1= 'String' )
+                    // InternalRentalSystem.g:616:4: enumLiteral_1= 'String'
                     {
                     enumLiteral_1=(Token)match(input,27,FOLLOW_2); 
 
@@ -1445,10 +1462,10 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalRentalSystem.g:621:3: (enumLiteral_2= 'Date' )
+                    // InternalRentalSystem.g:623:3: (enumLiteral_2= 'Date' )
                     {
-                    // InternalRentalSystem.g:621:3: (enumLiteral_2= 'Date' )
-                    // InternalRentalSystem.g:622:4: enumLiteral_2= 'Date'
+                    // InternalRentalSystem.g:623:3: (enumLiteral_2= 'Date' )
+                    // InternalRentalSystem.g:624:4: enumLiteral_2= 'Date'
                     {
                     enumLiteral_2=(Token)match(input,28,FOLLOW_2); 
 
@@ -1462,10 +1479,10 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalRentalSystem.g:629:3: (enumLiteral_3= 'Double' )
+                    // InternalRentalSystem.g:631:3: (enumLiteral_3= 'Double' )
                     {
-                    // InternalRentalSystem.g:629:3: (enumLiteral_3= 'Double' )
-                    // InternalRentalSystem.g:630:4: enumLiteral_3= 'Double'
+                    // InternalRentalSystem.g:631:3: (enumLiteral_3= 'Double' )
+                    // InternalRentalSystem.g:632:4: enumLiteral_3= 'Double'
                     {
                     enumLiteral_3=(Token)match(input,29,FOLLOW_2); 
 
@@ -1479,10 +1496,10 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalRentalSystem.g:637:3: (enumLiteral_4= 'boolean' )
+                    // InternalRentalSystem.g:639:3: (enumLiteral_4= 'boolean' )
                     {
-                    // InternalRentalSystem.g:637:3: (enumLiteral_4= 'boolean' )
-                    // InternalRentalSystem.g:638:4: enumLiteral_4= 'boolean'
+                    // InternalRentalSystem.g:639:3: (enumLiteral_4= 'boolean' )
+                    // InternalRentalSystem.g:640:4: enumLiteral_4= 'boolean'
                     {
                     enumLiteral_4=(Token)match(input,30,FOLLOW_2); 
 
@@ -1535,7 +1552,7 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000200000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000001002000L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x000000007C000000L});
 
 }

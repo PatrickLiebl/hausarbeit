@@ -43,6 +43,7 @@ public class RentalSystemParser extends AbstractContentAssistParser {
 					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
 					put(grammarAccess.getDealAccess().getGroup(), "rule__Deal__Group__0");
+					put(grammarAccess.getDealAccess().getGroup_9(), "rule__Deal__Group_9__0");
 					put(grammarAccess.getAttributeAccess().getGroup(), "rule__Attribute__Group__0");
 					put(grammarAccess.getRentalSystemAccess().getNameAssignment_1(), "rule__RentalSystem__NameAssignment_1");
 					put(grammarAccess.getRentalSystemAccess().getTitleAssignment_2(), "rule__RentalSystem__TitleAssignment_2");
@@ -60,7 +61,7 @@ public class RentalSystemParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDealAccess().getCustomerAssignment_4(), "rule__Deal__CustomerAssignment_4");
 					put(grammarAccess.getDealAccess().getRentalTypeAssignment_6(), "rule__Deal__RentalTypeAssignment_6");
 					put(grammarAccess.getDealAccess().getRentalWorkflowAssignment_8(), "rule__Deal__RentalWorkflowAssignment_8");
-					put(grammarAccess.getDealAccess().getDealAttributesAssignment_10(), "rule__Deal__DealAttributesAssignment_10");
+					put(grammarAccess.getDealAccess().getDealAttributesAssignment_9_1(), "rule__Deal__DealAttributesAssignment_9_1");
 					put(grammarAccess.getAttributeAccess().getNameAssignment_1(), "rule__Attribute__NameAssignment_1");
 					put(grammarAccess.getAttributeAccess().getOfTypeAssignment_2(), "rule__Attribute__OfTypeAssignment_2");
 				}

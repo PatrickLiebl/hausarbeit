@@ -3530,7 +3530,7 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
             // InternalRentalSystem.g:1152:1: ( rule__Deal__Group__9__Impl rule__Deal__Group__10 )
             // InternalRentalSystem.g:1153:2: rule__Deal__Group__9__Impl rule__Deal__Group__10
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_18);
             rule__Deal__Group__9__Impl();
 
             state._fsp--;
@@ -3559,21 +3559,42 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Deal__Group__9__Impl"
-    // InternalRentalSystem.g:1160:1: rule__Deal__Group__9__Impl : ( 'dealAttribute' ) ;
+    // InternalRentalSystem.g:1160:1: rule__Deal__Group__9__Impl : ( ( rule__Deal__Group_9__0 )? ) ;
     public final void rule__Deal__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1164:1: ( ( 'dealAttribute' ) )
-            // InternalRentalSystem.g:1165:1: ( 'dealAttribute' )
+            // InternalRentalSystem.g:1164:1: ( ( ( rule__Deal__Group_9__0 )? ) )
+            // InternalRentalSystem.g:1165:1: ( ( rule__Deal__Group_9__0 )? )
             {
-            // InternalRentalSystem.g:1165:1: ( 'dealAttribute' )
-            // InternalRentalSystem.g:1166:2: 'dealAttribute'
+            // InternalRentalSystem.g:1165:1: ( ( rule__Deal__Group_9__0 )? )
+            // InternalRentalSystem.g:1166:2: ( rule__Deal__Group_9__0 )?
             {
-             before(grammarAccess.getDealAccess().getDealAttributeKeyword_9()); 
-            match(input,26,FOLLOW_2); 
-             after(grammarAccess.getDealAccess().getDealAttributeKeyword_9()); 
+             before(grammarAccess.getDealAccess().getGroup_9()); 
+            // InternalRentalSystem.g:1167:2: ( rule__Deal__Group_9__0 )?
+            int alt9=2;
+            int LA9_0 = input.LA(1);
+
+            if ( (LA9_0==26) ) {
+                alt9=1;
+            }
+            switch (alt9) {
+                case 1 :
+                    // InternalRentalSystem.g:1167:3: rule__Deal__Group_9__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Deal__Group_9__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getDealAccess().getGroup_9()); 
 
             }
 
@@ -3596,22 +3617,17 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Deal__Group__10"
-    // InternalRentalSystem.g:1175:1: rule__Deal__Group__10 : rule__Deal__Group__10__Impl rule__Deal__Group__11 ;
+    // InternalRentalSystem.g:1175:1: rule__Deal__Group__10 : rule__Deal__Group__10__Impl ;
     public final void rule__Deal__Group__10() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1179:1: ( rule__Deal__Group__10__Impl rule__Deal__Group__11 )
-            // InternalRentalSystem.g:1180:2: rule__Deal__Group__10__Impl rule__Deal__Group__11
+            // InternalRentalSystem.g:1179:1: ( rule__Deal__Group__10__Impl )
+            // InternalRentalSystem.g:1180:2: rule__Deal__Group__10__Impl
             {
-            pushFollow(FOLLOW_11);
-            rule__Deal__Group__10__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__Deal__Group__11();
+            rule__Deal__Group__10__Impl();
 
             state._fsp--;
 
@@ -3634,49 +3650,21 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Deal__Group__10__Impl"
-    // InternalRentalSystem.g:1187:1: rule__Deal__Group__10__Impl : ( ( rule__Deal__DealAttributesAssignment_10 )* ) ;
+    // InternalRentalSystem.g:1186:1: rule__Deal__Group__10__Impl : ( ')' ) ;
     public final void rule__Deal__Group__10__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1191:1: ( ( ( rule__Deal__DealAttributesAssignment_10 )* ) )
-            // InternalRentalSystem.g:1192:1: ( ( rule__Deal__DealAttributesAssignment_10 )* )
+            // InternalRentalSystem.g:1190:1: ( ( ')' ) )
+            // InternalRentalSystem.g:1191:1: ( ')' )
             {
-            // InternalRentalSystem.g:1192:1: ( ( rule__Deal__DealAttributesAssignment_10 )* )
-            // InternalRentalSystem.g:1193:2: ( rule__Deal__DealAttributesAssignment_10 )*
+            // InternalRentalSystem.g:1191:1: ( ')' )
+            // InternalRentalSystem.g:1192:2: ')'
             {
-             before(grammarAccess.getDealAccess().getDealAttributesAssignment_10()); 
-            // InternalRentalSystem.g:1194:2: ( rule__Deal__DealAttributesAssignment_10 )*
-            loop9:
-            do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
-
-                if ( (LA9_0==27) ) {
-                    alt9=1;
-                }
-
-
-                switch (alt9) {
-            	case 1 :
-            	    // InternalRentalSystem.g:1194:3: rule__Deal__DealAttributesAssignment_10
-            	    {
-            	    pushFollow(FOLLOW_12);
-            	    rule__Deal__DealAttributesAssignment_10();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop9;
-                }
-            } while (true);
-
-             after(grammarAccess.getDealAccess().getDealAttributesAssignment_10()); 
+             before(grammarAccess.getDealAccess().getRightParenthesisKeyword_10()); 
+            match(input,18,FOLLOW_2); 
+             after(grammarAccess.getDealAccess().getRightParenthesisKeyword_10()); 
 
             }
 
@@ -3698,18 +3686,23 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
     // $ANTLR end "rule__Deal__Group__10__Impl"
 
 
-    // $ANTLR start "rule__Deal__Group__11"
-    // InternalRentalSystem.g:1202:1: rule__Deal__Group__11 : rule__Deal__Group__11__Impl ;
-    public final void rule__Deal__Group__11() throws RecognitionException {
+    // $ANTLR start "rule__Deal__Group_9__0"
+    // InternalRentalSystem.g:1202:1: rule__Deal__Group_9__0 : rule__Deal__Group_9__0__Impl rule__Deal__Group_9__1 ;
+    public final void rule__Deal__Group_9__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1206:1: ( rule__Deal__Group__11__Impl )
-            // InternalRentalSystem.g:1207:2: rule__Deal__Group__11__Impl
+            // InternalRentalSystem.g:1206:1: ( rule__Deal__Group_9__0__Impl rule__Deal__Group_9__1 )
+            // InternalRentalSystem.g:1207:2: rule__Deal__Group_9__0__Impl rule__Deal__Group_9__1
             {
+            pushFollow(FOLLOW_19);
+            rule__Deal__Group_9__0__Impl();
+
+            state._fsp--;
+
             pushFollow(FOLLOW_2);
-            rule__Deal__Group__11__Impl();
+            rule__Deal__Group_9__1();
 
             state._fsp--;
 
@@ -3728,25 +3721,25 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end "rule__Deal__Group__11"
+    // $ANTLR end "rule__Deal__Group_9__0"
 
 
-    // $ANTLR start "rule__Deal__Group__11__Impl"
-    // InternalRentalSystem.g:1213:1: rule__Deal__Group__11__Impl : ( ')' ) ;
-    public final void rule__Deal__Group__11__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Deal__Group_9__0__Impl"
+    // InternalRentalSystem.g:1214:1: rule__Deal__Group_9__0__Impl : ( 'dealAttribute' ) ;
+    public final void rule__Deal__Group_9__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1217:1: ( ( ')' ) )
-            // InternalRentalSystem.g:1218:1: ( ')' )
+            // InternalRentalSystem.g:1218:1: ( ( 'dealAttribute' ) )
+            // InternalRentalSystem.g:1219:1: ( 'dealAttribute' )
             {
-            // InternalRentalSystem.g:1218:1: ( ')' )
-            // InternalRentalSystem.g:1219:2: ')'
+            // InternalRentalSystem.g:1219:1: ( 'dealAttribute' )
+            // InternalRentalSystem.g:1220:2: 'dealAttribute'
             {
-             before(grammarAccess.getDealAccess().getRightParenthesisKeyword_11()); 
-            match(input,18,FOLLOW_2); 
-             after(grammarAccess.getDealAccess().getRightParenthesisKeyword_11()); 
+             before(grammarAccess.getDealAccess().getDealAttributeKeyword_9_0()); 
+            match(input,26,FOLLOW_2); 
+             after(grammarAccess.getDealAccess().getDealAttributeKeyword_9_0()); 
 
             }
 
@@ -3765,18 +3758,116 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end "rule__Deal__Group__11__Impl"
+    // $ANTLR end "rule__Deal__Group_9__0__Impl"
+
+
+    // $ANTLR start "rule__Deal__Group_9__1"
+    // InternalRentalSystem.g:1229:1: rule__Deal__Group_9__1 : rule__Deal__Group_9__1__Impl ;
+    public final void rule__Deal__Group_9__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalRentalSystem.g:1233:1: ( rule__Deal__Group_9__1__Impl )
+            // InternalRentalSystem.g:1234:2: rule__Deal__Group_9__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Deal__Group_9__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Deal__Group_9__1"
+
+
+    // $ANTLR start "rule__Deal__Group_9__1__Impl"
+    // InternalRentalSystem.g:1240:1: rule__Deal__Group_9__1__Impl : ( ( rule__Deal__DealAttributesAssignment_9_1 )* ) ;
+    public final void rule__Deal__Group_9__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalRentalSystem.g:1244:1: ( ( ( rule__Deal__DealAttributesAssignment_9_1 )* ) )
+            // InternalRentalSystem.g:1245:1: ( ( rule__Deal__DealAttributesAssignment_9_1 )* )
+            {
+            // InternalRentalSystem.g:1245:1: ( ( rule__Deal__DealAttributesAssignment_9_1 )* )
+            // InternalRentalSystem.g:1246:2: ( rule__Deal__DealAttributesAssignment_9_1 )*
+            {
+             before(grammarAccess.getDealAccess().getDealAttributesAssignment_9_1()); 
+            // InternalRentalSystem.g:1247:2: ( rule__Deal__DealAttributesAssignment_9_1 )*
+            loop10:
+            do {
+                int alt10=2;
+                int LA10_0 = input.LA(1);
+
+                if ( (LA10_0==27) ) {
+                    alt10=1;
+                }
+
+
+                switch (alt10) {
+            	case 1 :
+            	    // InternalRentalSystem.g:1247:3: rule__Deal__DealAttributesAssignment_9_1
+            	    {
+            	    pushFollow(FOLLOW_12);
+            	    rule__Deal__DealAttributesAssignment_9_1();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop10;
+                }
+            } while (true);
+
+             after(grammarAccess.getDealAccess().getDealAttributesAssignment_9_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Deal__Group_9__1__Impl"
 
 
     // $ANTLR start "rule__Attribute__Group__0"
-    // InternalRentalSystem.g:1229:1: rule__Attribute__Group__0 : rule__Attribute__Group__0__Impl rule__Attribute__Group__1 ;
+    // InternalRentalSystem.g:1256:1: rule__Attribute__Group__0 : rule__Attribute__Group__0__Impl rule__Attribute__Group__1 ;
     public final void rule__Attribute__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1233:1: ( rule__Attribute__Group__0__Impl rule__Attribute__Group__1 )
-            // InternalRentalSystem.g:1234:2: rule__Attribute__Group__0__Impl rule__Attribute__Group__1
+            // InternalRentalSystem.g:1260:1: ( rule__Attribute__Group__0__Impl rule__Attribute__Group__1 )
+            // InternalRentalSystem.g:1261:2: rule__Attribute__Group__0__Impl rule__Attribute__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__Attribute__Group__0__Impl();
@@ -3807,17 +3898,17 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Attribute__Group__0__Impl"
-    // InternalRentalSystem.g:1241:1: rule__Attribute__Group__0__Impl : ( 'attribute' ) ;
+    // InternalRentalSystem.g:1268:1: rule__Attribute__Group__0__Impl : ( 'attribute' ) ;
     public final void rule__Attribute__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1245:1: ( ( 'attribute' ) )
-            // InternalRentalSystem.g:1246:1: ( 'attribute' )
+            // InternalRentalSystem.g:1272:1: ( ( 'attribute' ) )
+            // InternalRentalSystem.g:1273:1: ( 'attribute' )
             {
-            // InternalRentalSystem.g:1246:1: ( 'attribute' )
-            // InternalRentalSystem.g:1247:2: 'attribute'
+            // InternalRentalSystem.g:1273:1: ( 'attribute' )
+            // InternalRentalSystem.g:1274:2: 'attribute'
             {
              before(grammarAccess.getAttributeAccess().getAttributeKeyword_0()); 
             match(input,27,FOLLOW_2); 
@@ -3844,16 +3935,16 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Attribute__Group__1"
-    // InternalRentalSystem.g:1256:1: rule__Attribute__Group__1 : rule__Attribute__Group__1__Impl rule__Attribute__Group__2 ;
+    // InternalRentalSystem.g:1283:1: rule__Attribute__Group__1 : rule__Attribute__Group__1__Impl rule__Attribute__Group__2 ;
     public final void rule__Attribute__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1260:1: ( rule__Attribute__Group__1__Impl rule__Attribute__Group__2 )
-            // InternalRentalSystem.g:1261:2: rule__Attribute__Group__1__Impl rule__Attribute__Group__2
+            // InternalRentalSystem.g:1287:1: ( rule__Attribute__Group__1__Impl rule__Attribute__Group__2 )
+            // InternalRentalSystem.g:1288:2: rule__Attribute__Group__1__Impl rule__Attribute__Group__2
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_20);
             rule__Attribute__Group__1__Impl();
 
             state._fsp--;
@@ -3882,21 +3973,21 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Attribute__Group__1__Impl"
-    // InternalRentalSystem.g:1268:1: rule__Attribute__Group__1__Impl : ( ( rule__Attribute__NameAssignment_1 ) ) ;
+    // InternalRentalSystem.g:1295:1: rule__Attribute__Group__1__Impl : ( ( rule__Attribute__NameAssignment_1 ) ) ;
     public final void rule__Attribute__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1272:1: ( ( ( rule__Attribute__NameAssignment_1 ) ) )
-            // InternalRentalSystem.g:1273:1: ( ( rule__Attribute__NameAssignment_1 ) )
+            // InternalRentalSystem.g:1299:1: ( ( ( rule__Attribute__NameAssignment_1 ) ) )
+            // InternalRentalSystem.g:1300:1: ( ( rule__Attribute__NameAssignment_1 ) )
             {
-            // InternalRentalSystem.g:1273:1: ( ( rule__Attribute__NameAssignment_1 ) )
-            // InternalRentalSystem.g:1274:2: ( rule__Attribute__NameAssignment_1 )
+            // InternalRentalSystem.g:1300:1: ( ( rule__Attribute__NameAssignment_1 ) )
+            // InternalRentalSystem.g:1301:2: ( rule__Attribute__NameAssignment_1 )
             {
              before(grammarAccess.getAttributeAccess().getNameAssignment_1()); 
-            // InternalRentalSystem.g:1275:2: ( rule__Attribute__NameAssignment_1 )
-            // InternalRentalSystem.g:1275:3: rule__Attribute__NameAssignment_1
+            // InternalRentalSystem.g:1302:2: ( rule__Attribute__NameAssignment_1 )
+            // InternalRentalSystem.g:1302:3: rule__Attribute__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Attribute__NameAssignment_1();
@@ -3929,14 +4020,14 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Attribute__Group__2"
-    // InternalRentalSystem.g:1283:1: rule__Attribute__Group__2 : rule__Attribute__Group__2__Impl ;
+    // InternalRentalSystem.g:1310:1: rule__Attribute__Group__2 : rule__Attribute__Group__2__Impl ;
     public final void rule__Attribute__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1287:1: ( rule__Attribute__Group__2__Impl )
-            // InternalRentalSystem.g:1288:2: rule__Attribute__Group__2__Impl
+            // InternalRentalSystem.g:1314:1: ( rule__Attribute__Group__2__Impl )
+            // InternalRentalSystem.g:1315:2: rule__Attribute__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Attribute__Group__2__Impl();
@@ -3962,21 +4053,21 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Attribute__Group__2__Impl"
-    // InternalRentalSystem.g:1294:1: rule__Attribute__Group__2__Impl : ( ( rule__Attribute__OfTypeAssignment_2 ) ) ;
+    // InternalRentalSystem.g:1321:1: rule__Attribute__Group__2__Impl : ( ( rule__Attribute__OfTypeAssignment_2 ) ) ;
     public final void rule__Attribute__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1298:1: ( ( ( rule__Attribute__OfTypeAssignment_2 ) ) )
-            // InternalRentalSystem.g:1299:1: ( ( rule__Attribute__OfTypeAssignment_2 ) )
+            // InternalRentalSystem.g:1325:1: ( ( ( rule__Attribute__OfTypeAssignment_2 ) ) )
+            // InternalRentalSystem.g:1326:1: ( ( rule__Attribute__OfTypeAssignment_2 ) )
             {
-            // InternalRentalSystem.g:1299:1: ( ( rule__Attribute__OfTypeAssignment_2 ) )
-            // InternalRentalSystem.g:1300:2: ( rule__Attribute__OfTypeAssignment_2 )
+            // InternalRentalSystem.g:1326:1: ( ( rule__Attribute__OfTypeAssignment_2 ) )
+            // InternalRentalSystem.g:1327:2: ( rule__Attribute__OfTypeAssignment_2 )
             {
              before(grammarAccess.getAttributeAccess().getOfTypeAssignment_2()); 
-            // InternalRentalSystem.g:1301:2: ( rule__Attribute__OfTypeAssignment_2 )
-            // InternalRentalSystem.g:1301:3: rule__Attribute__OfTypeAssignment_2
+            // InternalRentalSystem.g:1328:2: ( rule__Attribute__OfTypeAssignment_2 )
+            // InternalRentalSystem.g:1328:3: rule__Attribute__OfTypeAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Attribute__OfTypeAssignment_2();
@@ -4009,17 +4100,17 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__RentalSystem__NameAssignment_1"
-    // InternalRentalSystem.g:1310:1: rule__RentalSystem__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalRentalSystem.g:1337:1: rule__RentalSystem__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__RentalSystem__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1314:1: ( ( RULE_ID ) )
-            // InternalRentalSystem.g:1315:2: ( RULE_ID )
+            // InternalRentalSystem.g:1341:1: ( ( RULE_ID ) )
+            // InternalRentalSystem.g:1342:2: ( RULE_ID )
             {
-            // InternalRentalSystem.g:1315:2: ( RULE_ID )
-            // InternalRentalSystem.g:1316:3: RULE_ID
+            // InternalRentalSystem.g:1342:2: ( RULE_ID )
+            // InternalRentalSystem.g:1343:3: RULE_ID
             {
              before(grammarAccess.getRentalSystemAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4046,17 +4137,17 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__RentalSystem__TitleAssignment_2"
-    // InternalRentalSystem.g:1325:1: rule__RentalSystem__TitleAssignment_2 : ( RULE_STRING ) ;
+    // InternalRentalSystem.g:1352:1: rule__RentalSystem__TitleAssignment_2 : ( RULE_STRING ) ;
     public final void rule__RentalSystem__TitleAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1329:1: ( ( RULE_STRING ) )
-            // InternalRentalSystem.g:1330:2: ( RULE_STRING )
+            // InternalRentalSystem.g:1356:1: ( ( RULE_STRING ) )
+            // InternalRentalSystem.g:1357:2: ( RULE_STRING )
             {
-            // InternalRentalSystem.g:1330:2: ( RULE_STRING )
-            // InternalRentalSystem.g:1331:3: RULE_STRING
+            // InternalRentalSystem.g:1357:2: ( RULE_STRING )
+            // InternalRentalSystem.g:1358:3: RULE_STRING
             {
              before(grammarAccess.getRentalSystemAccess().getTitleSTRINGTerminalRuleCall_2_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -4083,17 +4174,17 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__RentalSystem__RentalTypesAssignment_4"
-    // InternalRentalSystem.g:1340:1: rule__RentalSystem__RentalTypesAssignment_4 : ( ruleRentalType ) ;
+    // InternalRentalSystem.g:1367:1: rule__RentalSystem__RentalTypesAssignment_4 : ( ruleRentalType ) ;
     public final void rule__RentalSystem__RentalTypesAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1344:1: ( ( ruleRentalType ) )
-            // InternalRentalSystem.g:1345:2: ( ruleRentalType )
+            // InternalRentalSystem.g:1371:1: ( ( ruleRentalType ) )
+            // InternalRentalSystem.g:1372:2: ( ruleRentalType )
             {
-            // InternalRentalSystem.g:1345:2: ( ruleRentalType )
-            // InternalRentalSystem.g:1346:3: ruleRentalType
+            // InternalRentalSystem.g:1372:2: ( ruleRentalType )
+            // InternalRentalSystem.g:1373:3: ruleRentalType
             {
              before(grammarAccess.getRentalSystemAccess().getRentalTypesRentalTypeParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -4124,17 +4215,17 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__RentalSystem__CustomersAssignment_5"
-    // InternalRentalSystem.g:1355:1: rule__RentalSystem__CustomersAssignment_5 : ( ruleCustomer ) ;
+    // InternalRentalSystem.g:1382:1: rule__RentalSystem__CustomersAssignment_5 : ( ruleCustomer ) ;
     public final void rule__RentalSystem__CustomersAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1359:1: ( ( ruleCustomer ) )
-            // InternalRentalSystem.g:1360:2: ( ruleCustomer )
+            // InternalRentalSystem.g:1386:1: ( ( ruleCustomer ) )
+            // InternalRentalSystem.g:1387:2: ( ruleCustomer )
             {
-            // InternalRentalSystem.g:1360:2: ( ruleCustomer )
-            // InternalRentalSystem.g:1361:3: ruleCustomer
+            // InternalRentalSystem.g:1387:2: ( ruleCustomer )
+            // InternalRentalSystem.g:1388:3: ruleCustomer
             {
              before(grammarAccess.getRentalSystemAccess().getCustomersCustomerParserRuleCall_5_0()); 
             pushFollow(FOLLOW_2);
@@ -4165,17 +4256,17 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__RentalSystem__DealsAssignment_6"
-    // InternalRentalSystem.g:1370:1: rule__RentalSystem__DealsAssignment_6 : ( ruleDeal ) ;
+    // InternalRentalSystem.g:1397:1: rule__RentalSystem__DealsAssignment_6 : ( ruleDeal ) ;
     public final void rule__RentalSystem__DealsAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1374:1: ( ( ruleDeal ) )
-            // InternalRentalSystem.g:1375:2: ( ruleDeal )
+            // InternalRentalSystem.g:1401:1: ( ( ruleDeal ) )
+            // InternalRentalSystem.g:1402:2: ( ruleDeal )
             {
-            // InternalRentalSystem.g:1375:2: ( ruleDeal )
-            // InternalRentalSystem.g:1376:3: ruleDeal
+            // InternalRentalSystem.g:1402:2: ( ruleDeal )
+            // InternalRentalSystem.g:1403:3: ruleDeal
             {
              before(grammarAccess.getRentalSystemAccess().getDealsDealParserRuleCall_6_0()); 
             pushFollow(FOLLOW_2);
@@ -4206,21 +4297,21 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__RentalType__MovableAssignment_0_0"
-    // InternalRentalSystem.g:1385:1: rule__RentalType__MovableAssignment_0_0 : ( ( 'movable' ) ) ;
+    // InternalRentalSystem.g:1412:1: rule__RentalType__MovableAssignment_0_0 : ( ( 'movable' ) ) ;
     public final void rule__RentalType__MovableAssignment_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1389:1: ( ( ( 'movable' ) ) )
-            // InternalRentalSystem.g:1390:2: ( ( 'movable' ) )
+            // InternalRentalSystem.g:1416:1: ( ( ( 'movable' ) ) )
+            // InternalRentalSystem.g:1417:2: ( ( 'movable' ) )
             {
-            // InternalRentalSystem.g:1390:2: ( ( 'movable' ) )
-            // InternalRentalSystem.g:1391:3: ( 'movable' )
+            // InternalRentalSystem.g:1417:2: ( ( 'movable' ) )
+            // InternalRentalSystem.g:1418:3: ( 'movable' )
             {
              before(grammarAccess.getRentalTypeAccess().getMovableMovableKeyword_0_0_0()); 
-            // InternalRentalSystem.g:1392:3: ( 'movable' )
-            // InternalRentalSystem.g:1393:4: 'movable'
+            // InternalRentalSystem.g:1419:3: ( 'movable' )
+            // InternalRentalSystem.g:1420:4: 'movable'
             {
              before(grammarAccess.getRentalTypeAccess().getMovableMovableKeyword_0_0_0()); 
             match(input,28,FOLLOW_2); 
@@ -4251,21 +4342,21 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__RentalType__DigitalAssignment_0_1"
-    // InternalRentalSystem.g:1404:1: rule__RentalType__DigitalAssignment_0_1 : ( ( 'digital' ) ) ;
+    // InternalRentalSystem.g:1431:1: rule__RentalType__DigitalAssignment_0_1 : ( ( 'digital' ) ) ;
     public final void rule__RentalType__DigitalAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1408:1: ( ( ( 'digital' ) ) )
-            // InternalRentalSystem.g:1409:2: ( ( 'digital' ) )
+            // InternalRentalSystem.g:1435:1: ( ( ( 'digital' ) ) )
+            // InternalRentalSystem.g:1436:2: ( ( 'digital' ) )
             {
-            // InternalRentalSystem.g:1409:2: ( ( 'digital' ) )
-            // InternalRentalSystem.g:1410:3: ( 'digital' )
+            // InternalRentalSystem.g:1436:2: ( ( 'digital' ) )
+            // InternalRentalSystem.g:1437:3: ( 'digital' )
             {
              before(grammarAccess.getRentalTypeAccess().getDigitalDigitalKeyword_0_1_0()); 
-            // InternalRentalSystem.g:1411:3: ( 'digital' )
-            // InternalRentalSystem.g:1412:4: 'digital'
+            // InternalRentalSystem.g:1438:3: ( 'digital' )
+            // InternalRentalSystem.g:1439:4: 'digital'
             {
              before(grammarAccess.getRentalTypeAccess().getDigitalDigitalKeyword_0_1_0()); 
             match(input,29,FOLLOW_2); 
@@ -4296,21 +4387,21 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__RentalType__FixAssignment_0_2"
-    // InternalRentalSystem.g:1423:1: rule__RentalType__FixAssignment_0_2 : ( ( 'fix' ) ) ;
+    // InternalRentalSystem.g:1450:1: rule__RentalType__FixAssignment_0_2 : ( ( 'fix' ) ) ;
     public final void rule__RentalType__FixAssignment_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1427:1: ( ( ( 'fix' ) ) )
-            // InternalRentalSystem.g:1428:2: ( ( 'fix' ) )
+            // InternalRentalSystem.g:1454:1: ( ( ( 'fix' ) ) )
+            // InternalRentalSystem.g:1455:2: ( ( 'fix' ) )
             {
-            // InternalRentalSystem.g:1428:2: ( ( 'fix' ) )
-            // InternalRentalSystem.g:1429:3: ( 'fix' )
+            // InternalRentalSystem.g:1455:2: ( ( 'fix' ) )
+            // InternalRentalSystem.g:1456:3: ( 'fix' )
             {
              before(grammarAccess.getRentalTypeAccess().getFixFixKeyword_0_2_0()); 
-            // InternalRentalSystem.g:1430:3: ( 'fix' )
-            // InternalRentalSystem.g:1431:4: 'fix'
+            // InternalRentalSystem.g:1457:3: ( 'fix' )
+            // InternalRentalSystem.g:1458:4: 'fix'
             {
              before(grammarAccess.getRentalTypeAccess().getFixFixKeyword_0_2_0()); 
             match(input,30,FOLLOW_2); 
@@ -4341,17 +4432,17 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__RentalType__NameAssignment_2"
-    // InternalRentalSystem.g:1442:1: rule__RentalType__NameAssignment_2 : ( RULE_ID ) ;
+    // InternalRentalSystem.g:1469:1: rule__RentalType__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__RentalType__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1446:1: ( ( RULE_ID ) )
-            // InternalRentalSystem.g:1447:2: ( RULE_ID )
+            // InternalRentalSystem.g:1473:1: ( ( RULE_ID ) )
+            // InternalRentalSystem.g:1474:2: ( RULE_ID )
             {
-            // InternalRentalSystem.g:1447:2: ( RULE_ID )
-            // InternalRentalSystem.g:1448:3: RULE_ID
+            // InternalRentalSystem.g:1474:2: ( RULE_ID )
+            // InternalRentalSystem.g:1475:3: RULE_ID
             {
              before(grammarAccess.getRentalTypeAccess().getNameIDTerminalRuleCall_2_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4378,17 +4469,17 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__RentalType__TypeAttributesAssignment_4"
-    // InternalRentalSystem.g:1457:1: rule__RentalType__TypeAttributesAssignment_4 : ( ruleAttribute ) ;
+    // InternalRentalSystem.g:1484:1: rule__RentalType__TypeAttributesAssignment_4 : ( ruleAttribute ) ;
     public final void rule__RentalType__TypeAttributesAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1461:1: ( ( ruleAttribute ) )
-            // InternalRentalSystem.g:1462:2: ( ruleAttribute )
+            // InternalRentalSystem.g:1488:1: ( ( ruleAttribute ) )
+            // InternalRentalSystem.g:1489:2: ( ruleAttribute )
             {
-            // InternalRentalSystem.g:1462:2: ( ruleAttribute )
-            // InternalRentalSystem.g:1463:3: ruleAttribute
+            // InternalRentalSystem.g:1489:2: ( ruleAttribute )
+            // InternalRentalSystem.g:1490:3: ruleAttribute
             {
              before(grammarAccess.getRentalTypeAccess().getTypeAttributesAttributeParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -4419,17 +4510,17 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Customer__NameAssignment_1"
-    // InternalRentalSystem.g:1472:1: rule__Customer__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalRentalSystem.g:1499:1: rule__Customer__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Customer__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1476:1: ( ( RULE_ID ) )
-            // InternalRentalSystem.g:1477:2: ( RULE_ID )
+            // InternalRentalSystem.g:1503:1: ( ( RULE_ID ) )
+            // InternalRentalSystem.g:1504:2: ( RULE_ID )
             {
-            // InternalRentalSystem.g:1477:2: ( RULE_ID )
-            // InternalRentalSystem.g:1478:3: RULE_ID
+            // InternalRentalSystem.g:1504:2: ( RULE_ID )
+            // InternalRentalSystem.g:1505:3: RULE_ID
             {
              before(grammarAccess.getCustomerAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4456,17 +4547,17 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Customer__CustomerAttributeAssignment_3"
-    // InternalRentalSystem.g:1487:1: rule__Customer__CustomerAttributeAssignment_3 : ( ruleAttribute ) ;
+    // InternalRentalSystem.g:1514:1: rule__Customer__CustomerAttributeAssignment_3 : ( ruleAttribute ) ;
     public final void rule__Customer__CustomerAttributeAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1491:1: ( ( ruleAttribute ) )
-            // InternalRentalSystem.g:1492:2: ( ruleAttribute )
+            // InternalRentalSystem.g:1518:1: ( ( ruleAttribute ) )
+            // InternalRentalSystem.g:1519:2: ( ruleAttribute )
             {
-            // InternalRentalSystem.g:1492:2: ( ruleAttribute )
-            // InternalRentalSystem.g:1493:3: ruleAttribute
+            // InternalRentalSystem.g:1519:2: ( ruleAttribute )
+            // InternalRentalSystem.g:1520:3: ruleAttribute
             {
              before(grammarAccess.getCustomerAccess().getCustomerAttributeAttributeParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -4497,17 +4588,17 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Deal__NameAssignment_1"
-    // InternalRentalSystem.g:1502:1: rule__Deal__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalRentalSystem.g:1529:1: rule__Deal__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Deal__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1506:1: ( ( RULE_ID ) )
-            // InternalRentalSystem.g:1507:2: ( RULE_ID )
+            // InternalRentalSystem.g:1533:1: ( ( RULE_ID ) )
+            // InternalRentalSystem.g:1534:2: ( RULE_ID )
             {
-            // InternalRentalSystem.g:1507:2: ( RULE_ID )
-            // InternalRentalSystem.g:1508:3: RULE_ID
+            // InternalRentalSystem.g:1534:2: ( RULE_ID )
+            // InternalRentalSystem.g:1535:3: RULE_ID
             {
              before(grammarAccess.getDealAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4534,21 +4625,21 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Deal__CustomerAssignment_4"
-    // InternalRentalSystem.g:1517:1: rule__Deal__CustomerAssignment_4 : ( ( RULE_ID ) ) ;
+    // InternalRentalSystem.g:1544:1: rule__Deal__CustomerAssignment_4 : ( ( RULE_ID ) ) ;
     public final void rule__Deal__CustomerAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1521:1: ( ( ( RULE_ID ) ) )
-            // InternalRentalSystem.g:1522:2: ( ( RULE_ID ) )
+            // InternalRentalSystem.g:1548:1: ( ( ( RULE_ID ) ) )
+            // InternalRentalSystem.g:1549:2: ( ( RULE_ID ) )
             {
-            // InternalRentalSystem.g:1522:2: ( ( RULE_ID ) )
-            // InternalRentalSystem.g:1523:3: ( RULE_ID )
+            // InternalRentalSystem.g:1549:2: ( ( RULE_ID ) )
+            // InternalRentalSystem.g:1550:3: ( RULE_ID )
             {
              before(grammarAccess.getDealAccess().getCustomerCustomerCrossReference_4_0()); 
-            // InternalRentalSystem.g:1524:3: ( RULE_ID )
-            // InternalRentalSystem.g:1525:4: RULE_ID
+            // InternalRentalSystem.g:1551:3: ( RULE_ID )
+            // InternalRentalSystem.g:1552:4: RULE_ID
             {
              before(grammarAccess.getDealAccess().getCustomerCustomerIDTerminalRuleCall_4_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4579,21 +4670,21 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Deal__RentalTypeAssignment_6"
-    // InternalRentalSystem.g:1536:1: rule__Deal__RentalTypeAssignment_6 : ( ( RULE_ID ) ) ;
+    // InternalRentalSystem.g:1563:1: rule__Deal__RentalTypeAssignment_6 : ( ( RULE_ID ) ) ;
     public final void rule__Deal__RentalTypeAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1540:1: ( ( ( RULE_ID ) ) )
-            // InternalRentalSystem.g:1541:2: ( ( RULE_ID ) )
+            // InternalRentalSystem.g:1567:1: ( ( ( RULE_ID ) ) )
+            // InternalRentalSystem.g:1568:2: ( ( RULE_ID ) )
             {
-            // InternalRentalSystem.g:1541:2: ( ( RULE_ID ) )
-            // InternalRentalSystem.g:1542:3: ( RULE_ID )
+            // InternalRentalSystem.g:1568:2: ( ( RULE_ID ) )
+            // InternalRentalSystem.g:1569:3: ( RULE_ID )
             {
              before(grammarAccess.getDealAccess().getRentalTypeRentalTypeCrossReference_6_0()); 
-            // InternalRentalSystem.g:1543:3: ( RULE_ID )
-            // InternalRentalSystem.g:1544:4: RULE_ID
+            // InternalRentalSystem.g:1570:3: ( RULE_ID )
+            // InternalRentalSystem.g:1571:4: RULE_ID
             {
              before(grammarAccess.getDealAccess().getRentalTypeRentalTypeIDTerminalRuleCall_6_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4624,21 +4715,21 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Deal__RentalWorkflowAssignment_8"
-    // InternalRentalSystem.g:1555:1: rule__Deal__RentalWorkflowAssignment_8 : ( ( ruleQualifiedName ) ) ;
+    // InternalRentalSystem.g:1582:1: rule__Deal__RentalWorkflowAssignment_8 : ( ( ruleQualifiedName ) ) ;
     public final void rule__Deal__RentalWorkflowAssignment_8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1559:1: ( ( ( ruleQualifiedName ) ) )
-            // InternalRentalSystem.g:1560:2: ( ( ruleQualifiedName ) )
+            // InternalRentalSystem.g:1586:1: ( ( ( ruleQualifiedName ) ) )
+            // InternalRentalSystem.g:1587:2: ( ( ruleQualifiedName ) )
             {
-            // InternalRentalSystem.g:1560:2: ( ( ruleQualifiedName ) )
-            // InternalRentalSystem.g:1561:3: ( ruleQualifiedName )
+            // InternalRentalSystem.g:1587:2: ( ( ruleQualifiedName ) )
+            // InternalRentalSystem.g:1588:3: ( ruleQualifiedName )
             {
              before(grammarAccess.getDealAccess().getRentalWorkflowRentalWorkflowCrossReference_8_0()); 
-            // InternalRentalSystem.g:1562:3: ( ruleQualifiedName )
-            // InternalRentalSystem.g:1563:4: ruleQualifiedName
+            // InternalRentalSystem.g:1589:3: ( ruleQualifiedName )
+            // InternalRentalSystem.g:1590:4: ruleQualifiedName
             {
              before(grammarAccess.getDealAccess().getRentalWorkflowRentalWorkflowQualifiedNameParserRuleCall_8_0_1()); 
             pushFollow(FOLLOW_2);
@@ -4672,26 +4763,26 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
     // $ANTLR end "rule__Deal__RentalWorkflowAssignment_8"
 
 
-    // $ANTLR start "rule__Deal__DealAttributesAssignment_10"
-    // InternalRentalSystem.g:1574:1: rule__Deal__DealAttributesAssignment_10 : ( ruleAttribute ) ;
-    public final void rule__Deal__DealAttributesAssignment_10() throws RecognitionException {
+    // $ANTLR start "rule__Deal__DealAttributesAssignment_9_1"
+    // InternalRentalSystem.g:1601:1: rule__Deal__DealAttributesAssignment_9_1 : ( ruleAttribute ) ;
+    public final void rule__Deal__DealAttributesAssignment_9_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1578:1: ( ( ruleAttribute ) )
-            // InternalRentalSystem.g:1579:2: ( ruleAttribute )
+            // InternalRentalSystem.g:1605:1: ( ( ruleAttribute ) )
+            // InternalRentalSystem.g:1606:2: ( ruleAttribute )
             {
-            // InternalRentalSystem.g:1579:2: ( ruleAttribute )
-            // InternalRentalSystem.g:1580:3: ruleAttribute
+            // InternalRentalSystem.g:1606:2: ( ruleAttribute )
+            // InternalRentalSystem.g:1607:3: ruleAttribute
             {
-             before(grammarAccess.getDealAccess().getDealAttributesAttributeParserRuleCall_10_0()); 
+             before(grammarAccess.getDealAccess().getDealAttributesAttributeParserRuleCall_9_1_0()); 
             pushFollow(FOLLOW_2);
             ruleAttribute();
 
             state._fsp--;
 
-             after(grammarAccess.getDealAccess().getDealAttributesAttributeParserRuleCall_10_0()); 
+             after(grammarAccess.getDealAccess().getDealAttributesAttributeParserRuleCall_9_1_0()); 
 
             }
 
@@ -4710,21 +4801,21 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end "rule__Deal__DealAttributesAssignment_10"
+    // $ANTLR end "rule__Deal__DealAttributesAssignment_9_1"
 
 
     // $ANTLR start "rule__Attribute__NameAssignment_1"
-    // InternalRentalSystem.g:1589:1: rule__Attribute__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalRentalSystem.g:1616:1: rule__Attribute__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Attribute__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1593:1: ( ( RULE_ID ) )
-            // InternalRentalSystem.g:1594:2: ( RULE_ID )
+            // InternalRentalSystem.g:1620:1: ( ( RULE_ID ) )
+            // InternalRentalSystem.g:1621:2: ( RULE_ID )
             {
-            // InternalRentalSystem.g:1594:2: ( RULE_ID )
-            // InternalRentalSystem.g:1595:3: RULE_ID
+            // InternalRentalSystem.g:1621:2: ( RULE_ID )
+            // InternalRentalSystem.g:1622:3: RULE_ID
             {
              before(grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4751,17 +4842,17 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Attribute__OfTypeAssignment_2"
-    // InternalRentalSystem.g:1604:1: rule__Attribute__OfTypeAssignment_2 : ( ruleOfType ) ;
+    // InternalRentalSystem.g:1631:1: rule__Attribute__OfTypeAssignment_2 : ( ruleOfType ) ;
     public final void rule__Attribute__OfTypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRentalSystem.g:1608:1: ( ( ruleOfType ) )
-            // InternalRentalSystem.g:1609:2: ( ruleOfType )
+            // InternalRentalSystem.g:1635:1: ( ( ruleOfType ) )
+            // InternalRentalSystem.g:1636:2: ( ruleOfType )
             {
-            // InternalRentalSystem.g:1609:2: ( ruleOfType )
-            // InternalRentalSystem.g:1610:3: ruleOfType
+            // InternalRentalSystem.g:1636:2: ( ruleOfType )
+            // InternalRentalSystem.g:1637:3: ruleOfType
             {
              before(grammarAccess.getAttributeAccess().getOfTypeOfTypeEnumRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -4812,7 +4903,8 @@ public class InternalRentalSystemParser extends AbstractInternalContentAssistPar
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000800000L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000001000000L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x000000000000F800L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000004040000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x000000000000F800L});
 
 }
