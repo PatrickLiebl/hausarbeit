@@ -3,23 +3,67 @@
  */
 package de.nak.xtext.hausarbeit.rentalSystem.validation
 
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage
+import org.eclipse.xtext.validation.Check
+import org.eclipse.xtext.validation.ComposedChecks
 
 /**
  * This class contains custom validation rules. 
  *
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
+ @ComposedChecks(validators= #[AttributeValidator, CustomerValidator, DealValidator, RentalTypeValidator])
 class RentalSystemValidator extends AbstractRentalSystemValidator {
 	
-//  public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					RentalSystemPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
+	public static final String RENTAL_SYSTEM__EMPTY_TITLE = "de.nak.xtext.hausarbeit.rentalSystem.validation.emptyTitle";
+	public static final String RENTAL_SYSTEM__UPPER_CASE_TITLE = "de.nak.xtext.hausarbeit.rentalSystem.validation.upperCaseTitle";
+	public static final String RENTAL_SYSTEM__UPPER_CASE_NAME = "de.nak.xtext.hausarbeit.rentalSystem.validation.upperCaseName";
 	
+	@Check
+	def titleMustNotBeEmpty(RentalSystem rentalSystem) {
+		if(rentalSystem.title.empty) {
+		    	error(
+		    		"The title must not be empty.", 
+		    		RentalSystemPackage.Literals.RENTAL_SYSTEM__TITLE, 
+		    		RENTAL_SYSTEM__EMPTY_TITLE, 
+		    		rentalSystem.title
+		    	) 
+		  }
+	}
+	
+	@Check
+	def nameMustBeSet(RentalSystem rentalSystem) {
+		if(rentalSystem.name == null) {
+		    	error(
+		    		"A name must be set.", 
+		    		RentalSystemPackage.Literals.RENTAL_SYSTEM__NAME,
+		    		rentalSystem.name
+		    	) 	
+		  }
+	}
+	
+	@Check
+	def titleShallStartWithLowerCase(RentalSystem rentalSystem) {
+		if(Character.isUpperCase(rentalSystem.title.charAt(0))) {
+		    	warning(
+		    		"The title should start with a lower case.", 
+		    		RentalSystemPackage.Literals.RENTAL_SYSTEM__TITLE, 
+		    		RENTAL_SYSTEM__UPPER_CASE_TITLE, 
+		    		rentalSystem.title
+		    	) 
+		  }
+	}
+	
+	@Check
+	def rentalSystemShallStartWithLowerCase(RentalSystem rentalSystem) {
+		if(Character.isUpperCase(rentalSystem.name.charAt(0))) {
+		    	warning(
+		    		"The rentalSystem should start with a lower case.", 
+		    		RentalSystemPackage.Literals.RENTAL_SYSTEM__NAME, 
+		    		RENTAL_SYSTEM__UPPER_CASE_NAME, 
+		    		rentalSystem.name
+		    	) 
+		  }
+	}
 }
