@@ -7,6 +7,7 @@ import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalType
 import org.eclipse.xtext.validation.Check
 
+
 /**
  * This class contains custom validation rules. 
  *
