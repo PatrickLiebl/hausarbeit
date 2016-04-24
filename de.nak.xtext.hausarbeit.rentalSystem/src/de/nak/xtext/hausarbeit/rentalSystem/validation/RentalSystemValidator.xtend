@@ -46,7 +46,7 @@ class RentalSystemValidator extends AbstractRentalSystemValidator {
 	
 	@Check
 	def titleShallStartWithLowerCase(RentalSystem rentalSystem) {
-		if(Character.isUpperCase(rentalSystem.title.charAt(0))) {
+		if(!rentalSystem.title.empty && Character.isUpperCase(rentalSystem.title.charAt(0))) {
 		    	warning(
 		    		"The title should start with a lower case.", 
 		    		RentalSystemPackage.Literals.RENTAL_SYSTEM__TITLE, 

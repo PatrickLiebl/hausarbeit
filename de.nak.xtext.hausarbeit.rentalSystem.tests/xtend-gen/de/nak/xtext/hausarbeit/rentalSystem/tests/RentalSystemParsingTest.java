@@ -24,6 +24,7 @@ import org.eclipse.xtext.util.StringInputStream;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.Extension;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,12 +34,15 @@ import org.junit.runner.RunWith;
 @SuppressWarnings("all")
 public class RentalSystemParsingTest {
   @Inject
+  @Extension
   private ParseHelper<RentalSystem> parseHelper;
   
   @Inject
+  @Extension
   private ValidationTestHelper validationTestHelper;
   
   @Inject
+  @Extension
   private Provider<XtextResourceSet> resourceSetProvider;
   
   @Test

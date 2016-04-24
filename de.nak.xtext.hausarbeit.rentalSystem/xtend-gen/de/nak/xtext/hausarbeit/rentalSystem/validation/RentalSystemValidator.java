@@ -3,13 +3,90 @@
  */
 package de.nak.xtext.hausarbeit.rentalSystem.validation;
 
+import com.google.common.base.Objects;
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystem;
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage;
 import de.nak.xtext.hausarbeit.rentalSystem.validation.AbstractRentalSystemValidator;
+import de.nak.xtext.hausarbeit.rentalSystem.validation.AttributeValidator;
+import de.nak.xtext.hausarbeit.rentalSystem.validation.CustomerValidator;
+import de.nak.xtext.hausarbeit.rentalSystem.validation.DealValidator;
+import de.nak.xtext.hausarbeit.rentalSystem.validation.RentalTypeValidator;
+import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.validation.ComposedChecks;
 
 /**
  * This class contains custom validation rules.
  * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
+@ComposedChecks(validators = { AttributeValidator.class, CustomerValidator.class, DealValidator.class, RentalTypeValidator.class })
 @SuppressWarnings("all")
 public class RentalSystemValidator extends AbstractRentalSystemValidator {
+  public final static String RENTAL_SYSTEM__EMPTY_TITLE = "de.nak.xtext.hausarbeit.rentalSystem.validation.emptyTitle";
+  
+  public final static String RENTAL_SYSTEM__UPPER_CASE_TITLE = "de.nak.xtext.hausarbeit.rentalSystem.validation.upperCaseTitle";
+  
+  public final static String RENTAL_SYSTEM__UPPER_CASE_NAME = "de.nak.xtext.hausarbeit.rentalSystem.validation.upperCaseName";
+  
+  @Check
+  public void titleMustNotBeEmpty(final RentalSystem rentalSystem) {
+    String _title = rentalSystem.getTitle();
+    boolean _isEmpty = _title.isEmpty();
+    if (_isEmpty) {
+      String _title_1 = rentalSystem.getTitle();
+      this.error(
+        "The title must not be empty.", 
+        RentalSystemPackage.Literals.RENTAL_SYSTEM__TITLE, 
+        RentalSystemValidator.RENTAL_SYSTEM__EMPTY_TITLE, _title_1);
+    }
+  }
+  
+  @Check
+  public void nameMustBeSet(final RentalSystem rentalSystem) {
+    String _name = rentalSystem.getName();
+    boolean _equals = Objects.equal(_name, null);
+    if (_equals) {
+      String _name_1 = rentalSystem.getName();
+      this.error(
+        "A name must be set.", 
+        RentalSystemPackage.Literals.RENTAL_SYSTEM__NAME, _name_1);
+    }
+  }
+  
+  @Check
+  public void titleShallStartWithLowerCase(final RentalSystem rentalSystem) {
+    boolean _and = false;
+    String _title = rentalSystem.getTitle();
+    boolean _isEmpty = _title.isEmpty();
+    boolean _not = (!_isEmpty);
+    if (!_not) {
+      _and = false;
+    } else {
+      String _title_1 = rentalSystem.getTitle();
+      char _charAt = _title_1.charAt(0);
+      boolean _isUpperCase = Character.isUpperCase(_charAt);
+      _and = _isUpperCase;
+    }
+    if (_and) {
+      String _title_2 = rentalSystem.getTitle();
+      this.warning(
+        "The title should start with a lower case.", 
+        RentalSystemPackage.Literals.RENTAL_SYSTEM__TITLE, 
+        RentalSystemValidator.RENTAL_SYSTEM__UPPER_CASE_TITLE, _title_2);
+    }
+  }
+  
+  @Check
+  public void rentalSystemShallStartWithLowerCase(final RentalSystem rentalSystem) {
+    String _name = rentalSystem.getName();
+    char _charAt = _name.charAt(0);
+    boolean _isUpperCase = Character.isUpperCase(_charAt);
+    if (_isUpperCase) {
+      String _name_1 = rentalSystem.getName();
+      this.warning(
+        "The rentalSystem should start with a lower case.", 
+        RentalSystemPackage.Literals.RENTAL_SYSTEM__NAME, 
+        RentalSystemValidator.RENTAL_SYSTEM__UPPER_CASE_NAME, _name_1);
+    }
+  }
 }

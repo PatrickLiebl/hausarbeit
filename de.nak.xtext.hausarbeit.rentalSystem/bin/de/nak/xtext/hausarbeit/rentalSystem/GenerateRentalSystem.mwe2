@@ -5,11 +5,9 @@ import org.eclipse.xtext.xtext.generator.model.project.*
 
 var rootPath = ".."
 
+
 Workflow {
 	
-	//Test Jonas BliBlaBlub
-	// 2nd test Patrick	
-	// 3rd test Dirk
 	component = XtextGenerator {
 		configuration = {
 			project = StandardProjectConfig {
@@ -39,7 +37,7 @@ Workflow {
 				generateStub = false
 			}
 			validator = {
-				// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
+				 composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
 			}
 		}
 	}

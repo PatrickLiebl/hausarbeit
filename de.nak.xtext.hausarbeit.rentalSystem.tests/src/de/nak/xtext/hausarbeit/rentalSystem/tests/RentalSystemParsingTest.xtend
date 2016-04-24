@@ -22,13 +22,13 @@ import org.junit.runner.RunWith
 class RentalSystemParsingTest{
 
 	@Inject
-	ParseHelper<RentalSystem> parseHelper;
+	extension ParseHelper<RentalSystem> parseHelper;
 	
 	@Inject
-	ValidationTestHelper validationTestHelper;
+	extension ValidationTestHelper validationTestHelper;
 	
 	@Inject 
-	Provider<XtextResourceSet> resourceSetProvider
+	extension Provider<XtextResourceSet> resourceSetProvider
 	
 
 	@Test 
