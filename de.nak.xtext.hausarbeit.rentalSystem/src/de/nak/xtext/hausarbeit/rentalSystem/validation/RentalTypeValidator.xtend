@@ -22,7 +22,7 @@ class RentalTypeValidator extends AbstractRentalSystemValidator {
 		if(Character.isUpperCase(rentalType.name.charAt(0))) {
 		    	warning(
 		    		"The attribute should start with a lower case.", 
-		    		RentalSystemPackage.Literals.ATTRIBUTE__NAME, 
+		    		RentalSystemPackage.Literals.RENTAL_TYPE__NAME, 
 		    		RENTAL_TYPE__UPPER_CASE_NAME, 
 		    		rentalType.name
 		    	) 

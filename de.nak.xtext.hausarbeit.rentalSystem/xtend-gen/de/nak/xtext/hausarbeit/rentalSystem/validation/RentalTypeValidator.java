@@ -26,7 +26,7 @@ public class RentalTypeValidator extends AbstractRentalSystemValidator {
       String _name_1 = rentalType.getName();
       this.warning(
         "The attribute should start with a lower case.", 
-        RentalSystemPackage.Literals.ATTRIBUTE__NAME, 
+        RentalSystemPackage.Literals.RENTAL_TYPE__NAME, 
         RentalTypeValidator.RENTAL_TYPE__UPPER_CASE_NAME, _name_1);
     }
   }
