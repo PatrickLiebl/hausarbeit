@@ -21,7 +21,7 @@ class CustomerValidator extends AbstractRentalSystemValidator {
 	def customerShallStartWithLowerCase(Customer customer) {
 		if(Character.isUpperCase(customer.name.charAt(0))) {
 		    	warning(
-		    		"The attribute should start with a lower case.", 
+		    		"The customer should start with a lower case.", 
 		    		RentalSystemPackage.Literals.CUSTOMER__NAME, 
 		    		CUSTOMER__UPPER_CASE_NAME, 
 		    		customer.name

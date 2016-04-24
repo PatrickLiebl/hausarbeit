@@ -109,7 +109,8 @@ class RentalSystemParsingTest{
 		validationTestHelper.assertNoErrors(result)
 	}
 	
-	@Test def void loadModelWithDealAndWorkflow() {
+	@Test 
+	def void loadModelWithDealAndWorkflow() {
 		val resourceSet = resourceSetProvider.get
 		
 		// create a resource for language 'RentalWorkflow'

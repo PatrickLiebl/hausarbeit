@@ -21,7 +21,7 @@ class DealValidator extends AbstractRentalSystemValidator {
 	def dealShallStartWithLowerCase(Deal deal) {
 		if(Character.isUpperCase(deal.name.charAt(0))) {
 		    	warning(
-		    		"The attribute should start with a lower case.", 
+		    		"The deal should start with a lower case.", 
 		    		RentalSystemPackage.Literals.DEAL__NAME, 
 		    		DEAL__UPPER_CASE_NAME, 
 		    		deal.name

@@ -25,7 +25,7 @@ public class CustomerValidator extends AbstractRentalSystemValidator {
     if (_isUpperCase) {
       String _name_1 = customer.getName();
       this.warning(
-        "The attribute should start with a lower case.", 
+        "The customer should start with a lower case.", 
         RentalSystemPackage.Literals.CUSTOMER__NAME, 
         CustomerValidator.CUSTOMER__UPPER_CASE_NAME, _name_1);
     }

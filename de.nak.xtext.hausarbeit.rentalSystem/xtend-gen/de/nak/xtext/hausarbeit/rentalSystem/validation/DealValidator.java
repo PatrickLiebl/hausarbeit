@@ -25,7 +25,7 @@ public class DealValidator extends AbstractRentalSystemValidator {
     if (_isUpperCase) {
       String _name_1 = deal.getName();
       this.warning(
-        "The attribute should start with a lower case.", 
+        "The deal should start with a lower case.", 
         RentalSystemPackage.Literals.DEAL__NAME, 
         DealValidator.DEAL__UPPER_CASE_NAME, _name_1);
     }
