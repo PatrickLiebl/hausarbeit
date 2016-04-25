@@ -83,6 +83,14 @@ public class RentalSystemGenerator extends AbstractGenerator {
           String _plus_11 = (_plus_10 + ".jsp");
           CharSequence _generateCustomerJsp = this.generateCustomerJsp(customer, ((RentalSystem)rentalSystem));
           fsa.generateFile(_plus_11, _generateCustomerJsp);
+          String _name_6 = customer.getName();
+          String _firstUpper_4 = StringExtensions.toFirstUpper(_name_6);
+          String _plus_12 = ("src/main/java/" + _firstUpper_4);
+          String _plus_13 = (_plus_12 + "Controller.java");
+          CharSequence _generateCustomerController = this.generateCustomerController(customer, ((RentalSystem)rentalSystem));
+          fsa.generateFile(_plus_13, _generateCustomerController);
+          CharSequence _generateCustomerCreatedJsp = this.generateCustomerCreatedJsp(customer, ((RentalSystem)rentalSystem));
+          fsa.generateFile("src/main/webapp/WEB-INF/views/jsp/newCustomerCreated.jsp", _generateCustomerCreatedJsp);
         }
       }
       EList<RentalType> _rentalTypes = ((RentalSystem)rentalSystem).getRentalTypes();
@@ -92,14 +100,20 @@ public class RentalSystemGenerator extends AbstractGenerator {
           String _firstUpper_2 = StringExtensions.toFirstUpper(_name_3);
           String _plus_6 = ("src/main/java/" + _firstUpper_2);
           String _plus_7 = (_plus_6 + ".java");
-          CharSequence _generateTypeBeans = this.generateTypeBeans(rentalType, ((RentalSystem)rentalSystem));
-          fsa.generateFile(_plus_7, _generateTypeBeans);
+          CharSequence _generateRentalTypeBeans = this.generateRentalTypeBeans(rentalType, ((RentalSystem)rentalSystem));
+          fsa.generateFile(_plus_7, _generateRentalTypeBeans);
           String _name_4 = rentalType.getName();
           String _firstUpper_3 = StringExtensions.toFirstUpper(_name_4);
           String _plus_8 = ("src/main/java/I" + _firstUpper_3);
           String _plus_9 = (_plus_8 + "Repository.java");
-          CharSequence _generateTypeRepos = this.generateTypeRepos(rentalType, ((RentalSystem)rentalSystem));
-          fsa.generateFile(_plus_9, _generateTypeRepos);
+          CharSequence _generateRentalTypeRepos = this.generateRentalTypeRepos(rentalType, ((RentalSystem)rentalSystem));
+          fsa.generateFile(_plus_9, _generateRentalTypeRepos);
+          String _name_5 = rentalType.getName();
+          String _firstLower_1 = StringExtensions.toFirstLower(_name_5);
+          String _plus_10 = ("src/main/webapp/WEB-INF/views/jsp/" + _firstLower_1);
+          String _plus_11 = (_plus_10 + ".jsp");
+          CharSequence _generateRentalTypeJsp = this.generateRentalTypeJsp(rentalType, ((RentalSystem)rentalSystem));
+          fsa.generateFile(_plus_11, _generateRentalTypeJsp);
         }
       }
       EList<Deal> _deals = ((RentalSystem)rentalSystem).getDeals();
@@ -117,28 +131,34 @@ public class RentalSystemGenerator extends AbstractGenerator {
           String _plus_9 = (_plus_8 + "Repository.java");
           CharSequence _generateDealRepos = this.generateDealRepos(deal, ((RentalSystem)rentalSystem));
           fsa.generateFile(_plus_9, _generateDealRepos);
+          String _name_5 = deal.getName();
+          String _firstLower_1 = StringExtensions.toFirstLower(_name_5);
+          String _plus_10 = ("src/main/webapp/WEB-INF/views/jsp/" + _firstLower_1);
+          String _plus_11 = (_plus_10 + ".jsp");
+          CharSequence _generateDealJsp = this.generateDealJsp(deal, ((RentalSystem)rentalSystem));
+          fsa.generateFile(_plus_11, _generateDealJsp);
           RentalWorkflow _rentalWorkflow = deal.getRentalWorkflow();
           EList<State> _states = _rentalWorkflow.getStates();
           for (final State state : _states) {
             {
-              String _name_5 = deal.getName();
-              String _firstUpper_4 = StringExtensions.toFirstUpper(_name_5);
-              String _plus_10 = ("src/main/java/" + _firstUpper_4);
-              String _name_6 = state.getName();
-              String _firstUpper_5 = StringExtensions.toFirstUpper(_name_6);
-              String _plus_11 = (_plus_10 + _firstUpper_5);
-              String _plus_12 = (_plus_11 + ".java");
+              String _name_6 = deal.getName();
+              String _firstUpper_4 = StringExtensions.toFirstUpper(_name_6);
+              String _plus_12 = ("src/main/java/" + _firstUpper_4);
+              String _name_7 = state.getName();
+              String _firstUpper_5 = StringExtensions.toFirstUpper(_name_7);
+              String _plus_13 = (_plus_12 + _firstUpper_5);
+              String _plus_14 = (_plus_13 + ".java");
               CharSequence _generateDealStateBeans = this.generateDealStateBeans(deal, state);
-              fsa.generateFile(_plus_12, _generateDealStateBeans);
-              String _name_7 = deal.getName();
-              String _firstUpper_6 = StringExtensions.toFirstUpper(_name_7);
-              String _plus_13 = ("src/main/java/I" + _firstUpper_6);
-              String _name_8 = state.getName();
-              String _firstUpper_7 = StringExtensions.toFirstUpper(_name_8);
-              String _plus_14 = (_plus_13 + _firstUpper_7);
-              String _plus_15 = (_plus_14 + "Repository.java");
+              fsa.generateFile(_plus_14, _generateDealStateBeans);
+              String _name_8 = deal.getName();
+              String _firstUpper_6 = StringExtensions.toFirstUpper(_name_8);
+              String _plus_15 = ("src/main/java/I" + _firstUpper_6);
+              String _name_9 = state.getName();
+              String _firstUpper_7 = StringExtensions.toFirstUpper(_name_9);
+              String _plus_16 = (_plus_15 + _firstUpper_7);
+              String _plus_17 = (_plus_16 + "Repository.java");
               CharSequence _generateDealStateRepos = this.generateDealStateRepos(deal, state);
-              fsa.generateFile(_plus_15, _generateDealStateRepos);
+              fsa.generateFile(_plus_17, _generateDealStateRepos);
             }
           }
         }
@@ -251,13 +271,14 @@ public class RentalSystemGenerator extends AbstractGenerator {
     _builder.append("package de.nordakademie.xtext.hausarbeit.rentalSystem.web;");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("\t");
     _builder.append("import org.springframework.stereotype.Controller;");
     _builder.newLine();
-    _builder.append("\t");
+    _builder.append("import org.springframework.ui.Model;");
+    _builder.newLine();
     _builder.append("import org.springframework.web.bind.annotation.RequestMapping;");
     _builder.newLine();
-    _builder.append("\t");
+    _builder.append("import org.springframework.web.bind.annotation.RequestMethod;");
+    _builder.newLine();
     _builder.append("import org.springframework.web.servlet.ModelAndView;");
     _builder.newLine();
     _builder.append("\t");
@@ -392,6 +413,146 @@ public class RentalSystemGenerator extends AbstractGenerator {
     return _builder;
   }
   
+  public CharSequence generateCustomerController(final Customer customer, final RentalSystem rentalSystem) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package de.nordakademie.xtext.hausarbeit.rentalSystem.web;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("import org.springframework.beans.factory.annotation.Autowired;");
+    _builder.newLine();
+    _builder.append("import org.springframework.stereotype.Controller;");
+    _builder.newLine();
+    _builder.append("import org.springframework.web.bind.annotation.RequestMapping;");
+    _builder.newLine();
+    _builder.append("import org.springframework.web.servlet.ModelAndView;");
+    _builder.newLine();
+    _builder.append("import org.springframework.web.bind.annotation.PathVariable;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("@Controller");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public class ");
+    String _name = customer.getName();
+    String _firstUpper = StringExtensions.toFirstUpper(_name);
+    _builder.append(_firstUpper, "\t");
+    _builder.append("Controller {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("@Autowired");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("private I");
+    String _name_1 = customer.getName();
+    String _firstUpper_1 = StringExtensions.toFirstUpper(_name_1);
+    _builder.append(_firstUpper_1, "\t\t");
+    _builder.append("Repository customerRepository;");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("@RequestMapping(value=\"/");
+    String _name_2 = customer.getName();
+    String _firstLower = StringExtensions.toFirstLower(_name_2);
+    _builder.append(_firstLower, "\t\t");
+    _builder.append("\")");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("public ModelAndView ");
+    String _name_3 = customer.getName();
+    String _firstLower_1 = StringExtensions.toFirstLower(_name_3);
+    _builder.append(_firstLower_1, "\t\t");
+    _builder.append("Show(){");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("System.out.println(\"");
+    String _name_4 = customer.getName();
+    String _firstUpper_2 = StringExtensions.toFirstUpper(_name_4);
+    _builder.append(_firstUpper_2, "\t\t\t");
+    _builder.append("Controller!\");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("ModelAndView mav = new ModelAndView(\"");
+    String _name_5 = customer.getName();
+    String _firstLower_2 = StringExtensions.toFirstLower(_name_5);
+    _builder.append(_firstLower_2, "\t\t\t");
+    _builder.append("\");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("mav.addObject(\"customers\", customerRepository.findAll());");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("return mav;");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("@RequestMapping(value=\"/");
+    String _name_6 = customer.getName();
+    String _firstLower_3 = StringExtensions.toFirstLower(_name_6);
+    _builder.append(_firstLower_3, "\t\t");
+    _builder.append("/new/{name}\")");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("public String createNew");
+    String _name_7 = customer.getName();
+    String _firstUpper_3 = StringExtensions.toFirstUpper(_name_7);
+    _builder.append(_firstUpper_3, "\t\t");
+    _builder.append("(@PathVariable(\"name\") String name){");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("System.out.println(\"");
+    String _name_8 = customer.getName();
+    String _firstUpper_4 = StringExtensions.toFirstUpper(_name_8);
+    _builder.append(_firstUpper_4, "\t\t\t");
+    _builder.append("Creator!\");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    String _name_9 = customer.getName();
+    String _firstUpper_5 = StringExtensions.toFirstUpper(_name_9);
+    _builder.append(_firstUpper_5, "\t\t\t");
+    _builder.append(" ");
+    String _name_10 = customer.getName();
+    String _firstLower_4 = StringExtensions.toFirstLower(_name_10);
+    _builder.append(_firstLower_4, "\t\t\t");
+    _builder.append(" = new ");
+    String _name_11 = customer.getName();
+    String _firstUpper_6 = StringExtensions.toFirstUpper(_name_11);
+    _builder.append(_firstUpper_6, "\t\t\t");
+    _builder.append("();");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    String _name_12 = customer.getName();
+    String _firstLower_5 = StringExtensions.toFirstLower(_name_12);
+    _builder.append(_firstLower_5, "\t\t\t");
+    _builder.append(".setName(name);");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("customerRepository.save(");
+    String _name_13 = customer.getName();
+    String _firstLower_6 = StringExtensions.toFirstLower(_name_13);
+    _builder.append(_firstLower_6, "\t\t\t");
+    _builder.append(");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("return \"newCustomerCreated\";");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
   public CharSequence generateWebConfig() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package de.nordakademie.xtext.hausarbeit.rentalSystem.web;");
@@ -457,13 +618,219 @@ public class RentalSystemGenerator extends AbstractGenerator {
   
   public CharSequence generateIndexJsp(final RentalSystem rentalSystem) {
     StringConcatenation _builder = new StringConcatenation();
+    CharSequence _generateJspHeader = this.generateJspHeader(rentalSystem);
+    _builder.append(_generateJspHeader, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("<a href=\"customersIndex\" class=\"btn btn-primary\">Customers</a>");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("<a href=\"rentalTypesIndex\" class=\"btn btn-primary\">RentalTypes</a>");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("<a href=\"dealsIndex\" class=\"btn btn-primary\">Deals</a>");
+    _builder.newLine();
+    CharSequence _generateJspFooter = this.generateJspFooter(rentalSystem);
+    _builder.append(_generateJspFooter, "");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence generateJspHeader(final RentalSystem rentalSystem) {
+    StringConcatenation _builder = new StringConcatenation();
     _builder.append("<%@taglib prefix=\"c\" uri=\"http://java.sun.com/jsp/jstl/core\"%>");
     _builder.newLine();
-    _builder.append("<a href=\"customersIndex\" >Customers</a>");
+    _builder.append("<!DOCTYPE html>");
     _builder.newLine();
-    _builder.append("<a href=\"rentalTypesIndex\">RentalTypes</a>");
+    _builder.append("<html lang=\"de\">");
     _builder.newLine();
-    _builder.append("<a href=\"dealsIndex\">Deals</a>");
+    _builder.append("\t");
+    _builder.append("<head>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<meta charset=\"utf-8\">");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<title>");
+    String _title = rentalSystem.getTitle();
+    _builder.append(_title, "\t\t");
+    _builder.append("</title>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<link href=\"${pageContext.request.contextPath}/css/simple-sidebar.css\" rel=\"stylesheet\" type=\"text/css\">");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<link rel=\"stylesheet\" type=\"text/css\" href=\"${pageContext.request.contextPath}/css/bootstrap.css\" />");
+    _builder.newLine();
+    _builder.append("  \t\t");
+    _builder.append("<script type=\"text/javascript\" src=\"${pageContext.request.contextPath}/js/bootstrap.js\" ></script>");
+    _builder.newLine();
+    _builder.append("  \t\t");
+    _builder.append("<script type=\"text/javascript\" src=\"${pageContext.request.contextPath}/js/jquery-1.11.3.min.js\" ></script>");
+    _builder.newLine();
+    _builder.append("  \t\t");
+    _builder.append("<style type=\"text/css\">");
+    _builder.newLine();
+    _builder.append("  \t\t\t");
+    _builder.append("body {");
+    _builder.newLine();
+    _builder.append("  \t\t\t\t");
+    _builder.append("background-color:white; ");
+    _builder.newLine();
+    _builder.append("  \t\t\t\t");
+    _builder.append("color:black;");
+    _builder.newLine();
+    _builder.append("  \t\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("  \t\t");
+    _builder.append("</style>");
+    _builder.newLine();
+    _builder.append("  \t");
+    _builder.append("</head>");
+    _builder.newLine();
+    _builder.append("  \t");
+    _builder.append("<body>");
+    _builder.newLine();
+    _builder.append("  \t");
+    _builder.append("<div class=\"col-sm-12\" style=\"background-color:white;\">");
+    _builder.newLine();
+    _builder.append("  \t\t");
+    _builder.append("<!-- Header -->");
+    _builder.newLine();
+    _builder.append("      \t");
+    _builder.append("<h1>");
+    String _name = rentalSystem.getName();
+    _builder.append(_name, "      \t");
+    _builder.append("</h1>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<div class=\"col-sm-12\" style=\"background-color:white;\">");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<!--  Header Menu -->");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<nav class=\"navbar navbar-inverse\">");
+    _builder.newLine();
+    _builder.append("\t\t  ");
+    _builder.append("<div class=\"container-fluid\">");
+    _builder.newLine();
+    _builder.append("\t\t    ");
+    _builder.append("<div class=\"navbar-header\">");
+    _builder.newLine();
+    _builder.append("\t\t      ");
+    _builder.append("<a class=\"navbar-brand\" href=\"#\">");
+    String _title_1 = rentalSystem.getTitle();
+    _builder.append(_title_1, "\t\t      ");
+    _builder.append("</a>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t    ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("\t\t    ");
+    _builder.append("<ul class=\"nav navbar-nav\">");
+    _builder.newLine();
+    _builder.append("\t\t      ");
+    _builder.append("<li class=\"active\"><a href=\"/\">Home</a></li>");
+    _builder.newLine();
+    _builder.append("\t\t      ");
+    _builder.append("<li><a href=\"customersIndex\">Customers</a></li>");
+    _builder.newLine();
+    _builder.append("\t\t      ");
+    _builder.append("<li><a href=\"rentalTypesIndex\" >RentalTypes</a></li>");
+    _builder.newLine();
+    _builder.append("\t\t      ");
+    _builder.append("<li><a href=\"dealsIndex\">Deals</a></li>");
+    _builder.newLine();
+    _builder.append("\t\t    ");
+    _builder.append("</ul>");
+    _builder.newLine();
+    _builder.append("\t\t  ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("</nav>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<!--  side-menu -->");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<div class=\"col-sm-2\" style=\"background-color:white;\">");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<div id=\"wrapper\">");
+    _builder.newLine();
+    _builder.append("\t\t        ");
+    _builder.append("<div id=\"sidebar-wrapper\">");
+    _builder.newLine();
+    _builder.append("\t\t            ");
+    _builder.append("<ul class=\"sidebar-nav\">");
+    _builder.newLine();
+    _builder.append("\t\t                ");
+    _builder.append("<li class=\"sidebar-brand\"><a href=\"#\"> Start Bootstrap</a></li>");
+    _builder.newLine();
+    _builder.append("\t\t                ");
+    _builder.append("<li><a href=\"#\">Dashboard</a></li>");
+    _builder.newLine();
+    _builder.append("\t\t                ");
+    _builder.append("<li><a href=\"#\">Shortcuts</a></li>");
+    _builder.newLine();
+    _builder.append("\t\t                ");
+    _builder.append("<li><a href=\"#\">Overview</a></li>");
+    _builder.newLine();
+    _builder.append("\t\t                ");
+    _builder.append("<li><a href=\"#\">Events</a></li>");
+    _builder.newLine();
+    _builder.append("\t\t                ");
+    _builder.append("<li><a href=\"#\">About</a></li>");
+    _builder.newLine();
+    _builder.append("\t\t                ");
+    _builder.append("<li><a href=\"#\">Services</a></li>");
+    _builder.newLine();
+    _builder.append("\t\t                ");
+    _builder.append("<li><a href=\"#\">Contact</a></li>");
+    _builder.newLine();
+    _builder.append("\t\t            ");
+    _builder.append("</ul>");
+    _builder.newLine();
+    _builder.append("\t\t        ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<div class=\"col-sm-10\" style=\"background-color:white;\">");
+    _builder.newLine();
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence generateJspFooter(final RentalSystem rentalSystem) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\t");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("  \t");
+    _builder.append("</body>");
+    _builder.newLine();
+    _builder.append("</html>");
     _builder.newLine();
     _builder.newLine();
     return _builder;
@@ -471,36 +838,61 @@ public class RentalSystemGenerator extends AbstractGenerator {
   
   public CharSequence generateCustomersIndexJsp(final RentalSystem rentalSystem) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<%@taglib prefix=\"c\" uri=\"http://java.sun.com/jsp/jstl/core\"%>");
-    _builder.newLine();
+    CharSequence _generateJspHeader = this.generateJspHeader(rentalSystem);
+    _builder.append(_generateJspHeader, "");
+    _builder.newLineIfNotEmpty();
     _builder.append("<h1>Customers</h1>");
     _builder.newLine();
-    _builder.append("<a href=\"/\">Index</a>");
+    {
+      EList<Customer> _customers = rentalSystem.getCustomers();
+      for(final Customer customer : _customers) {
+        _builder.append("<a href=\"");
+        String _name = customer.getName();
+        _builder.append(_name, "");
+        _builder.append("\">");
+        String _name_1 = customer.getName();
+        _builder.append(_name_1, "");
+        _builder.append("</a></br>");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("<a href=\"/\" class=\"btn btn-primary\">Index</a>");
     _builder.newLine();
+    CharSequence _generateJspFooter = this.generateJspFooter(rentalSystem);
+    _builder.append(_generateJspFooter, "");
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
     return _builder;
   }
   
   public CharSequence generateRentalTypesIndexJsp(final RentalSystem rentalSystem) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<%@taglib prefix=\"c\" uri=\"http://java.sun.com/jsp/jstl/core\"%>");
-    _builder.newLine();
+    CharSequence _generateJspHeader = this.generateJspHeader(rentalSystem);
+    _builder.append(_generateJspHeader, "");
+    _builder.newLineIfNotEmpty();
     _builder.append("<h1>RentalTypes</h1>");
     _builder.newLine();
-    _builder.append("<a href=\"/\">Index</a>");
+    _builder.append("<a href=\"/\" class=\"btn btn-primary\">Index</a>");
     _builder.newLine();
+    CharSequence _generateJspFooter = this.generateJspFooter(rentalSystem);
+    _builder.append(_generateJspFooter, "");
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
     return _builder;
   }
   
   public CharSequence generateDealsIndexJsp(final RentalSystem rentalSystem) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<%@taglib prefix=\"c\" uri=\"http://java.sun.com/jsp/jstl/core\"%>");
-    _builder.newLine();
+    CharSequence _generateJspHeader = this.generateJspHeader(rentalSystem);
+    _builder.append(_generateJspHeader, "");
+    _builder.newLineIfNotEmpty();
     _builder.append("<h1>Deals</h1>");
     _builder.newLine();
-    _builder.append("<a href=\"/\">Index</a>");
+    _builder.append("<a href=\"/\" class=\"btn btn-primary\">Index</a>");
     _builder.newLine();
+    CharSequence _generateJspFooter = this.generateJspFooter(rentalSystem);
+    _builder.append(_generateJspFooter, "");
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
     return _builder;
   }
@@ -682,14 +1074,76 @@ public class RentalSystemGenerator extends AbstractGenerator {
   
   public CharSequence generateCustomerJsp(final Customer customer, final RentalSystem rentalSystem) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<%@taglib prefix=\"c\" uri=\"http://java.sun.com/jsp/jstl/core\"%>");
+    CharSequence _generateJspHeader = this.generateJspHeader(rentalSystem);
+    _builder.append(_generateJspHeader, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("<h1>");
+    String _name = customer.getName();
+    String _firstUpper = StringExtensions.toFirstUpper(_name);
+    _builder.append(_firstUpper, "");
+    _builder.append("</h1>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("<p>Customers: ${customers.size()}");
     _builder.newLine();
-    _builder.append("<h1>Customers</h1>");
+    _builder.append("<c:forEach var=\"i\" items=\"${customers}\">");
     _builder.newLine();
+    _builder.append("\t");
+    _builder.append("Customer ${i.name}<br />");
+    _builder.newLine();
+    _builder.append("</c:forEach>");
+    _builder.newLine();
+    CharSequence _generateJspFooter = this.generateJspFooter(rentalSystem);
+    _builder.append(_generateJspFooter, "");
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
-  public CharSequence generateTypeBeans(final RentalType rentalType, final RentalSystem rentalSystem) {
+  public CharSequence generateCustomerCreatedJsp(final Customer customer, final RentalSystem rentalSystem) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _generateJspHeader = this.generateJspHeader(rentalSystem);
+    _builder.append(_generateJspHeader, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("<h1>");
+    String _name = customer.getName();
+    String _firstUpper = StringExtensions.toFirstUpper(_name);
+    _builder.append(_firstUpper, "");
+    _builder.append("-Instance-Creator</h1>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("<p>created!</p>");
+    _builder.newLine();
+    CharSequence _generateJspFooter = this.generateJspFooter(rentalSystem);
+    _builder.append(_generateJspFooter, "");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence generateRentalTypeJsp(final RentalType rentalType, final RentalSystem rentalSystem) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _generateJspHeader = this.generateJspHeader(rentalSystem);
+    _builder.append(_generateJspHeader, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("<h1>RentalTypes</h1>");
+    _builder.newLine();
+    CharSequence _generateJspFooter = this.generateJspFooter(rentalSystem);
+    _builder.append(_generateJspFooter, "");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence generateDealJsp(final Deal deal, final RentalSystem rentalSystem) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _generateJspHeader = this.generateJspHeader(rentalSystem);
+    _builder.append(_generateJspHeader, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("<h1>Deals</h1>");
+    _builder.newLine();
+    CharSequence _generateJspFooter = this.generateJspFooter(rentalSystem);
+    _builder.append(_generateJspFooter, "");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence generateRentalTypeBeans(final RentalType rentalType, final RentalSystem rentalSystem) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package de.nordakademie.xtext.hausarbeit.rentalSystem.web;");
     _builder.newLine();
@@ -830,7 +1284,7 @@ public class RentalSystemGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  public CharSequence generateTypeRepos(final RentalType rentalType, final RentalSystem rentalSystem) {
+  public CharSequence generateRentalTypeRepos(final RentalType rentalType, final RentalSystem rentalSystem) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package de.nordakademie.xtext.hausarbeit.rentalSystem.web;");
     _builder.newLine();

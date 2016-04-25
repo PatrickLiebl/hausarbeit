@@ -9,6 +9,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.State
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute
 
 /**
  * Generates code from your model files on save.
@@ -66,15 +67,24 @@ class RentalSystemGenerator extends AbstractGenerator {
 					
 				fsa.generateFile("src/main/webapp/WEB-INF/views/jsp/" + customer.name.toFirstLower + '.jsp',
 					generateCustomerJsp(customer, rentalSystem))
+					
+				fsa.generateFile("src/main/java/" + customer.name.toFirstUpper + 'Controller.java',
+					generateCustomerController(customer, rentalSystem))
+					
+				fsa.generateFile("src/main/webapp/WEB-INF/views/jsp/newCustomerCreated.jsp",
+					generateCustomerCreatedJsp(customer, rentalSystem))
 			}
 
 			// Pro Type ein eigenes Repository, eine JSP, ein Controller und eine Bean
 			for (RentalType rentalType : rentalSystem.rentalTypes) {
 				fsa.generateFile("src/main/java/" + rentalType.name.toFirstUpper + '.java',
-					generateTypeBeans(rentalType, rentalSystem))
+					generateRentalTypeBeans(rentalType, rentalSystem))
 
 				fsa.generateFile("src/main/java/I" + rentalType.name.toFirstUpper + 'Repository.java',
-					generateTypeRepos(rentalType, rentalSystem))
+					generateRentalTypeRepos(rentalType, rentalSystem))
+					
+				fsa.generateFile("src/main/webapp/WEB-INF/views/jsp/" + rentalType.name.toFirstLower + '.jsp',
+					generateRentalTypeJsp(rentalType, rentalSystem))
 			}
 
 			// Pro Deal ein eigenes Repository, eine JSP, ein Controller und eine Bean
@@ -84,6 +94,9 @@ class RentalSystemGenerator extends AbstractGenerator {
 
 				fsa.generateFile("src/main/java/I" + deal.name.toFirstUpper + 'Repository.java',
 					generateDealRepos(deal, rentalSystem))
+					
+				fsa.generateFile("src/main/webapp/WEB-INF/views/jsp/" + deal.name.toFirstLower + '.jsp',
+					generateDealJsp(deal, rentalSystem))
 				
 				// Besonderheit StateMachine: Pro State ein Controller, eine JSP, eine Bean und ein Repository
 				for(State state : deal.rentalWorkflow.states){
@@ -135,9 +148,11 @@ class RentalSystemGenerator extends AbstractGenerator {
 	def CharSequence generateCustomerIndexController() '''
 				package de.nordakademie.xtext.hausarbeit.rentalSystem.web;
 				
-					import org.springframework.stereotype.Controller;
-					import org.springframework.web.bind.annotation.RequestMapping;
-					import org.springframework.web.servlet.ModelAndView;
+				import org.springframework.stereotype.Controller;
+				import org.springframework.ui.Model;
+				import org.springframework.web.bind.annotation.RequestMapping;
+				import org.springframework.web.bind.annotation.RequestMethod;
+				import org.springframework.web.servlet.ModelAndView;
 					
 					@Controller
 					public class CustomersIndexController {
@@ -189,6 +204,40 @@ class RentalSystemGenerator extends AbstractGenerator {
 						}
 					}
 		'''
+		
+	def CharSequence generateCustomerController(Customer customer, RentalSystem rentalSystem) '''
+				package de.nordakademie.xtext.hausarbeit.rentalSystem.web;
+				
+				import org.springframework.beans.factory.annotation.Autowired;
+				import org.springframework.stereotype.Controller;
+				import org.springframework.web.bind.annotation.RequestMapping;
+				import org.springframework.web.servlet.ModelAndView;
+				import org.springframework.web.bind.annotation.PathVariable;
+					
+					@Controller
+					public class «customer.name.toFirstUpper»Controller {
+						
+						@Autowired
+						private I«customer.name.toFirstUpper»Repository customerRepository;
+						
+						@RequestMapping(value="/«customer.name.toFirstLower»")
+						public ModelAndView «customer.name.toFirstLower»Show(){
+							System.out.println("«customer.name.toFirstUpper»Controller!");
+							ModelAndView mav = new ModelAndView("«customer.name.toFirstLower»");
+							mav.addObject("customers", customerRepository.findAll());
+							return mav;
+						}
+						
+						@RequestMapping(value="/«customer.name.toFirstLower»/new/{name}")
+						public String createNew«customer.name.toFirstUpper»(@PathVariable("name") String name){
+							System.out.println("«customer.name.toFirstUpper»Creator!");
+							«customer.name.toFirstUpper» «customer.name.toFirstLower» = new «customer.name.toFirstUpper»();
+							«customer.name.toFirstLower».setName(name);
+							customerRepository.save(«customer.name.toFirstLower»);
+							return "newCustomerCreated";
+						}
+					}
+		'''
 	
 		def CharSequence generateWebConfig() '''
 			package de.nordakademie.xtext.hausarbeit.rentalSystem.web;
@@ -216,30 +265,108 @@ class RentalSystemGenerator extends AbstractGenerator {
 	
 	
 		def CharSequence generateIndexJsp(RentalSystem rentalSystem) '''
-		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-		<a href="customersIndex" >Customers</a>
-		<a href="rentalTypesIndex">RentalTypes</a>
-		<a href="dealsIndex">Deals</a>
+		«generateJspHeader(rentalSystem)»
+					<a href="customersIndex" class="btn btn-primary">Customers</a>
+					<a href="rentalTypesIndex" class="btn btn-primary">RentalTypes</a>
+					<a href="dealsIndex" class="btn btn-primary">Deals</a>
+		«generateJspFooter(rentalSystem)»
 		
 	'''
 	
-			def CharSequence generateCustomersIndexJsp(RentalSystem rentalSystem) '''
+	def CharSequence generateJspHeader(RentalSystem rentalSystem) '''
 		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+		<!DOCTYPE html>
+		<html lang="de">
+			<head>
+				<meta charset="utf-8">
+				<title>«rentalSystem.title»</title>
+				<meta name="viewport" content="width=device-width, initial-scale=1">	
+				<link href="${pageContext.request.contextPath}/css/simple-sidebar.css" rel="stylesheet" type="text/css">
+				<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css" />
+		  		<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.js" ></script>
+		  		<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.11.3.min.js" ></script>
+		  		<style type="text/css">
+		  			body {
+		  				background-color:white; 
+		  				color:black;
+		  			}
+		  		</style>
+		  	</head>
+		  	<body>
+		  	<div class="col-sm-12" style="background-color:white;">
+		  		<!-- Header -->
+		      	<h1>«rentalSystem.name»</h1>
+			</div>
+			<div class="col-sm-12" style="background-color:white;">
+				<!--  Header Menu -->
+				<nav class="navbar navbar-inverse">
+				  <div class="container-fluid">
+				    <div class="navbar-header">
+				      <a class="navbar-brand" href="#">«rentalSystem.title»</a>
+				    </div>
+				    <ul class="nav navbar-nav">
+				      <li class="active"><a href="/">Home</a></li>
+				      <li><a href="customersIndex">Customers</a></li>
+				      <li><a href="rentalTypesIndex" >RentalTypes</a></li>
+				      <li><a href="dealsIndex">Deals</a></li>
+				    </ul>
+				  </div>
+				</nav>
+			</div>
+			
+			<!--  side-menu -->
+			<div class="col-sm-2" style="background-color:white;">
+				<div id="wrapper">
+				        <div id="sidebar-wrapper">
+				            <ul class="sidebar-nav">
+				                <li class="sidebar-brand"><a href="#"> Start Bootstrap</a></li>
+				                <li><a href="#">Dashboard</a></li>
+				                <li><a href="#">Shortcuts</a></li>
+				                <li><a href="#">Overview</a></li>
+				                <li><a href="#">Events</a></li>
+				                <li><a href="#">About</a></li>
+				                <li><a href="#">Services</a></li>
+				                <li><a href="#">Contact</a></li>
+				            </ul>
+				        </div>
+				</div>
+			</div>
+			<div class="col-sm-10" style="background-color:white;">
+		
+	'''
+	
+			def CharSequence generateJspFooter(RentalSystem rentalSystem) '''
+			</div>
+		  	</body>
+		</html>
+		
+	'''
+	
+	
+	
+		def CharSequence generateCustomersIndexJsp(RentalSystem rentalSystem) '''
+		«generateJspHeader(rentalSystem)»
 		<h1>Customers</h1>
-		<a href="/">Index</a>
+		«FOR Customer customer : rentalSystem.customers»
+			<a href="«customer.name»">«customer.name»</a></br>
+		«ENDFOR»
+		<a href="/" class="btn btn-primary">Index</a>
+		«generateJspFooter(rentalSystem)»
 		
 	'''
 			def CharSequence generateRentalTypesIndexJsp(RentalSystem rentalSystem) '''
-		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+		«generateJspHeader(rentalSystem)»
 		<h1>RentalTypes</h1>
-		<a href="/">Index</a>
+		<a href="/" class="btn btn-primary">Index</a>
+		«generateJspFooter(rentalSystem)»
 		
 	'''
 	
 			def CharSequence generateDealsIndexJsp(RentalSystem rentalSystem) '''
-		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+		«generateJspHeader(rentalSystem)»
 		<h1>Deals</h1>
-		<a href="/">Index</a>
+		<a href="/" class="btn btn-primary">Index</a>
+		«generateJspFooter(rentalSystem)»
 		
 	'''
 	
@@ -298,11 +425,35 @@ class RentalSystemGenerator extends AbstractGenerator {
 	'''
 	
 	def CharSequence generateCustomerJsp(Customer customer, RentalSystem rentalSystem) '''
-		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-		<h1>Customers</h1>
+		«generateJspHeader(rentalSystem)»
+		<h1>«customer.name.toFirstUpper»</h1>
+		<p>Customers: ${customers.size()}
+		<c:forEach var="i" items="${customers}">
+			Customer ${i.name}<br />
+		</c:forEach>
+		«generateJspFooter(rentalSystem)»
+	'''
+	
+		def CharSequence generateCustomerCreatedJsp(Customer customer, RentalSystem rentalSystem) '''
+		«generateJspHeader(rentalSystem)»
+		<h1>«customer.name.toFirstUpper»-Instance-Creator</h1>
+		<p>created!</p>
+		«generateJspFooter(rentalSystem)»
+	'''
+	
+	def CharSequence generateRentalTypeJsp(RentalType rentalType, RentalSystem rentalSystem) '''
+		«generateJspHeader(rentalSystem)»
+		<h1>RentalTypes</h1>
+		«generateJspFooter(rentalSystem)»
+	'''
+	
+	def CharSequence generateDealJsp(Deal deal, RentalSystem rentalSystem) '''
+		«generateJspHeader(rentalSystem)»
+		<h1>Deals</h1>
+		«generateJspFooter(rentalSystem)»
 	'''
 
-	def CharSequence generateTypeBeans(RentalType rentalType, RentalSystem rentalSystem) '''
+	def CharSequence generateRentalTypeBeans(RentalType rentalType, RentalSystem rentalSystem) '''
 		package de.nordakademie.xtext.hausarbeit.rentalSystem.web;
 		
 		import javax.persistence.Entity;
@@ -342,7 +493,7 @@ class RentalSystemGenerator extends AbstractGenerator {
 			}
 	'''
 
-	def CharSequence generateTypeRepos(RentalType rentalType,
+	def CharSequence generateRentalTypeRepos(RentalType rentalType,
 		RentalSystem rentalSystem) '''
 		package de.nordakademie.xtext.hausarbeit.rentalSystem.web;
 		

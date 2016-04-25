@@ -5,3 +5,11 @@
 /.CustomerValidator.java._trace
 /.DealValidator.java._trace
 /.RentalTypeValidator.java._trace
+/.AttributeValidator.xtendbin
+/.CustomerValidator.xtendbin
+/.DealValidator.xtendbin
+/.RentalTypeValidator.xtendbin
+/AttributeValidator.java
+/CustomerValidator.java
+/DealValidator.java
+/RentalTypeValidator.java
