@@ -530,7 +530,7 @@ class RentalSystemGenerator extends AbstractGenerator {
 			</tbody>
 		</table>
 		<a href="«customer.name.toFirstLower»Form" class="btn btn-primary">New «customer.name.toFirstUpper»</a>
-		<a href="customerIndex" class="btn btn-primary">Customers</a>
+		<a href="customersIndex" class="btn btn-primary">Customers</a>
 		«generateJspFooter(rentalSystem)»
 	'''
 	

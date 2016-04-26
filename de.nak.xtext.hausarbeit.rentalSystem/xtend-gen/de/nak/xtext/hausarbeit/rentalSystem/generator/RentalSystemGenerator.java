@@ -1445,7 +1445,7 @@ public class RentalSystemGenerator extends AbstractGenerator {
     _builder.append(_firstUpper_1, "");
     _builder.append("</a>");
     _builder.newLineIfNotEmpty();
-    _builder.append("<a href=\"customerIndex\" class=\"btn btn-primary\">Customers</a>");
+    _builder.append("<a href=\"customersIndex\" class=\"btn btn-primary\">Customers</a>");
     _builder.newLine();
     CharSequence _generateJspFooter = this.generateJspFooter(rentalSystem);
     _builder.append(_generateJspFooter, "");
