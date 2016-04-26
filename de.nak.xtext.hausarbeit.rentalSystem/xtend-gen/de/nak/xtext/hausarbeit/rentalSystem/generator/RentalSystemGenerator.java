@@ -84,11 +84,17 @@ public class RentalSystemGenerator extends AbstractGenerator {
           CharSequence _generateCustomerJsp = this.generateCustomerJsp(customer, ((RentalSystem)rentalSystem));
           fsa.generateFile(_plus_11, _generateCustomerJsp);
           String _name_6 = customer.getName();
-          String _firstUpper_4 = StringExtensions.toFirstUpper(_name_6);
-          String _plus_12 = ("src/main/java/" + _firstUpper_4);
-          String _plus_13 = (_plus_12 + "Controller.java");
+          String _firstLower_2 = StringExtensions.toFirstLower(_name_6);
+          String _plus_12 = ("src/main/webapp/WEB-INF/views/jsp/" + _firstLower_2);
+          String _plus_13 = (_plus_12 + "Form.jsp");
+          CharSequence _generateCustomerFormJsp = this.generateCustomerFormJsp(customer, ((RentalSystem)rentalSystem));
+          fsa.generateFile(_plus_13, _generateCustomerFormJsp);
+          String _name_7 = customer.getName();
+          String _firstUpper_4 = StringExtensions.toFirstUpper(_name_7);
+          String _plus_14 = ("src/main/java/" + _firstUpper_4);
+          String _plus_15 = (_plus_14 + "Controller.java");
           CharSequence _generateCustomerController = this.generateCustomerController(customer, ((RentalSystem)rentalSystem));
-          fsa.generateFile(_plus_13, _generateCustomerController);
+          fsa.generateFile(_plus_15, _generateCustomerController);
           CharSequence _generateCustomerCreatedJsp = this.generateCustomerCreatedJsp(customer, ((RentalSystem)rentalSystem));
           fsa.generateFile("src/main/webapp/WEB-INF/views/jsp/newCustomerCreated.jsp", _generateCustomerCreatedJsp);
         }
@@ -428,6 +434,8 @@ public class RentalSystemGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("import org.springframework.web.bind.annotation.PathVariable;");
     _builder.newLine();
+    _builder.append("import org.springframework.web.bind.annotation.RequestMethod;");
+    _builder.newLine();
     _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
@@ -498,47 +506,123 @@ public class RentalSystemGenerator extends AbstractGenerator {
     String _name_6 = customer.getName();
     String _firstLower_3 = StringExtensions.toFirstLower(_name_6);
     _builder.append(_firstLower_3, "\t\t");
-    _builder.append("/new/{name}\")");
+    _builder.append("Form\", method=RequestMethod.GET)");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
-    _builder.append("public String createNew");
+    _builder.append("public ModelAndView ");
     String _name_7 = customer.getName();
-    String _firstUpper_3 = StringExtensions.toFirstUpper(_name_7);
-    _builder.append(_firstUpper_3, "\t\t");
-    _builder.append("(@PathVariable(\"name\") String name){");
+    String _firstLower_4 = StringExtensions.toFirstLower(_name_7);
+    _builder.append(_firstLower_4, "\t\t");
+    _builder.append("ShowForm(){");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
-    _builder.append("System.out.println(\"");
+    _builder.append("ModelAndView mav = new ModelAndView(\"");
     String _name_8 = customer.getName();
-    String _firstUpper_4 = StringExtensions.toFirstUpper(_name_8);
-    _builder.append(_firstUpper_4, "\t\t\t");
-    _builder.append("Creator!\");");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t\t\t");
-    String _name_9 = customer.getName();
-    String _firstUpper_5 = StringExtensions.toFirstUpper(_name_9);
-    _builder.append(_firstUpper_5, "\t\t\t");
-    _builder.append(" ");
-    String _name_10 = customer.getName();
-    String _firstLower_4 = StringExtensions.toFirstLower(_name_10);
-    _builder.append(_firstLower_4, "\t\t\t");
-    _builder.append(" = new ");
-    String _name_11 = customer.getName();
-    String _firstUpper_6 = StringExtensions.toFirstUpper(_name_11);
-    _builder.append(_firstUpper_6, "\t\t\t");
-    _builder.append("();");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t\t\t");
-    String _name_12 = customer.getName();
-    String _firstLower_5 = StringExtensions.toFirstLower(_name_12);
+    String _firstLower_5 = StringExtensions.toFirstLower(_name_8);
     _builder.append(_firstLower_5, "\t\t\t");
-    _builder.append(".setName(name);");
+    _builder.append("Form\");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("return mav;");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("@RequestMapping(value=\"/");
+    String _name_9 = customer.getName();
+    String _firstLower_6 = StringExtensions.toFirstLower(_name_9);
+    _builder.append(_firstLower_6, "\t\t");
+    _builder.append("Form\", method=RequestMethod.POST)");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("public ModelAndView ");
+    String _name_10 = customer.getName();
+    String _firstLower_7 = StringExtensions.toFirstLower(_name_10);
+    _builder.append(_firstLower_7, "\t\t");
+    _builder.append("SaveForm(");
+    String _name_11 = customer.getName();
+    String _firstUpper_3 = StringExtensions.toFirstUpper(_name_11);
+    _builder.append(_firstUpper_3, "\t\t");
+    _builder.append(" ");
+    String _name_12 = customer.getName();
+    String _firstLower_8 = StringExtensions.toFirstLower(_name_12);
+    _builder.append(_firstLower_8, "\t\t");
+    _builder.append("){");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
     _builder.append("customerRepository.save(");
     String _name_13 = customer.getName();
-    String _firstLower_6 = StringExtensions.toFirstLower(_name_13);
-    _builder.append(_firstLower_6, "\t\t\t");
+    String _firstLower_9 = StringExtensions.toFirstLower(_name_13);
+    _builder.append(_firstLower_9, "\t\t\t");
+    _builder.append(");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("ModelAndView mav = new ModelAndView(\"");
+    String _name_14 = customer.getName();
+    String _firstLower_10 = StringExtensions.toFirstLower(_name_14);
+    _builder.append(_firstLower_10, "\t\t\t");
+    _builder.append("\");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("mav.addObject(\"customers\", customerRepository.findAll());");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("return mav;");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("@RequestMapping(value=\"/");
+    String _name_15 = customer.getName();
+    String _firstLower_11 = StringExtensions.toFirstLower(_name_15);
+    _builder.append(_firstLower_11, "\t\t");
+    _builder.append("/new/{id}\")");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("public String createNew");
+    String _name_16 = customer.getName();
+    String _firstUpper_4 = StringExtensions.toFirstUpper(_name_16);
+    _builder.append(_firstUpper_4, "\t\t");
+    _builder.append("(@PathVariable(\"id\") Long id){");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("System.out.println(\"");
+    String _name_17 = customer.getName();
+    String _firstUpper_5 = StringExtensions.toFirstUpper(_name_17);
+    _builder.append(_firstUpper_5, "\t\t\t");
+    _builder.append("Creator!\");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    String _name_18 = customer.getName();
+    String _firstUpper_6 = StringExtensions.toFirstUpper(_name_18);
+    _builder.append(_firstUpper_6, "\t\t\t");
+    _builder.append(" ");
+    String _name_19 = customer.getName();
+    String _firstLower_12 = StringExtensions.toFirstLower(_name_19);
+    _builder.append(_firstLower_12, "\t\t\t");
+    _builder.append(" = new ");
+    String _name_20 = customer.getName();
+    String _firstUpper_7 = StringExtensions.toFirstUpper(_name_20);
+    _builder.append(_firstUpper_7, "\t\t\t");
+    _builder.append("();");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    String _name_21 = customer.getName();
+    String _firstLower_13 = StringExtensions.toFirstLower(_name_21);
+    _builder.append(_firstLower_13, "\t\t\t");
+    _builder.append(".setId(id);");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("customerRepository.save(");
+    String _name_22 = customer.getName();
+    String _firstLower_14 = StringExtensions.toFirstLower(_name_22);
+    _builder.append(_firstLower_14, "\t\t\t");
     _builder.append(");");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
@@ -643,7 +727,7 @@ public class RentalSystemGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("<!DOCTYPE html>");
     _builder.newLine();
-    _builder.append("<html lang=\"de\">");
+    _builder.append("<html lang=\"de\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:th=\"http://www.thymeleaf.org\">");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("<head>");
@@ -1083,19 +1167,161 @@ public class RentalSystemGenerator extends AbstractGenerator {
     _builder.append(_firstUpper, "");
     _builder.append("</h1>");
     _builder.newLineIfNotEmpty();
-    _builder.append("<p>Customers: ${customers.size()}");
+    _builder.append("<p>Customers: ${customers.size()}</p>");
     _builder.newLine();
-    _builder.append("<c:forEach var=\"i\" items=\"${customers}\">");
+    _builder.append("<ul>");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("Customer ${i.name}<br />");
+    _builder.append("<c:forEach var=\"i\" items=\"${customers}\">");
     _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<li>Customer ${i.id}</li>");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.append("</c:forEach>");
+    _builder.newLine();
+    _builder.append("</ul>");
+    _builder.newLine();
+    _builder.append("<a href=\"");
+    String _name_1 = customer.getName();
+    String _firstLower = StringExtensions.toFirstLower(_name_1);
+    _builder.append(_firstLower, "");
+    _builder.append("Form\" class=\"btn btn-primary\">New ");
+    String _name_2 = customer.getName();
+    String _firstUpper_1 = StringExtensions.toFirstUpper(_name_2);
+    _builder.append(_firstUpper_1, "");
+    _builder.append("</a>");
+    _builder.newLineIfNotEmpty();
+    CharSequence _generateJspFooter = this.generateJspFooter(rentalSystem);
+    _builder.append(_generateJspFooter, "");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence generateCustomerFormJsp(final Customer customer, final RentalSystem rentalSystem) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _generateJspHeader = this.generateJspHeader(rentalSystem);
+    _builder.append(_generateJspHeader, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("<h1>");
+    String _name = customer.getName();
+    String _firstUpper = StringExtensions.toFirstUpper(_name);
+    _builder.append(_firstUpper, "");
+    _builder.append("Form</h1>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("<form id=\"customer-form\" role=\"form\" th:action=\"@{/");
+    String _name_1 = customer.getName();
+    String _firstLower = StringExtensions.toFirstLower(_name_1);
+    _builder.append(_firstLower, "");
+    _builder.append("Form}\" method=\"post\" th:object=\"${");
+    String _name_2 = customer.getName();
+    String _firstLower_1 = StringExtensions.toFirstLower(_name_2);
+    _builder.append(_firstLower_1, "");
+    _builder.append("}\">");
+    _builder.newLineIfNotEmpty();
+    _builder.append("<table>");
+    _builder.newLine();
+    {
+      EList<Attribute> _customerAttribute = customer.getCustomerAttribute();
+      for(final Attribute attribute : _customerAttribute) {
+        _builder.append("<tr>");
+        _builder.newLine();
+        _builder.append("<td><label for=\"");
+        String _name_3 = attribute.getName();
+        String _firstLower_2 = StringExtensions.toFirstLower(_name_3);
+        _builder.append(_firstLower_2, "");
+        _builder.append("\">");
+        String _name_4 = attribute.getName();
+        String _firstUpper_1 = StringExtensions.toFirstUpper(_name_4);
+        _builder.append(_firstUpper_1, "");
+        _builder.append("</label></td>");
+        _builder.newLineIfNotEmpty();
+        _builder.append("<td>");
+        CharSequence _buildInput = this.buildInput(attribute, customer);
+        _builder.append(_buildInput, "");
+        _builder.append(" id=\"");
+        String _name_5 = attribute.getName();
+        String _firstLower_3 = StringExtensions.toFirstLower(_name_5);
+        _builder.append(_firstLower_3, "");
+        _builder.append("\" name=\"");
+        String _name_6 = attribute.getName();
+        String _firstLower_4 = StringExtensions.toFirstLower(_name_6);
+        _builder.append(_firstLower_4, "");
+        _builder.append("\" th:field=\"${");
+        String _name_7 = customer.getName();
+        String _firstLower_5 = StringExtensions.toFirstLower(_name_7);
+        _builder.append(_firstLower_5, "");
+        _builder.append(".");
+        String _name_8 = attribute.getName();
+        String _firstLower_6 = StringExtensions.toFirstLower(_name_8);
+        _builder.append(_firstLower_6, "");
+        _builder.append("}\" /></td>");
+        _builder.newLineIfNotEmpty();
+        _builder.append("</tr>");
+        _builder.newLine();
+      }
+    }
+    _builder.append("</table>");
+    _builder.newLine();
+    _builder.append("<button type=\"submit\">Save</button>");
+    _builder.newLine();
+    _builder.append("</form>");
     _builder.newLine();
     CharSequence _generateJspFooter = this.generateJspFooter(rentalSystem);
     _builder.append(_generateJspFooter, "");
     _builder.newLineIfNotEmpty();
     return _builder;
+  }
+  
+  public CharSequence buildInput(final Attribute attribute, final Customer customer) {
+    CharSequence _switchResult = null;
+    boolean _matched = false;
+    if (!_matched) {
+      OfType _ofType = attribute.getOfType();
+      boolean _equals = _ofType.equals("String");
+      if (_equals) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("<input type=\"text\"");
+        _switchResult = _builder;
+      }
+    }
+    if (!_matched) {
+      OfType _ofType_1 = attribute.getOfType();
+      boolean _equals_1 = _ofType_1.equals("int");
+      if (_equals_1) {
+        _matched=true;
+        StringConcatenation _builder_1 = new StringConcatenation();
+        _builder_1.append("<input type=\"number\"");
+        _switchResult = _builder_1;
+      }
+    }
+    if (!_matched) {
+      OfType _ofType_2 = attribute.getOfType();
+      boolean _equals_2 = _ofType_2.equals("boolean");
+      if (_equals_2) {
+        _matched=true;
+        StringConcatenation _builder_2 = new StringConcatenation();
+        _builder_2.append("<input type=\"checkbox\"");
+        _switchResult = _builder_2;
+      }
+    }
+    if (!_matched) {
+      OfType _ofType_3 = attribute.getOfType();
+      boolean _equals_3 = _ofType_3.equals("Date");
+      if (_equals_3) {
+        _matched=true;
+        StringConcatenation _builder_3 = new StringConcatenation();
+        _builder_3.append("<input type=\"date\"");
+        _switchResult = _builder_3;
+      }
+    }
+    if (!_matched) {
+      StringConcatenation _builder_4 = new StringConcatenation();
+      _builder_4.append("<input type=\"text\"");
+      _switchResult = _builder_4;
+    }
+    return _switchResult;
   }
   
   public CharSequence generateCustomerCreatedJsp(final Customer customer, final RentalSystem rentalSystem) {
@@ -1111,6 +1337,12 @@ public class RentalSystemGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("<p>created!</p>");
     _builder.newLine();
+    _builder.append("<a href=\"/");
+    String _name_1 = customer.getName();
+    String _firstLower = StringExtensions.toFirstLower(_name_1);
+    _builder.append(_firstLower, "");
+    _builder.append("\" class=\"btn btn-primary\">Back</a>");
+    _builder.newLineIfNotEmpty();
     CharSequence _generateJspFooter = this.generateJspFooter(rentalSystem);
     _builder.append(_generateJspFooter, "");
     _builder.newLineIfNotEmpty();

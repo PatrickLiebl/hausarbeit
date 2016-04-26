@@ -68,6 +68,9 @@ class RentalSystemGenerator extends AbstractGenerator {
 				fsa.generateFile("src/main/webapp/WEB-INF/views/jsp/" + customer.name.toFirstLower + '.jsp',
 					generateCustomerJsp(customer, rentalSystem))
 					
+				fsa.generateFile("src/main/webapp/WEB-INF/views/jsp/" + customer.name.toFirstLower + 'Form.jsp',
+					generateCustomerFormJsp(customer, rentalSystem))
+					
 				fsa.generateFile("src/main/java/" + customer.name.toFirstUpper + 'Controller.java',
 					generateCustomerController(customer, rentalSystem))
 					
@@ -213,6 +216,7 @@ class RentalSystemGenerator extends AbstractGenerator {
 				import org.springframework.web.bind.annotation.RequestMapping;
 				import org.springframework.web.servlet.ModelAndView;
 				import org.springframework.web.bind.annotation.PathVariable;
+				import org.springframework.web.bind.annotation.RequestMethod;
 					
 					@Controller
 					public class «customer.name.toFirstUpper»Controller {
@@ -228,11 +232,25 @@ class RentalSystemGenerator extends AbstractGenerator {
 							return mav;
 						}
 						
-						@RequestMapping(value="/«customer.name.toFirstLower»/new/{name}")
-						public String createNew«customer.name.toFirstUpper»(@PathVariable("name") String name){
+						@RequestMapping(value="/«customer.name.toFirstLower»Form", method=RequestMethod.GET)
+						public ModelAndView «customer.name.toFirstLower»ShowForm(){
+							ModelAndView mav = new ModelAndView("«customer.name.toFirstLower»Form");
+							return mav;
+						}
+						
+						@RequestMapping(value="/«customer.name.toFirstLower»Form", method=RequestMethod.POST)
+						public ModelAndView «customer.name.toFirstLower»SaveForm(«customer.name.toFirstUpper» «customer.name.toFirstLower»){
+							customerRepository.save(«customer.name.toFirstLower»);
+							ModelAndView mav = new ModelAndView("«customer.name.toFirstLower»");
+							mav.addObject("customers", customerRepository.findAll());
+							return mav;
+						}
+						
+						@RequestMapping(value="/«customer.name.toFirstLower»/new/{id}")
+						public String createNew«customer.name.toFirstUpper»(@PathVariable("id") Long id){
 							System.out.println("«customer.name.toFirstUpper»Creator!");
 							«customer.name.toFirstUpper» «customer.name.toFirstLower» = new «customer.name.toFirstUpper»();
-							«customer.name.toFirstLower».setName(name);
+							«customer.name.toFirstLower».setId(id);
 							customerRepository.save(«customer.name.toFirstLower»);
 							return "newCustomerCreated";
 						}
@@ -276,7 +294,7 @@ class RentalSystemGenerator extends AbstractGenerator {
 	def CharSequence generateJspHeader(RentalSystem rentalSystem) '''
 		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 		<!DOCTYPE html>
-		<html lang="de">
+		<html lang="de" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 			<head>
 				<meta charset="utf-8">
 				<title>«rentalSystem.title»</title>
@@ -427,17 +445,48 @@ class RentalSystemGenerator extends AbstractGenerator {
 	def CharSequence generateCustomerJsp(Customer customer, RentalSystem rentalSystem) '''
 		«generateJspHeader(rentalSystem)»
 		<h1>«customer.name.toFirstUpper»</h1>
-		<p>Customers: ${customers.size()}
-		<c:forEach var="i" items="${customers}">
-			Customer ${i.name}<br />
-		</c:forEach>
+		<p>Customers: ${customers.size()}</p>
+		<ul>
+			<c:forEach var="i" items="${customers}">
+				<li>Customer ${i.id}</li>
+			</c:forEach>
+		</ul>
+		<a href="«customer.name.toFirstLower»Form" class="btn btn-primary">New «customer.name.toFirstUpper»</a>
 		«generateJspFooter(rentalSystem)»
 	'''
+	
+	def CharSequence generateCustomerFormJsp(Customer customer, RentalSystem rentalSystem) '''
+		«generateJspHeader(rentalSystem)»
+		<h1>«customer.name.toFirstUpper»Form</h1>
+		<form id="customer-form" role="form" th:action="@{/«customer.name.toFirstLower»Form}" method="post" th:object="${«customer.name.toFirstLower»}">
+		<table>
+		«FOR Attribute attribute : customer.customerAttribute»
+			<tr>
+			<td><label for="«attribute.name.toFirstLower»">«attribute.name.toFirstUpper»</label></td>
+			<td>«buildInput(attribute, customer)» id="«attribute.name.toFirstLower»" name="«attribute.name.toFirstLower»" th:field="${«customer.name.toFirstLower».«attribute.name.toFirstLower»}" /></td>
+			</tr>
+		«ENDFOR»
+		</table>
+		<button type="submit">Save</button>
+		</form>
+		«generateJspFooter(rentalSystem)»
+	'''
+	
+	def CharSequence buildInput(Attribute attribute, Customer customer){
+		switch attribute{
+			case attribute.ofType.equals("String") : '''<input type="text"'''
+			case attribute.ofType.equals("int") : '''<input type="number"'''
+			case attribute.ofType.equals("boolean") : '''<input type="checkbox"'''
+			case attribute.ofType.equals("Date") : '''<input type="date"'''
+			default : '''<input type="text"'''
+		}
+	}
 	
 		def CharSequence generateCustomerCreatedJsp(Customer customer, RentalSystem rentalSystem) '''
 		«generateJspHeader(rentalSystem)»
 		<h1>«customer.name.toFirstUpper»-Instance-Creator</h1>
 		<p>created!</p>
+		<a href="/«customer.name.toFirstLower»" class="btn btn-primary">Back</a>
 		«generateJspFooter(rentalSystem)»
 	'''
 	
