@@ -518,7 +518,6 @@ public class RentalSystemPackageImpl extends EPackageImpl implements RentalSyste
     initEEnum(ofTypeEEnum, OfType.class, "OfType");
     addEEnumLiteral(ofTypeEEnum, OfType.INT);
     addEEnumLiteral(ofTypeEEnum, OfType.STRING);
-    addEEnumLiteral(ofTypeEEnum, OfType.DATE);
     addEEnumLiteral(ofTypeEEnum, OfType.DOUBLE);
     addEEnumLiteral(ofTypeEEnum, OfType.BOOLEAN);
 

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'rentalSystem'", "'('", "')'", "'movable'", "'digital'", "'fix'", "'typeMold'", "'customerMold'", "'.'", "'deal'", "'customer'", "'rentalType'", "'dealWorkflow'", "'dealAttribute'", "'attribute'", "'int'", "'String'", "'Date'", "'Double'", "'boolean'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'rentalSystem'", "'('", "')'", "'movable'", "'digital'", "'fix'", "'typeMold'", "'customerMold'", "'.'", "'deal'", "'customer'", "'rentalType'", "'dealWorkflow'", "'dealAttribute'", "'attribute'", "'int'", "'String'", "'Double'", "'boolean'"
     };
     public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
@@ -36,7 +36,6 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
-    public static final int T__30=30;
     public static final int RULE_ID=4;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
@@ -1374,7 +1373,7 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOfType"
-    // InternalRentalSystem.g:599:1: ruleOfType returns [Enumerator current=null] : ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'String' ) | (enumLiteral_2= 'Date' ) | (enumLiteral_3= 'Double' ) | (enumLiteral_4= 'boolean' ) ) ;
+    // InternalRentalSystem.g:599:1: ruleOfType returns [Enumerator current=null] : ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'String' ) | (enumLiteral_2= 'Double' ) | (enumLiteral_3= 'boolean' ) ) ;
     public final Enumerator ruleOfType() throws RecognitionException {
         Enumerator current = null;
 
@@ -1382,17 +1381,16 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
         Token enumLiteral_1=null;
         Token enumLiteral_2=null;
         Token enumLiteral_3=null;
-        Token enumLiteral_4=null;
 
 
         	enterRule();
 
         try {
-            // InternalRentalSystem.g:605:2: ( ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'String' ) | (enumLiteral_2= 'Date' ) | (enumLiteral_3= 'Double' ) | (enumLiteral_4= 'boolean' ) ) )
-            // InternalRentalSystem.g:606:2: ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'String' ) | (enumLiteral_2= 'Date' ) | (enumLiteral_3= 'Double' ) | (enumLiteral_4= 'boolean' ) )
+            // InternalRentalSystem.g:605:2: ( ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'String' ) | (enumLiteral_2= 'Double' ) | (enumLiteral_3= 'boolean' ) ) )
+            // InternalRentalSystem.g:606:2: ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'String' ) | (enumLiteral_2= 'Double' ) | (enumLiteral_3= 'boolean' ) )
             {
-            // InternalRentalSystem.g:606:2: ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'String' ) | (enumLiteral_2= 'Date' ) | (enumLiteral_3= 'Double' ) | (enumLiteral_4= 'boolean' ) )
-            int alt10=5;
+            // InternalRentalSystem.g:606:2: ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'String' ) | (enumLiteral_2= 'Double' ) | (enumLiteral_3= 'boolean' ) )
+            int alt10=4;
             switch ( input.LA(1) ) {
             case 26:
                 {
@@ -1412,11 +1410,6 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
             case 29:
                 {
                 alt10=4;
-                }
-                break;
-            case 30:
-                {
-                alt10=5;
                 }
                 break;
             default:
@@ -1462,15 +1455,15 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalRentalSystem.g:623:3: (enumLiteral_2= 'Date' )
+                    // InternalRentalSystem.g:623:3: (enumLiteral_2= 'Double' )
                     {
-                    // InternalRentalSystem.g:623:3: (enumLiteral_2= 'Date' )
-                    // InternalRentalSystem.g:624:4: enumLiteral_2= 'Date'
+                    // InternalRentalSystem.g:623:3: (enumLiteral_2= 'Double' )
+                    // InternalRentalSystem.g:624:4: enumLiteral_2= 'Double'
                     {
                     enumLiteral_2=(Token)match(input,28,FOLLOW_2); 
 
-                    				current = grammarAccess.getOfTypeAccess().getDateEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_2, grammarAccess.getOfTypeAccess().getDateEnumLiteralDeclaration_2());
+                    				current = grammarAccess.getOfTypeAccess().getDoubleEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_2, grammarAccess.getOfTypeAccess().getDoubleEnumLiteralDeclaration_2());
                     			
 
                     }
@@ -1479,32 +1472,15 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalRentalSystem.g:631:3: (enumLiteral_3= 'Double' )
+                    // InternalRentalSystem.g:631:3: (enumLiteral_3= 'boolean' )
                     {
-                    // InternalRentalSystem.g:631:3: (enumLiteral_3= 'Double' )
-                    // InternalRentalSystem.g:632:4: enumLiteral_3= 'Double'
+                    // InternalRentalSystem.g:631:3: (enumLiteral_3= 'boolean' )
+                    // InternalRentalSystem.g:632:4: enumLiteral_3= 'boolean'
                     {
                     enumLiteral_3=(Token)match(input,29,FOLLOW_2); 
 
-                    				current = grammarAccess.getOfTypeAccess().getDoubleEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_3, grammarAccess.getOfTypeAccess().getDoubleEnumLiteralDeclaration_3());
-                    			
-
-                    }
-
-
-                    }
-                    break;
-                case 5 :
-                    // InternalRentalSystem.g:639:3: (enumLiteral_4= 'boolean' )
-                    {
-                    // InternalRentalSystem.g:639:3: (enumLiteral_4= 'boolean' )
-                    // InternalRentalSystem.g:640:4: enumLiteral_4= 'boolean'
-                    {
-                    enumLiteral_4=(Token)match(input,30,FOLLOW_2); 
-
-                    				current = grammarAccess.getOfTypeAccess().getBooleanEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_4, grammarAccess.getOfTypeAccess().getBooleanEnumLiteralDeclaration_4());
+                    				current = grammarAccess.getOfTypeAccess().getBooleanEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_3, grammarAccess.getOfTypeAccess().getBooleanEnumLiteralDeclaration_3());
                     			
 
                     }
@@ -1553,6 +1529,6 @@ public class InternalRentalSystemParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000800000L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000001002000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x000000007C000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x000000003C000000L});
 
 }

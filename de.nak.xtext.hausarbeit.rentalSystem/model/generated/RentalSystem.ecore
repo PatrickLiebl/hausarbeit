@@ -40,8 +40,7 @@
   <eClassifiers xsi:type="ecore:EEnum" name="OfType">
     <eLiterals name="int" literal="int"/>
     <eLiterals name="string" value="1" literal="String"/>
-    <eLiterals name="date" value="2" literal="Date"/>
-    <eLiterals name="double" value="3" literal="Double"/>
-    <eLiterals name="boolean" value="4" literal="boolean"/>
+    <eLiterals name="double" value="2" literal="Double"/>
+    <eLiterals name="boolean" value="3" literal="boolean"/>
   </eClassifiers>
 </ecore:EPackage>

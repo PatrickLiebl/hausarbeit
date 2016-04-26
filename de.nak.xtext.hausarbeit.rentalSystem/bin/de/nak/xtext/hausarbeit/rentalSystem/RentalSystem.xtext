@@ -37,6 +37,5 @@ Attribute:
 enum OfType:
 	int='int'
 	| string='String'
-	| date='Date'
 	| double='Double'
 	| boolean='boolean';

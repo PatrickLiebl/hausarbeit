@@ -358,18 +358,16 @@ public class RentalSystemGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cIntIntKeyword_0_0 = (Keyword)cIntEnumLiteralDeclaration_0.eContents().get(0);
 		private final EnumLiteralDeclaration cStringEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
 		private final Keyword cStringStringKeyword_1_0 = (Keyword)cStringEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cDateEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cDateDateKeyword_2_0 = (Keyword)cDateEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cDoubleEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cDoubleDoubleKeyword_3_0 = (Keyword)cDoubleEnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cBooleanEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cBooleanBooleanKeyword_4_0 = (Keyword)cBooleanEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cDoubleEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cDoubleDoubleKeyword_2_0 = (Keyword)cDoubleEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cBooleanEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cBooleanBooleanKeyword_3_0 = (Keyword)cBooleanEnumLiteralDeclaration_3.eContents().get(0);
 		
 		//enum OfType:
-		//	int | string='String' | date='Date' | double='Double' | boolean;
+		//	int | string='String' | double='Double' | boolean;
 		public EnumRule getRule() { return rule; }
 		
-		//int | string='String' | date='Date' | double='Double' | boolean
+		//int | string='String' | double='Double' | boolean
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//int
@@ -384,23 +382,17 @@ public class RentalSystemGrammarAccess extends AbstractGrammarElementFinder {
 		//'String'
 		public Keyword getStringStringKeyword_1_0() { return cStringStringKeyword_1_0; }
 		
-		//date='Date'
-		public EnumLiteralDeclaration getDateEnumLiteralDeclaration_2() { return cDateEnumLiteralDeclaration_2; }
-		
-		//'Date'
-		public Keyword getDateDateKeyword_2_0() { return cDateDateKeyword_2_0; }
-		
 		//double='Double'
-		public EnumLiteralDeclaration getDoubleEnumLiteralDeclaration_3() { return cDoubleEnumLiteralDeclaration_3; }
+		public EnumLiteralDeclaration getDoubleEnumLiteralDeclaration_2() { return cDoubleEnumLiteralDeclaration_2; }
 		
 		//'Double'
-		public Keyword getDoubleDoubleKeyword_3_0() { return cDoubleDoubleKeyword_3_0; }
+		public Keyword getDoubleDoubleKeyword_2_0() { return cDoubleDoubleKeyword_2_0; }
 		
 		//boolean
-		public EnumLiteralDeclaration getBooleanEnumLiteralDeclaration_4() { return cBooleanEnumLiteralDeclaration_4; }
+		public EnumLiteralDeclaration getBooleanEnumLiteralDeclaration_3() { return cBooleanEnumLiteralDeclaration_3; }
 		
 		//'boolean'
-		public Keyword getBooleanBooleanKeyword_4_0() { return cBooleanBooleanKeyword_4_0; }
+		public Keyword getBooleanBooleanKeyword_3_0() { return cBooleanBooleanKeyword_3_0; }
 	}
 	
 	private final RentalSystemElements pRentalSystem;
@@ -518,7 +510,7 @@ public class RentalSystemGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum OfType:
-	//	int | string='String' | date='Date' | double='Double' | boolean;
+	//	int | string='String' | double='Double' | boolean;
 	public OfTypeElements getOfTypeAccess() {
 		return eOfType;
 	}

@@ -41,16 +41,6 @@ public enum OfType implements Enumerator
   STRING(1, "string", "String"),
 
   /**
-   * The '<em><b>Date</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #DATE_VALUE
-   * @generated
-   * @ordered
-   */
-  DATE(2, "date", "Date"),
-
-  /**
    * The '<em><b>Double</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -58,7 +48,7 @@ public enum OfType implements Enumerator
    * @generated
    * @ordered
    */
-  DOUBLE(3, "double", "Double"),
+  DOUBLE(2, "double", "Double"),
 
   /**
    * The '<em><b>Boolean</b></em>' literal object.
@@ -68,7 +58,7 @@ public enum OfType implements Enumerator
    * @generated
    * @ordered
    */
-  BOOLEAN(4, "boolean", "boolean");
+  BOOLEAN(3, "boolean", "boolean");
 
   /**
    * The '<em><b>Int</b></em>' literal value.
@@ -101,21 +91,6 @@ public enum OfType implements Enumerator
   public static final int STRING_VALUE = 1;
 
   /**
-   * The '<em><b>Date</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Date</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #DATE
-   * @model name="date" literal="Date"
-   * @generated
-   * @ordered
-   */
-  public static final int DATE_VALUE = 2;
-
-  /**
    * The '<em><b>Double</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
@@ -128,7 +103,7 @@ public enum OfType implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int DOUBLE_VALUE = 3;
+  public static final int DOUBLE_VALUE = 2;
 
   /**
    * The '<em><b>Boolean</b></em>' literal value.
@@ -143,7 +118,7 @@ public enum OfType implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int BOOLEAN_VALUE = 4;
+  public static final int BOOLEAN_VALUE = 3;
 
   /**
    * An array of all the '<em><b>Of Type</b></em>' enumerators.
@@ -156,7 +131,6 @@ public enum OfType implements Enumerator
     {
       INT,
       STRING,
-      DATE,
       DOUBLE,
       BOOLEAN,
     };
@@ -225,7 +199,6 @@ public enum OfType implements Enumerator
     {
       case INT_VALUE: return INT;
       case STRING_VALUE: return STRING;
-      case DATE_VALUE: return DATE;
       case DOUBLE_VALUE: return DOUBLE;
       case BOOLEAN_VALUE: return BOOLEAN;
     }

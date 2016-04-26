@@ -621,26 +621,18 @@ ruleOfType returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_2='Date'
+			enumLiteral_2='Double'
 			{
-				$current = grammarAccess.getOfTypeAccess().getDateEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getOfTypeAccess().getDateEnumLiteralDeclaration_2());
+				$current = grammarAccess.getOfTypeAccess().getDoubleEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getOfTypeAccess().getDoubleEnumLiteralDeclaration_2());
 			}
 		)
 		    |
 		(
-			enumLiteral_3='Double'
+			enumLiteral_3='boolean'
 			{
-				$current = grammarAccess.getOfTypeAccess().getDoubleEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_3, grammarAccess.getOfTypeAccess().getDoubleEnumLiteralDeclaration_3());
-			}
-		)
-		    |
-		(
-			enumLiteral_4='boolean'
-			{
-				$current = grammarAccess.getOfTypeAccess().getBooleanEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_4, grammarAccess.getOfTypeAccess().getBooleanEnumLiteralDeclaration_4());
+				$current = grammarAccess.getOfTypeAccess().getBooleanEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getOfTypeAccess().getBooleanEnumLiteralDeclaration_3());
 			}
 		)
 	)

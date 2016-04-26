@@ -260,21 +260,15 @@ rule__OfType__Alternatives
 	)
 	|
 	(
-		{ before(grammarAccess.getOfTypeAccess().getDateEnumLiteralDeclaration_2()); }
-		('Date')
-		{ after(grammarAccess.getOfTypeAccess().getDateEnumLiteralDeclaration_2()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getOfTypeAccess().getDoubleEnumLiteralDeclaration_3()); }
+		{ before(grammarAccess.getOfTypeAccess().getDoubleEnumLiteralDeclaration_2()); }
 		('Double')
-		{ after(grammarAccess.getOfTypeAccess().getDoubleEnumLiteralDeclaration_3()); }
+		{ after(grammarAccess.getOfTypeAccess().getDoubleEnumLiteralDeclaration_2()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getOfTypeAccess().getBooleanEnumLiteralDeclaration_4()); }
+		{ before(grammarAccess.getOfTypeAccess().getBooleanEnumLiteralDeclaration_3()); }
 		('boolean')
-		{ after(grammarAccess.getOfTypeAccess().getBooleanEnumLiteralDeclaration_4()); }
+		{ after(grammarAccess.getOfTypeAccess().getBooleanEnumLiteralDeclaration_3()); }
 	)
 ;
 finally {

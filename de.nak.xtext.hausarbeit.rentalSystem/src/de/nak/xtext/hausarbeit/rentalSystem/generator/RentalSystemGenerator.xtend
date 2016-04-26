@@ -10,6 +10,7 @@ import org.eclipse.xtext.generator.IGeneratorContext
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Deal
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.State
 import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.Attribute
+import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.OfType
 
 /**
  * Generates code from your model files on save.
@@ -73,9 +74,6 @@ class RentalSystemGenerator extends AbstractGenerator {
 					
 				fsa.generateFile("src/main/java/" + customer.name.toFirstUpper + 'Controller.java',
 					generateCustomerController(customer, rentalSystem))
-					
-				fsa.generateFile("src/main/webapp/WEB-INF/views/jsp/newCustomerCreated.jsp",
-					generateCustomerCreatedJsp(customer, rentalSystem))
 			}
 
 			// Pro Type ein eigenes Repository, eine JSP, ein Controller und eine Bean
@@ -88,6 +86,12 @@ class RentalSystemGenerator extends AbstractGenerator {
 					
 				fsa.generateFile("src/main/webapp/WEB-INF/views/jsp/" + rentalType.name.toFirstLower + '.jsp',
 					generateRentalTypeJsp(rentalType, rentalSystem))
+					
+				fsa.generateFile("src/main/webapp/WEB-INF/views/jsp/" + rentalType.name.toFirstLower + 'Form.jsp',
+					generateRentalTypeFormJsp(rentalType, rentalSystem))
+				
+				fsa.generateFile("src/main/java/" + rentalType.name.toFirstUpper + 'Controller.java',
+					generateRentalTypeController(rentalType, rentalSystem))
 			}
 
 			// Pro Deal ein eigenes Repository, eine JSP, ein Controller und eine Bean
@@ -245,14 +249,45 @@ class RentalSystemGenerator extends AbstractGenerator {
 							mav.addObject("customers", customerRepository.findAll());
 							return mav;
 						}
+					}
+		'''
+		
+			def CharSequence generateRentalTypeController(RentalType rentalType, RentalSystem rentalSystem) '''
+				package de.nordakademie.xtext.hausarbeit.rentalSystem.web;
+				
+				import org.springframework.beans.factory.annotation.Autowired;
+				import org.springframework.stereotype.Controller;
+				import org.springframework.web.bind.annotation.RequestMapping;
+				import org.springframework.web.servlet.ModelAndView;
+				import org.springframework.web.bind.annotation.PathVariable;
+				import org.springframework.web.bind.annotation.RequestMethod;
+					
+					@Controller
+					public class «rentalType.name.toFirstUpper»Controller {
 						
-						@RequestMapping(value="/«customer.name.toFirstLower»/new/{id}")
-						public String createNew«customer.name.toFirstUpper»(@PathVariable("id") Long id){
-							System.out.println("«customer.name.toFirstUpper»Creator!");
-							«customer.name.toFirstUpper» «customer.name.toFirstLower» = new «customer.name.toFirstUpper»();
-							«customer.name.toFirstLower».setId(id);
-							customerRepository.save(«customer.name.toFirstLower»);
-							return "newCustomerCreated";
+						@Autowired
+						private I«rentalType.name.toFirstUpper»Repository rentalTypeRepository;
+						
+						@RequestMapping(value="/«rentalType.name.toFirstLower»")
+						public ModelAndView «rentalType.name.toFirstLower»Show(){
+							System.out.println("«rentalType.name.toFirstUpper»Controller!");
+							ModelAndView mav = new ModelAndView("«rentalType.name.toFirstLower»");
+							mav.addObject("rentalTypes", rentalTypeRepository.findAll());
+							return mav;
+						}
+						
+						@RequestMapping(value="/«rentalType.name.toFirstLower»Form", method=RequestMethod.GET)
+						public ModelAndView «rentalType.name.toFirstLower»ShowForm(){
+							ModelAndView mav = new ModelAndView("«rentalType.name.toFirstLower»Form");
+							return mav;
+						}
+						
+						@RequestMapping(value="/«rentalType.name.toFirstLower»Form", method=RequestMethod.POST)
+						public ModelAndView «rentalType.name.toFirstLower»SaveForm(«rentalType.name.toFirstUpper» «rentalType.name.toFirstLower»){
+							rentalTypeRepository.save(«rentalType.name.toFirstLower»);
+							ModelAndView mav = new ModelAndView("«rentalType.name.toFirstLower»");
+							mav.addObject("rentalTypes", rentalTypeRepository.findAll());
+							return mav;
 						}
 					}
 		'''
@@ -365,22 +400,54 @@ class RentalSystemGenerator extends AbstractGenerator {
 		def CharSequence generateCustomersIndexJsp(RentalSystem rentalSystem) '''
 		«generateJspHeader(rentalSystem)»
 		<h1>Customers</h1>
+		<table class="table table-striped">
+		«var int i = 0»
+		<thead>
+			<tr>
+				<td>No.</td>
+				<td>Name</td>
+			</tr>
+		</thead>
+		<tbody>
 		«FOR Customer customer : rentalSystem.customers»
-			<a href="«customer.name»">«customer.name»</a></br>
+			<tr>
+				<td>«i»</td>
+				<td><a href="«customer.name»">«customer.name»</a></td>
+			</tr>
+			«i++»
 		«ENDFOR»
+		</tbody>
+		</table>
 		<a href="/" class="btn btn-primary">Index</a>
 		«generateJspFooter(rentalSystem)»
 		
 	'''
-			def CharSequence generateRentalTypesIndexJsp(RentalSystem rentalSystem) '''
+	def CharSequence generateRentalTypesIndexJsp(RentalSystem rentalSystem) '''
 		«generateJspHeader(rentalSystem)»
-		<h1>RentalTypes</h1>
-		<a href="/" class="btn btn-primary">Index</a>
+			<h1>Rental-Types</h1>
+				<table class="table table-striped">
+				«var int i = 0»
+				<thead>
+					<tr>
+						<td>No.</td>
+						<td>Name</td>
+					</tr>
+				</thead>
+				<tbody>
+				«FOR RentalType rentalType : rentalSystem.rentalTypes»
+					<tr>
+						<td>«i»</td>
+						<td><a href="«rentalType.name»">«rentalType.name»</a></td>
+					</tr>
+					«i++»
+				«ENDFOR»
+				</tbody>
+				</table>
+				<a href="/" class="btn btn-primary">Index</a>
 		«generateJspFooter(rentalSystem)»
-		
 	'''
 	
-			def CharSequence generateDealsIndexJsp(RentalSystem rentalSystem) '''
+	def CharSequence generateDealsIndexJsp(RentalSystem rentalSystem) '''
 		«generateJspHeader(rentalSystem)»
 		<h1>Deals</h1>
 		<a href="/" class="btn btn-primary">Index</a>
@@ -445,13 +512,25 @@ class RentalSystemGenerator extends AbstractGenerator {
 	def CharSequence generateCustomerJsp(Customer customer, RentalSystem rentalSystem) '''
 		«generateJspHeader(rentalSystem)»
 		<h1>«customer.name.toFirstUpper»</h1>
-		<p>Customers: ${customers.size()}</p>
-		<ul>
-			<c:forEach var="i" items="${customers}">
-				<li>Customer ${i.id}</li>
-			</c:forEach>
-		</ul>
+		<p>Number of customers: ${customers.size()}</p>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<td>No.</td>
+					<td>ID</td>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="i" items="${customers}">
+					<tr>
+						<td></td>
+						<td>${i.id}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
 		<a href="«customer.name.toFirstLower»Form" class="btn btn-primary">New «customer.name.toFirstUpper»</a>
+		<a href="customerIndex" class="btn btn-primary">Customers</a>
 		«generateJspFooter(rentalSystem)»
 	'''
 	
@@ -463,7 +542,7 @@ class RentalSystemGenerator extends AbstractGenerator {
 		«FOR Attribute attribute : customer.customerAttribute»
 			<tr>
 			<td><label for="«attribute.name.toFirstLower»">«attribute.name.toFirstUpper»</label></td>
-			<td>«buildInput(attribute, customer)» id="«attribute.name.toFirstLower»" name="«attribute.name.toFirstLower»" th:field="${«customer.name.toFirstLower».«attribute.name.toFirstLower»}" /></td>
+			<td>«buildInput(attribute)» id="«attribute.name.toFirstLower»" name="«attribute.name.toFirstLower»" th:field="${«customer.name.toFirstLower».«attribute.name.toFirstLower»}" /></td>
 			</tr>
 		«ENDFOR»
 		</table>
@@ -472,27 +551,56 @@ class RentalSystemGenerator extends AbstractGenerator {
 		«generateJspFooter(rentalSystem)»
 	'''
 	
-	def CharSequence buildInput(Attribute attribute, Customer customer){
+	
+	def CharSequence generateRentalTypeFormJsp(RentalType rentalType, RentalSystem rentalSystem) '''
+		«generateJspHeader(rentalSystem)»
+		<h1>«rentalType.name.toFirstUpper»Form</h1>
+		<form id="rentalType-form" role="form" th:action="@{/«rentalType.name.toFirstLower»Form}" method="post" th:object="${«rentalType.name.toFirstLower»}">
+		<table>
+		«FOR Attribute attribute : rentalType.typeAttributes»
+			<tr>
+			<td><label for="«attribute.name.toFirstLower»">«attribute.name.toFirstUpper»</label></td>
+			<td>«buildInput(attribute)» id="«attribute.name.toFirstLower»" name="«attribute.name.toFirstLower»" th:field="${«rentalType.name.toFirstLower».«attribute.name.toFirstLower»}" /></td>
+			</tr>
+		«ENDFOR»
+		</table>
+		<button type="submit">Save</button>
+		</form>
+		«generateJspFooter(rentalSystem)»
+	'''
+	
+	def CharSequence buildInput(Attribute attribute){
 		switch attribute{
-			case attribute.ofType.equals("String") : '''<input type="text"'''
-			case attribute.ofType.equals("int") : '''<input type="number"'''
-			case attribute.ofType.equals("boolean") : '''<input type="checkbox"'''
-			case attribute.ofType.equals("Date") : '''<input type="date"'''
+			case attribute.ofType.equals(OfType.STRING) : '''<input type="text"'''
+			case attribute.ofType.equals(OfType.INT) : '''<input type="number" step="1"'''
+			case attribute.ofType.equals(OfType.BOOLEAN) : '''<input type="checkbox"'''
+			case attribute.ofType.equals(OfType.DOUBLE) : '''<input type="number" step="0.01"''' 
 			default : '''<input type="text"'''
 		}
 	}
 	
-		def CharSequence generateCustomerCreatedJsp(Customer customer, RentalSystem rentalSystem) '''
-		«generateJspHeader(rentalSystem)»
-		<h1>«customer.name.toFirstUpper»-Instance-Creator</h1>
-		<p>created!</p>
-		<a href="/«customer.name.toFirstLower»" class="btn btn-primary">Back</a>
-		«generateJspFooter(rentalSystem)»
-	'''
-	
 	def CharSequence generateRentalTypeJsp(RentalType rentalType, RentalSystem rentalSystem) '''
 		«generateJspHeader(rentalSystem)»
-		<h1>RentalTypes</h1>
+				<h1>«rentalType.name.toFirstUpper»</h1>
+				<p>Number of rental types: ${rentalTypes.size()}</p>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<td>No.</td>
+							<td>ID</td>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="i" items="${rentalTypes}">
+							<tr>
+								<td></td>
+								<td>${i.id}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+				<a href="«rentalType.name.toFirstLower»Form" class="btn btn-primary">New «rentalType.name.toFirstUpper»</a>
+				<a href="rentalTypesIndex" class="btn btn-primary">Rental-Types</a>
 		«generateJspFooter(rentalSystem)»
 	'''
 	

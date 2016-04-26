@@ -9,7 +9,6 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="RentalSystem.ecore#//OfType">
       <genEnumLiterals ecoreEnumLiteral="RentalSystem.ecore#//OfType/int"/>
       <genEnumLiterals ecoreEnumLiteral="RentalSystem.ecore#//OfType/string"/>
-      <genEnumLiterals ecoreEnumLiteral="RentalSystem.ecore#//OfType/date"/>
       <genEnumLiterals ecoreEnumLiteral="RentalSystem.ecore#//OfType/double"/>
       <genEnumLiterals ecoreEnumLiteral="RentalSystem.ecore#//OfType/boolean"/>
     </genEnums>
