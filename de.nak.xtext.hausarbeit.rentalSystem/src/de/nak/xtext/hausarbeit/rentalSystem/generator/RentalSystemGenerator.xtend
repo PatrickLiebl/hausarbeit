@@ -104,6 +104,12 @@ class RentalSystemGenerator extends AbstractGenerator {
 					
 				fsa.generateFile("src/main/webapp/WEB-INF/views/jsp/" + deal.name.toFirstLower + '.jsp',
 					generateDealJsp(deal, rentalSystem))
+					
+				fsa.generateFile("src/main/webapp/WEB-INF/views/jsp/" + deal.name.toFirstLower + 'Form.jsp',
+					generateDealFormJsp(deal, rentalSystem))
+					
+				fsa.generateFile("src/main/java/" + deal.name.toFirstUpper + 'Controller.java',
+					generateDealController(deal, rentalSystem))
 				
 				// Besonderheit StateMachine: Pro State ein Controller, eine JSP, eine Bean und ein Repository
 				for(State state : deal.rentalWorkflow.states){
@@ -291,6 +297,53 @@ class RentalSystemGenerator extends AbstractGenerator {
 						}
 					}
 		'''
+		
+		def CharSequence generateDealController(Deal deal, RentalSystem rentalSystem) '''
+				package de.nordakademie.xtext.hausarbeit.rentalSystem.web;
+				
+				import org.springframework.beans.factory.annotation.Autowired;
+				import org.springframework.stereotype.Controller;
+				import org.springframework.web.bind.annotation.RequestMapping;
+				import org.springframework.web.servlet.ModelAndView;
+				import org.springframework.web.bind.annotation.PathVariable;
+				import org.springframework.web.bind.annotation.RequestMethod;
+					
+					@Controller
+					public class «deal.name.toFirstUpper»Controller {
+						
+						@Autowired
+						private I«deal.name.toFirstUpper»Repository dealRepository;
+						
+						@Autowired
+						private I«deal.customer.name.toFirstUpper»Repository customerRepository;
+						
+						@Autowired
+						private I«deal.rentalType.name.toFirstUpper»Repository rentalTypeRepository;
+						
+						@RequestMapping(value="/«deal.name.toFirstLower»")
+						public ModelAndView «deal.name.toFirstLower»Show(){
+							ModelAndView mav = new ModelAndView("«deal.name.toFirstLower»");
+							mav.addObject("deals", dealRepository.findAll());
+							return mav;
+						}
+						
+						@RequestMapping(value="/«deal.name.toFirstLower»Form", method=RequestMethod.GET)
+						public ModelAndView «deal.name.toFirstLower»ShowForm(){
+							ModelAndView mav = new ModelAndView("«deal.name.toFirstLower»Form");
+							mav.addObject("customers", customerRepository.findAll());
+							mav.addObject("rentalTypes", rentalTypeRepository.findAll());
+							return mav;
+						}
+						
+						@RequestMapping(value="/«deal.name.toFirstLower»Form", method=RequestMethod.POST)
+						public ModelAndView «deal.name.toFirstLower»SaveForm(«deal.name.toFirstUpper» «deal.name.toFirstLower»){
+							dealRepository.save(«deal.name.toFirstLower»);
+							ModelAndView mav = new ModelAndView("«deal.name.toFirstLower»");
+							mav.addObject("deals", dealRepository.findAll());
+							return mav;
+						}
+					}
+		'''
 	
 		def CharSequence generateWebConfig() '''
 			package de.nordakademie.xtext.hausarbeit.rentalSystem.web;
@@ -450,7 +503,25 @@ class RentalSystemGenerator extends AbstractGenerator {
 	def CharSequence generateDealsIndexJsp(RentalSystem rentalSystem) '''
 		«generateJspHeader(rentalSystem)»
 		<h1>Deals</h1>
-		<a href="/" class="btn btn-primary">Index</a>
+		<table class="table table-striped">
+				«var int i = 0»
+				<thead>
+					<tr>
+						<td>No.</td>
+						<td>Name</td>
+					</tr>
+				</thead>
+				<tbody>
+				«FOR Deal deal : rentalSystem.deals»
+					<tr>
+						<td>«i»</td>
+						<td><a href="«deal.name»">«deal.name»</a></td>
+					</tr>
+					«i++»
+				«ENDFOR»
+				</tbody>
+				</table>
+				<a href="/" class="btn btn-primary">Index</a>
 		«generateJspFooter(rentalSystem)»
 		
 	'''
@@ -604,12 +675,62 @@ class RentalSystemGenerator extends AbstractGenerator {
 		«generateJspFooter(rentalSystem)»
 	'''
 	
-	def CharSequence generateDealJsp(Deal deal, RentalSystem rentalSystem) '''
+	
+		def CharSequence generateDealJsp(Deal deal, RentalSystem rentalSystem) '''
 		«generateJspHeader(rentalSystem)»
-		<h1>Deals</h1>
+				<h1>«deal.name.toFirstUpper»</h1>
+				<p>Number of deals types: ${deals.size()}</p>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<td>No.</td>
+							<td>ID</td>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="i" items="${deals}">
+							<tr>
+								<td></td>
+								<td>${i.id}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+				<a href="«deal.name.toFirstLower»Form" class="btn btn-primary">New «deal.name.toFirstUpper»</a>
+				<a href="dealsIndex" class="btn btn-primary">Deals</a>
 		«generateJspFooter(rentalSystem)»
 	'''
-
+	
+	def CharSequence generateDealFormJsp(Deal deal, RentalSystem rentalSystem) '''
+		«generateJspHeader(rentalSystem)»
+		<h1>Deals</h1>
+		<form id="customer-form" role="form" th:action="@{/«deal.name.toFirstLower»Form}" method="post" th:object="${«deal.name.toFirstLower»}">
+				<table>
+				«FOR Attribute attribute : deal.dealAttributes»
+					<tr>
+					<td><label for="«attribute.name.toFirstLower»">«attribute.name.toFirstUpper»</label></td>
+					<td>«buildInput(attribute)» id="«attribute.name.toFirstLower»" name="«attribute.name.toFirstLower»" th:field="${«deal.name.toFirstLower».«attribute.name.toFirstLower»}" /></td>
+					</tr>
+				«ENDFOR»
+				</table>
+				<p>Please select the id of one of the following customers:</p><br />
+				<select name="dealCustomer" size="1" th:field="${«deal.name.toFirstLower».«deal.customer.name.toFirstLower»}">
+					<c:forEach var="i" items="${customers}">
+						<option value="i">i.id</option>
+					</c:forEach>
+				</select>
+				<p>Please select the id of one of the following rentalTypes:</p><br />
+				<select name="dealRentalType" size="1" th:field="${«deal.name.toFirstLower».«deal.rentalType.name.toFirstLower»}">
+					<c:forEach var="j" items="${rentalTypes}">
+						<option value="j">j.id</option>
+					</c:forEach>
+				</select>
+				<button type="submit">Save</button>
+				</form>
+				<a href="«deal.name.toFirstLower»" class="btn btn-primary">Back</a>
+		«generateJspFooter(rentalSystem)»
+	'''
+	
 	def CharSequence generateRentalTypeBeans(RentalType rentalType, RentalSystem rentalSystem) '''
 		package de.nordakademie.xtext.hausarbeit.rentalSystem.web;
 		
@@ -669,6 +790,7 @@ class RentalSystemGenerator extends AbstractGenerator {
 		import javax.persistence.Entity;
 		import javax.persistence.GeneratedValue;
 		import javax.persistence.Id;
+		import javax.persistence.OneToOne;
 		
 				@Entity
 				public class «deal.name.toFirstUpper» {
@@ -676,6 +798,12 @@ class RentalSystemGenerator extends AbstractGenerator {
 				@Id
 				@GeneratedValue
 				private Long id;
+				
+				@OneToOne
+				private «deal.customer.name.toFirstUpper» «deal.customer.name.toFirstLower»;
+				
+				@OneToOne
+				private «deal.rentalType.name.toFirstUpper» «deal.rentalType.name.toFirstLower»;
 			
 				«FOR attribute : deal.dealAttributes»
 					private «attribute.ofType» «attribute.name.toFirstLower»;
@@ -684,6 +812,14 @@ class RentalSystemGenerator extends AbstractGenerator {
 				public Long getId() {
 					return id;
 				}
+				
+				public «deal.customer.name.toFirstUpper» get«deal.customer.name.toFirstUpper»(){
+						return «deal.customer.name.toFirstLower»;
+					}
+					
+				public «deal.rentalType.name.toFirstUpper» get«deal.rentalType.name.toFirstUpper»(){
+						return «deal.rentalType.name.toFirstLower»;
+					}
 		
 				«FOR attribute : deal.dealAttributes»
 				public «attribute.ofType» get«attribute.name.toFirstUpper»(){
@@ -694,6 +830,14 @@ class RentalSystemGenerator extends AbstractGenerator {
 				public void setId(Long id) {
 					this.id = id;
 				}
+				
+				public void set«deal.customer.name.toFirstUpper»(«deal.customer.name.toFirstUpper» «deal.customer.name.toFirstLower»){
+						this.«deal.customer.name.toFirstLower» = «deal.customer.name.toFirstLower»;
+					}
+					
+				public void set«deal.rentalType.name.toFirstUpper»(«deal.rentalType.name.toFirstUpper» «deal.rentalType.name.toFirstLower»){
+						this.«deal.rentalType.name.toFirstLower» = «deal.rentalType.name.toFirstLower»;
+					}
 				
 				«FOR attribute : deal.dealAttributes»
 					public  void set«attribute.name.toFirstUpper»(«attribute.ofType» «attribute.name.toFirstLower»){
