@@ -102,7 +102,7 @@ public class RentalSystemValidationTest {
       URI _createURI = URI.createURI("workflow.rentalWorkflow");
       final Resource testWorkflow = resourceSet.createResource(_createURI);
       StringInputStream _stringInputStream = new StringInputStream(
-        "defineWorkflow workflow1\r\n\t\t\tevents \r\n\t\t\t\tonNext nextClicked \r\n\t\t\t\tonCancel cancelClicked\r\n\t\t\t\tonBack backClicked\r\n\t\t\tend\r\n\t\t\t\r\n\t\t\tcommands\r\n\t\t\tabortNow doAbort\r\n\t\t\tdeleteNow doDelete\r\n\t\t\tsaveNow doSave \r\n\t\t\tend\r\n\t\t\t\r\n\t\t\tresetEvents\r\n\t\t\tonCancel\r\n\t\t\tend");
+        "defineWorkflow workflow1\r\n\r\n\t\t\tevents \r\n\t\t\t\tmyEvent deletable\r\n\t\t\tend\r\n\t\t\t\r\n\t\t\tstate myStateOne\r\n\t\t\t\tevents {myEvent}\r\n\t\t\t\ttransition myStateTwo\r\n\t\t\tend\r\n\t\t\t\r\n\t\t\tstate myStateTwo\r\n\t\t\t\tevents {myEvent}\r\n\t\t\t\ttransition myStateOne\r\n\t\t\tend\r\n\t\t\t\t\r\n\t\t\tstartState \r\n\t\t\t\tmyStateOne\r\n\t\t\tend\r\n\t\t\t\r\n\t\t\tfinishState\r\n\t\t\t\tmyStateTwo\r\n\t\t\tend");
       Map<Object, Object> _emptyMap = CollectionLiterals.<Object, Object>emptyMap();
       testWorkflow.load(_stringInputStream, _emptyMap);
       this.validationTestHelper.assertNoErrors(testWorkflow);
@@ -201,7 +201,7 @@ public class RentalSystemValidationTest {
       URI _createURI = URI.createURI("workflow.rentalWorkflow");
       final Resource testWorkflow = resourceSet.createResource(_createURI);
       StringInputStream _stringInputStream = new StringInputStream(
-        "defineWorkflow workflow1\r\n\t\t\tevents \r\n\t\t\t\tonNext nextClicked \r\n\t\t\t\tonCancel cancelClicked\r\n\t\t\t\tonBack backClicked\r\n\t\t\tend\r\n\t\t\t\r\n\t\t\tcommands\r\n\t\t\tabortNow doAbort\r\n\t\t\tdeleteNow doDelete\r\n\t\t\tsaveNow doSave \r\n\t\t\tend\r\n\t\t\t\r\n\t\t\tresetEvents\r\n\t\t\tonCancel\r\n\t\t\tend");
+        "defineWorkflow workflow1\r\n\r\n\t\t\tevents \r\n\t\t\t\tmyEvent deletable\r\n\t\t\tend\r\n\t\t\t\r\n\t\t\tstate myStateOne\r\n\t\t\t\tevents {myEvent}\r\n\t\t\t\ttransition myStateTwo\r\n\t\t\tend\r\n\t\t\t\r\n\t\t\tstate myStateTwo\r\n\t\t\t\tevents {myEvent}\r\n\t\t\t\ttransition myStateOne\r\n\t\t\tend\r\n\t\t\t\t\r\n\t\t\tstartState \r\n\t\t\t\tmyStateOne\r\n\t\t\tend\r\n\t\t\t\r\n\t\t\tfinishState\r\n\t\t\t\tmyStateTwo\r\n\t\t\tend");
       Map<Object, Object> _emptyMap = CollectionLiterals.<Object, Object>emptyMap();
       testWorkflow.load(_stringInputStream, _emptyMap);
       this.validationTestHelper.assertNoErrors(testWorkflow);

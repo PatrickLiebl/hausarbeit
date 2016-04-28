@@ -118,20 +118,27 @@ class RentalSystemParsingTest{
 		// parse sample contents
 		testWorkflow.load(new StringInputStream(
 			"defineWorkflow workflow1
+
 			events 
-				onNext nextClicked 
-				onCancel cancelClicked
-				onBack backClicked
+				myEvent deletable
 			end
 			
-			commands
-			abortNow doAbort
-			deleteNow doDelete
-			saveNow doSave 
+			state myStateOne
+				events {myEvent}
+				transition myStateTwo
 			end
 			
-			resetEvents
-			onCancel
+			state myStateTwo
+				events {myEvent}
+				transition myStateOne
+			end
+				
+			startState 
+				myStateOne
+			end
+			
+			finishState
+				myStateTwo
 			end"
 			), emptyMap)
 				
