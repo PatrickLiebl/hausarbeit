@@ -41,7 +41,7 @@ class RentalSystemParsingTest{
 		''')
 		Assert.assertEquals("systemTitle", result.title);
 		Assert.assertEquals("SampleSystem", result.name);
-		
+	
 		validationTestHelper.assertNoErrors(result)
 	}
 	
@@ -112,10 +112,7 @@ class RentalSystemParsingTest{
 	@Test 
 	def void loadModelWithDealAndWorkflow() {
 		val resourceSet = resourceSetProvider.get
-		
-		// create a resource for language 'RentalWorkflow'
 		val testWorkflow = resourceSet.createResource(URI.createURI("workflow.rentalWorkflow"))
-		// parse sample contents
 		testWorkflow.load(new StringInputStream(
 			"defineWorkflow workflow1
 
@@ -144,8 +141,6 @@ class RentalSystemParsingTest{
 				
 		validationTestHelper.assertNoErrors(testWorkflow)
 		
-		// use the parse helper to read the model under test
-		// into the same resource set
 		val testRentalSystem = parseHelper.parse(
 			"rentalSystem testSystem \"Title\"(
 				movable typeMold rentalTypeID1(
@@ -175,12 +170,6 @@ class RentalSystemParsingTest{
 		
 		//Assert.assertSame(wfRoot,systemWfRoot)
 		//Assert.assertEquals("workflow1",systemWfRoot)
-		
-		
-		//Assert.assertNotNull(testMe)
-		// and also valid		
-		//validationTestHelper.assertNoIssues(testMe)
-		// more assertions below
 	
 	}
 

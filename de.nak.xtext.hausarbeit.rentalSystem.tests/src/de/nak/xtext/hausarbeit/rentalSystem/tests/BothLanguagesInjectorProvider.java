@@ -2,7 +2,6 @@ package de.nak.xtext.hausarbeit.rentalSystem.tests;
 
 import com.google.inject.Injector;
 
-import de.nak.xtext.hausarbeit.rentalSystem.tests.RentalSystemInjectorProvider;
 import de.nak.xtext.hausarbeit.rentalWorkflow.tests.RentalWorkflowInjectorProvider;
 
 public class BothLanguagesInjectorProvider extends RentalSystemInjectorProvider{
