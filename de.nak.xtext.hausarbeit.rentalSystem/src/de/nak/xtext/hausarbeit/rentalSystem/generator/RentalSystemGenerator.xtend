@@ -305,8 +305,8 @@ class RentalSystemGenerator extends AbstractGenerator {
 				import org.springframework.stereotype.Controller;
 				import org.springframework.web.bind.annotation.RequestMapping;
 				import org.springframework.web.servlet.ModelAndView;
-				import org.springframework.web.bind.annotation.PathVariable;
 				import org.springframework.web.bind.annotation.RequestMethod;
+				import org.springframework.web.bind.annotation.RequestParam;
 					
 					@Controller
 					public class «deal.name.toFirstUpper»Controller {
@@ -336,7 +336,12 @@ class RentalSystemGenerator extends AbstractGenerator {
 						}
 						
 						@RequestMapping(value="/«deal.name.toFirstLower»Form", method=RequestMethod.POST)
-						public ModelAndView «deal.name.toFirstLower»SaveForm(«deal.name.toFirstUpper» «deal.name.toFirstLower»){
+						public ModelAndView «deal.name.toFirstLower»SaveForm(«deal.name.toFirstUpper» «deal.name.toFirstLower»,
+						@RequestParam("selectionCustomerId") String customerId, @RequestParam("selectionTypeId") String typeId){
+							«deal.customer.name.toFirstUpper» «deal.customer.name.toFirstLower» = customerRepository.findOne(Long.parseLong(customerId));
+							«deal.rentalType.name.toFirstUpper» «deal.rentalType.name.toFirstLower» = rentalTypeRepository.findOne(Long.parseLong(typeId));
+							«deal.name.toFirstLower».set«deal.customer.name.toFirstUpper»(«deal.customer.name.toFirstLower»);
+							«deal.name.toFirstLower».set«deal.rentalType.name.toFirstUpper»(«deal.rentalType.name.toFirstLower»);
 							dealRepository.save(«deal.name.toFirstLower»);
 							ModelAndView mav = new ModelAndView("«deal.name.toFirstLower»");
 							mav.addObject("deals", dealRepository.findAll());
@@ -642,10 +647,10 @@ class RentalSystemGenerator extends AbstractGenerator {
 	
 	def CharSequence buildInput(Attribute attribute){
 		switch attribute{
-			case attribute.ofType.equals(OfType.STRING) : '''<input type="text"'''
-			case attribute.ofType.equals(OfType.INT) : '''<input type="number" step="1"'''
+			case attribute.ofType.equals(OfType.STRING) : '''<input type="text" value="example text"'''
+			case attribute.ofType.equals(OfType.INT) : '''<input type="number" step="1" value="1"'''
 			case attribute.ofType.equals(OfType.BOOLEAN) : '''<input type="checkbox"'''
-			case attribute.ofType.equals(OfType.DOUBLE) : '''<input type="number" step="0.01"''' 
+			case attribute.ofType.equals(OfType.DOUBLE) : '''<input type="number" step="0.01" value="0.01"''' 
 			default : '''<input type="text"'''
 		}
 	}
@@ -714,17 +719,17 @@ class RentalSystemGenerator extends AbstractGenerator {
 				«ENDFOR»
 				</table>
 				<p>Please select the id of one of the following customers:</p><br />
-				<select name="dealCustomer" size="1" th:field="${«deal.name.toFirstLower».«deal.customer.name.toFirstLower»}">
-					<c:forEach var="i" items="${customers}">
-						<option value="i">i.id</option>
-					</c:forEach>
-				</select>
+					<select name="selectionCustomerId">
+						<c:forEach var="i" items="${customers}">
+							<option value="${i.id}">${i.id}</option>
+						</c:forEach>
+					</select>
 				<p>Please select the id of one of the following rentalTypes:</p><br />
-				<select name="dealRentalType" size="1" th:field="${«deal.name.toFirstLower».«deal.rentalType.name.toFirstLower»}">
-					<c:forEach var="j" items="${rentalTypes}">
-						<option value="j">j.id</option>
-					</c:forEach>
-				</select>
+					<select name="selectionTypeId">
+						<c:forEach var="j" items="${customers}">
+							<option value="${j.id}">${j.id}</option>
+						</c:forEach>
+					</select>
 				<button type="submit">Save</button>
 				</form>
 				<a href="«deal.name.toFirstLower»" class="btn btn-primary">Back</a>
