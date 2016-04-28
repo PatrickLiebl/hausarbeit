@@ -68,9 +68,7 @@ public class RentalWorkflowFactoryImpl extends EFactoryImpl implements RentalWor
     {
       case RentalWorkflowPackage.RENTAL_WORKFLOW: return createRentalWorkflow();
       case RentalWorkflowPackage.EVENT: return createEvent();
-      case RentalWorkflowPackage.COMMAND: return createCommand();
       case RentalWorkflowPackage.STATE: return createState();
-      case RentalWorkflowPackage.TRANSITION: return createTransition();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -86,12 +84,8 @@ public class RentalWorkflowFactoryImpl extends EFactoryImpl implements RentalWor
   {
     switch (eDataType.getClassifierID())
     {
-      case RentalWorkflowPackage.OF_TYPE:
-        return createOfTypeFromString(eDataType, initialValue);
       case RentalWorkflowPackage.OF_EVENT_TYPE:
         return createofEventTypeFromString(eDataType, initialValue);
-      case RentalWorkflowPackage.OF_COMMAND_TYPE:
-        return createofCommandTypeFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -107,12 +101,8 @@ public class RentalWorkflowFactoryImpl extends EFactoryImpl implements RentalWor
   {
     switch (eDataType.getClassifierID())
     {
-      case RentalWorkflowPackage.OF_TYPE:
-        return convertOfTypeToString(eDataType, instanceValue);
       case RentalWorkflowPackage.OF_EVENT_TYPE:
         return convertofEventTypeToString(eDataType, instanceValue);
-      case RentalWorkflowPackage.OF_COMMAND_TYPE:
-        return convertofCommandTypeToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -145,54 +135,10 @@ public class RentalWorkflowFactoryImpl extends EFactoryImpl implements RentalWor
    * <!-- end-user-doc -->
    * @generated
    */
-  public Command createCommand()
-  {
-    CommandImpl command = new CommandImpl();
-    return command;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public State createState()
   {
     StateImpl state = new StateImpl();
     return state;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Transition createTransition()
-  {
-    TransitionImpl transition = new TransitionImpl();
-    return transition;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public OfType createOfTypeFromString(EDataType eDataType, String initialValue)
-  {
-    OfType result = OfType.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertOfTypeToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**
@@ -213,28 +159,6 @@ public class RentalWorkflowFactoryImpl extends EFactoryImpl implements RentalWor
    * @generated
    */
   public String convertofEventTypeToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ofCommandType createofCommandTypeFromString(EDataType eDataType, String initialValue)
-  {
-    ofCommandType result = ofCommandType.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertofCommandTypeToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

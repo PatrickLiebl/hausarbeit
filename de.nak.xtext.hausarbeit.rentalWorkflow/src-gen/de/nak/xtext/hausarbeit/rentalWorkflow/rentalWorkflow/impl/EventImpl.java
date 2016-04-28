@@ -58,7 +58,7 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
    * @generated
    * @ordered
    */
-  protected static final ofEventType OF_TYPE_EDEFAULT = ofEventType.NEXT_CLICKED;
+  protected static final ofEventType OF_TYPE_EDEFAULT = ofEventType.NEXT_CLICKABLE;
 
   /**
    * The cached value of the '{@link #getOfType() <em>Of Type</em>}' attribute.

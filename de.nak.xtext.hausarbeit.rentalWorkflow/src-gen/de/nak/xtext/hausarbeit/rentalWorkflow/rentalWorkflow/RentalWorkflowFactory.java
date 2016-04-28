@@ -42,15 +42,6 @@ public interface RentalWorkflowFactory extends EFactory
   Event createEvent();
 
   /**
-   * Returns a new object of class '<em>Command</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Command</em>'.
-   * @generated
-   */
-  Command createCommand();
-
-  /**
    * Returns a new object of class '<em>State</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -58,15 +49,6 @@ public interface RentalWorkflowFactory extends EFactory
    * @generated
    */
   State createState();
-
-  /**
-   * Returns a new object of class '<em>Transition</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Transition</em>'.
-   * @generated
-   */
-  Transition createTransition();
 
   /**
    * Returns the package supported by this factory.

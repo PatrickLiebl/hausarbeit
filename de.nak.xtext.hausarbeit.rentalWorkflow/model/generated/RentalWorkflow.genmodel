@@ -6,47 +6,26 @@
     complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.11">
   <genPackages prefix="RentalWorkflow" basePackage="de.nak.xtext.hausarbeit.rentalWorkflow"
       disposableProviderFactory="true" fileExtensions="rentalWorkflow" ecorePackage="RentalWorkflow.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="RentalWorkflow.ecore#//OfType">
-      <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//OfType/initializing"/>
-      <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//OfType/creating"/>
-      <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//OfType/running"/>
-      <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//OfType/canceling"/>
-      <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//OfType/finishing"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="RentalWorkflow.ecore#//ofEventType">
-      <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//ofEventType/nextClicked"/>
-      <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//ofEventType/backClicked"/>
-      <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//ofEventType/cancelClicked"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="RentalWorkflow.ecore#//ofCommandType">
-      <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//ofCommandType/doSave"/>
-      <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//ofCommandType/doAbord"/>
-      <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//ofCommandType/doDelete"/>
+      <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//ofEventType/nextClickable"/>
+      <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//ofEventType/savable"/>
+      <genEnumLiterals ecoreEnumLiteral="RentalWorkflow.ecore#//ofEventType/deleteable"/>
     </genEnums>
     <genClasses ecoreClass="RentalWorkflow.ecore#//RentalWorkflow">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalWorkflow.ecore#//RentalWorkflow/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RentalWorkflow.ecore#//RentalWorkflow/event"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RentalWorkflow.ecore#//RentalWorkflow/commands"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RentalWorkflow.ecore#//RentalWorkflow/resetEvents"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RentalWorkflow.ecore#//RentalWorkflow/states"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RentalWorkflow.ecore#//RentalWorkflow/startState"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RentalWorkflow.ecore#//RentalWorkflow/finishState"/>
     </genClasses>
     <genClasses ecoreClass="RentalWorkflow.ecore#//Event">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalWorkflow.ecore#//Event/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalWorkflow.ecore#//Event/ofType"/>
     </genClasses>
-    <genClasses ecoreClass="RentalWorkflow.ecore#//Command">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalWorkflow.ecore#//Command/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalWorkflow.ecore#//Command/ofType"/>
-    </genClasses>
     <genClasses ecoreClass="RentalWorkflow.ecore#//State">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalWorkflow.ecore#//State/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RentalWorkflow.ecore#//State/ofType"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RentalWorkflow.ecore#//State/actions"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RentalWorkflow.ecore#//State/transitions"/>
-    </genClasses>
-    <genClasses ecoreClass="RentalWorkflow.ecore#//Transition">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RentalWorkflow.ecore#//Transition/event"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RentalWorkflow.ecore#//Transition/state"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RentalWorkflow.ecore#//State/events"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RentalWorkflow.ecore#//State/transition"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -7,42 +7,23 @@ RentalWorkflow:
 	{RentalWorkflow}
 	'defineWorkflow' name=ID
 	'events' (event+=Event)* 'end'
-	'commands' (commands+=Command)* 'end'
-	'resetEvents' (resetEvents+=[Event])* 'end'
-	(states+=State)*;
+	(states+=State)*
+	'startState' startState+=[State|QualifiedName] 'end'
+	'finishState' finishState+=[State|QualifiedName] 'end';
 
 Event:
 	name=ID ofType=ofEventType;
 	
-Command:
-	name=ID ofType=ofCommandType;
-	
 State:
 	'state' name=ID
-	ofType=OfType
-	('actions' '{' (actions+=[Command])+ '}')?
-	(transitions+=Transition)*
+	('events' '{' (events+=[Event])+ '}')?
+	'transition' transition+=[State|QualifiedName]
 	'end';
-	
-Transition:
-	event=[Event] '=>' state=[State];
 	
 QualifiedName:
 	ID('.'ID)*;
 	
-enum OfType:
-		initializing='initializing'
-	|	creating='creating'
-	|	running='running'
-	|	canceling='canceling'
-	|	finishing='finishing';
-	
 enum ofEventType:
-		nextClicked='nextClicked'
-	|	backClicked='backClicked'
-	|	cancelClicked='cancelClicked';
-
-enum ofCommandType:
-		doSave='doSave'
-	|	doAbord='doAbort'
-	|	doDelete='doDelete';
+		nextClickable='nextClickable'
+	|	savable='savable'
+	|	deleteable='deletable';

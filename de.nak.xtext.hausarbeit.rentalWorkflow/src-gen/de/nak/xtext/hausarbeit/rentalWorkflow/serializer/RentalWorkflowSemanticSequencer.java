@@ -4,12 +4,10 @@
 package de.nak.xtext.hausarbeit.rentalWorkflow.serializer;
 
 import com.google.inject.Inject;
-import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Command;
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Event;
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow;
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage;
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.State;
-import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Transition;
 import de.nak.xtext.hausarbeit.rentalWorkflow.services.RentalWorkflowGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -36,9 +34,6 @@ public class RentalWorkflowSemanticSequencer extends AbstractDelegatingSemanticS
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == RentalWorkflowPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case RentalWorkflowPackage.COMMAND:
-				sequence_Command(context, (Command) semanticObject); 
-				return; 
 			case RentalWorkflowPackage.EVENT:
 				sequence_Event(context, (Event) semanticObject); 
 				return; 
@@ -48,34 +43,10 @@ public class RentalWorkflowSemanticSequencer extends AbstractDelegatingSemanticS
 			case RentalWorkflowPackage.STATE:
 				sequence_State(context, (State) semanticObject); 
 				return; 
-			case RentalWorkflowPackage.TRANSITION:
-				sequence_Transition(context, (Transition) semanticObject); 
-				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
-	
-	/**
-	 * Contexts:
-	 *     Command returns Command
-	 *
-	 * Constraint:
-	 *     (name=ID ofType=ofCommandType)
-	 */
-	protected void sequence_Command(ISerializationContext context, Command semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, RentalWorkflowPackage.Literals.COMMAND__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RentalWorkflowPackage.Literals.COMMAND__NAME));
-			if (transientValues.isValueTransient(semanticObject, RentalWorkflowPackage.Literals.COMMAND__OF_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RentalWorkflowPackage.Literals.COMMAND__OF_TYPE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCommandAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getCommandAccess().getOfTypeOfCommandTypeEnumRuleCall_1_0(), semanticObject.getOfType());
-		feeder.finish();
-	}
-	
 	
 	/**
 	 * Contexts:
@@ -103,7 +74,7 @@ public class RentalWorkflowSemanticSequencer extends AbstractDelegatingSemanticS
 	 *     RentalWorkflow returns RentalWorkflow
 	 *
 	 * Constraint:
-	 *     (name=ID event+=Event* commands+=Command* resetEvents+=[Event|ID]* states+=State*)
+	 *     (name=ID event+=Event* states+=State* startState+=[State|QualifiedName] finishState+=[State|QualifiedName])
 	 */
 	protected void sequence_RentalWorkflow(ISerializationContext context, RentalWorkflow semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -115,31 +86,10 @@ public class RentalWorkflowSemanticSequencer extends AbstractDelegatingSemanticS
 	 *     State returns State
 	 *
 	 * Constraint:
-	 *     (name=ID ofType=OfType actions+=[Command|ID]* transitions+=Transition*)
+	 *     (name=ID events+=[Event|ID]* transition+=[State|QualifiedName])
 	 */
 	protected void sequence_State(ISerializationContext context, State semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Transition returns Transition
-	 *
-	 * Constraint:
-	 *     (event=[Event|ID] state=[State|ID])
-	 */
-	protected void sequence_Transition(ISerializationContext context, Transition semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, RentalWorkflowPackage.Literals.TRANSITION__EVENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RentalWorkflowPackage.Literals.TRANSITION__EVENT));
-			if (transientValues.isValueTransient(semanticObject, RentalWorkflowPackage.Literals.TRANSITION__STATE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RentalWorkflowPackage.Literals.TRANSITION__STATE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTransitionAccess().getEventEventIDTerminalRuleCall_0_0_1(), semanticObject.getEvent());
-		feeder.accept(grammarAccess.getTransitionAccess().getStateStateIDTerminalRuleCall_2_0_1(), semanticObject.getState());
-		feeder.finish();
 	}
 	
 	

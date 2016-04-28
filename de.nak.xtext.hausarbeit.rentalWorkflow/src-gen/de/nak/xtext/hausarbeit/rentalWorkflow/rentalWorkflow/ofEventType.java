@@ -21,79 +21,79 @@ import org.eclipse.emf.common.util.Enumerator;
 public enum ofEventType implements Enumerator
 {
   /**
-   * The '<em><b>Next Clicked</b></em>' literal object.
+   * The '<em><b>Next Clickable</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #NEXT_CLICKED_VALUE
+   * @see #NEXT_CLICKABLE_VALUE
    * @generated
    * @ordered
    */
-  NEXT_CLICKED(0, "nextClicked", "nextClicked"),
+  NEXT_CLICKABLE(0, "nextClickable", "nextClickable"),
 
   /**
-   * The '<em><b>Back Clicked</b></em>' literal object.
+   * The '<em><b>Savable</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #BACK_CLICKED_VALUE
+   * @see #SAVABLE_VALUE
    * @generated
    * @ordered
    */
-  BACK_CLICKED(1, "backClicked", "backClicked"),
+  SAVABLE(1, "savable", "savable"),
 
   /**
-   * The '<em><b>Cancel Clicked</b></em>' literal object.
+   * The '<em><b>Deleteable</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #CANCEL_CLICKED_VALUE
+   * @see #DELETEABLE_VALUE
    * @generated
    * @ordered
    */
-  CANCEL_CLICKED(2, "cancelClicked", "cancelClicked");
+  DELETEABLE(2, "deleteable", "deletable");
 
   /**
-   * The '<em><b>Next Clicked</b></em>' literal value.
+   * The '<em><b>Next Clickable</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>Next Clicked</b></em>' literal object isn't clear,
+   * If the meaning of '<em><b>Next Clickable</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #NEXT_CLICKED
-   * @model name="nextClicked"
+   * @see #NEXT_CLICKABLE
+   * @model name="nextClickable"
    * @generated
    * @ordered
    */
-  public static final int NEXT_CLICKED_VALUE = 0;
+  public static final int NEXT_CLICKABLE_VALUE = 0;
 
   /**
-   * The '<em><b>Back Clicked</b></em>' literal value.
+   * The '<em><b>Savable</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>Back Clicked</b></em>' literal object isn't clear,
+   * If the meaning of '<em><b>Savable</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #BACK_CLICKED
-   * @model name="backClicked"
+   * @see #SAVABLE
+   * @model name="savable"
    * @generated
    * @ordered
    */
-  public static final int BACK_CLICKED_VALUE = 1;
+  public static final int SAVABLE_VALUE = 1;
 
   /**
-   * The '<em><b>Cancel Clicked</b></em>' literal value.
+   * The '<em><b>Deleteable</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>Cancel Clicked</b></em>' literal object isn't clear,
+   * If the meaning of '<em><b>Deleteable</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #CANCEL_CLICKED
-   * @model name="cancelClicked"
+   * @see #DELETEABLE
+   * @model name="deleteable" literal="deletable"
    * @generated
    * @ordered
    */
-  public static final int CANCEL_CLICKED_VALUE = 2;
+  public static final int DELETEABLE_VALUE = 2;
 
   /**
    * An array of all the '<em><b>of Event Type</b></em>' enumerators.
@@ -104,9 +104,9 @@ public enum ofEventType implements Enumerator
   private static final ofEventType[] VALUES_ARRAY =
     new ofEventType[]
     {
-      NEXT_CLICKED,
-      BACK_CLICKED,
-      CANCEL_CLICKED,
+      NEXT_CLICKABLE,
+      SAVABLE,
+      DELETEABLE,
     };
 
   /**
@@ -171,9 +171,9 @@ public enum ofEventType implements Enumerator
   {
     switch (value)
     {
-      case NEXT_CLICKED_VALUE: return NEXT_CLICKED;
-      case BACK_CLICKED_VALUE: return BACK_CLICKED;
-      case CANCEL_CLICKED_VALUE: return CANCEL_CLICKED;
+      case NEXT_CLICKABLE_VALUE: return NEXT_CLICKABLE;
+      case SAVABLE_VALUE: return SAVABLE;
+      case DELETEABLE_VALUE: return DELETEABLE;
     }
     return null;
   }

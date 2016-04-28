@@ -111,13 +111,20 @@ class RentalSystemGenerator extends AbstractGenerator {
 				fsa.generateFile("src/main/java/" + deal.name.toFirstUpper + 'Controller.java',
 					generateDealController(deal, rentalSystem))
 				
-				// Besonderheit StateMachine: Pro State ein Controller, eine JSP, eine Bean und ein Repository
+				// Besonderheit StateMachine: Pro State ein Controller, eine JSP, die anhand von Deals den Workflow steuern.
 				for(State state : deal.rentalWorkflow.states){
-					fsa.generateFile("src/main/java/" + deal.name.toFirstUpper + state.name.toFirstUpper + '.java',
-						generateDealStateBeans(deal, state))
-	
-					fsa.generateFile("src/main/java/I" + deal.name.toFirstUpper + state.name.toFirstUpper + 'Repository.java',
-						generateDealStateRepos(deal, state))
+					
+//					fsa.generateFile("src/main/java/I" + deal.name.toFirstUpper + state.name.toFirstUpper + 'Repository.java',
+//						generateDealStateRepos(deal, rentalSystem, state))
+//					
+//					fsa.generateFile("src/main/java/" + deal.name.toFirstUpper + state.name.toFirstUpper + '.java',
+//						generateDealStateBeans(deal, rentalSystem, state))
+					
+					fsa.generateFile("src/main/webapp/WEB-INF/views/jsp/" + deal.name.toFirstLower + state.name.toFirstUpper + '.jsp',
+						generateDealStateJsp(deal, rentalSystem, state))
+					
+					fsa.generateFile("src/main/java/" + deal.name.toFirstUpper + state.name.toFirstUpper +  'Controller.java',
+						generateDealStateController(deal, rentalSystem, state))
 				}
 			}
 		}
@@ -327,6 +334,27 @@ class RentalSystemGenerator extends AbstractGenerator {
 							return mav;
 						}
 						
+						@RequestMapping(value="/«deal.name.toFirstLower»", method=RequestMethod.POST)
+							public ModelAndView «deal.name.toFirstLower»«deal.rentalWorkflow.startState.head.name.toFirstUpper»Show(
+							@RequestParam("selectedDealId") String selectedDealId){
+								ModelAndView mav = new ModelAndView("«deal.name.toFirstLower»«deal.rentalWorkflow.startState.head.transition.head.name.toFirstUpper»");
+								mav.addObject("selectedDeal", dealRepository.findOne(Long.parseLong(selectedDealId)));
+								return  mav;
+							}
+							
+						@RequestMapping(value="/«deal.name.toFirstLower»Form", method=RequestMethod.POST)
+							public ModelAndView «deal.name.toFirstLower»SaveForm(«deal.name.toFirstUpper» «deal.name.toFirstLower»,
+							@RequestParam("selectionCustomerId") String customerId, @RequestParam("selectionTypeId") String typeId){
+								«deal.customer.name.toFirstUpper» «deal.customer.name.toFirstLower» = customerRepository.findOne(Long.parseLong(customerId));
+								«deal.rentalType.name.toFirstUpper» «deal.rentalType.name.toFirstLower» = rentalTypeRepository.findOne(Long.parseLong(typeId));
+								«deal.name.toFirstLower».set«deal.customer.name.toFirstUpper»(«deal.customer.name.toFirstLower»);
+								«deal.name.toFirstLower».set«deal.rentalType.name.toFirstUpper»(«deal.rentalType.name.toFirstLower»);
+								dealRepository.save(«deal.name.toFirstLower»);
+								ModelAndView mav = new ModelAndView("«deal.name.toFirstLower»");
+								mav.addObject("deals", dealRepository.findAll());
+								return mav;
+							}
+						
 						@RequestMapping(value="/«deal.name.toFirstLower»Form", method=RequestMethod.GET)
 						public ModelAndView «deal.name.toFirstLower»ShowForm(){
 							ModelAndView mav = new ModelAndView("«deal.name.toFirstLower»Form");
@@ -334,17 +362,30 @@ class RentalSystemGenerator extends AbstractGenerator {
 							mav.addObject("rentalTypes", rentalTypeRepository.findAll());
 							return mav;
 						}
+					}
+		'''
+		
+				def CharSequence generateDealStateController(Deal deal, RentalSystem rentalSystem, State state) '''
+				package de.nordakademie.xtext.hausarbeit.rentalSystem.web;
+				
+				import org.springframework.beans.factory.annotation.Autowired;
+				import org.springframework.stereotype.Controller;
+				import org.springframework.web.bind.annotation.RequestMapping;
+				import org.springframework.web.servlet.ModelAndView;
+				import org.springframework.web.bind.annotation.RequestMethod;
+				import org.springframework.web.bind.annotation.RequestParam;
+					
+					@Controller
+					public class «deal.name.toFirstUpper»«state.name.toFirstUpper»Controller {
 						
-						@RequestMapping(value="/«deal.name.toFirstLower»Form", method=RequestMethod.POST)
-						public ModelAndView «deal.name.toFirstLower»SaveForm(«deal.name.toFirstUpper» «deal.name.toFirstLower»,
-						@RequestParam("selectionCustomerId") String customerId, @RequestParam("selectionTypeId") String typeId){
-							«deal.customer.name.toFirstUpper» «deal.customer.name.toFirstLower» = customerRepository.findOne(Long.parseLong(customerId));
-							«deal.rentalType.name.toFirstUpper» «deal.rentalType.name.toFirstLower» = rentalTypeRepository.findOne(Long.parseLong(typeId));
-							«deal.name.toFirstLower».set«deal.customer.name.toFirstUpper»(«deal.customer.name.toFirstLower»);
-							«deal.name.toFirstLower».set«deal.rentalType.name.toFirstUpper»(«deal.rentalType.name.toFirstLower»);
-							dealRepository.save(«deal.name.toFirstLower»);
-							ModelAndView mav = new ModelAndView("«deal.name.toFirstLower»");
-							mav.addObject("deals", dealRepository.findAll());
+						@Autowired
+						private I«deal.name.toFirstUpper»Repository dealRepository;
+						
+						@RequestMapping(value="/«deal.name.toFirstLower»«state.name.toFirstUpper»", method=RequestMethod.POST)
+						public ModelAndView «deal.name.toFirstLower»«state.name.toFirstUpper»Transition(«deal.name.toFirstUpper» «deal.name.toFirstLower»,
+						@RequestParam("selectedDealId") String selectedDealId){
+							ModelAndView mav = new ModelAndView("«deal.name.toFirstLower»«state.name.toFirstUpper»");
+							mav.addObject("selectedDeal", dealRepository.findOne(Long.parseLong(selectedDealId)));
 							return mav;
 						}
 					}
@@ -685,23 +726,25 @@ class RentalSystemGenerator extends AbstractGenerator {
 		«generateJspHeader(rentalSystem)»
 				<h1>«deal.name.toFirstUpper»</h1>
 				<p>Number of deals types: ${deals.size()}</p>
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<td>No.</td>
-							<td>ID</td>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="i" items="${deals}">
-							<tr>
-								<td></td>
-								<td>${i.id}</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+				<form id="dealState-form" role="form" th:action="@{/«deal.name.toFirstLower»«deal.rentalWorkflow.startState.head.name.toFirstUpper»}" method="post">
+					<c:forEach var="i" items="${deals}">
+						<input type="radio" name="selectedDealId" value="${i.id}">${i.id}<br />
+					</c:forEach>
+				<button type="submit">Start Deal Workflow</button>
+				</form>
 				<a href="«deal.name.toFirstLower»Form" class="btn btn-primary">New «deal.name.toFirstUpper»</a>
+				<a href="dealsIndex" class="btn btn-primary">Deals</a>
+		«generateJspFooter(rentalSystem)»
+	'''
+	
+	def CharSequence generateDealStateJsp(Deal deal, RentalSystem rentalSystem, State state) '''
+		«generateJspHeader(rentalSystem)»
+				<h1>«deal.name.toFirstUpper»«state.name.toFirstUpper»</h1>
+				<p>SelectedDeal ID: ${selectedDeal.id}</p>
+				<form method="post" th:action="@{/«deal.name.toFirstLower»«state.transition.head.name.toFirstUpper»}" role="form">
+					<input type="hidden" name="selectedDealId" value="${selectedDeal.id}">
+					<button type="submit">Next</button>
+				</form>
 				<a href="dealsIndex" class="btn btn-primary">Deals</a>
 		«generateJspFooter(rentalSystem)»
 	'''
@@ -851,6 +894,69 @@ class RentalSystemGenerator extends AbstractGenerator {
 				«ENDFOR»
 			}
 	'''
+	
+		def CharSequence generateDealStateBeans(Deal deal, RentalSystem rentalSystem, State state) '''
+		package de.nordakademie.xtext.hausarbeit.rentalSystem.web;
+		
+		import javax.persistence.Entity;
+		import javax.persistence.GeneratedValue;
+		import javax.persistence.Id;
+		import javax.persistence.OneToOne;
+		
+				@Entity
+				public class «deal.name.toFirstUpper»«state.name.toFirstUpper» {
+		
+				@Id
+				@GeneratedValue
+				private Long id;
+				
+				@OneToOne
+				private «deal.customer.name.toFirstUpper» «deal.customer.name.toFirstLower»;
+				
+				@OneToOne
+				private «deal.rentalType.name.toFirstUpper» «deal.rentalType.name.toFirstLower»;
+			
+				«FOR attribute : deal.dealAttributes»
+					private «attribute.ofType» «attribute.name.toFirstLower»;
+				«ENDFOR»
+				
+				public Long getId() {
+					return id;
+				}
+				
+				public «deal.customer.name.toFirstUpper» get«deal.customer.name.toFirstUpper»(){
+						return «deal.customer.name.toFirstLower»;
+					}
+					
+				public «deal.rentalType.name.toFirstUpper» get«deal.rentalType.name.toFirstUpper»(){
+						return «deal.rentalType.name.toFirstLower»;
+					}
+		
+				«FOR attribute : deal.dealAttributes»
+				public «attribute.ofType» get«attribute.name.toFirstUpper»(){
+					return «attribute.name.toFirstLower»;
+				}
+				«ENDFOR»
+				
+				public void setId(Long id) {
+					this.id = id;
+				}
+				
+				public void set«deal.customer.name.toFirstUpper»(«deal.customer.name.toFirstUpper» «deal.customer.name.toFirstLower»){
+						this.«deal.customer.name.toFirstLower» = «deal.customer.name.toFirstLower»;
+					}
+					
+				public void set«deal.rentalType.name.toFirstUpper»(«deal.rentalType.name.toFirstUpper» «deal.rentalType.name.toFirstLower»){
+						this.«deal.rentalType.name.toFirstLower» = «deal.rentalType.name.toFirstLower»;
+					}
+				
+				«FOR attribute : deal.dealAttributes»
+					public  void set«attribute.name.toFirstUpper»(«attribute.ofType» «attribute.name.toFirstLower»){
+						this.«attribute.name.toFirstLower» = «attribute.name.toFirstLower»;
+					}
+				«ENDFOR»
+			}
+	'''
 
 	def CharSequence generateDealRepos(Deal deal, RentalSystem rentalSystem) '''
 		package de.nordakademie.xtext.hausarbeit.rentalSystem.web;
@@ -860,6 +966,18 @@ class RentalSystemGenerator extends AbstractGenerator {
 				
 				@Repository
 				public interface I«deal.name.toFirstUpper»Repository extends CrudRepository<«deal.name.toFirstUpper», Long> {
+				
+				}
+	'''
+	
+		def CharSequence generateDealStateRepos(Deal deal, RentalSystem rentalSystem, State state) '''
+		package de.nordakademie.xtext.hausarbeit.rentalSystem.web;
+		
+		import org.springframework.data.repository.CrudRepository;
+		import org.springframework.stereotype.Repository;
+				
+				@Repository
+				public interface I«deal.name.toFirstUpper»«state.name.toFirstUpper»Repository extends CrudRepository<«deal.name.toFirstUpper»«state.name.toFirstUpper», Long> {
 				
 				}
 	'''

@@ -3,15 +3,11 @@
  */
 package de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl;
 
-import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Command;
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Event;
-import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.OfType;
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow;
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowFactory;
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage;
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.State;
-import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Transition;
-import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.ofCommandType;
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.ofEventType;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -49,13 +45,6 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass commandEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass stateEClass = null;
 
   /**
@@ -63,28 +52,7 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass transitionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum ofTypeEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EEnum ofEventTypeEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum ofCommandTypeEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -184,7 +152,7 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRentalWorkflow_Commands()
+  public EReference getRentalWorkflow_States()
   {
     return (EReference)rentalWorkflowEClass.getEStructuralFeatures().get(2);
   }
@@ -194,7 +162,7 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRentalWorkflow_ResetEvents()
+  public EReference getRentalWorkflow_StartState()
   {
     return (EReference)rentalWorkflowEClass.getEStructuralFeatures().get(3);
   }
@@ -204,7 +172,7 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRentalWorkflow_States()
+  public EReference getRentalWorkflow_FinishState()
   {
     return (EReference)rentalWorkflowEClass.getEStructuralFeatures().get(4);
   }
@@ -244,36 +212,6 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getCommand()
-  {
-    return commandEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getCommand_Name()
-  {
-    return (EAttribute)commandEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getCommand_OfType()
-  {
-    return (EAttribute)commandEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getState()
   {
     return stateEClass;
@@ -294,9 +232,9 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getState_OfType()
+  public EReference getState_Events()
   {
-    return (EAttribute)stateEClass.getEStructuralFeatures().get(1);
+    return (EReference)stateEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -304,59 +242,9 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getState_Actions()
+  public EReference getState_Transition()
   {
     return (EReference)stateEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getState_Transitions()
-  {
-    return (EReference)stateEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getTransition()
-  {
-    return transitionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getTransition_Event()
-  {
-    return (EReference)transitionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getTransition_State()
-  {
-    return (EReference)transitionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EEnum getOfType()
-  {
-    return ofTypeEEnum;
   }
 
   /**
@@ -367,16 +255,6 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
   public EEnum getofEventType()
   {
     return ofEventTypeEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EEnum getofCommandType()
-  {
-    return ofCommandTypeEEnum;
   }
 
   /**
@@ -412,32 +290,21 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
     rentalWorkflowEClass = createEClass(RENTAL_WORKFLOW);
     createEAttribute(rentalWorkflowEClass, RENTAL_WORKFLOW__NAME);
     createEReference(rentalWorkflowEClass, RENTAL_WORKFLOW__EVENT);
-    createEReference(rentalWorkflowEClass, RENTAL_WORKFLOW__COMMANDS);
-    createEReference(rentalWorkflowEClass, RENTAL_WORKFLOW__RESET_EVENTS);
     createEReference(rentalWorkflowEClass, RENTAL_WORKFLOW__STATES);
+    createEReference(rentalWorkflowEClass, RENTAL_WORKFLOW__START_STATE);
+    createEReference(rentalWorkflowEClass, RENTAL_WORKFLOW__FINISH_STATE);
 
     eventEClass = createEClass(EVENT);
     createEAttribute(eventEClass, EVENT__NAME);
     createEAttribute(eventEClass, EVENT__OF_TYPE);
 
-    commandEClass = createEClass(COMMAND);
-    createEAttribute(commandEClass, COMMAND__NAME);
-    createEAttribute(commandEClass, COMMAND__OF_TYPE);
-
     stateEClass = createEClass(STATE);
     createEAttribute(stateEClass, STATE__NAME);
-    createEAttribute(stateEClass, STATE__OF_TYPE);
-    createEReference(stateEClass, STATE__ACTIONS);
-    createEReference(stateEClass, STATE__TRANSITIONS);
-
-    transitionEClass = createEClass(TRANSITION);
-    createEReference(transitionEClass, TRANSITION__EVENT);
-    createEReference(transitionEClass, TRANSITION__STATE);
+    createEReference(stateEClass, STATE__EVENTS);
+    createEReference(stateEClass, STATE__TRANSITION);
 
     // Create enums
-    ofTypeEEnum = createEEnum(OF_TYPE);
     ofEventTypeEEnum = createEEnum(OF_EVENT_TYPE);
-    ofCommandTypeEEnum = createEEnum(OF_COMMAND_TYPE);
   }
 
   /**
@@ -474,45 +341,24 @@ public class RentalWorkflowPackageImpl extends EPackageImpl implements RentalWor
     initEClass(rentalWorkflowEClass, RentalWorkflow.class, "RentalWorkflow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRentalWorkflow_Name(), ecorePackage.getEString(), "name", null, 0, 1, RentalWorkflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRentalWorkflow_Event(), this.getEvent(), null, "event", null, 0, -1, RentalWorkflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRentalWorkflow_Commands(), this.getCommand(), null, "commands", null, 0, -1, RentalWorkflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRentalWorkflow_ResetEvents(), this.getEvent(), null, "resetEvents", null, 0, -1, RentalWorkflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRentalWorkflow_States(), this.getState(), null, "states", null, 0, -1, RentalWorkflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRentalWorkflow_StartState(), this.getState(), null, "startState", null, 0, -1, RentalWorkflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRentalWorkflow_FinishState(), this.getState(), null, "finishState", null, 0, -1, RentalWorkflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEvent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEvent_OfType(), this.getofEventType(), "ofType", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCommand_Name(), ecorePackage.getEString(), "name", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getCommand_OfType(), this.getofCommandType(), "ofType", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getState_Name(), ecorePackage.getEString(), "name", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getState_OfType(), this.getOfType(), "ofType", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getState_Actions(), this.getCommand(), null, "actions", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getState_Transitions(), this.getTransition(), null, "transitions", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTransition_Event(), this.getEvent(), null, "event", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTransition_State(), this.getState(), null, "state", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getState_Events(), this.getEvent(), null, "events", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getState_Transition(), this.getState(), null, "transition", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
-    initEEnum(ofTypeEEnum, OfType.class, "OfType");
-    addEEnumLiteral(ofTypeEEnum, OfType.INITIALIZING);
-    addEEnumLiteral(ofTypeEEnum, OfType.CREATING);
-    addEEnumLiteral(ofTypeEEnum, OfType.RUNNING);
-    addEEnumLiteral(ofTypeEEnum, OfType.CANCELING);
-    addEEnumLiteral(ofTypeEEnum, OfType.FINISHING);
-
     initEEnum(ofEventTypeEEnum, ofEventType.class, "ofEventType");
-    addEEnumLiteral(ofEventTypeEEnum, ofEventType.NEXT_CLICKED);
-    addEEnumLiteral(ofEventTypeEEnum, ofEventType.BACK_CLICKED);
-    addEEnumLiteral(ofEventTypeEEnum, ofEventType.CANCEL_CLICKED);
-
-    initEEnum(ofCommandTypeEEnum, ofCommandType.class, "ofCommandType");
-    addEEnumLiteral(ofCommandTypeEEnum, ofCommandType.DO_SAVE);
-    addEEnumLiteral(ofCommandTypeEEnum, ofCommandType.DO_ABORD);
-    addEEnumLiteral(ofCommandTypeEEnum, ofCommandType.DO_DELETE);
+    addEEnumLiteral(ofEventTypeEEnum, ofEventType.NEXT_CLICKABLE);
+    addEEnumLiteral(ofEventTypeEEnum, ofEventType.SAVABLE);
+    addEEnumLiteral(ofEventTypeEEnum, ofEventType.DELETEABLE);
 
     // Create resource
     createResource(eNS_URI);

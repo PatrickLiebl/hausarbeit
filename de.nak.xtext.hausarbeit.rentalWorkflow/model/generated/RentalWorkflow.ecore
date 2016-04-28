@@ -6,48 +6,27 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="event" upperBound="-1"
         eType="#//Event" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="commands" upperBound="-1"
-        eType="#//Command" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="resetEvents" unique="false"
-        upperBound="-1" eType="#//Event"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
         eType="#//State" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="startState" unique="false"
+        upperBound="-1" eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="finishState" unique="false"
+        upperBound="-1" eType="#//State"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Event">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ofType" eType="#//ofEventType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Command">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ofType" eType="#//ofCommandType"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="State">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ofType" eType="#//OfType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" unique="false"
-        upperBound="-1" eType="#//Command"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" upperBound="-1"
-        eType="#//Transition" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Transition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="event" eType="#//Event"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="state" eType="#//State"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="OfType">
-    <eLiterals name="initializing" literal="initializing"/>
-    <eLiterals name="creating" value="1" literal="creating"/>
-    <eLiterals name="running" value="2" literal="running"/>
-    <eLiterals name="canceling" value="3" literal="canceling"/>
-    <eLiterals name="finishing" value="4" literal="finishing"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="events" unique="false"
+        upperBound="-1" eType="#//Event"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transition" unique="false"
+        upperBound="-1" eType="#//State"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ofEventType">
-    <eLiterals name="nextClicked" literal="nextClicked"/>
-    <eLiterals name="backClicked" value="1" literal="backClicked"/>
-    <eLiterals name="cancelClicked" value="2" literal="cancelClicked"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="ofCommandType">
-    <eLiterals name="doSave" literal="doSave"/>
-    <eLiterals name="doAbord" value="1" literal="doAbort"/>
-    <eLiterals name="doDelete" value="2" literal="doDelete"/>
+    <eLiterals name="nextClickable" literal="nextClickable"/>
+    <eLiterals name="savable" value="1" literal="savable"/>
+    <eLiterals name="deleteable" value="2" literal="deletable"/>
   </eClassifiers>
 </ecore:EPackage>

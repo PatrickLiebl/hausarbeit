@@ -86,19 +86,9 @@ public class RentalWorkflowAdapterFactory extends AdapterFactoryImpl
         return createEventAdapter();
       }
       @Override
-      public Adapter caseCommand(Command object)
-      {
-        return createCommandAdapter();
-      }
-      @Override
       public Adapter caseState(State object)
       {
         return createStateAdapter();
-      }
-      @Override
-      public Adapter caseTransition(Transition object)
-      {
-        return createTransitionAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -153,21 +143,6 @@ public class RentalWorkflowAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Command <em>Command</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Command
-   * @generated
-   */
-  public Adapter createCommandAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.State <em>State</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -178,21 +153,6 @@ public class RentalWorkflowAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStateAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Transition <em>Transition</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Transition
-   * @generated
-   */
-  public Adapter createTransitionAdapter()
   {
     return null;
   }

@@ -38,25 +38,26 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cEventAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cEventEventParserRuleCall_4_0 = (RuleCall)cEventAssignment_4.eContents().get(0);
 		private final Keyword cEndKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cCommandsKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cCommandsAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cCommandsCommandParserRuleCall_7_0 = (RuleCall)cCommandsAssignment_7.eContents().get(0);
-		private final Keyword cEndKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Keyword cResetEventsKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cResetEventsAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final CrossReference cResetEventsEventCrossReference_10_0 = (CrossReference)cResetEventsAssignment_10.eContents().get(0);
-		private final RuleCall cResetEventsEventIDTerminalRuleCall_10_0_1 = (RuleCall)cResetEventsEventCrossReference_10_0.eContents().get(1);
-		private final Keyword cEndKeyword_11 = (Keyword)cGroup.eContents().get(11);
-		private final Assignment cStatesAssignment_12 = (Assignment)cGroup.eContents().get(12);
-		private final RuleCall cStatesStateParserRuleCall_12_0 = (RuleCall)cStatesAssignment_12.eContents().get(0);
+		private final Assignment cStatesAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cStatesStateParserRuleCall_6_0 = (RuleCall)cStatesAssignment_6.eContents().get(0);
+		private final Keyword cStartStateKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cStartStateAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final CrossReference cStartStateStateCrossReference_8_0 = (CrossReference)cStartStateAssignment_8.eContents().get(0);
+		private final RuleCall cStartStateStateQualifiedNameParserRuleCall_8_0_1 = (RuleCall)cStartStateStateCrossReference_8_0.eContents().get(1);
+		private final Keyword cEndKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Keyword cFinishStateKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Assignment cFinishStateAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final CrossReference cFinishStateStateCrossReference_11_0 = (CrossReference)cFinishStateAssignment_11.eContents().get(0);
+		private final RuleCall cFinishStateStateQualifiedNameParserRuleCall_11_0_1 = (RuleCall)cFinishStateStateCrossReference_11_0.eContents().get(1);
+		private final Keyword cEndKeyword_12 = (Keyword)cGroup.eContents().get(12);
 		
 		//RentalWorkflow:
-		//	{RentalWorkflow} 'defineWorkflow' name=ID 'events' event+=Event* 'end' 'commands' commands+=Command* 'end'
-		//	'resetEvents' resetEvents+=[Event]* 'end' states+=State*;
+		//	{RentalWorkflow} 'defineWorkflow' name=ID 'events' event+=Event* 'end' states+=State* 'startState'
+		//	startState+=[State|QualifiedName] 'end' 'finishState' finishState+=[State|QualifiedName] 'end';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{RentalWorkflow} 'defineWorkflow' name=ID 'events' event+=Event* 'end' 'commands' commands+=Command* 'end' 'resetEvents'
-		//resetEvents+=[Event]* 'end' states+=State*
+		//{RentalWorkflow} 'defineWorkflow' name=ID 'events' event+=Event* 'end' states+=State* 'startState'
+		//startState+=[State|QualifiedName] 'end' 'finishState' finishState+=[State|QualifiedName] 'end'
 		public Group getGroup() { return cGroup; }
 		
 		//{RentalWorkflow}
@@ -83,38 +84,41 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 		//'end'
 		public Keyword getEndKeyword_5() { return cEndKeyword_5; }
 		
-		//'commands'
-		public Keyword getCommandsKeyword_6() { return cCommandsKeyword_6; }
-		
-		//commands+=Command*
-		public Assignment getCommandsAssignment_7() { return cCommandsAssignment_7; }
-		
-		//Command
-		public RuleCall getCommandsCommandParserRuleCall_7_0() { return cCommandsCommandParserRuleCall_7_0; }
-		
-		//'end'
-		public Keyword getEndKeyword_8() { return cEndKeyword_8; }
-		
-		//'resetEvents'
-		public Keyword getResetEventsKeyword_9() { return cResetEventsKeyword_9; }
-		
-		//resetEvents+=[Event]*
-		public Assignment getResetEventsAssignment_10() { return cResetEventsAssignment_10; }
-		
-		//[Event]
-		public CrossReference getResetEventsEventCrossReference_10_0() { return cResetEventsEventCrossReference_10_0; }
-		
-		//ID
-		public RuleCall getResetEventsEventIDTerminalRuleCall_10_0_1() { return cResetEventsEventIDTerminalRuleCall_10_0_1; }
-		
-		//'end'
-		public Keyword getEndKeyword_11() { return cEndKeyword_11; }
-		
 		//states+=State*
-		public Assignment getStatesAssignment_12() { return cStatesAssignment_12; }
+		public Assignment getStatesAssignment_6() { return cStatesAssignment_6; }
 		
 		//State
-		public RuleCall getStatesStateParserRuleCall_12_0() { return cStatesStateParserRuleCall_12_0; }
+		public RuleCall getStatesStateParserRuleCall_6_0() { return cStatesStateParserRuleCall_6_0; }
+		
+		//'startState'
+		public Keyword getStartStateKeyword_7() { return cStartStateKeyword_7; }
+		
+		//startState+=[State|QualifiedName]
+		public Assignment getStartStateAssignment_8() { return cStartStateAssignment_8; }
+		
+		//[State|QualifiedName]
+		public CrossReference getStartStateStateCrossReference_8_0() { return cStartStateStateCrossReference_8_0; }
+		
+		//QualifiedName
+		public RuleCall getStartStateStateQualifiedNameParserRuleCall_8_0_1() { return cStartStateStateQualifiedNameParserRuleCall_8_0_1; }
+		
+		//'end'
+		public Keyword getEndKeyword_9() { return cEndKeyword_9; }
+		
+		//'finishState'
+		public Keyword getFinishStateKeyword_10() { return cFinishStateKeyword_10; }
+		
+		//finishState+=[State|QualifiedName]
+		public Assignment getFinishStateAssignment_11() { return cFinishStateAssignment_11; }
+		
+		//[State|QualifiedName]
+		public CrossReference getFinishStateStateCrossReference_11_0() { return cFinishStateStateCrossReference_11_0; }
+		
+		//QualifiedName
+		public RuleCall getFinishStateStateQualifiedNameParserRuleCall_11_0_1() { return cFinishStateStateQualifiedNameParserRuleCall_11_0_1; }
+		
+		//'end'
+		public Keyword getEndKeyword_12() { return cEndKeyword_12; }
 	}
 	public class EventElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.Event");
@@ -143,57 +147,30 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 		//ofEventType
 		public RuleCall getOfTypeOfEventTypeEnumRuleCall_1_0() { return cOfTypeOfEventTypeEnumRuleCall_1_0; }
 	}
-	public class CommandElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.Command");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
-		private final Assignment cOfTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cOfTypeOfCommandTypeEnumRuleCall_1_0 = (RuleCall)cOfTypeAssignment_1.eContents().get(0);
-		
-		//Command:
-		//	name=ID ofType=ofCommandType;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//name=ID ofType=ofCommandType
-		public Group getGroup() { return cGroup; }
-		
-		//name=ID
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
-		
-		//ofType=ofCommandType
-		public Assignment getOfTypeAssignment_1() { return cOfTypeAssignment_1; }
-		
-		//ofCommandType
-		public RuleCall getOfTypeOfCommandTypeEnumRuleCall_1_0() { return cOfTypeOfCommandTypeEnumRuleCall_1_0; }
-	}
 	public class StateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.State");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cStateKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cOfTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cOfTypeOfTypeEnumRuleCall_2_0 = (RuleCall)cOfTypeAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cActionsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Assignment cActionsAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
-		private final CrossReference cActionsCommandCrossReference_3_2_0 = (CrossReference)cActionsAssignment_3_2.eContents().get(0);
-		private final RuleCall cActionsCommandIDTerminalRuleCall_3_2_0_1 = (RuleCall)cActionsCommandCrossReference_3_2_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
-		private final Assignment cTransitionsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cTransitionsTransitionParserRuleCall_4_0 = (RuleCall)cTransitionsAssignment_4.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cEventsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Assignment cEventsAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final CrossReference cEventsEventCrossReference_2_2_0 = (CrossReference)cEventsAssignment_2_2.eContents().get(0);
+		private final RuleCall cEventsEventIDTerminalRuleCall_2_2_0_1 = (RuleCall)cEventsEventCrossReference_2_2_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
+		private final Keyword cTransitionKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cTransitionAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cTransitionStateCrossReference_4_0 = (CrossReference)cTransitionAssignment_4.eContents().get(0);
+		private final RuleCall cTransitionStateQualifiedNameParserRuleCall_4_0_1 = (RuleCall)cTransitionStateCrossReference_4_0.eContents().get(1);
 		private final Keyword cEndKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//State:
-		//	'state' name=ID ofType=OfType ('actions' '{' actions+=[Command]+ '}')? transitions+=Transition* 'end';
+		//	'state' name=ID ('events' '{' events+=[Event]+ '}')? 'transition' transition+=[State|QualifiedName] 'end';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'state' name=ID ofType=OfType ('actions' '{' actions+=[Command]+ '}')? transitions+=Transition* 'end'
+		//'state' name=ID ('events' '{' events+=[Event]+ '}')? 'transition' transition+=[State|QualifiedName] 'end'
 		public Group getGroup() { return cGroup; }
 		
 		//'state'
@@ -205,80 +182,41 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//ofType=OfType
-		public Assignment getOfTypeAssignment_2() { return cOfTypeAssignment_2; }
+		//('events' '{' events+=[Event]+ '}')?
+		public Group getGroup_2() { return cGroup_2; }
 		
-		//OfType
-		public RuleCall getOfTypeOfTypeEnumRuleCall_2_0() { return cOfTypeOfTypeEnumRuleCall_2_0; }
-		
-		//('actions' '{' actions+=[Command]+ '}')?
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'actions'
-		public Keyword getActionsKeyword_3_0() { return cActionsKeyword_3_0; }
+		//'events'
+		public Keyword getEventsKeyword_2_0() { return cEventsKeyword_2_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3_1() { return cLeftCurlyBracketKeyword_3_1; }
+		public Keyword getLeftCurlyBracketKeyword_2_1() { return cLeftCurlyBracketKeyword_2_1; }
 		
-		//actions+=[Command]+
-		public Assignment getActionsAssignment_3_2() { return cActionsAssignment_3_2; }
+		//events+=[Event]+
+		public Assignment getEventsAssignment_2_2() { return cEventsAssignment_2_2; }
 		
-		//[Command]
-		public CrossReference getActionsCommandCrossReference_3_2_0() { return cActionsCommandCrossReference_3_2_0; }
+		//[Event]
+		public CrossReference getEventsEventCrossReference_2_2_0() { return cEventsEventCrossReference_2_2_0; }
 		
 		//ID
-		public RuleCall getActionsCommandIDTerminalRuleCall_3_2_0_1() { return cActionsCommandIDTerminalRuleCall_3_2_0_1; }
+		public RuleCall getEventsEventIDTerminalRuleCall_2_2_0_1() { return cEventsEventIDTerminalRuleCall_2_2_0_1; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_3_3() { return cRightCurlyBracketKeyword_3_3; }
+		public Keyword getRightCurlyBracketKeyword_2_3() { return cRightCurlyBracketKeyword_2_3; }
 		
-		//transitions+=Transition*
-		public Assignment getTransitionsAssignment_4() { return cTransitionsAssignment_4; }
+		//'transition'
+		public Keyword getTransitionKeyword_3() { return cTransitionKeyword_3; }
 		
-		//Transition
-		public RuleCall getTransitionsTransitionParserRuleCall_4_0() { return cTransitionsTransitionParserRuleCall_4_0; }
+		//transition+=[State|QualifiedName]
+		public Assignment getTransitionAssignment_4() { return cTransitionAssignment_4; }
+		
+		//[State|QualifiedName]
+		public CrossReference getTransitionStateCrossReference_4_0() { return cTransitionStateCrossReference_4_0; }
+		
+		//QualifiedName
+		public RuleCall getTransitionStateQualifiedNameParserRuleCall_4_0_1() { return cTransitionStateQualifiedNameParserRuleCall_4_0_1; }
 		
 		//'end'
 		public Keyword getEndKeyword_5() { return cEndKeyword_5; }
-	}
-	public class TransitionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.Transition");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cEventAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final CrossReference cEventEventCrossReference_0_0 = (CrossReference)cEventAssignment_0.eContents().get(0);
-		private final RuleCall cEventEventIDTerminalRuleCall_0_0_1 = (RuleCall)cEventEventCrossReference_0_0.eContents().get(1);
-		private final Keyword cEqualsSignGreaterThanSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cStateAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cStateStateCrossReference_2_0 = (CrossReference)cStateAssignment_2.eContents().get(0);
-		private final RuleCall cStateStateIDTerminalRuleCall_2_0_1 = (RuleCall)cStateStateCrossReference_2_0.eContents().get(1);
-		
-		//Transition:
-		//	event=[Event] '=>' state=[State];
-		@Override public ParserRule getRule() { return rule; }
-		
-		//event=[Event] '=>' state=[State]
-		public Group getGroup() { return cGroup; }
-		
-		//event=[Event]
-		public Assignment getEventAssignment_0() { return cEventAssignment_0; }
-		
-		//[Event]
-		public CrossReference getEventEventCrossReference_0_0() { return cEventEventCrossReference_0_0; }
-		
-		//ID
-		public RuleCall getEventEventIDTerminalRuleCall_0_0_1() { return cEventEventIDTerminalRuleCall_0_0_1; }
-		
-		//'=>'
-		public Keyword getEqualsSignGreaterThanSignKeyword_1() { return cEqualsSignGreaterThanSignKeyword_1; }
-		
-		//state=[State]
-		public Assignment getStateAssignment_2() { return cStateAssignment_2; }
-		
-		//[State]
-		public CrossReference getStateStateCrossReference_2_0() { return cStateStateCrossReference_2_0; }
-		
-		//ID
-		public RuleCall getStateStateIDTerminalRuleCall_2_0_1() { return cStateStateIDTerminalRuleCall_2_0_1; }
 	}
 	public class QualifiedNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.QualifiedName");
@@ -308,137 +246,47 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
 	}
 	
-	public class OfTypeElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.OfType");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cInitializingEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cInitializingInitializingKeyword_0_0 = (Keyword)cInitializingEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cCreatingEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cCreatingCreatingKeyword_1_0 = (Keyword)cCreatingEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cRunningEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cRunningRunningKeyword_2_0 = (Keyword)cRunningEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cCancelingEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cCancelingCancelingKeyword_3_0 = (Keyword)cCancelingEnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cFinishingEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cFinishingFinishingKeyword_4_0 = (Keyword)cFinishingEnumLiteralDeclaration_4.eContents().get(0);
-		
-		//enum OfType:
-		//	initializing | creating | running | canceling | finishing;
-		public EnumRule getRule() { return rule; }
-		
-		//initializing | creating | running | canceling | finishing
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//initializing
-		public EnumLiteralDeclaration getInitializingEnumLiteralDeclaration_0() { return cInitializingEnumLiteralDeclaration_0; }
-		
-		//'initializing'
-		public Keyword getInitializingInitializingKeyword_0_0() { return cInitializingInitializingKeyword_0_0; }
-		
-		//creating
-		public EnumLiteralDeclaration getCreatingEnumLiteralDeclaration_1() { return cCreatingEnumLiteralDeclaration_1; }
-		
-		//'creating'
-		public Keyword getCreatingCreatingKeyword_1_0() { return cCreatingCreatingKeyword_1_0; }
-		
-		//running
-		public EnumLiteralDeclaration getRunningEnumLiteralDeclaration_2() { return cRunningEnumLiteralDeclaration_2; }
-		
-		//'running'
-		public Keyword getRunningRunningKeyword_2_0() { return cRunningRunningKeyword_2_0; }
-		
-		//canceling
-		public EnumLiteralDeclaration getCancelingEnumLiteralDeclaration_3() { return cCancelingEnumLiteralDeclaration_3; }
-		
-		//'canceling'
-		public Keyword getCancelingCancelingKeyword_3_0() { return cCancelingCancelingKeyword_3_0; }
-		
-		//finishing
-		public EnumLiteralDeclaration getFinishingEnumLiteralDeclaration_4() { return cFinishingEnumLiteralDeclaration_4; }
-		
-		//'finishing'
-		public Keyword getFinishingFinishingKeyword_4_0() { return cFinishingFinishingKeyword_4_0; }
-	}
 	public class OfEventTypeElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.ofEventType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cNextClickedEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cNextClickedNextClickedKeyword_0_0 = (Keyword)cNextClickedEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cBackClickedEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cBackClickedBackClickedKeyword_1_0 = (Keyword)cBackClickedEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cCancelClickedEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cCancelClickedCancelClickedKeyword_2_0 = (Keyword)cCancelClickedEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cNextClickableEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cNextClickableNextClickableKeyword_0_0 = (Keyword)cNextClickableEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cSavableEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cSavableSavableKeyword_1_0 = (Keyword)cSavableEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cDeleteableEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cDeleteableDeletableKeyword_2_0 = (Keyword)cDeleteableEnumLiteralDeclaration_2.eContents().get(0);
 		
 		//enum ofEventType:
-		//	nextClicked | backClicked | cancelClicked;
+		//	nextClickable | savable | deleteable='deletable';
 		public EnumRule getRule() { return rule; }
 		
-		//nextClicked | backClicked | cancelClicked
+		//nextClickable | savable | deleteable='deletable'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//nextClicked
-		public EnumLiteralDeclaration getNextClickedEnumLiteralDeclaration_0() { return cNextClickedEnumLiteralDeclaration_0; }
+		//nextClickable
+		public EnumLiteralDeclaration getNextClickableEnumLiteralDeclaration_0() { return cNextClickableEnumLiteralDeclaration_0; }
 		
-		//'nextClicked'
-		public Keyword getNextClickedNextClickedKeyword_0_0() { return cNextClickedNextClickedKeyword_0_0; }
+		//'nextClickable'
+		public Keyword getNextClickableNextClickableKeyword_0_0() { return cNextClickableNextClickableKeyword_0_0; }
 		
-		//backClicked
-		public EnumLiteralDeclaration getBackClickedEnumLiteralDeclaration_1() { return cBackClickedEnumLiteralDeclaration_1; }
+		//savable
+		public EnumLiteralDeclaration getSavableEnumLiteralDeclaration_1() { return cSavableEnumLiteralDeclaration_1; }
 		
-		//'backClicked'
-		public Keyword getBackClickedBackClickedKeyword_1_0() { return cBackClickedBackClickedKeyword_1_0; }
+		//'savable'
+		public Keyword getSavableSavableKeyword_1_0() { return cSavableSavableKeyword_1_0; }
 		
-		//cancelClicked
-		public EnumLiteralDeclaration getCancelClickedEnumLiteralDeclaration_2() { return cCancelClickedEnumLiteralDeclaration_2; }
+		//deleteable='deletable'
+		public EnumLiteralDeclaration getDeleteableEnumLiteralDeclaration_2() { return cDeleteableEnumLiteralDeclaration_2; }
 		
-		//'cancelClicked'
-		public Keyword getCancelClickedCancelClickedKeyword_2_0() { return cCancelClickedCancelClickedKeyword_2_0; }
-	}
-	public class OfCommandTypeElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "de.nak.xtext.hausarbeit.rentalWorkflow.RentalWorkflow.ofCommandType");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cDoSaveEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cDoSaveDoSaveKeyword_0_0 = (Keyword)cDoSaveEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cDoAbordEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cDoAbordDoAbortKeyword_1_0 = (Keyword)cDoAbordEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cDoDeleteEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cDoDeleteDoDeleteKeyword_2_0 = (Keyword)cDoDeleteEnumLiteralDeclaration_2.eContents().get(0);
-		
-		//enum ofCommandType:
-		//	doSave | doAbord='doAbort' | doDelete;
-		public EnumRule getRule() { return rule; }
-		
-		//doSave | doAbord='doAbort' | doDelete
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//doSave
-		public EnumLiteralDeclaration getDoSaveEnumLiteralDeclaration_0() { return cDoSaveEnumLiteralDeclaration_0; }
-		
-		//'doSave'
-		public Keyword getDoSaveDoSaveKeyword_0_0() { return cDoSaveDoSaveKeyword_0_0; }
-		
-		//doAbord='doAbort'
-		public EnumLiteralDeclaration getDoAbordEnumLiteralDeclaration_1() { return cDoAbordEnumLiteralDeclaration_1; }
-		
-		//'doAbort'
-		public Keyword getDoAbordDoAbortKeyword_1_0() { return cDoAbordDoAbortKeyword_1_0; }
-		
-		//doDelete
-		public EnumLiteralDeclaration getDoDeleteEnumLiteralDeclaration_2() { return cDoDeleteEnumLiteralDeclaration_2; }
-		
-		//'doDelete'
-		public Keyword getDoDeleteDoDeleteKeyword_2_0() { return cDoDeleteDoDeleteKeyword_2_0; }
+		//'deletable'
+		public Keyword getDeleteableDeletableKeyword_2_0() { return cDeleteableDeletableKeyword_2_0; }
 	}
 	
 	private final RentalWorkflowElements pRentalWorkflow;
 	private final EventElements pEvent;
-	private final CommandElements pCommand;
 	private final StateElements pState;
-	private final TransitionElements pTransition;
 	private final QualifiedNameElements pQualifiedName;
-	private final OfTypeElements eOfType;
 	private final OfEventTypeElements eOfEventType;
-	private final OfCommandTypeElements eOfCommandType;
 	
 	private final Grammar grammar;
 	
@@ -451,13 +299,9 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pRentalWorkflow = new RentalWorkflowElements();
 		this.pEvent = new EventElements();
-		this.pCommand = new CommandElements();
 		this.pState = new StateElements();
-		this.pTransition = new TransitionElements();
 		this.pQualifiedName = new QualifiedNameElements();
-		this.eOfType = new OfTypeElements();
 		this.eOfEventType = new OfEventTypeElements();
-		this.eOfCommandType = new OfCommandTypeElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -488,8 +332,8 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//RentalWorkflow:
-	//	{RentalWorkflow} 'defineWorkflow' name=ID 'events' event+=Event* 'end' 'commands' commands+=Command* 'end'
-	//	'resetEvents' resetEvents+=[Event]* 'end' states+=State*;
+	//	{RentalWorkflow} 'defineWorkflow' name=ID 'events' event+=Event* 'end' states+=State* 'startState'
+	//	startState+=[State|QualifiedName] 'end' 'finishState' finishState+=[State|QualifiedName] 'end';
 	public RentalWorkflowElements getRentalWorkflowAccess() {
 		return pRentalWorkflow;
 	}
@@ -508,34 +352,14 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 		return getEventAccess().getRule();
 	}
 	
-	//Command:
-	//	name=ID ofType=ofCommandType;
-	public CommandElements getCommandAccess() {
-		return pCommand;
-	}
-	
-	public ParserRule getCommandRule() {
-		return getCommandAccess().getRule();
-	}
-	
 	//State:
-	//	'state' name=ID ofType=OfType ('actions' '{' actions+=[Command]+ '}')? transitions+=Transition* 'end';
+	//	'state' name=ID ('events' '{' events+=[Event]+ '}')? 'transition' transition+=[State|QualifiedName] 'end';
 	public StateElements getStateAccess() {
 		return pState;
 	}
 	
 	public ParserRule getStateRule() {
 		return getStateAccess().getRule();
-	}
-	
-	//Transition:
-	//	event=[Event] '=>' state=[State];
-	public TransitionElements getTransitionAccess() {
-		return pTransition;
-	}
-	
-	public ParserRule getTransitionRule() {
-		return getTransitionAccess().getRule();
 	}
 	
 	//QualifiedName:
@@ -548,34 +372,14 @@ public class RentalWorkflowGrammarAccess extends AbstractGrammarElementFinder {
 		return getQualifiedNameAccess().getRule();
 	}
 	
-	//enum OfType:
-	//	initializing | creating | running | canceling | finishing;
-	public OfTypeElements getOfTypeAccess() {
-		return eOfType;
-	}
-	
-	public EnumRule getOfTypeRule() {
-		return getOfTypeAccess().getRule();
-	}
-	
 	//enum ofEventType:
-	//	nextClicked | backClicked | cancelClicked;
+	//	nextClickable | savable | deleteable='deletable';
 	public OfEventTypeElements getOfEventTypeAccess() {
 		return eOfEventType;
 	}
 	
 	public EnumRule getOfEventTypeRule() {
 		return getOfEventTypeAccess().getRule();
-	}
-	
-	//enum ofCommandType:
-	//	doSave | doAbord='doAbort' | doDelete;
-	public OfCommandTypeElements getOfCommandTypeAccess() {
-		return eOfCommandType;
-	}
-	
-	public EnumRule getOfCommandTypeRule() {
-		return getOfCommandTypeAccess().getRule();
 	}
 	
 	//terminal ID:

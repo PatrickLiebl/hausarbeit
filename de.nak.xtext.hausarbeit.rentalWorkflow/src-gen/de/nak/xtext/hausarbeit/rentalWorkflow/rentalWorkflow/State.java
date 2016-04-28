@@ -17,9 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.State#getName <em>Name</em>}</li>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.State#getOfType <em>Of Type</em>}</li>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.State#getActions <em>Actions</em>}</li>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.State#getTransitions <em>Transitions</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.State#getEvents <em>Events</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.State#getTransition <em>Transition</em>}</li>
  * </ul>
  *
  * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage#getState()
@@ -55,64 +54,35 @@ public interface State extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Of Type</b></em>' attribute.
-   * The literals are from the enumeration {@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.OfType}.
+   * Returns the value of the '<em><b>Events</b></em>' reference list.
+   * The list contents are of type {@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Event}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Of Type</em>' attribute isn't clear,
+   * If the meaning of the '<em>Events</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Of Type</em>' attribute.
-   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.OfType
-   * @see #setOfType(OfType)
-   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage#getState_OfType()
+   * @return the value of the '<em>Events</em>' reference list.
+   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage#getState_Events()
    * @model
    * @generated
    */
-  OfType getOfType();
+  EList<Event> getEvents();
 
   /**
-   * Sets the value of the '{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.State#getOfType <em>Of Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Of Type</em>' attribute.
-   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.OfType
-   * @see #getOfType()
-   * @generated
-   */
-  void setOfType(OfType value);
-
-  /**
-   * Returns the value of the '<em><b>Actions</b></em>' reference list.
-   * The list contents are of type {@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Command}.
+   * Returns the value of the '<em><b>Transition</b></em>' reference list.
+   * The list contents are of type {@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.State}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Actions</em>' reference list isn't clear,
+   * If the meaning of the '<em>Transition</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Actions</em>' reference list.
-   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage#getState_Actions()
+   * @return the value of the '<em>Transition</em>' reference list.
+   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage#getState_Transition()
    * @model
    * @generated
    */
-  EList<Command> getActions();
-
-  /**
-   * Returns the value of the '<em><b>Transitions</b></em>' containment reference list.
-   * The list contents are of type {@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Transition}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Transitions</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Transitions</em>' containment reference list.
-   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage#getState_Transitions()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Transition> getTransitions();
+  EList<State> getTransition();
 
 } // State

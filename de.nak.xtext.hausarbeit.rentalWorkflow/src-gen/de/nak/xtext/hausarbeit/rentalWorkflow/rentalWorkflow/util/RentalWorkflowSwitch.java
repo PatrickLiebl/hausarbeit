@@ -87,24 +87,10 @@ public class RentalWorkflowSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RentalWorkflowPackage.COMMAND:
-      {
-        Command command = (Command)theEObject;
-        T result = caseCommand(command);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case RentalWorkflowPackage.STATE:
       {
         State state = (State)theEObject;
         T result = caseState(state);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case RentalWorkflowPackage.TRANSITION:
-      {
-        Transition transition = (Transition)theEObject;
-        T result = caseTransition(transition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -145,22 +131,6 @@ public class RentalWorkflowSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Command</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Command</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCommand(Command object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>State</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -172,22 +142,6 @@ public class RentalWorkflowSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseState(State object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Transition</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Transition</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseTransition(Transition object)
   {
     return null;
   }

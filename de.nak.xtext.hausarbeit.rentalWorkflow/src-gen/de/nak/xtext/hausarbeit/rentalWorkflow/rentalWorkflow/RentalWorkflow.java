@@ -18,9 +18,9 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getName <em>Name</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getEvent <em>Event</em>}</li>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getCommands <em>Commands</em>}</li>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getResetEvents <em>Reset Events</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getStates <em>States</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getStartState <em>Start State</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow#getFinishState <em>Finish State</em>}</li>
  * </ul>
  *
  * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage#getRentalWorkflow()
@@ -72,38 +72,6 @@ public interface RentalWorkflow extends EObject
   EList<Event> getEvent();
 
   /**
-   * Returns the value of the '<em><b>Commands</b></em>' containment reference list.
-   * The list contents are of type {@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Command}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Commands</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Commands</em>' containment reference list.
-   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage#getRentalWorkflow_Commands()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Command> getCommands();
-
-  /**
-   * Returns the value of the '<em><b>Reset Events</b></em>' reference list.
-   * The list contents are of type {@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Event}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Reset Events</em>' reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Reset Events</em>' reference list.
-   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage#getRentalWorkflow_ResetEvents()
-   * @model
-   * @generated
-   */
-  EList<Event> getResetEvents();
-
-  /**
    * Returns the value of the '<em><b>States</b></em>' containment reference list.
    * The list contents are of type {@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.State}.
    * <!-- begin-user-doc -->
@@ -118,5 +86,37 @@ public interface RentalWorkflow extends EObject
    * @generated
    */
   EList<State> getStates();
+
+  /**
+   * Returns the value of the '<em><b>Start State</b></em>' reference list.
+   * The list contents are of type {@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.State}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Start State</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Start State</em>' reference list.
+   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage#getRentalWorkflow_StartState()
+   * @model
+   * @generated
+   */
+  EList<State> getStartState();
+
+  /**
+   * Returns the value of the '<em><b>Finish State</b></em>' reference list.
+   * The list contents are of type {@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.State}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Finish State</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Finish State</em>' reference list.
+   * @see de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage#getRentalWorkflow_FinishState()
+   * @model
+   * @generated
+   */
+  EList<State> getFinishState();
 
 } // RentalWorkflow

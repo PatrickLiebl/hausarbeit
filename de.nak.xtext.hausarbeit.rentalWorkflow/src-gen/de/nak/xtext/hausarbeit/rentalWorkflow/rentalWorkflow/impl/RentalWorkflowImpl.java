@@ -3,7 +3,6 @@
  */
 package de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl;
 
-import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Command;
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.Event;
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflow;
 import de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.RentalWorkflowPackage;
@@ -36,9 +35,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.RentalWorkflowImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.RentalWorkflowImpl#getEvent <em>Event</em>}</li>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.RentalWorkflowImpl#getCommands <em>Commands</em>}</li>
- *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.RentalWorkflowImpl#getResetEvents <em>Reset Events</em>}</li>
  *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.RentalWorkflowImpl#getStates <em>States</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.RentalWorkflowImpl#getStartState <em>Start State</em>}</li>
+ *   <li>{@link de.nak.xtext.hausarbeit.rentalWorkflow.rentalWorkflow.impl.RentalWorkflowImpl#getFinishState <em>Finish State</em>}</li>
  * </ul>
  *
  * @generated
@@ -76,26 +75,6 @@ public class RentalWorkflowImpl extends MinimalEObjectImpl.Container implements 
   protected EList<Event> event;
 
   /**
-   * The cached value of the '{@link #getCommands() <em>Commands</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCommands()
-   * @generated
-   * @ordered
-   */
-  protected EList<Command> commands;
-
-  /**
-   * The cached value of the '{@link #getResetEvents() <em>Reset Events</em>}' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getResetEvents()
-   * @generated
-   * @ordered
-   */
-  protected EList<Event> resetEvents;
-
-  /**
    * The cached value of the '{@link #getStates() <em>States</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -104,6 +83,26 @@ public class RentalWorkflowImpl extends MinimalEObjectImpl.Container implements 
    * @ordered
    */
   protected EList<State> states;
+
+  /**
+   * The cached value of the '{@link #getStartState() <em>Start State</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getStartState()
+   * @generated
+   * @ordered
+   */
+  protected EList<State> startState;
+
+  /**
+   * The cached value of the '{@link #getFinishState() <em>Finish State</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFinishState()
+   * @generated
+   * @ordered
+   */
+  protected EList<State> finishState;
 
   /**
    * <!-- begin-user-doc -->
@@ -168,34 +167,6 @@ public class RentalWorkflowImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Command> getCommands()
-  {
-    if (commands == null)
-    {
-      commands = new EObjectContainmentEList<Command>(Command.class, this, RentalWorkflowPackage.RENTAL_WORKFLOW__COMMANDS);
-    }
-    return commands;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Event> getResetEvents()
-  {
-    if (resetEvents == null)
-    {
-      resetEvents = new EObjectResolvingEList<Event>(Event.class, this, RentalWorkflowPackage.RENTAL_WORKFLOW__RESET_EVENTS);
-    }
-    return resetEvents;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<State> getStates()
   {
     if (states == null)
@@ -210,6 +181,34 @@ public class RentalWorkflowImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<State> getStartState()
+  {
+    if (startState == null)
+    {
+      startState = new EObjectResolvingEList<State>(State.class, this, RentalWorkflowPackage.RENTAL_WORKFLOW__START_STATE);
+    }
+    return startState;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<State> getFinishState()
+  {
+    if (finishState == null)
+    {
+      finishState = new EObjectResolvingEList<State>(State.class, this, RentalWorkflowPackage.RENTAL_WORKFLOW__FINISH_STATE);
+    }
+    return finishState;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -217,8 +216,6 @@ public class RentalWorkflowImpl extends MinimalEObjectImpl.Container implements 
     {
       case RentalWorkflowPackage.RENTAL_WORKFLOW__EVENT:
         return ((InternalEList<?>)getEvent()).basicRemove(otherEnd, msgs);
-      case RentalWorkflowPackage.RENTAL_WORKFLOW__COMMANDS:
-        return ((InternalEList<?>)getCommands()).basicRemove(otherEnd, msgs);
       case RentalWorkflowPackage.RENTAL_WORKFLOW__STATES:
         return ((InternalEList<?>)getStates()).basicRemove(otherEnd, msgs);
     }
@@ -239,12 +236,12 @@ public class RentalWorkflowImpl extends MinimalEObjectImpl.Container implements 
         return getName();
       case RentalWorkflowPackage.RENTAL_WORKFLOW__EVENT:
         return getEvent();
-      case RentalWorkflowPackage.RENTAL_WORKFLOW__COMMANDS:
-        return getCommands();
-      case RentalWorkflowPackage.RENTAL_WORKFLOW__RESET_EVENTS:
-        return getResetEvents();
       case RentalWorkflowPackage.RENTAL_WORKFLOW__STATES:
         return getStates();
+      case RentalWorkflowPackage.RENTAL_WORKFLOW__START_STATE:
+        return getStartState();
+      case RentalWorkflowPackage.RENTAL_WORKFLOW__FINISH_STATE:
+        return getFinishState();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -267,17 +264,17 @@ public class RentalWorkflowImpl extends MinimalEObjectImpl.Container implements 
         getEvent().clear();
         getEvent().addAll((Collection<? extends Event>)newValue);
         return;
-      case RentalWorkflowPackage.RENTAL_WORKFLOW__COMMANDS:
-        getCommands().clear();
-        getCommands().addAll((Collection<? extends Command>)newValue);
-        return;
-      case RentalWorkflowPackage.RENTAL_WORKFLOW__RESET_EVENTS:
-        getResetEvents().clear();
-        getResetEvents().addAll((Collection<? extends Event>)newValue);
-        return;
       case RentalWorkflowPackage.RENTAL_WORKFLOW__STATES:
         getStates().clear();
         getStates().addAll((Collection<? extends State>)newValue);
+        return;
+      case RentalWorkflowPackage.RENTAL_WORKFLOW__START_STATE:
+        getStartState().clear();
+        getStartState().addAll((Collection<? extends State>)newValue);
+        return;
+      case RentalWorkflowPackage.RENTAL_WORKFLOW__FINISH_STATE:
+        getFinishState().clear();
+        getFinishState().addAll((Collection<? extends State>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -299,14 +296,14 @@ public class RentalWorkflowImpl extends MinimalEObjectImpl.Container implements 
       case RentalWorkflowPackage.RENTAL_WORKFLOW__EVENT:
         getEvent().clear();
         return;
-      case RentalWorkflowPackage.RENTAL_WORKFLOW__COMMANDS:
-        getCommands().clear();
-        return;
-      case RentalWorkflowPackage.RENTAL_WORKFLOW__RESET_EVENTS:
-        getResetEvents().clear();
-        return;
       case RentalWorkflowPackage.RENTAL_WORKFLOW__STATES:
         getStates().clear();
+        return;
+      case RentalWorkflowPackage.RENTAL_WORKFLOW__START_STATE:
+        getStartState().clear();
+        return;
+      case RentalWorkflowPackage.RENTAL_WORKFLOW__FINISH_STATE:
+        getFinishState().clear();
         return;
     }
     super.eUnset(featureID);
@@ -326,12 +323,12 @@ public class RentalWorkflowImpl extends MinimalEObjectImpl.Container implements 
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RentalWorkflowPackage.RENTAL_WORKFLOW__EVENT:
         return event != null && !event.isEmpty();
-      case RentalWorkflowPackage.RENTAL_WORKFLOW__COMMANDS:
-        return commands != null && !commands.isEmpty();
-      case RentalWorkflowPackage.RENTAL_WORKFLOW__RESET_EVENTS:
-        return resetEvents != null && !resetEvents.isEmpty();
       case RentalWorkflowPackage.RENTAL_WORKFLOW__STATES:
         return states != null && !states.isEmpty();
+      case RentalWorkflowPackage.RENTAL_WORKFLOW__START_STATE:
+        return startState != null && !startState.isEmpty();
+      case RentalWorkflowPackage.RENTAL_WORKFLOW__FINISH_STATE:
+        return finishState != null && !finishState.isEmpty();
     }
     return super.eIsSet(featureID);
   }
