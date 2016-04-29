@@ -41,7 +41,7 @@ class RentalSystemGenerator extends AbstractGenerator {
 		
 			fsa.generateFile("src/main/webapp/WEB-INF/views/jsp/rentalTypesIndex.jsp",
 				generateRentalTypesIndexJsp(rentalSystem))
-		
+	
 			fsa.generateFile("src/main/webapp/WEB-INF/views/jsp/dealsIndex.jsp",
 				generateDealsIndexJsp(rentalSystem))
 				
@@ -110,8 +110,12 @@ class RentalSystemGenerator extends AbstractGenerator {
 					
 				fsa.generateFile("src/main/java/" + deal.name.toFirstUpper + 'Controller.java',
 					generateDealController(deal, rentalSystem))
+					
+				// Index für alle Workflows zu diesem Deal
+				fsa.generateFile("src/main/webapp/WEB-INF/views/jsp/" + deal.name.toFirstLower + 'StatesIndex.jsp',
+					generateWorkflowsIndexJsp(rentalSystem, deal))
 				
-				// Besonderheit StateMachine: Pro State ein Controller, eine JSP, die anhand von Deals den Workflow steuern.
+				// Besonderheit StateMachine: Pro Deal ein State Index (s.o.), pro State eine Bean, JSP, JSP-Form, Controller, ein Repo.
 				for(State state : deal.rentalWorkflow.states){
 					
 					fsa.generateFile("src/main/webapp/WEB-INF/views/jsp/" + deal.name.toFirstLower + state.name.toFirstUpper + '.jsp',
@@ -119,6 +123,15 @@ class RentalSystemGenerator extends AbstractGenerator {
 					
 					fsa.generateFile("src/main/java/" + deal.name.toFirstUpper + state.name.toFirstUpper +  'Controller.java',
 						generateDealStateController(deal, rentalSystem, state))
+						
+					fsa.generateFile("src/main/webapp/WEB-INF/views/jsp/" + deal.name.toFirstLower + state.name.toFirstUpper + 'Form.jsp',
+						generateDealStateFormJsp(deal, rentalSystem))
+						
+					fsa.generateFile("src/main/java/I" + deal.name.toFirstUpper + state.name.toFirstUpper +  'Repository.java',
+						generateDealStateRepos(deal, rentalSystem, state))
+						
+					fsa.generateFile("src/main/java/" + deal.name.toFirstUpper + state.name.toFirstUpper +  '.java',
+						generateDealStateBeans(deal, rentalSystem, state))
 				}
 			}
 		}
@@ -356,6 +369,12 @@ class RentalSystemGenerator extends AbstractGenerator {
 							mav.addObject("rentalTypes", rentalTypeRepository.findAll());
 							return mav;
 						}
+						
+						@RequestMapping(value="/«deal.name.toFirstLower»StatesIndex")
+							public ModelAndView «deal.name.toFirstLower»ShowStateIndex(){
+								ModelAndView mav = new ModelAndView("«deal.name.toFirstLower»StatesIndex");
+								return mav;
+							}
 					}
 		'''
 		
@@ -372,14 +391,9 @@ class RentalSystemGenerator extends AbstractGenerator {
 					@Controller
 					public class «deal.name.toFirstUpper»«state.name.toFirstUpper»Controller {
 						
-						@Autowired
-						private I«deal.name.toFirstUpper»Repository dealRepository;
-						
-						@RequestMapping(value="/«deal.name.toFirstLower»«state.name.toFirstUpper»", method=RequestMethod.POST)
-						public ModelAndView «deal.name.toFirstLower»«state.name.toFirstUpper»Transition(«deal.name.toFirstUpper» «deal.name.toFirstLower»,
-						@RequestParam("selectedDealId") String selectedDealId){
+						@RequestMapping(value="/«deal.name.toFirstLower»«state.name.toFirstUpper»")
+						public ModelAndView «deal.name.toFirstLower»«state.name.toFirstUpper»Transition(){
 							ModelAndView mav = new ModelAndView("«deal.name.toFirstLower»«state.name.toFirstUpper»");
-							mav.addObject("selectedDeal", dealRepository.findOne(Long.parseLong(selectedDealId)));
 							return mav;
 						}
 					}
@@ -540,7 +554,33 @@ class RentalSystemGenerator extends AbstractGenerator {
 		«generateJspFooter(rentalSystem)»
 	'''
 	
-	def CharSequence generateDealsIndexJsp(RentalSystem rentalSystem) '''
+	def CharSequence generateWorkflowsIndexJsp(RentalSystem rentalSystem, Deal deal) '''
+		«generateJspHeader(rentalSystem)»
+		<h1>«deal.name.toFirstUpper» States</h1>
+		<table class="table table-striped">
+				«var int i = 0»
+				<thead>
+					<tr>
+						<td>No.</td>
+						<td>Name</td>
+					</tr>
+				</thead>
+				<tbody>
+				«FOR State state : deal.rentalWorkflow.states»
+					<tr>
+						<td>«i»</td>
+						<td><a href="«deal.name.toFirstLower»«state.name.toFirstUpper»">«deal.name.toFirstLower»«state.name.toFirstUpper»</a></td>
+					</tr>
+					«i++»
+				«ENDFOR»
+				</tbody>
+				</table>
+				<a href="/" class="btn btn-primary">Index</a>
+		«generateJspFooter(rentalSystem)»
+		
+	'''
+	
+		def CharSequence generateDealsIndexJsp(RentalSystem rentalSystem) '''
 		«generateJspHeader(rentalSystem)»
 		<h1>Deals</h1>
 		<table class="table table-striped">
@@ -721,30 +761,78 @@ class RentalSystemGenerator extends AbstractGenerator {
 		
 				<h1>«deal.name.toFirstUpper»</h1>
 				<p>Number of deals types: ${deals.size()}</p>
-				<form id="dealState-form" role="form" th:action="@{/«deal.name.toFirstLower»«deal.rentalWorkflow.startState.head.name.toFirstUpper»}" method="post">
-					<c:forEach var="i" items="${deals}">
-						<input type="radio" name="selectedDealId" value="${i.id}">${i.id}<br />
-					</c:forEach>
-				<button type="submit">Start Deal Workflow</button>
-				</form>
-				<a href="«deal.name.toFirstLower»Form" class="btn btn-primary">New «deal.name.toFirstUpper»</a>
-				<a href="dealsIndex" class="btn btn-primary">Deals</a>
+
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<td>No.</td>
+							<td>ID</td>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="i" items="${deals}">
+							<tr>
+								<td></td>
+								<td>${i.id}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+				
+				<a href="«deal.name.toFirstLower»Form" class="btn btn-primary">New «deal.name.toFirstUpper»</a><br />
+				<a href="dealsIndex" class="btn btn-primary">Deals Index</a><br />
+				<a href="«deal.name.toFirstLower»StatesIndex" class="btn btn-primary">«deal.name.toFirstUpper» States Index</a><br />
+				<a href="«deal.name.toFirstLower»«deal.rentalWorkflow.startState.head.name.toFirstUpper»" class="btn btn-primary">Begin Workflow</a>
 		«generateJspFooter(rentalSystem)»
 	'''
 	
 	def CharSequence generateDealStateJsp(Deal deal, RentalSystem rentalSystem, State state) '''
 		«generateJspHeader(rentalSystem)»
 				<h1>«deal.name.toFirstUpper»«state.name.toFirstUpper»</h1>
-				<p>SelectedDeal ID: ${selectedDeal.id}</p>
-				<form method="post" th:action="@{/«deal.name.toFirstLower»«state.transition.head.name.toFirstUpper»}" role="form">
-					<input type="hidden" name="selectedDealId" value="${selectedDeal.id}">
-					<button type="submit">Next</button>
-				</form>
+				«buildButtonFlowSwitch(state, deal)»
 				<a href="dealsIndex" class="btn btn-primary">Deals</a>
 		«generateJspFooter(rentalSystem)»
 	'''
 	
+	def CharSequence buildButtonFlowSwitch(State state, Deal deal){
+		switch deal{
+			case deal.rentalWorkflow.finishState.head.name.equals(state.transition.head.name) : '''<a href="«deal.name.toFirstLower»«state.transition.head.name.toFirstUpper»" class="btn btn-primary">Last State</a>'''
+			case deal.rentalWorkflow.finishState.head.name.equals(state.name) : '''<a href="«deal.name.toFirstLower»" class="btn btn-primary">Finish!</a>'''
+			default : '''<a href="«deal.name.toFirstLower»«state.transition.head.name.toFirstUpper»" class="btn btn-primary">Next State</a>'''
+		}
+	}
+	
 	def CharSequence generateDealFormJsp(Deal deal, RentalSystem rentalSystem) '''
+		«generateJspHeader(rentalSystem)»
+		<h1>Deals</h1>
+		<form id="customer-form" role="form" th:action="@{/«deal.name.toFirstLower»Form}" method="post" th:object="${«deal.name.toFirstLower»}">
+				<table>
+				«FOR Attribute attribute : deal.dealAttributes»
+					<tr>
+					<td><label for="«attribute.name.toFirstLower»">«attribute.name.toFirstUpper»</label></td>
+					<td>«buildInput(attribute)» id="«attribute.name.toFirstLower»" name="«attribute.name.toFirstLower»" th:field="${«deal.name.toFirstLower».«attribute.name.toFirstLower»}" /></td>
+					</tr>
+				«ENDFOR»
+				</table>
+				<p>Please select the id of one of the following customers:</p><br />
+					<select name="selectionCustomerId">
+						<c:forEach var="i" items="${customers}">
+							<option value="${i.id}">${i.id}</option>
+						</c:forEach>
+					</select>
+				<p>Please select the id of one of the following rentalTypes:</p><br />
+					<select name="selectionTypeId">
+						<c:forEach var="j" items="${customers}">
+							<option value="${j.id}">${j.id}</option>
+						</c:forEach>
+					</select>
+				<button type="submit">Save</button>
+				</form>
+				<a href="«deal.name.toFirstLower»" class="btn btn-primary">Back</a>
+		«generateJspFooter(rentalSystem)»
+	'''
+	
+		def CharSequence generateDealStateFormJsp(Deal deal, RentalSystem rentalSystem) '''
 		«generateJspHeader(rentalSystem)»
 		<h1>Deals</h1>
 		<form id="customer-form" role="form" th:action="@{/«deal.name.toFirstLower»Form}" method="post" th:object="${«deal.name.toFirstLower»}">
