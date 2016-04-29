@@ -114,12 +114,6 @@ class RentalSystemGenerator extends AbstractGenerator {
 				// Besonderheit StateMachine: Pro State ein Controller, eine JSP, die anhand von Deals den Workflow steuern.
 				for(State state : deal.rentalWorkflow.states){
 					
-//					fsa.generateFile("src/main/java/I" + deal.name.toFirstUpper + state.name.toFirstUpper + 'Repository.java',
-//						generateDealStateRepos(deal, rentalSystem, state))
-//					
-//					fsa.generateFile("src/main/java/" + deal.name.toFirstUpper + state.name.toFirstUpper + '.java',
-//						generateDealStateBeans(deal, rentalSystem, state))
-					
 					fsa.generateFile("src/main/webapp/WEB-INF/views/jsp/" + deal.name.toFirstLower + state.name.toFirstUpper + '.jsp',
 						generateDealStateJsp(deal, rentalSystem, state))
 					
@@ -724,6 +718,7 @@ class RentalSystemGenerator extends AbstractGenerator {
 	
 		def CharSequence generateDealJsp(Deal deal, RentalSystem rentalSystem) '''
 		«generateJspHeader(rentalSystem)»
+		
 				<h1>«deal.name.toFirstUpper»</h1>
 				<p>Number of deals types: ${deals.size()}</p>
 				<form id="dealState-form" role="form" th:action="@{/«deal.name.toFirstLower»«deal.rentalWorkflow.startState.head.name.toFirstUpper»}" method="post">
