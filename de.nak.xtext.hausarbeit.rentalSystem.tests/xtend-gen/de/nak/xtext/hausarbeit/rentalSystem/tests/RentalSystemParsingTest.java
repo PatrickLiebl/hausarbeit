@@ -203,7 +203,7 @@ public class RentalSystemParsingTest {
       URI _createURI = URI.createURI("workflow.rentalWorkflow");
       final Resource testWorkflow = resourceSet.createResource(_createURI);
       StringInputStream _stringInputStream = new StringInputStream(
-        "defineWorkflow workflow1\n\t\t\tevents \n\t\t\t\tonNext nextClicked \n\t\t\t\tonCancel cancelClicked\n\t\t\t\tonBack backClicked\n\t\t\tend\n\t\t\t\n\t\t\tcommands\n\t\t\tabortNow doAbort\n\t\t\tdeleteNow doDelete\n\t\t\tsaveNow doSave \n\t\t\tend\n\t\t\t\n\t\t\tresetEvents\n\t\t\tonCancel\n\t\t\tend");
+        "defineWorkflow workflow1\n\n\t\t\tevents \n\t\t\t\tmyEvent deletable\n\t\t\tend\n\t\t\t\n\t\t\tstate myStateOne\n\t\t\t\tevents {myEvent}\n\t\t\t\ttransition myStateTwo\n\t\t\tend\n\t\t\t\n\t\t\tstate myStateTwo\n\t\t\t\tevents {myEvent}\n\t\t\t\ttransition myStateOne\n\t\t\tend\n\t\t\t\t\n\t\t\tstartState \n\t\t\t\tmyStateOne\n\t\t\tend\n\t\t\t\n\t\t\tfinishState\n\t\t\t\tmyStateTwo\n\t\t\tend");
       Map<Object, Object> _emptyMap = CollectionLiterals.<Object, Object>emptyMap();
       testWorkflow.load(_stringInputStream, _emptyMap);
       this.validationTestHelper.assertNoErrors(testWorkflow);

@@ -6,6 +6,8 @@ import de.nak.xtext.hausarbeit.rentalSystem.rentalSystem.RentalSystemPackage
 import de.nak.xtext.hausarbeit.rentalSystem.validation.AttributeValidator
 import de.nak.xtext.hausarbeit.rentalSystem.validation.CustomerValidator
 import de.nak.xtext.hausarbeit.rentalSystem.validation.RentalSystemValidator
+import javax.inject.Provider
+import org.eclipse.emf.common.util.URI
 import org.eclipse.xtext.diagnostics.Severity
 import org.eclipse.xtext.junit4.InjectWith
 import org.eclipse.xtext.junit4.XtextRunner
@@ -15,10 +17,6 @@ import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.util.StringInputStream
 import org.junit.Test
 import org.junit.runner.RunWith
-import javax.inject.Provider
-import org.eclipse.emf.common.util.URI
-import de.nak.xtext.hausarbeit.rentalSystem.validation.DealValidator
-
 
 @RunWith(XtextRunner)
 @InjectWith(BothLanguagesInjectorProvider)
@@ -66,33 +64,36 @@ class RentalSystemValidationTest {
 	@Test 
 	def void dealShallStartWithLowerCase() {
 		val resourceSet = resourceSetProvider.get
-		
-		// create a resource for language 'RentalWorkflow'
 		val testWorkflow = resourceSet.createResource(URI.createURI("workflow.rentalWorkflow"))
-		// parse sample contents
+
 		testWorkflow.load(new StringInputStream(
 			"defineWorkflow workflow1
+
 			events 
-				onNext nextClicked 
-				onCancel cancelClicked
-				onBack backClicked
+				myEvent deletable
 			end
 			
-			commands
-			abortNow doAbort
-			deleteNow doDelete
-			saveNow doSave 
+			state myStateOne
+				events {myEvent}
+				transition myStateTwo
 			end
 			
-			resetEvents
-			onCancel
+			state myStateTwo
+				events {myEvent}
+				transition myStateOne
+			end
+				
+			startState 
+				myStateOne
+			end
+			
+			finishState
+				myStateTwo
 			end"
 			), emptyMap)
 				
 		validationTestHelper.assertNoErrors(testWorkflow)
 		
-		// use the parse helper to read the model under test
-		// into the same resource set
 		val testRentalSystem = parseHelper.parse(
 			"rentalSystem testSystem \"title\"(
 				movable typeMold rentalTypeID1(
@@ -170,33 +171,35 @@ class RentalSystemValidationTest {
 	@Test 
 	def void rentalTypeShallStartWithLowerCase() {
 		val resourceSet = resourceSetProvider.get
-		
-		// create a resource for language 'RentalWorkflow'
 		val testWorkflow = resourceSet.createResource(URI.createURI("workflow.rentalWorkflow"))
-		// parse sample contents
 		testWorkflow.load(new StringInputStream(
 			"defineWorkflow workflow1
+
 			events 
-				onNext nextClicked 
-				onCancel cancelClicked
-				onBack backClicked
+				myEvent deletable
 			end
 			
-			commands
-			abortNow doAbort
-			deleteNow doDelete
-			saveNow doSave 
+			state myStateOne
+				events {myEvent}
+				transition myStateTwo
 			end
 			
-			resetEvents
-			onCancel
+			state myStateTwo
+				events {myEvent}
+				transition myStateOne
+			end
+				
+			startState 
+				myStateOne
+			end
+			
+			finishState
+				myStateTwo
 			end"
 			), emptyMap)
 				
 		validationTestHelper.assertNoErrors(testWorkflow)
 		
-		// use the parse helper to read the model under test
-		// into the same resource set
 		val testRentalSystem = parseHelper.parse(
 			"rentalSystem testSystem \"title\"(
 				movable typeMold RentalTypeID1(
